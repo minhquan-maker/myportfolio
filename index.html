@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quan Minh Nguyen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Quan Minh <span>Nguyen</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#projects" data-nav="projects">Work</a></li>
+      <li><a href="#college" data-nav="college">Journey</a></li>
+      <li><a href="#life" data-nav="life">Life</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-number">MQ</div>
+    <div class="hero-top fu">
+      UTS Sydney · AI Research<br>
+      Ho Chi Minh City, Vietnam<br>
+      <strong class="email-highlight">minhquan.nguyen-2@student.uts.edu.au</strong>
+    </div>
+    <div class="hero-eyebrow fu">Currently: AI Research Lab Member, URA Group</div>
+    <h1 class="fu">
+      <strong>Quan Minh</strong>
+      Nguyen<br>
+      <em>Nguyen.</em>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc fu">
+        <strong>Engineering student & AI researcher</strong> at the University of Technology Sydney, building at the
+        intersection of machine learning, environmental technology, and community impact.
+      </p>
+      <div class="hero-labels">
+        <span class="chip-label">URA Lab Member</span>
+        <span class="chip-label">AI Researcher</span>
+        <span class="chip-label">Product Builder</span>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label reveal">01 About</div>
+      <h2 class="reveal">From Lego bricks<br>to AI research.</h2>
+      <div class="about-layout">
+        <div class="about-body reveal">
+          <img src="img/img-01-portrait.jpg?v=new" alt="Quan Minh Nguyen" class="portrait-img">
+          <p>I grew up in Ho Chi Minh City with an obsession for building things, from Lego kits and robotics camps to
+            actual hardware. That curiosity eventually landed me at <strong>the University of Technology
+              Sydney</strong>, studying Artificial Intelligence. I now conduct research on transformer-based models for
+            human action recognition.</p>
+          <div class="about-pullquote">"Engineering is only meaningful when it serves people who need it."</div>
+          <p>I work across disciplines: machine learning, hardware, app development, and community organizing. The
+            problems worth solving rarely fit inside one box. I am currently collaborating on a <strong>research paper
+              on 3D skeleton-based action recognition</strong> for elderly safety monitoring and leading the AquaGuard
+            flood rescue app alongside my coursework.</p>
+        </div>
+        <div class="about-right reveal delay-1">
+          <div class="fact-block">
+            <div class="fact-key">Current University</div>
+            <div class="fact-val">University of Technology Sydney<br><span class="hl">B.S. Artificial Intelligence · Sep
+                2025 – 2028</span></div>
+          </div>
+          <div class="fact-block">
+            <div class="fact-key">GPA</div>
+            <div class="fact-val"><span class="gpa-highlight">6.5 / 7.0</span> (High Distinction in Mathematics & Computer Science)
+            </div>
+          </div>
+          <div class="fact-block">
+            <div class="fact-key">Coursework</div>
+            <div class="fact-val">Artificial Intelligence · Data Structures & Algorithms · Linear Algebra · Statistics
+            </div>
+          </div>
+          <div class="fact-block">
+            <div class="fact-key">Research Interests</div>
+            <div class="fact-val">3D Skeleton-based Action Recognition · Transformer models (MotionBERT, Skateformer) ·
+              Explainable AI (SHAP)</div>
+          </div>
+          <div class="fact-block">
+            <div class="fact-key">Technical Skills</div>
+            <div class="chips-row">
+              <span class="chip-dark">Python</span>
+              <span class="chip-dark">React.js</span>
+              <span class="chip-dark">FastAPI</span>
+              <span class="chip-dark">Java</span>
+              <span class="chip-dark">HTML/CSS</span>
+              <span class="chip-dark">Git</span>
+              <span class="chip-dark">Figma</span>
+              <span class="chip-dark">WebSocket</span>
+            </div>
+          </div>
+          <div class="fact-block">
+            <div class="fact-key">Languages</div>
+            <div class="fact-val">Vietnamese (native) · English (advanced, IELTS 8.0) · French (elementary)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK & PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-label reveal">02 Work & Research</div>
+      <div class="work-header">
+        <h2 class="reveal">Experience,<br>research & builds.</h2>
+      </div>
+
+      <!-- Experience -->
+      <div class="exp-list reveal">
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Mar 2026 – Present</div>
+            <div class="exp-type">Research</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">AI Research Lab Member</div>
+            <div class="exp-org">URA Research Group · Ho Chi Minh City</div>
+            <ul class="exp-points">
+              <li>Processing <strong>3D skeleton datasets</strong> (NTU RGB+D) and fine-tuning Transformer-based models
+                (MotionBERT, Skateformer) for human action recognition; applied SHAP for model explainability across
+                standard benchmarks.</li>
+              <li>Built a <strong>real-time web demo</strong> using FastAPI, WebSocket, and React.js; investigated
+                explainable AI methods to interpret and visualize model predictions.</li>
+              <li>Collaborating with senior researchers on a published paper.</li>
+            </ul>
+            <div class="exp-paper">Paper in progress: "Leveraging 3D Skeleton Motion for Early Action Recognition and
+              Anticipation via Transformer-based Spatio-Temporal Modeling in Elderly Safety Monitoring"</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Jun – Jul 2024</div>
+            <div class="exp-type">Internship</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">Technical Data Extern</div>
+            <div class="exp-org">FINECS Vietnam · Binh Duong</div>
+            <ul class="exp-points">
+              <li>Labeled and categorized data from <strong>10+ machinery units</strong> across 3 production lines.</li>
+              <li>Compiled structured technical reports tracking <strong>15+ operational metrics</strong> for 5
+                production engineers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="proj-grid reveal">
+        <div class="proj-card wide">
+          <div class="proj-period">Sep 2025 – Present</div>
+          <div class="proj-name">AquaGuard: Flood Rescue Mobile App</div>
+          <div class="proj-role">Project Lead & Scrum Master</div>
+          <div class="proj-text">Developed the iOS app and web application for real-time flood rescue coordination;
+            integrated an aerial drone network to support operations in Central Vietnam and Australia.</div>
+          <div class="proj-stat-row">
+            <div class="proj-stat"><span class="proj-stat-num">1,000+</span><span
+                class="proj-stat-label">Followers</span></div>
+            <div class="proj-stat"><span class="proj-stat-num">18,000+</span><span class="proj-stat-label">Campaign
+                Views</span></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-period">Dec 2025 – Present</div>
+          <div class="proj-name">Bach Khoa Green Innovation Club</div>
+          <div class="proj-role">Director, Board of Directors</div>
+          <div class="proj-text">Guided 50+ students in research ideation and technical project development; organized
+            domestic and international science competitions, growing membership by 30%.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-period">2022 – Present</div>
+          <div class="proj-name">Green Rise</div>
+          <div class="proj-role">Founder & President</div>
+          <div class="proj-text">Built an Arduino-powered Saltwater Purifier & Water Pollution Meter for Mekong Delta
+            communities. Raised $2,000+, delivered 150+ care packages, led 15 volunteers collecting 2 tons of waste
+            monthly.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-period">Feb – Jun 2024</div>
+          <div class="proj-name">Carbon Footprint App Tracker</div>
+          <div class="proj-role">UI/UX Designer & Contributor</div>
+          <div class="proj-text">Designed the UI/UX for a carbon emissions tracking app in collaboration with Fu Jen
+            Catholic University, Taiwan. Final product gifted to the Taiwanese government for ongoing environmental
+            education.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-period">2023 – Present</div>
+          <div class="proj-name">President: Student Council</div>
+          <div class="proj-role">President · Lawrence S. Ting School</div>
+          <div class="proj-text">Led a dynamic organization focused on leadership, creativity, and community impact.
+            Directed 300+ students across 6 divisions, raising $2,500 through charity initiatives and boosting
+            fundraising music show participation by 60%. Organized large-scale mental health workshops and environmental
+            campaigns, significantly strengthening school-wide student engagement and collaboration.</div>
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div class="section-label reveal" style="margin-top:5rem;">Honours & Awards</div>
+      <div class="awards-row reveal">
+        <div class="award-cell">
+          <div class="award-year">2026</div>
+          <div class="award-name">Gold Medal: OISP Presentation Contest</div>
+          <div class="award-org">HCMC University of Technology</div>
+        </div>
+        <div class="award-cell">
+          <div class="award-year">2025</div>
+          <div class="award-name">Best Presenter: REACH Vietnam</div>
+          <div class="award-org">ASEAN Youth Leadership</div>
+        </div>
+        <div class="award-cell">
+          <div class="award-year">2024</div>
+          <div class="award-name">Gold Medal: AISEEF</div>
+          <div class="award-org">ASEAN Innovative Science & Entrepreneur Fair</div>
+        </div>
+        <div class="award-cell">
+          <div class="award-year">2024</div>
+          <div class="award-name">Gold Medal: SIMSO</div>
+          <div class="award-org">Siam Int'l Math & Science Olympics, Bangkok</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLEGE JOURNEY -->
+  <section id="college">
+    <div class="section-inner">
+      <div class="section-label reveal">03 College Journey</div>
+      <h2 class="reveal">The essay that opened doors to<br>American & Australian universities.</h2>
+      <div class="college-layout editorial-layout reveal">
+        <div class="admits-list numbered-list">
+          <div class="admit-row highlight-row">
+            <div class="admit-left"><span class="admit-num">01.</span> <span class="admit-school">University of
+                Technology Sydney</span></div>
+            <span class="admit-status s-commit">Enrolled</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">02.</span> <span class="admit-school">Vanderbilt
+                University</span></div>
+            <span class="admit-status s-admit">Admitted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">03.</span> <span class="admit-school">Georgia Tech</span>
+            </div>
+            <span class="admit-status s-admit">Admitted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">04.</span> <span class="admit-school">UIUC</span></div>
+            <span class="admit-status s-admit">Admitted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">05.</span> <span class="admit-school">UMass Amherst</span>
+            </div>
+            <span class="admit-status s-admit">Admitted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">06.</span> <span class="admit-school">University of
+                Rochester</span></div>
+            <span class="admit-status s-admit">Admitted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">07.</span> <span class="admit-school">Columbia
+                University</span></div>
+            <span class="admit-status s-waitlist">Waitlisted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">08.</span> <span class="admit-school">Rice University</span>
+            </div>
+            <span class="admit-status s-waitlist">Waitlisted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">09.</span> <span class="admit-school">Emory
+                University</span></div>
+            <span class="admit-status s-waitlist">Waitlisted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">10.</span> <span class="admit-school">Purdue
+                University</span></div>
+            <span class="admit-status s-waitlist">Waitlisted</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">11.</span> <span class="admit-school">Yale University</span>
+            </div>
+            <span class="admit-status s-rejected">Rejected</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">12.</span> <span class="admit-school">Cornell
+                University</span></div>
+            <span class="admit-status s-rejected">Rejected</span>
+          </div>
+          <div class="admit-row">
+            <div class="admit-left"><span class="admit-num">13.</span> <span class="admit-school">Johns Hopkins
+                University</span></div>
+            <span class="admit-status s-rejected">Rejected</span>
+          </div>
+        </div>
+
+        <div class="college-story">
+          <a href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html"
+            target="_blank" class="press-tag press-link">Featured · VnExpress International</a>
+          <p>My applications to American universities weren't built around a perfect score sheet or an arbitrary
+            checklist of achievements. They were built around a single, coherent narrative deeply rooted in
+            <strong>water scarcity in the Mekong Delta</strong>, and my relentless drive to engineer a tangible
+            solution.</p>
+
+          <div class="essay-pull">"During the dry season, some residents travel dozens of kilometers just to fetch clean
+            water, then use it only for drinking and cooking. The sheer exhaustion in their eyes left an indelible mark
+            on me."</div>
+
+          <p>That was the opening of my personal statement. I wrote about standing under the scorching sun in Tien
+            Giang, realizing that engineering is meaningless if it doesn't solve real human struggles. This formed the
+            catalyst for <strong>Green Rise</strong>. Returning home, I was consumed by a single goal: building a
+            physical purification device that could turn brackish water into a lifeline. I traced the arc from my
+            childhood obsession with Lego building, to robotics, and finally to environmental research. Each step became
+            a building block toward a larger purpose.</p>
+
+          <div class="essay-pull">"I wasn't just assembling circuits and Arduino boards; I was trying to engineer hope
+            for communities that had run dry."</div>
+
+          <p>The result of this journey led to admission offers from top-tier engineering programs in the United States,
+            including Vanderbilt (#18 US News), Georgia Tech, UIUC, and UMass Amherst, alongside waitlists at Columbia,
+            Rice, Emory, and Purdue.</p>
+
+          <p>Yet, when the time came to decide, I stepped back to evaluate my trajectory. I ultimately chose to attend
+            <strong>UTS Sydney</strong>. The decision was unorthodox, but driven by absolute clarity. UTS offered an
+            exceptionally strong, forward-thinking Artificial Intelligence program that perfectly aligned with my
+            long-term goals. I wanted to immerse myself in an environment that prioritized cutting-edge AI research and
+            practical innovation, giving me the exact tools I needed to push my technical work to the next level.</p>
+          <div class="scores-strip">
+            <div class="score-cell"><span class="score-num">1500</span><span class="score-lbl">SAT / 1600</span></div>
+            <div class="score-cell"><span class="score-num">8.0</span><span class="score-lbl">IELTS</span></div>
+            <div class="score-cell"><span class="score-num">9.4</span><span class="score-lbl">HS GPA / 10</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE -->
+  <section id="life">
+    <div class="section-inner">
+      <div class="section-label reveal">04 Personal Life</div>
+      <h2 class="reveal">Beyond the résumé.</h2>
+      <div class="life-slider-container reveal">
+        <div class="life-slider-track">
+          <div class="life-slide">
+            <img src="img/img-05-gallery-1.jpg" alt="Life Slide 1">
+            <div class="slide-caption">Hosting games at media club event</div>
+          </div>
+          <div class="life-slide">
+            <img src="img/img-06-gallery-2.jpg" alt="Life Slide 2">
+            <div class="slide-caption">Final prom night with senior class</div>
+          </div>
+          <div class="life-slide">
+            <img src="img/img-07-gallery-3.jpg" alt="Switzerland">
+            <div class="slide-caption">First photo with AI class at UTS</div>
+          </div>
+          <div class="life-slide">
+            <img src="img/img-09-gallery-5.jpg" alt="France">
+            <div class="slide-caption">MC at charity event 'Chú Cuội' in Trà Vinh</div>
+          </div>
+        </div>
+        <button class="slider-btn prev-btn" aria-label="Previous image">←</button>
+        <button class="slider-btn next-btn" aria-label="Next image">→</button>
+        <div class="slider-dots"></div>
+      </div>
+
+      <div class="life-tabs reveal">
+        <button class="life-tab active" onclick="switchTab(event,'sports')">Sports</button>
+        <button class="life-tab" onclick="switchTab(event,'culture')">Culture</button>
+        <button class="life-tab" onclick="switchTab(event,'art')">Art & Music</button>
+        <button class="life-tab" onclick="switchTab(event,'travel')">Travel</button>
+      </div>
+
+      <div id="panel-sports" class="life-panel active">
+        <div class="life-card">
+          <div class="life-card-tag">5 Years</div>
+          <h4>Soccer</h4>
+          <p>Competitive play from school to city level. Gold medal at the Saigon Soccer Super Cup Viet Goal 2024 and Ho
+            Chi Minh City Youth Football Championship 2023. Three-time School All-Stars. Varsity soccer at Lawrence S.
+            Ting.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">1 Year</div>
+          <h4>Archery</h4>
+          <p>A recent but profound pursuit. Picking up a bow taught me the absolute necessity of slowing down and
+            focusing on form over force. It's an ongoing exercise in discipline and patience, serving as a quiet
+            counterbalance to the rapid pace of an engineering life.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">1 Year</div>
+          <h4>Tennis</h4>
+          <p>Currently navigating the steep learning curve of the court. Tennis is a physical chess match that
+            constantly tests my mental endurance and adaptability, pushing me out of my comfort zone with every swing.
+          </p>
+        </div>
+      </div>
+
+      <div id="panel-culture" class="life-panel">
+        <div class="life-card wide">
+          <div class="life-card-tag">Traditional Vietnamese Art</div>
+          <h4>Water Puppetry / Múa Rối Nước</h4>
+          <p>A deep and ongoing passion. I performed in traditional water puppetry shows at summer festivals and Tết
+            (Lunar New Year) celebrations, bringing ancient Vietnamese folklore to life through puppetry and live
+            traditional music. I also organized workshops at Youth Cultural Centers to promote the art form. Múa Rối
+            Nước is one of Vietnam's most distinctive intangible cultural traditions, and I helped boost rural audience
+            engagement by 50%.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">Mekong Roots</div>
+          <h4>Southwest Vietnam</h4>
+          <p>Originally from Tien Giang Province. The Mekong Delta shaped my values more than any classroom. It's where
+            the real problems are, and where I keep returning to do the real work.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">2024 · Taiwan</div>
+          <h4>Carbon Footprint Camp — Taipei</h4>
+          <p>Represented Vietnam in an intensive cross-cultural environmental camp in Taipei. Collaborated with
+            international peers and led collaborative workshops on carbon tracking, exchanging ideas on sustainable
+            practices and discovering the power of global teamwork in fighting climate change.</p>
+        </div>
+      </div>
+
+      <div id="panel-art" class="life-panel">
+        <div class="life-card">
+          <div class="life-card-tag">Hip-Hop, R&B & Performance</div>
+          <h4>Music</h4>
+          <p>From the melodic storytelling of Drake to the high-energy production of Travis Scott, music fuels my
+            creative momentum. I’ve performed live at cultural festivals, finding that music offers an essential outlet
+            for emotional expression and raw energy alongside my academic work.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">5 Years</div>
+          <h4>Watercolor Painting</h4>
+          <p>Five years of watercolor practice. In 2024, I organized an exhibition that raised funds for ~100 children
+            with cancer at HCMC Oncology Hospital and gave away 100 sets of paints on Christmas day.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">Making Things</div>
+          <h4>Craft & Build</h4>
+          <p>My tactile creativity began with Lego building, constructing structured worlds out of scattered bricks.
+            Whether it's 3D printing, baking, or assembling complex models, keeping my hands busy remains my favorite
+            way to process ideas and think spatially.</p>
+        </div>
+      </div>
+
+      <div id="panel-travel" class="life-panel">
+        <div class="life-card wide">
+          <div class="life-card-tag">Places that shaped me</div>
+          <h4>Travel Stories</h4>
+          <p>Every border crossed expands my engineering perspective. Whether observing the hyper-efficient
+            infrastructure of Japan and Hong Kong, studying the architectural and industrial precision of Switzerland,
+            France, and Germany, or collaborating on environmental initiatives in Taiwan, travel is how I learn how
+            different societies solve complex problems. Touring the United States broadened my view on academic and
+            technological innovation. For me, exploring the world is an ongoing study in global solutions and human
+            connection.</p>
+          <div class="travel-stops">
+            <span class="stop">United States</span>
+            <span class="stop">Japan</span>
+            <span class="stop">Hong Kong</span>
+            <span class="stop">Taiwan</span>
+            <span class="stop">Switzerland</span>
+            <span class="stop">France</span>
+            <span class="stop">Germany</span>
+            <span class="stop">Australia</span>
+          </div>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">8th Forum · Ambassador</div>
+          <h4>Asian Youth Forum</h4>
+          <p>Represented Vietnam at the 8th Asian Youth Forum for Sustainable Future — connecting with youth leaders
+            across Asia committed to climate action and sustainable development.</p>
+        </div>
+        <div class="life-card">
+          <div class="life-card-tag">Monthly</div>
+          <h4>Southwest Volunteering</h4>
+          <p>Led monthly volunteer trips to canal communities in Southwest Vietnam, organizing canal clean-ups,
+            educational outreach, and charitable delivery. These weren't school requirements; this is home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Quan Minh Nguyen</span>
+    <span class="footer-contact"><strong class="email-highlight">minhquan.nguyen-2@student.uts.edu.au</strong> · +84 908
+      538 467 · Ho Chi Minh City, VN</span>
+    <span class="footer-note">Built with purpose · 2025</span>
+    <span class="footer-copyright">Copyright © 2026 All rights reserved</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
