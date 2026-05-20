@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minhquan-maker.github.io/mywebsite/sitemap.xml

@@ -4,15 +4,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quan Minh Nguyen</title>
+  <title>Quan Minh Nguyen — AI Researcher & Software Engineer</title>
+  <meta name="description" content="Quan Minh Nguyen is an AI researcher and engineering student at the University of Technology Sydney, working on transformer-based models for human action recognition and environmental technology." />
+  <meta name="author" content="Quan Minh Nguyen" />
+  <link rel="canonical" href="https://minhquan-maker.github.io/mywebsite/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Quan Minh Nguyen — AI Researcher & Software Engineer" />
+  <meta property="og:description" content="Engineering student & AI researcher at UTS Sydney. Building at the intersection of machine learning, environmental technology, and community impact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://minhquan-maker.github.io/mywebsite/" />
+  <meta property="og:image" content="https://minhquan-maker.github.io/mywebsite/img/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quan Minh Nguyen — AI Researcher & Software Engineer" />
+  <meta name="twitter:description" content="Engineering student & AI researcher at UTS Sydney building at the intersection of ML and environmental tech." />
+  <meta name="twitter:image" content="https://minhquan-maker.github.io/mywebsite/img/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23080808'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='20' font-weight='700' fill='%23f0c93a'>MQ</text></svg>" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Quan Minh Nguyen",
+    "url": "https://minhquan-maker.github.io/mywebsite/",
+    "jobTitle": "AI Researcher & Software Engineer",
+    "email": "minhquan.nguyen-2@student.uts.edu.au",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ho Chi Minh City",
+      "addressCountry": "VN"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Technology Sydney",
+      "url": "https://www.uts.edu.au"
+    },
+    "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Transformer Models", "Human Action Recognition", "Python", "React.js", "FastAPI"],
+    "sameAs": [
+      "https://github.com/minhquan-maker",
+      "https://www.linkedin.com/in/minhquan-maker"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Vanilla-tilt for 3D card tilt effect -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 </head>
 
 <body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -22,9 +78,15 @@
       <li><a href="#projects" data-nav="projects">Work</a></li>
       <li><a href="#college" data-nav="college">Journey</a></li>
       <li><a href="#life" data-nav="life">Life</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </nav>
 
+  <main id="main">
   <!-- HERO -->
   <section id="home">
     <div class="hero-grid-bg"></div>
@@ -64,7 +126,7 @@
       <h2 class="reveal">From Lego bricks<br>to AI research.</h2>
       <div class="about-layout">
         <div class="about-body reveal">
-          <img src="img/img-01-portrait.jpg?v=new" alt="Quan Minh Nguyen" class="portrait-img">
+          <img src="img/img-01-portrait.jpg?v=new" alt="Quan Minh Nguyen" class="portrait-img" loading="lazy">
           <p>I grew up in Ho Chi Minh City with an obsession for building things, from Lego kits and robotics camps to
             actual hardware. That curiosity eventually landed me at <strong>the University of Technology
               Sydney</strong>, studying Artificial Intelligence. I now conduct research on transformer-based models for
@@ -108,6 +170,15 @@
               <span class="chip-dark">Git</span>
               <span class="chip-dark">Figma</span>
               <span class="chip-dark">WebSocket</span>
+            </div>
+          </div>
+          <div class="fact-block">
+            <div class="fact-key">GitHub Activity</div>
+            <div class="github-stats-row">
+              <!-- GitHub Stats Card -->
+              <img src="https://github-readme-stats.vercel.app/api?username=minhquan-maker&theme=radical&show_icons=true&hide_border=true&bg_color=080808&title_color=f0c93a&text_color=f4eed8&icon_color=f0c93a" alt="GitHub stats" class="gh-stat-card" />
+              <!-- Top Languages Card -->
+              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=minhquan-maker&layout=compact&theme=radical&hide_border=true&bg_color=080808&title_color=f0c93a&text_color=f4eed8" alt="Top languages" class="gh-stat-card" />
             </div>
           </div>
           <div class="fact-block">
@@ -180,6 +251,18 @@
             <div class="proj-stat"><span class="proj-stat-num">18,000+</span><span class="proj-stat-label">Campaign
                 Views</span></div>
           </div>
+          <div class="proj-links">
+            <!-- TODO: Replace with actual AquaGuard repo URL -->
+            <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-code">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code
+            </a>
+            <!-- TODO: Replace with actual AquaGuard demo URL -->
+            <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-demo">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+          </div>
         </div>
         <div class="proj-card">
           <div class="proj-period">Dec 2025 – Present</div>
@@ -187,6 +270,13 @@
           <div class="proj-role">Director, Board of Directors</div>
           <div class="proj-text">Guided 50+ students in research ideation and technical project development; organized
             domestic and international science competitions, growing membership by 30%.</div>
+          <div class="proj-links">
+            <!-- TODO: Add club website or GitHub URL -->
+            <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-demo">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Learn More
+            </a>
+          </div>
         </div>
         <div class="proj-card">
           <div class="proj-period">2022 – Present</div>
@@ -195,6 +285,13 @@
           <div class="proj-text">Built an Arduino-powered Saltwater Purifier & Water Pollution Meter for Mekong Delta
             communities. Raised $2,000+, delivered 150+ care packages, led 15 volunteers collecting 2 tons of waste
             monthly.</div>
+          <div class="proj-links">
+            <!-- TODO: Replace with actual Green Rise repo URL -->
+            <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-code">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code
+            </a>
+          </div>
         </div>
         <div class="proj-card">
           <div class="proj-period">Feb – Jun 2024</div>
@@ -203,6 +300,13 @@
           <div class="proj-text">Designed the UI/UX for a carbon emissions tracking app in collaboration with Fu Jen
             Catholic University, Taiwan. Final product gifted to the Taiwanese government for ongoing environmental
             education.</div>
+          <div class="proj-links">
+            <!-- TODO: Replace with actual Carbon Footprint App repo URL -->
+            <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-code">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code
+            </a>
+          </div>
         </div>
         <div class="proj-card">
           <div class="proj-period">2023 – Present</div>
@@ -212,6 +316,13 @@
             Directed 300+ students across 6 divisions, raising $2,500 through charity initiatives and boosting
             fundraising music show participation by 60%. Organized large-scale mental health workshops and environmental
             campaigns, significantly strengthening school-wide student engagement and collaboration.</div>
+          <div class="proj-links">
+            <!-- TODO: Replace with actual Student Council site URL -->
+            <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link proj-link-demo">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Learn More
+            </a>
+          </div>
         </div>
       </div>
 
@@ -317,7 +428,7 @@
 
         <div class="college-story">
           <a href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html"
-            target="_blank" class="press-tag press-link">Featured · VnExpress International</a>
+            target="_blank" rel="noopener noreferrer" class="press-tag press-link">Featured · VnExpress International</a>
           <p>My applications to American universities weren't built around a perfect score sheet or an arbitrary
             checklist of achievements. They were built around a single, coherent narrative deeply rooted in
             <strong>water scarcity in the Mekong Delta</strong>, and my relentless drive to engineer a tangible
@@ -367,19 +478,19 @@
       <div class="life-slider-container reveal">
         <div class="life-slider-track">
           <div class="life-slide">
-            <img src="img/img-05-gallery-1.jpg" alt="Life Slide 1">
+            <img src="img/img-05-gallery-1.jpg" alt="Life Slide 1" loading="lazy">
             <div class="slide-caption">Hosting games at media club event</div>
           </div>
           <div class="life-slide">
-            <img src="img/img-06-gallery-2.jpg" alt="Life Slide 2">
+            <img src="img/img-06-gallery-2.jpg" alt="Life Slide 2" loading="lazy">
             <div class="slide-caption">Final prom night with senior class</div>
           </div>
           <div class="life-slide">
-            <img src="img/img-07-gallery-3.jpg" alt="Switzerland">
+            <img src="img/img-07-gallery-3.jpg" alt="Switzerland" loading="lazy">
             <div class="slide-caption">First photo with AI class at UTS</div>
           </div>
           <div class="life-slide">
-            <img src="img/img-09-gallery-5.jpg" alt="France">
+            <img src="img/img-09-gallery-5.jpg" alt="France" loading="lazy">
             <div class="slide-caption">MC at charity event 'Chú Cuội' in Trà Vinh</div>
           </div>
         </div>
@@ -388,14 +499,14 @@
         <div class="slider-dots"></div>
       </div>
 
-      <div class="life-tabs reveal">
-        <button class="life-tab active" onclick="switchTab(event,'sports')">Sports</button>
-        <button class="life-tab" onclick="switchTab(event,'culture')">Culture</button>
-        <button class="life-tab" onclick="switchTab(event,'art')">Art & Music</button>
-        <button class="life-tab" onclick="switchTab(event,'travel')">Travel</button>
+      <div class="life-tabs reveal" role="tablist" aria-label="Personal life categories">
+        <button class="life-tab active" id="tab-sports" role="tab" aria-selected="true" aria-controls="panel-sports" onclick="switchTab(event,'sports')" tabindex="0">Sports</button>
+        <button class="life-tab" id="tab-culture" role="tab" aria-selected="false" aria-controls="panel-culture" onclick="switchTab(event,'culture')" tabindex="-1">Culture</button>
+        <button class="life-tab" id="tab-art" role="tab" aria-selected="false" aria-controls="panel-art" onclick="switchTab(event,'art')" tabindex="-1">Art & Music</button>
+        <button class="life-tab" id="tab-travel" role="tab" aria-selected="false" aria-controls="panel-travel" onclick="switchTab(event,'travel')" tabindex="-1">Travel</button>
       </div>
 
-      <div id="panel-sports" class="life-panel active">
+      <div id="panel-sports" class="life-panel active" role="tabpanel" aria-labelledby="tab-sports">
         <div class="life-card">
           <div class="life-card-tag">5 Years</div>
           <h4>Soccer</h4>
@@ -419,7 +530,7 @@
         </div>
       </div>
 
-      <div id="panel-culture" class="life-panel">
+      <div id="panel-culture" class="life-panel" role="tabpanel" aria-labelledby="tab-culture">
         <div class="life-card wide">
           <div class="life-card-tag">Traditional Vietnamese Art</div>
           <h4>Water Puppetry / Múa Rối Nước</h4>
@@ -444,7 +555,7 @@
         </div>
       </div>
 
-      <div id="panel-art" class="life-panel">
+      <div id="panel-art" class="life-panel" role="tabpanel" aria-labelledby="tab-art">
         <div class="life-card">
           <div class="life-card-tag">Hip-Hop, R&B & Performance</div>
           <h4>Music</h4>
@@ -467,7 +578,7 @@
         </div>
       </div>
 
-      <div id="panel-travel" class="life-panel">
+      <div id="panel-travel" class="life-panel" role="tabpanel" aria-labelledby="tab-travel">
         <div class="life-card wide">
           <div class="life-card-tag">Places that shaped me</div>
           <h4>Travel Stories</h4>
@@ -504,15 +615,65 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label reveal">05 Contact</div>
+      <h2 class="reveal">Let's build<br>something together.</h2>
+      <div class="contact-layout reveal">
+        <div class="contact-info">
+          <p class="contact-tagline">Open to research collaborations, internships, and interesting conversations. Drop me a message and I'll get back to you.</p>
+          <div class="contact-links">
+            <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/minhquan-maker" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span class="submit-text">Send Message</span>
+            <span class="submit-success" aria-hidden="true">Message sent!</span>
+          </button>
+          <p class="form-note">Or email me directly at <a href="mailto:minhquan.nguyen-2@student.uts.edu.au">minhquan.nguyen-2@student.uts.edu.au</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
   <footer>
     <span class="footer-logo">Quan Minh Nguyen</span>
     <span class="footer-contact"><strong class="email-highlight">minhquan.nguyen-2@student.uts.edu.au</strong> · +84 908
       538 467 · Ho Chi Minh City, VN</span>
-    <span class="footer-note">Built with purpose · 2025</span>
+    <span class="footer-note">Built with purpose · <span class="footer-year">2025</span></span>
     <span class="footer-copyright">Copyright © 2026 All rights reserved</span>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 </body>
 
 </html>
