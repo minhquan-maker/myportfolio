@@ -346,28 +346,8 @@ if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger
 /* ═══════════════════════════════════════
    LENIS SMOOTH SCROLL
 ═══════════════════════════════════════ */
-if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
-  const lenis = new Lenis({
-    duration: 0.3,
-    easing: t => 1 - Math.pow(1 - t, 3),
-    wheelMultiplier: 1.5,
-    touchMultiplier: 1.5,
-    infinite: false,
-  });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  // Integrate Lenis with GSAP ScrollTrigger
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add(time => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
-}
+// Lenis disabled — native browser scroll is faster and more responsive
+// Kept GSAP ScrollTrigger for parallax and pinned animations only
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', async e => {
