@@ -35,33 +35,6 @@ if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 }
 
 /* ═══════════════════════════════════════
-   DARK / LIGHT MODE TOGGLE
-═══════════════════════════════════════ */
-const themeToggle = document.querySelector('.theme-toggle');
-const html = document.documentElement;
-
-function applyTheme(theme) {
-  if (theme === 'light') {
-    html.setAttribute('data-theme', 'light');
-    localStorage.setItem('theme', 'light');
-  } else {
-    html.removeAttribute('data-theme');
-    localStorage.setItem('theme', 'dark');
-  }
-}
-
-// Restore saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) applyTheme(savedTheme);
-
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    applyTheme(current === 'light' ? 'dark' : 'light');
-  });
-}
-
-/* ═══════════════════════════════════════
    TEXT SCRAMBLE EFFECT
 ═══════════════════════════════════════ */
 function scrambleText(el, finalText, speed = 40) {
