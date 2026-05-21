@@ -8,48 +8,85 @@
   --muted: #888070;
   --line: rgba(244,238,216,0.12);
   --line-dark: rgba(8,8,8,0.14);
+  --text: var(--cream);
+  --text-muted: rgba(244,238,216,0.6);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--black); color: var(--cream); font-family: 'Syne', sans-serif; font-weight: 400; overflow-x: hidden; }
+body { background: var(--black); color: var(--text); font-family: 'Syne', sans-serif; font-weight: 400; overflow-x: hidden; }
 
 /* ─── LIGHT THEME ─── */
 [data-theme="light"] {
   --black: #f4eed8;
   --offblack: #ebe3ca;
-  --cream: #080808;
-  --cream-dark: #1a1a1a;
+  --text: #1a1a1a;
+  --text-muted: rgba(26,26,26,0.55);
   --line: rgba(8,8,8,0.1);
   --line-dark: rgba(244,238,216,0.15);
   --muted: #7a7060;
 }
-[data-theme="light"] body { background: var(--black); color: var(--cream); }
-[data-theme="light"] #about { background: var(--black); color: var(--cream); }
+[data-theme="light"] body { background: var(--black); color: var(--text); }
+[data-theme="light"] #about { background: var(--black); color: var(--text); }
 [data-theme="light"] #about .section-label { color: var(--yellow); }
-[data-theme="light"] #about h2 { color: var(--cream); }
-[data-theme="light"] #about .about-body p { color: rgba(244,238,216,0.75); }
-[data-theme="light"] #about .about-body p strong { color: var(--cream); }
+[data-theme="light"] #about h2 { color: var(--text); }
+[data-theme="light"] #about .about-body p { color: var(--text-muted); }
+[data-theme="light"] #about .about-body p strong { color: var(--text); }
 [data-theme="light"] .about-pullquote { color: rgba(240,201,58,0.8); border-color: rgba(240,201,58,0.4); }
 [data-theme="light"] .fact-block { border-color: var(--line); }
 [data-theme="light"] .fact-key { color: var(--muted); }
-[data-theme="light"] .fact-val { color: var(--cream); }
+[data-theme="light"] .fact-val { color: var(--text); }
 [data-theme="light"] .fact-val .hl { color: var(--yellow); }
 [data-theme="light"] .gpa-highlight { color: var(--yellow); }
-[data-theme="light"] .chip-dark { border-color: rgba(244,238,216,0.2); color: rgba(244,238,216,0.6); }
+[data-theme="light"] .chip-dark { border-color: rgba(244,238,216,0.2); color: var(--text-muted); }
 [data-theme="light"] #college { background: var(--offblack); }
-[data-theme="light"] #college h2 { color: var(--cream); }
+[data-theme="light"] #college h2 { color: var(--text); }
 [data-theme="light"] #college .section-label { color: var(--yellow); }
-[data-theme="light"] .college-story p { color: rgba(244,238,216,0.7); }
-[data-theme="light"] .essay-pull { color: var(--cream); }
+[data-theme="light"] .college-story p { color: var(--text-muted); }
+[data-theme="light"] .essay-pull { color: var(--text); }
 [data-theme="light"] .score-cell { background: var(--offblack); }
 [data-theme="light"] .admits-list { background: rgba(244,238,216,0.05); }
 [data-theme="light"] .admit-row { background: var(--offblack); }
 [data-theme="light"] nav { background: rgba(244,238,216,0.95); border-color: var(--line); }
-[data-theme="light"] .nav-logo { color: var(--cream); }
+[data-theme="light"] .nav-logo { color: var(--text); }
+[data-theme="light"] .nav-link { color: var(--text); }
 [data-theme="light"] .hero-grid-bg { opacity: 0.5; }
-[data-theme="light"] footer { background: var(--cream); color: var(--black); }
-[data-theme="light"] .footer-contact { color: rgba(8,8,8,0.5); }
-[data-theme="light"] .footer-note { color: rgba(8,8,8,0.3); }
+[data-theme="light"] footer { background: var(--black); color: var(--text); }
+[data-theme="light"] .footer-contact { color: var(--text-muted); }
+[data-theme="light"] .footer-note { color: var(--text-muted); }
+[data-theme="light"] .footer-links a { color: var(--text); }
+[data-theme="light"] #home { background: var(--black); color: var(--text); }
+[data-theme="light"] .hero-eyebrow { color: var(--text-muted); }
+[data-theme="light"] .hero-number { color: var(--text); }
+[data-theme="light"] .hero-desc { color: var(--text-muted); }
+[data-theme="light"] #work { background: var(--black); color: var(--text); }
+[data-theme="light"] #work h2 { color: var(--text); }
+[data-theme="light"] #work .section-label { color: var(--yellow); }
+[data-theme="light"] .proj-card { background: var(--offblack); }
+[data-theme="light"] .proj-meta { color: var(--text-muted); }
+[data-theme="light"] .proj-title { color: var(--text); }
+[data-theme="light"] .proj-role { color: var(--text-muted); }
+[data-theme="light"] .proj-desc { color: var(--text-muted); }
+[data-theme="light"] .proj-link { color: var(--text); }
+[data-theme="light"] .proj-tag { color: var(--text-muted); border-color: var(--text-muted); }
+[data-theme="light"] #life { background: var(--black); color: var(--text); }
+[data-theme="light"] #life h2 { color: var(--text); }
+[data-theme="light"] #life .section-label { color: var(--yellow); }
+[data-theme="light"] .life-desc { color: var(--text-muted); }
+[data-theme="light"] .exp-item { border-color: var(--line); }
+[data-theme="light"] .exp-year { color: var(--text-muted); }
+[data-theme="light"] .exp-title { color: var(--text); }
+[data-theme="light"] .exp-sub { color: var(--text-muted); }
+[data-theme="light"] .exp-body { color: var(--text-muted); }
+[data-theme="light"] .exp-tag { color: var(--text-muted); border-color: var(--text-muted); }
+[data-theme="light"] #honours { background: var(--black); color: var(--text); }
+[data-theme="light"] #honours h2 { color: var(--text); }
+[data-theme="light"] #honours .section-label { color: var(--yellow); }
+[data-theme="light"] .award-year { color: var(--text-muted); }
+[data-theme="light"] .award-name { color: var(--text); }
+[data-theme="light"] .award-org { color: var(--text-muted); }
+[data-theme="light"] #contact { background: var(--offblack); color: var(--text); }
+[data-theme="light"] .contact-title { color: var(--text); }
+[data-theme="light"] .contact-sub { color: var(--text-muted); }
 
 /* ─── CUSTOM CURSOR ─── */
 .cursor {

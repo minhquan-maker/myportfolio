@@ -273,7 +273,7 @@ if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger
       trigger: '#home',
       start: 'top top',
       end: 'bottom top',
-      scrub: 1,
+      scrub: 0.5,
     },
   });
 
@@ -285,7 +285,7 @@ if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger
       trigger: '#home',
       start: 'top top',
       end: 'bottom top',
-      scrub: 2,
+      scrub: 1,
     },
   });
 
@@ -297,7 +297,7 @@ if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger
       trigger: '#home',
       start: 'top top',
       end: 'bottom top',
-      scrub: 1.5,
+      scrub: 1,
     },
   });
 
@@ -326,7 +326,7 @@ if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger
         trigger: '.awards-row',
         start: 'top center',
         end: () => `+=${awardsRow.scrollWidth}`,
-        scrub: 1,
+        scrub: 0.5,
         pin: false,
         anticipatePin: 1,
       },
@@ -348,7 +348,7 @@ if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger
 ═══════════════════════════════════════ */
 if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 0.8,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
   });
