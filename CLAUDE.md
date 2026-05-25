@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
 
 ## Project Overview
 
@@ -9,54 +9,56 @@ Static personal portfolio site for Quan Minh Nguyen — AI research student at U
 ## Project Structure
 
 ```
-mywebsite/
-├── index.html    # Single-page with all sections (About, Work, Journey, Life, Contact)
-├── styles.css    # Full stylesheet — CSS custom properties, GSAP animations, responsive breakpoints
-├── script.js     # Interactions: navbar scroll, scroll-reveal, tab switching, GSAP animations
-├── img/          # Portfolio images
-├── v1/           # Deployment copy — this is the live v2 redesign
+myportfolio/
+├── web-V1/       # Current version (active development)
+│   ├── index.html
+│   ├── styles.css
+│   ├── script.js
+│   ├── img/
+│   ├── robots.txt
+│   └── sitemap.xml
+├── v1/           # Deprecated — old version with GSAP/ScrollTrigger/Lenis
 └── CLAUDE.md     # This file
 ```
 
-**The active source lives at the root level.** The `v1/` subdirectory is the deployment copy. When editing, change root files.
+**Edit `web-V1/` files.** The `v1/` directory is the deprecated old version.
 
 ## Commands
 
-- **Preview locally**: `cd mywebsite && python3 -m http.server 8080`, then visit `http://localhost:8080`
-- **Deploy to GitHub Pages**: push to the `main` branch → repo **Settings → Pages → Source → main branch**. Site serves at `https://minhquan-maker.github.io/mywebsite/v1/`
+- **Preview locally**: `cd web-V1 && python3 -m http.server 8080`, then visit `http://localhost:8080`
+- **Deploy**: Push to the `main` branch. GitHub Pages serves from `v1/` at `https://minhquan-maker.github.io/myportfolio/v1/`
 
 ## Architecture
 
 ### Stack
 - Pure HTML/CSS/JS — no build tools, no dependencies, no tests
-- Fonts loaded from Google Fonts CDN (Cormorant Garamond, Syne, IBM Plex Mono) — requires internet
-- GSAP + ScrollTrigger loaded from CDN for parallax and scroll animations
-- Responsive breakpoint at 960px collapses grid layouts to single column
+- Fonts: Cormorant Garamond, Syne, IBM Plex Mono (Google Fonts)
+- Vanilla JS only — no GSAP, no ScrollTrigger, no Lenis (unlike the deprecated `v1/`)
+- Responsive breakpoint at ~960px collapses grid layouts to single column
 
-### Key Implementation Notes
-- CSS custom properties in `:root` for all colors: `--black`, `--offblack`, `--yellow`, `--cream`, `--muted`, `--line`
-- Dark mode only — light mode removed entirely (no `data-theme`, no toggle button)
-- **Lenis smooth scroll was removed** — browser native scroll is faster and more responsive
-- GSAP ScrollTrigger retained for parallax effects (`scrub: 0.5–1`) and horizontal awards scroll
-- Scroll-reveal animations use `IntersectionObserver` in `script.js`; elements with class `.reveal` animate in on scroll
-- Navbar active state updates via `updateNav()` on scroll
-- Image slideshow in the Life section driven by JS with CSS `translateX`
-- `@media (prefers-reduced-motion: reduce)` kills all transitions and animations
+### CSS Custom Properties
+All colors defined in `:root` on `styles.css`:
+`--black`, `--offblack`, `--yellow`, `--yellow-dim`, `--cream`, `--cream-dark`, `--muted`, `--line`, `--line-dark`
 
-### Content
-All portfolio content (projects, experience, awards, personal info) is directly in `index.html`. Edit there — no template system.
+### Key JS Patterns (web-V1/script.js)
+- **Navbar**: Fixed nav with scroll-triggered padding change (`navbar.scrolled` class)
+- **Active nav state**: `updateNav()` highlights current section link based on scroll position
+- **Scroll-reveal**: `IntersectionObserver` on elements with class `.reveal` — animate in on scroll
+- **Dark mode only** — no theme toggle, no `data-theme` attribute
 
-### Social Links (current, verified)
+### Social Links (current)
 - GitHub: `https://github.com/minhquan-maker`
 - LinkedIn: `https://www.linkedin.com/in/ngminhquan/`
 - Facebook: `https://www.facebook.com/mquan2512/`
 
-## Editing Content
+## Content Editing
 
-**Projects (WORK section):** Search for `proj-card` divs in `index.html`. Each card has `.proj-period`, `.proj-name`, `.proj-role`, `.proj-text`, `.proj-links`.
+**Projects (WORK section):** Search for `proj-card` divs in `web-V1/index.html`. Each card has `.proj-period`, `.proj-name`, `.proj-role`, `.proj-text`, `.proj-links`.
 
-**Awards (HONOURS section):** Search for `award-cell` divs in `index.html`. Horizontal scroll on desktop via GSAP.
+**Life section:** JavaScript tab switching in `web-V1/script.js` using `.life-tab-item` and `.life-tab-content` data attributes.
 
-**Life section tabs:** JavaScript tab switching in `script.js` using `.life-tab-item` and `.life-tab-content` data attributes.
+**Contact form:** Stub — EmailJS/Formspree credentials not configured. Remove or configure before going live.
 
-**Contact form:** The form and its JS in `script.js` are stubs (EmailJS/Formspree credentials not configured). Remove or configure before going live.
+## Deprecated (v1/)
+
+The `v1/` directory contains the old version with GSAP + ScrollTrigger + Lenis. It is not actively maintained. Do not use it as a reference for current development.
