@@ -49,7 +49,7 @@ src/
 
 - **Name:** Quan (not "Jack" — adapted from spec)
 - **Projects:** 3 real projects from web-V1: AquaGuard, Green Rise, Carbon Footprint Tracker
-- **Images:** Located in `public/img/` (copied from web-V1/img/)
+- **Images:** Located in `public/img/` (same 9 images as v1/img/)
 - **Contact:** `minhquan.nguyen-2@student.uts.edu.au`
 
 ## Key Design Tokens

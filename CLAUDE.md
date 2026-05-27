@@ -1,64 +1,60 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-Static personal portfolio site for Quan Minh Nguyen — AI research student at UTS Sydney. Plain HTML/CSS/JS, no build step, no framework.
+Personal portfolio website for **Quan Minh Nguyen** — AI research student at UTS Sydney. Two independent versions coexist as subdirectories:
 
-## Project Structure
+| Dir | Type | Stack |
+|-----|------|-------|
+| `v1/` | Plain HTML/CSS/JS | No build step |
+| `v2/` | React app | Vite + TypeScript + Tailwind + Framer Motion |
+
+## v1/ — Black & Gold Portfolio (Plain HTML)
+
+**Served at:** `https://minhquan-maker.github.io/myportfolio/v1/`
+
+Plain HTML/CSS/JS — no build step, no dependencies. GSAP + ScrollTrigger + Lenis for animations.
 
 ```
-myportfolio/
-├── web-V1/       # Current version (active development)
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   ├── img/
-│   ├── robots.txt
-│   └── sitemap.xml
-├── v1/           # Deprecated — old version with GSAP/ScrollTrigger/Lenis
-└── CLAUDE.md     # This file
+v1/
+├── index.html          ← Edit content here
+├── styles.css          ← CSS custom properties, animations
+├── script.js           ← GSAP, ScrollTrigger, Lenis, IntersectionObserver
+├── img/                ← 9 portfolio images (also in v2/public/img/)
+├── robots.txt
+└── sitemap.xml
 ```
 
-**Edit `web-V1/` files.** The `v1/` directory is the deprecated old version.
+### v1 Commands
+- **Preview:** `cd v1 && python3 -m http.server 8081` → `http://localhost:8081`
+- **Deploy:** Push to `main` branch → auto-deployed via GitHub Pages
 
-## Commands
+### v1 Key Patterns
+- **Navbar:** Fixed nav with `navbar.scrolled` class toggled at 60px
+- **Scroll reveal:** `IntersectionObserver` on `.reveal` elements
+- **Colors:** CSS custom properties — `--black` (#080808), `--yellow` (#f0c93a), `--cream` (#f4eed8)
+- **Fonts:** Cormorant Garamond (headings), Syne (body), IBM Plex Mono (metadata)
+- **Dark mode only** — no theme toggle
 
-- **Preview locally**: `cd web-V1 && python3 -m http.server 8080`, then visit `http://localhost:8080`
-- **Deploy**: Push to the `main` branch. GitHub Pages serves from `v1/` at `https://minhquan-maker.github.io/myportfolio/v1/`
+## v2/ — 3D Creator Landing Page (React)
 
-## Architecture
+**Dev:** `cd v2 && npm install && npm run dev` → `http://localhost:5173`
+**Build:** `cd v2 && npm run build`
+**Type check:** `cd v2 && npx tsc -b`
 
-### Stack
-- Pure HTML/CSS/JS — no build tools, no dependencies, no tests
-- Fonts: Cormorant Garamond, Syne, IBM Plex Mono (Google Fonts)
-- Vanilla JS only — no GSAP, no ScrollTrigger, no Lenis (unlike the deprecated `v1/`)
-- Responsive breakpoint at ~960px collapses grid layouts to single column
+Full architecture and component details are in `v2/CLAUDE.md`.
 
-### CSS Custom Properties
-All colors defined in `:root` on `styles.css`:
-`--black`, `--offblack`, `--yellow`, `--yellow-dim`, `--cream`, `--cream-dark`, `--muted`, `--line`, `--line-dark`
+## Social Links
 
-### Key JS Patterns (web-V1/script.js)
-- **Navbar**: Fixed nav with scroll-triggered padding change (`navbar.scrolled` class)
-- **Active nav state**: `updateNav()` highlights current section link based on scroll position
-- **Scroll-reveal**: `IntersectionObserver` on elements with class `.reveal` — animate in on scroll
-- **Dark mode only** — no theme toggle, no `data-theme` attribute
-
-### Social Links (current)
 - GitHub: `https://github.com/minhquan-maker`
 - LinkedIn: `https://www.linkedin.com/in/ngminhquan/`
 - Facebook: `https://www.facebook.com/mquan2512/`
 
-## Content Editing
+## Project Personal Info
 
-**Projects (WORK section):** Search for `proj-card` divs in `web-V1/index.html`. Each card has `.proj-period`, `.proj-name`, `.proj-role`, `.proj-text`, `.proj-links`.
-
-**Life section:** JavaScript tab switching in `web-V1/script.js` using `.life-tab-item` and `.life-tab-content` data attributes.
-
-**Contact form:** Stub — EmailJS/Formspree credentials not configured. Remove or configure before going live.
-
-## Deprecated (v1/)
-
-The `v1/` directory contains the old version with GSAP + ScrollTrigger + Lenis. It is not actively maintained. Do not use it as a reference for current development.
+- **Name:** Quan Minh Nguyen (displayed as "Quan" in v2)
+- **Email:** `minhquan.nguyen-2@student.uts.edu.au`
+- **Origin:** Ho Chi Minh City, Vietnam
+- **Key projects:** AquaGuard, Green Rise, Carbon Footprint Tracker, URA AI Research
