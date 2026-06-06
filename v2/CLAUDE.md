@@ -8,7 +8,7 @@ A dark-themed 3D Creator portfolio landing page built with React + TypeScript + 
 
 ## Stack
 
-- **Build:** Vite 5 + React 18 + TypeScript
+- **Build:** Vite 5 + React 19 + TypeScript
 - **Styling:** Tailwind CSS v3.4 (configured in `tailwind.config.js`)
 - **Animations:** Framer Motion v12
 - **Icons:** Lucide React v0.344
@@ -19,6 +19,7 @@ A dark-themed 3D Creator portfolio landing page built with React + TypeScript + 
 - **Preview locally:** `cd v2 && npm install && npm run dev` → `http://localhost:5173`
 - **Build:** `cd v2 && npm run build`
 - **Type check:** `cd v2 && npx tsc -b`
+- **Deploy:** Vercel auto-deploy from `main` branch → `https://v2.minhquan-maker.vercel.app` (or custom domain)
 
 ## Architecture
 
