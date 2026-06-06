@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minh Quan — AI Student | UTS</title>
+  <meta name="description" content="Minh Quan is an AI research student at the University of Technology Sydney and a member of the URA Research Group, specializing in machine learning, explainable AI, and human-centered technology." />
+  <meta name="author" content="Minh Quan" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://minhquan-maker.github.io/myportfolio/v3/" />
+  <meta property="og:title" content="Minh Quan — AI Research Student | UTS" />
+  <meta property="og:description" content="AI research student at UTS, URA Research Group member, founder of AquaGuard flood rescue platform." />
+  <meta property="og:image" content="" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Minh Quan — AI Research Student | UTS" />
+  <meta name="twitter:description" content="AI research student at UTS, URA Research Group member, founder of AquaGuard flood rescue platform." />
+  <meta name="twitter:image" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Minh Quan",
+    "alternateName": ["Quan Minh Nguyen", "Minh Q. Nguyen", "Quan", "MQ"],
+    "url": "https://minhquan-maker.github.io/myportfolio/v3/",
+    "email": "minhquan.nguyen-2@student.uts.edu.au",
+    "telephone": "+84-908-538-467",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ho Chi Minh City",
+      "addressCountry": "VN"
+    },
+    "sameAs": [
+      "https://github.com/minhquan-maker",
+      "https://www.linkedin.com/in/ngminhquan/"
+    ],
+    "jobTitle": "AI Research Student",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "URA Research Group",
+      "url": "https://www.hcmut.edu.vn/"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "University of Technology Sydney"
+    },
+    "description": "AI research student at UTS specializing in machine learning, explainable AI, and human-centered technology."
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Hamburger (Mobile only) -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <!-- Profile Photo -->
+      <div class="profile-photo">
+        <img src="2.JPG" alt="Minh Quan" />
+      </div>
+
+      <!-- Name & Role -->
+      <div class="name-block">
+        <h1 class="sidebar-name">Minh Quan</h1>
+        <p class="sidebar-role">AI Student</p>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav" id="sidebarNav">
+        <a href="#about" class="nav-item" data-section="about">About</a>
+        <a href="#education" class="nav-item" data-section="education">Education</a>
+        <a href="#experience" class="nav-item" data-section="experience">Experience</a>
+        <a href="#publications" class="nav-item" data-section="publications">Publications</a>
+        <a href="#projects" class="nav-item" data-section="projects">Projects</a>
+        <a href="#honors" class="nav-item" data-section="honors">Honors</a>
+        <a href="#contact" class="nav-item" data-section="contact">Contact</a>
+      </nav>
+
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span id="themeLabel">Dark</span>
+      </button>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <p>© 2026 Minh Quan</p>
+        <p class="footer-meta">Last updated: Jun 2026</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-inner">
+
+      <!-- About -->
+      <section class="section" id="about" data-section="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-body">
+
+          <div class="about-bio reveal">
+            <p class="role-intro">Hi! I'm Nguyen Minh Quan.</p>
+
+            <p>
+              I am an undergraduate student in <span class="emphasis">Artificial Intelligence</span> at the
+              University of Technology Sydney (UTS) and Ho Chi Minh City University of Technology (HCMUT), Vietnam.
+            </p>
+
+            <p>
+              I am currently a member of the <strong>URA Research Group</strong> at Ho Chi Minh City University of
+              Technology, where I participate in research projects involving <span class="emphasis">machine learning,
+              explainable artificial intelligence (XAI), and human-centered technology</span>. My recent work
+              includes model interpretability using SHAP, transformer-based architectures, and real-time AI systems
+              for practical applications.
+            </p>
+
+            <p>
+              Beyond research, I am the <span class="emphasis">Founder and Team Leader of AquaGuard</span>, a flood
+              rescue and emergency response platform designed to connect victims, volunteers, and rescue teams through
+              web and mobile technologies. The project integrates artificial intelligence, geospatial technologies,
+              and community-driven coordination to improve disaster response and resilience.
+            </p>
+
+            <p>
+              Outside of technical work, I am actively involved in leadership, public speaking, and community
+              initiatives. I have served as a student leader, event coordinator, master of ceremonies (MC), and
+              project lead across academic, social-impact, and international collaboration programs. I am
+              particularly interested in the intersection of technology, education, and social innovation, with a
+              focus on developing solutions that create meaningful societal impact.
+            </p>
+
+            <p>
+              My current research interests include <span class="emphasis">Computer Vision,
+              Human Action Recognition, Transformer Architectures, and Explainable Artificial Intelligence (XAI)</span>.
+              I am particularly interested in exploring how transformer-based models can improve human activity
+              understanding while providing greater transparency and interpretability in real-world applications.
+            </p>
+
+            <p class="contact-intro-line">You can contact me via:</p>
+            <ul class="contact-list-bullets">
+              <li>Phone: <a href="tel:+84908538467">+84 908 538 467</a></li>
+              <li>Email: <a href="mailto:minhquan.nguyen-2@student.uts.edu.au">minhquan.nguyen-2@student.uts.edu.au</a> (preferred) or <a href="mailto:quan.nguyenalex2512@hcmut.edu.vn">quan.nguyenalex2512@hcmut.edu.vn</a></li>
+            </ul>
+
+            <p class="contact-cv-line">
+              My academic CV is available <a href="../../my_resume.pdf" target="_blank" rel="noopener noreferrer">here</a>.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section" id="education" data-section="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-body">
+          <div class="entry reveal">
+            <div class="entry-header">
+              <div>
+                <h3 class="entry-title">University of Technology Sydney (UTS)</h3>
+                <p class="entry-subtitle">B.S. Artificial Intelligence — Sydney, Australia</p>
+              </div>
+              <span class="entry-date">Sep. 2025 – 2028</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>Cumulative GPA: <strong>6.5 / 7.0</strong></li>
+              <li>High Distinction for Mathematics and Computer Science courses</li>
+              <li>Coursework: Machine Learning, Deep Learning &amp; CNNs, Data Structures &amp; Algorithms, Business Modelling</li>
+            </ul>
+          </div>
+          <div class="entry reveal">
+            <div class="entry-header">
+              <div>
+                <h3 class="entry-title">Lawrence S. Ting School</h3>
+                <p class="entry-subtitle">High School Diploma — Ho Chi Minh City, Vietnam</p>
+              </div>
+              <span class="entry-date">2018 – 2025</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>Top 5% Graduate</li>
+              <li>SAT: <strong>1500</strong> (Math 740, Verbal 760)</li>
+              <li>IELTS: <strong>8.0</strong></li>
+              <li>Student Council President (2024–2025)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section" id="experience" data-section="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-body">
+          <div class="entry reveal">
+            <div class="entry-header">
+              <div>
+                <h3 class="entry-title">AquaGuard — Flood Rescue Platform</h3>
+                <p class="entry-subtitle">Founder &amp; Project Lead — University of Technology Sydney</p>
+              </div>
+              <span class="entry-date">Sep. 2025 – Present</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>Founded AquaGuard, a real-time emergency coordination system for flood disaster response, connecting citizens and rescue teams through SOS reporting and live dashboards</li>
+              <li>Led a 10-member team, shipping MVP within 6 months — deployed at <a href="https://aquaguard.vn" target="_blank" rel="noopener noreferrer">aquaguard.vn</a></li>
+              <li>Built with JavaScript, WebSocket, and Firebase — web and mobile applications</li>
+              <li>Drove user growth through outreach campaigns reaching 1,400+ followers and 500,000+ total content views</li>
+            </ul>
+          </div>
+          <div class="entry reveal">
+            <div class="entry-header">
+              <div>
+                <h3 class="entry-title">URA Research Group</h3>
+                <p class="entry-subtitle">AI Research Lab Member — Ho Chi Minh City University of Technology</p>
+              </div>
+              <span class="entry-date">Mar. 2026 – Present</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>Processed and analyzed 50K+ 3D skeleton sequences across NTU RGB+D and elderly activity datasets</li>
+              <li>Fine-tuned Transformer-based models (MotionBERT, SkateFormer) for early action recognition</li>
+              <li>Developed a real-time inference demo using FastAPI, WebSocket, and React.js</li>
+              <li>Contributing to a paper on Transformer-based early action recognition for elderly safety monitoring, with SHAP-based explainability and benchmark evaluation</li>
+              <li>Supported faculty at Ho Chi Minh City University of Technology in authoring educational materials</li>
+            </ul>
+          </div>
+          <div class="entry reveal">
+            <div class="entry-header">
+              <div>
+                <h3 class="entry-title">Bach Khoa Green Innovation Club</h3>
+                <p class="entry-subtitle">Director, Board of Directors — Ho Chi Minh City, Vietnam</p>
+              </div>
+              <span class="entry-date">Dec. 2025 – Present</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>Guided 10+ students in research ideation and technical project development, increasing club membership by 30%</li>
+              <li>Proposed and led environmental innovation projects, contributing to the club's Top 1 performance recognition</li>
+            </ul>
+          </div>
+          <div class="entry reveal">
+            <div class="entry-header">
+              <div>
+                <h3 class="entry-title">FINECS Vietnam</h3>
+                <p class="entry-subtitle">Technical Data Extern — Thuan An, Vietnam</p>
+              </div>
+              <span class="entry-date">Jun. 2024 – Aug. 2024</span>
+            </div>
+            <ul class="entry-bullets">
+              <li>Produced technical reports on machinery performance and production operations</li>
+              <li>Built data dashboards in Excel to organize raw operational data into basic insights</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section class="section" id="publications" data-section="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="section-body">
+          <div class="publication reveal">
+            <h3 class="publication-title">Transformer-based Early Action Recognition for Elderly Safety Monitoring</h3>
+            <p class="publication-meta">
+              <span class="pub-status">In Progress</span> — URA Research Group
+            </p>
+            <p class="publication-desc">
+              Research paper on using Transformer-based models (MotionBERT, SkateFormer) for early human action
+              recognition in elderly care settings. Includes SHAP-based explainability analysis and benchmark
+              evaluation on NTU RGB+D and elderly activity datasets.
+            </p>
+            <div class="publication-tags">
+              <span class="tag">Transformers</span>
+              <span class="tag">SHAP Explainability</span>
+              <span class="tag">Human Action Recognition</span>
+            </div>
+          </div>
+          <div class="publication reveal">
+            <h3 class="publication-title">Introduction to Computing</h3>
+            <p class="publication-meta">
+              <span class="pub-status">In Progress</span> — Supporter
+            </p>
+            <p class="publication-desc">
+              Supported faculty members at Ho Chi Minh City University of Technology (HCMUT) in authoring and drafting
+              Chapter 1 on computer architecture and Von Neumann principles. This project is a key initiative of the
+              URA Research Group, designed to provide foundational materials for undergraduate computer science students.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" id="projects" data-section="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-body">
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div>
+                <h3 class="project-name">
+                  AquaGuard — Flood Rescue Platform
+                  <span class="project-status in-progress">In Progress</span>
+                </h3>
+                <p class="project-tech">Founder &amp; Lead — JavaScript · WebSocket · Firebase · React.js</p>
+              </div>
+              <div class="project-links">
+                <a href="https://aquaguard.vn" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live
+                </a>
+              </div>
+            </div>
+            <p class="project-desc">
+              Real-time flood emergency management system connecting citizens and rescue teams through
+              SOS reporting, live coordination dashboards, and WebSocket-powered live tracking.
+              MVP shipped in 6 months; presented at UTS Biomedical Data Science Lab (2026).
+              Built with JavaScript, WebSocket, and Firebase — deployed at aquaguard.vn.
+              Awarded 1st Place Winner at EPICS 8th (ASU, 2026).
+            </p>
+            <div class="project-stats">
+              <span class="stat"><strong>10</strong> team members</span>
+              <span class="stat"><strong>6</strong> months to MVP</span>
+              <span class="stat"><strong>1,400+</strong> followers</span>
+              <span class="stat"><strong>500K+</strong> content views</span>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div>
+                <h3 class="project-name">
+                  CFC — Carbon Footprint Tracker
+                  <span class="project-status completed">Completed</span>
+                </h3>
+                <p class="project-tech">Founder &amp; Lead — Python · Anvil · Figma</p>
+              </div>
+              <div class="project-links">
+                <a href="https://carbon-calculator.anvil.app" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live
+                </a>
+              </div>
+            </div>
+            <p class="project-desc">
+              UI/UX design and implementation of a carbon emissions tracking web application
+              in collaboration with Fu Jen Catholic University, Taipei. Designed responsive
+              interfaces using Figma; built the backend with Python and Anvil.
+              Presented at Fu Jen Catholic University as part of the international collaboration.
+              Supports environmental education and research.
+            </p>
+            <div class="project-stats">
+              <span class="stat"><strong>UI/UX</strong> Design</span>
+              <span class="stat"><strong>International</strong> Collaboration</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-header">
+              <div>
+                <h3 class="project-name">
+                  Pennywise — Personal Finance Tracker
+                  <span class="project-status in-progress">In Progress</span>
+                </h3>
+                <p class="project-tech">Founder &amp; Lead — React.js · Tailwind CSS · Firebase · Express.js · Prisma · Groq AI</p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/minhquan-maker/pennywise" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <p class="project-desc">
+              AI-powered personal finance application designed to help users track daily expenses,
+              manage budgets, and visualize spending habits through intuitive dashboards.
+              Features real-time expense tracking, automated budget categorization with Groq AI,
+              interactive data visualizations, and cross-platform accessibility. Built with React.js,
+              Tailwind CSS, Firebase, Express.js, and Prisma.
+            </p>
+            <div class="project-stats">
+              <span class="stat"><strong>AI</strong>-powered categorization</span>
+              <span class="stat"><strong>Real-time</strong> tracking</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Honors -->
+      <section class="section" id="honors" data-section="honors">
+        <h2 class="section-title">Honors &amp; Awards</h2>
+        <div class="section-body">
+          <div class="award reveal">
+            <div class="award-header">
+              <div>
+                <h3 class="award-name">1st Place Winner — Engineering Projects in Community Service (EPICS) 8th</h3>
+                <p class="award-event">Issued by Arizona State University</p>
+              </div>
+              <span class="award-year">2026</span>
+            </div>
+          </div>
+          <div class="award reveal">
+            <div class="award-header">
+              <div>
+                <h3 class="award-name">1st Place Winner — OISP Presentation Contest (OPC) 2025</h3>
+                <p class="award-event">Issued by Ho Chi Minh University of Technology</p>
+              </div>
+              <span class="award-year">2025</span>
+            </div>
+          </div>
+          <div class="award reveal">
+            <div class="award-header">
+              <div>
+                <h3 class="award-name">Best Presenter Award — REACH Vietnam 2025</h3>
+                <p class="award-event">Issued by Universiti Teknologi Malaysia</p>
+              </div>
+              <span class="award-year">2025</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact" data-section="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="section-body">
+          <p class="contact-intro reveal">
+            Feel free to connect with me through LinkedIn, GitHub, or email. I am always interested in
+            exchanging ideas, exploring research opportunities, and collaborating on projects related
+            to artificial intelligence, technology, and social impact.
+          </p>
+          <div class="contact-grid reveal">
+            <a href="mailto:minhquan.nguyen-2@student.uts.edu.au" class="contact-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">minhquan.nguyen-2@student.uts.edu.au</span>
+              </div>
+            </a>
+            <a href="tel:+84908538467" class="contact-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.74a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">(+84) 908 538 467</span>
+              </div>
+            </a>
+            <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">minhquan-maker</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/ngminhquan/" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">ngminhquan</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
