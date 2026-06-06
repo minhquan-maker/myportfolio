@@ -2,3 +2,5 @@ CLAUDE.md
 v2/CLAUDE.md
 .DS_Store
 *.pdf
+!v3/assets/my_resume.pdf
+v3/docs/
