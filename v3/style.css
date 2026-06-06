@@ -758,7 +758,7 @@ ul, ol {
 
 .about-bio .role-intro {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-heading);
   margin-bottom: 1rem;
 }
