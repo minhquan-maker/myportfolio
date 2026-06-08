@@ -1,9 +1,9 @@
 # Quan Minh Nguyen — Portfolio
 
-Personal portfolio website showcasing projects, skills, research, and journey as an AI researcher at UTS Sydney.
+AI research student at UTS Sydney & HCMUT. Building technology for real-world impact — from flood emergency management to explainable AI.
 
-[![v1-portfolio](https://img.shields.io/badge/v1-Live%20Site-yellow?style=flat-square&logo=github-pages)](https://minhquan-maker.github.io/myportfolio/v1/)
-[![Platform](https://img.shields.io/badge/Platform-Web-blue?style=flat-square)](https://minhquan-maker.github.io/myportfolio/v1/)
+[![Live](https://img.shields.io/badge/Live-Vercel-000?style=flat-square&logo=vercel)](https://minhquannguyen.vercel.app/)
+[![Platform](https://img.shields.io/badge/Platform-Web-blue?style=flat-square)](https://minhquannguyen.vercel.app/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](#)
 
 ---
@@ -12,75 +12,98 @@ Personal portfolio website showcasing projects, skills, research, and journey as
 
 ```
 Quan Minh Nguyen
-├── 🎓 AI Research Student — UTS Sydney
-├── 🌏 Ho Chi Minh City, Vietnam
-├── 🔬 Research Interests — AI, Environmental Technology, Human Action Recognition
-└── 💼 Currently — URA Group Researcher
+├── 🎓 AI Research — UTS Sydney · HCMUT
+├── 🔬 Research — Computer Vision · XAI · Human Action Recognition
+├── 🔬 Founder & Lead — AquaGuard Flood Rescue Platform
+└── 💼 Member — URA Research Group, HCMUT
 ```
-
-I'm an AI research student passionate about building technology that makes a real-world impact — from flood emergency management to carbon monitoring. This portfolio is a living record of my work, experience, and the things I care about.
 
 ---
 
-## Versions
+## Site Structure
 
-| Version | Stack | Description |
-|---------|-------|-------------|
-| **v1/** | Plain HTML/CSS/JS | Original black & gold portfolio (GSAP + ScrollTrigger) |
-| **v2/** | React + Vite | 3D Creator landing page (Tailwind + Framer Motion) |
+```
+my_website/          ← production (live)
+  index.html         single-page with sidebar nav
+  style.css          dark/light theme via CSS variables
+  script.js          theme toggle, mobile nav, scroll
+  assets/
+    my_resume.pdf    academic CV
+
+old_websites/        archived v1 (dark/gold, GSAP + ScrollTrigger)
+  index.html
+  styles.css
+  script.js
+  img/
+```
 
 ---
 
 ## Sections
 
-| Section | What You'll Find |
-|---------|----------------|
-| **About** | Who I am, my background, and what drives me |
-| **Work** | Projects across AI, environmental tech, and full-stack development |
-| **Journey** | University life, research experience, and academic milestones |
-| **Life** | Beyond code — travel, interests, and the human side |
+| Section | Content |
+|---------|---------|
+| **About** | Background, research interests, current work |
+| **Education** | UTS & HCMUT degrees, coursework highlights |
+| **Experience** | Research roles, URA Group, AquaGuard leadership |
+| **Publications** | Conference papers, research outputs |
+| **Projects** | AquaGuard, AirGuard, market microstructure, calculus review |
+| **Honors** | Awards, EPICS 8th, hackathon recognition |
+| **Contact** | Email, phone, LinkedIn, GitHub |
 
 ---
 
 ## Tech Stack
 
 ```
-v1/   Plain HTML5 · CSS3 · Vanilla JS (ES6+) · GSAP · ScrollTrigger · Lenis
-v2/   React 18 · TypeScript · Tailwind CSS · Framer Motion · Vite
-Fonts  Cormorant Garamond · Syne · IBM Plex Mono (v1) · Kanit (v2)
+Frontend    Plain HTML5 · CSS3 · Vanilla JS (ES6+)
+Fonts       Cormorant Garamond · Syne · IBM Plex Mono
+Theme       Dark / Light (CSS custom properties)
+Deploy      Vercel (static hosting, auto-deploy on push to main)
 ```
 
 ---
 
 ## Getting Started
 
-### v1 (plain HTML)
 ```bash
-cd v1 && python3 -m http.server 8081
+# Current production site
+cd my_website && python3 -m http.server 8081
 # → http://localhost:8081
+
+# Archived v1
+cd old_websites && python3 -m http.server 8082
+# → http://localhost:8082
 ```
-
-### v2 (React)
-```bash
-cd v2 && npm install && npm run dev
-# → http://localhost:5173
-```
-
-### Deploy
-
-**v1 → GitHub Pages:** Push to `main` → auto-deployed at `https://minhquan-maker.github.io/myportfolio/v1/`
 
 ---
 
-## Design System (v1)
+## Deployment
 
-| Property | Value |
-|----------|-------|
-| Theme | Dark mode only |
-| Background | `#080808` |
-| Text | `#f4eed8` (warm cream) |
-| Accent | `#f0c93a` (gold yellow) |
-| Fonts | Cormorant Garamond, Syne, IBM Plex Mono |
+- **Production:** Vercel — auto-deploys from `main` branch
+- **Config:** `vercel.json` sets `outputDirectory: "my_website"`
+- **Resume PDF:** Tracked via `!my_website/assets/my_resume.pdf` in `.gitignore`
+
+---
+
+## Design System
+
+| Property | Light | Dark |
+|----------|-------|------|
+| Background | `#ffffff` | `#0a0a0a` |
+| Text | `#1a1a2e` | `#e8e8e8` |
+| Sidebar bg | `#f0f0f0` | `#111111` |
+| Accent | `#2563eb` | `#60a5fa` |
+| Fonts | Cormorant Garamond (headings) · Syne (UI) · IBM Plex Mono (mono) | same |
+
+---
+
+## Key Projects
+
+- **AquaGuard** — Multi-platform flood rescue (EPICS 8th Award, IEEE 2026)
+- **AirGuard** — On-device CO2 monitoring (VinUniversity AI Hackathon 2026)
+- **Market Microstructure Simulator** — Order book + 5 trading agents, WebSocket streaming
+- **UTS AI Research** — Transformer-based models for human action recognition & XAI
 
 ---
 
@@ -90,12 +113,4 @@ cd v2 && npm install && npm run dev
 |----------|------|
 | GitHub | [minhquan-maker](https://github.com/minhquan-maker) |
 | LinkedIn | [ngminhquan](https://www.linkedin.com/in/ngminhquan/) |
-| Facebook | [mquan2512](https://www.facebook.com/mquan2512/) |
-
----
-
-## Key Projects
-
-- **AquaGuard** — Multi-platform flood emergency management (EPICS 8th, IEEE 2026)
-- **AirGuard** — AI-powered carbon monitoring (VinUniversity Hackathon, 2026)
-- **UTS AI Research** — Transformer-based models for human action recognition
+| Email | minhquan.nguyen-2@student.uts.edu.au |
