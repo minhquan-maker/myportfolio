@@ -4,4 +4,5 @@ old_websites/
 .DS_Store
 *.pdf
 !my_website/assets/my_resume.pdf
+!my_website/certificate/**/*.pdf
 v3/docs/
