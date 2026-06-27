@@ -659,11 +659,6 @@ ul, ol {
   align-items: baseline;
   gap: 0.6rem;
   padding: 0.55rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.achievement-item:last-child {
-  border-bottom: none;
 }
 
 .achievement-num {
