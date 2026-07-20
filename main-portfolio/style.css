@@ -2269,7 +2269,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
   .hero {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
     padding: var(--nav-h) var(--s4) 0;
   }
   .hero__social {
@@ -2288,6 +2288,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero__portrait-wrap { width: 240px; }
   .hero__portrait-img { width: 240px; height: 304px; }
   .hero__portrait-overlay { width: 240px; height: 304px; }
+  .hero__ring { display: none; }
   .hero__portrait-stats { gap: var(--s2); }
   .hero__stat-value { font-size: 1.6rem; }
   .hero__stat-label { font-size: 0.6rem; }
@@ -2296,14 +2297,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     grid-row: 3;
     padding: var(--s4) 0;
   }
-  .hero__scroll { display: none; }
-
-  .section { padding: var(--s8) var(--s4); }
   .logo-strip {
+    grid-column: 1;
+    grid-row: 4;
     padding: var(--s4);
     gap: var(--s4);
     flex-direction: column;
   }
+  .hero__scroll { display: none; }
+
+  .section { padding: var(--s8) var(--s4); }
   .logo-strip__divider { display: none; }
   .logo-strip__logos { gap: var(--s4); }
   .logo-strip__logos img { height: 22px; max-height: 22px; }
