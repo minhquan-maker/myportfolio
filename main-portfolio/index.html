@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minh Quan's Portfolio</title>
+  <meta name="description" content="AI research student at UTS & HCMUT. Human-Centered AI, Computer Vision, Explainable ML.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nguyen Minh Quan — AI Research Student">
+  <meta property="og:description" content="AI research student at UTS & HCMUT. Human-Centered AI, Computer Vision, Explainable ML.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Mono:wght@400;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FAFAF8'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='16' font-weight='bold' fill='%234A7AB0'>MQ</text></svg>">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Navigation ───────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__brand">
+      <a href="#" class="nav__logo nav__logo--home">
+        <svg class="nav__logo__mq" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="16" fill="var(--accent)"/>
+          <text x="16" y="21" text-anchor="middle" font-family="'Playfair Display', serif" font-size="13" font-weight="700" fill="white" letter-spacing="0.5">MQ</text>
+        </svg>
+      </a>
+      <span class="nav__logo__name nav__logo__name--lang" title="Translation mode coming soon">Xin chào · Hello · Bienvenue</span>
+    </div>
+    <div class="nav__inner">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="assets/my_resume.pdf" target="_blank" rel="noopener" class="btn-cv">
+        <span class="btn-cv__icon">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3v7M5 7.5l3 3 3-3"/>
+            <path d="M3 13h10"/>
+          </svg>
+        </span>
+        My Resume
+      </a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="nav__overlay" id="overlay">
+    <a href="#about" class="overlay-link">About</a>
+    <a href="#experiences" class="overlay-link">Experiences</a>
+    <a href="#projects" class="overlay-link">Projects</a>
+    <a href="#publications" class="overlay-link">Publications</a>
+    <a href="#recognition" class="overlay-link">Recognition</a>
+    <a href="#contact" class="overlay-link">Contact</a>
+    <a href="assets/my_resume.pdf" target="_blank" rel="noopener" class="btn-cv" style="margin-top: 1rem;">
+      <span class="btn-cv__icon">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3v7M5 7.5l3 3 3-3"/>
+          <path d="M3 13h10"/>
+        </svg>
+      </span>
+      Download CV
+    </a>
+  </div>
+
+  <!-- ── Hero ───────────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+
+    <!-- Decorative blobs -->
+    <div class="hero__blob hero__blob-1"></div>
+    <div class="hero__blob hero__blob-2"></div>
+    <div class="hero__blob hero__blob-3"></div>
+
+    <!-- Left: social icons -->
+    <div class="hero__social">
+      <!-- Social icons -->
+      <a href="https://www.facebook.com/mquan2512" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener" aria-label="ORCID">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .954.43.954.954s-.43.954-.954.954a.957.957 0 0 1-.955-.954c0-.525.43-.954.955-.954zm-.719 3.563h1.44v11.25H6.65V7.941zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.625 0 2.718-1.478 5.25-4.688 5.25h-4.556V7.941zm1.44 1.125v9h2.482c2.753 0 3.482-2.194 3.482-4.5 0-2.227-.937-4.5-3.63-4.5h-2.334z"/></svg>
+      </a>
+      <a href="mailto:minhquan.nguyen-2@student.uts.edu.au" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M2 7l10 7 10-7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Portrait column (left side of content area) -->
+    <div class="hero__portrait-col">
+      <div class="hero__portrait-wrap">
+
+        <!-- Organic blob clipPath — defined inline in the SVG -->
+        <svg width="0" height="0" style="position:absolute">
+          <defs>
+            <clipPath id="blob-mask" clipPathUnits="userSpaceOnUse">
+              <!-- Organic liquid blob shape -->
+              <path d="
+                M 170,10
+                C 248,8   312,32  330,94
+                C 352,168 346,220  338,260
+                C 328,300 314,332  288,352
+                C 258,376 218,390  170,391
+                C 120,392  72,370   44,338
+                C  14,302   4,248    6,188
+                C   8,122  32, 64   68, 32
+                C 102, 4  134, 12  170, 10
+                Z
+              "/>
+            </clipPath>
+          </defs>
+        </svg>
+
+        <!-- Portrait image with organic blob clip -->
+        <img class="hero__portrait-img" src="assets/profile.jpg" alt="Nguyen Minh Quan" loading="eager">
+
+        <!-- Blue gradient overlay on portrait -->
+        <div class="hero__portrait-overlay"></div>
+
+        <!-- Orbital SVG line -->
+        <svg class="hero__orbital" viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse class="hero__orbital-path" id="orbital-path"
+            cx="210" cy="245" rx="195" ry="230"/>
+        </svg>
+
+        <!-- LET'S TALK curved ring -->
+        <svg class="hero__ring" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="circle-path" d="M 70,70 m -55,0 a 55,55 0 1,1 110,0 a 55,55 0 1,1 -110,0"/>
+          </defs>
+          <circle cx="70" cy="70" r="55"/>
+          <text font-family="'Space Mono', monospace" font-size="10" font-weight="700" letter-spacing="3" fill="#4A7AB0">
+            <textPath href="#circle-path">TALKING · LEARNING · EXPLORING</textPath>
+          </text>
+        </svg>
+
+        <!-- Portrait stats -->
+        <div class="hero__portrait-stats">
+          <div class="hero__stat">
+            <span class="hero__stat-value">8.0</span>
+            <span class="hero__stat-label">IELTS</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">1500</span>
+            <span class="hero__stat-label">SAT</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">5+</span>
+            <span class="hero__stat-label">Awards</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">7+</span>
+            <span class="hero__stat-label">Clubs/Labs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bio / content column (right side) -->
+    <div class="hero__bio-area">
+      <div class="hero__content">
+        <p class="hero__eyebrow">University of Technology Sydney</p>
+        <h1 class="hero__name">MINH QUAN<br>NGUYEN</h1>
+        <p class="hero__title">Startup Founder · AI Engineer · Product Manager</p>
+        <p class="hero__bio-text">
+          Hi! I'm Minh Quan. An AI student at <a href="https://www.uts.edu.au/" target="_blank" rel="noopener" class="hero__bio-link">UTS</a> &amp; <a href="https://hcmut.edu.vn/" target="_blank" rel="noopener" class="hero__bio-link">HCMUT</a>, lab member at <span class="hero__bio-key">URA Research Group</span>, and Co-founder of <span class="hero__bio-key">Odylytics</span>, a young tech startup working on providing disaster management platform for Vietnamese government. I'm also building AI solutions at the intersection of Computer Vision, Human-Centered AI, and Explainable AI — with a focus on disaster response and healthcare applications. Find out more about my story below!
+        </p>
+        <p class="hero__quote">“The only limits you have are the limits you believe.”</p>
+        <div class="hero__cta" style="--delay: 0.72s">
+          <a href="#contact" class="btn-primary">
+            Get in touch
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+
+    <!-- Logo strip -->
+    <div class="logo-strip">
+      <span class="logo-strip__label">Experience &amp; Affiliations</span>
+      <div class="logo-strip__divider"></div>
+      <div class="logo-strip__logos">
+        <img src="logos/1.png" alt="Oydlytics" loading="lazy">
+        <img src="logos/2.png" alt="UTS" loading="lazy">
+        <img src="logos/3.png" alt="HCMUT" loading="lazy">
+        <img src="logos/4.png" alt="EPICS" loading="lazy">
+        <img src="logos/5.png" alt="Leave a Nest" loading="lazy">
+        <img src="logos/6.png" alt="American Study" loading="lazy">
+        <img src="logos/7.png" alt="ACM" loading="lazy">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Education ───────────────────────────────────────────────── -->
+  <section class="section education" id="about">
+    <div class="section__label reveal">About me</div>
+    <h2 class="section__heading reveal">1. Education</h2>
+
+    <div class="edu-timeline">
+      <!-- UTS -->
+      <div class="edu-entry reveal">
+        <div class="edu-entry__dot"></div>
+        <div class="edu-entry__card">
+          <div class="edu-entry__header">
+            <div>
+              <h3 class="edu-entry__school">University of Technology Sydney</h3>
+              <p class="edu-entry__degree">Bachelor of Artificial Intelligence</p>
+              <span class="edu-entry__location">Sydney, AUS</span>
+            </div>
+            <div class="edu-entry__meta">
+              <span class="edu-entry__year">Sep. 2025–2028</span>
+              <span class="edu-entry__gpa">6.6 / 7.0</span>
+              <span class="edu-entry__gpa-label">High Distinction WAM</span>
+            </div>
+          </div>
+          <div class="edu-entry__details">
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Relevant Coursework</span>
+              <p class="edu-entry__detail-text">Machine Learning (31005), Deep Learning (42028), Data Structures &amp; Algorithms (31251)</p>
+            </div>
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Societies &amp; Activities</span>
+              <p class="edu-entry__detail-text">UTS Testimonial 2026, UTS Dean's List, TNE Event's Master of Ceremonies, AI Intelligence Drone Lab</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HCMUT -->
+      <div class="edu-entry reveal" style="--delay: 0.1s">
+        <div class="edu-entry__dot"></div>
+        <div class="edu-entry__card">
+          <div class="edu-entry__header">
+            <div>
+              <h3 class="edu-entry__school">Ho Chi Minh City University of Technology</h3>
+              <p class="edu-entry__degree">Transnational Education Program with UTS</p>
+            </div>
+            <div class="edu-entry__meta">
+              <span class="edu-entry__gpa">4.0 / 4.0</span>
+              <span class="edu-entry__gpa-label">High Distinction WAM</span>
+            </div>
+          </div>
+          <div class="edu-entry__details">
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Course Taken</span>
+              <p class="edu-entry__detail-text">Programming I (U41039) &amp; Effective Communication (SK1001)</p>
+            </div>
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Societies &amp; Activities</span>
+              <p class="edu-entry__detail-text">URA Student Research Group, HPC Summer School, Bach Khoa Green Innovation Club, International Student Ambassadors, Master of Ceremonies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fu Jen Catholic University -->
+      <div class="edu-entry reveal edu-entry--hidden" style="--delay: 0.2s">
+        <div class="edu-entry__dot"></div>
+        <div class="edu-entry__card">
+          <div class="edu-entry__header">
+            <div>
+              <h3 class="edu-entry__school">Fu Jen Catholic University</h3>
+              <p class="edu-entry__degree">Visiting Student</p>
+            </div>
+          </div>
+          <div class="edu-entry__details">
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Course Taken</span>
+              <p class="edu-entry__detail-text">Design Thinking, Sustainability and Carbon Footprint Inventory by Dr. Jia-Ci Jhang</p>
+            </div>
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Activities</span>
+              <p class="edu-entry__detail-text">International Student Network, Experimental Field Trip, Carbon Tracking Project</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lawrence S. Ting School -->
+      <div class="edu-entry reveal edu-entry--hidden" style="--delay: 0.3s">
+        <div class="edu-entry__dot"></div>
+        <div class="edu-entry__card">
+          <div class="edu-entry__header">
+            <div>
+              <h3 class="edu-entry__school">Lawrence S. Ting School</h3>
+              <p class="edu-entry__degree">High School Diploma</p>
+            </div>
+            <div class="edu-entry__meta">
+              <span class="edu-entry__gpa">3.8 / 4.0</span>
+              <span class="edu-entry__gpa-label">Top 5% Graduated</span>
+            </div>
+          </div>
+          <div class="edu-entry__details">
+            <div class="edu-entry__detail-group">
+              <span class="edu-entry__detail-label">Societies &amp; Activities</span>
+              <p class="edu-entry__detail-text">House Leader, Board of Representative, Media Team, Asian Youth Forum Ambassadors, Club Founders, Varsity Soccer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-expand-wrap">
+      <button class="edu-expand-btn reveal" id="edu-expand-btn">
+        <span>Show all educations</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ── Experiences ──────────────────────────────────────────── -->
+  <section class="section experiences" id="experiences">
+    <div class="section__label reveal">Where I've been</div>
+    <h2 class="section__heading reveal">2. Experiences</h2>
+
+    <!-- ── Card grid ──────────────────────────────────────── -->
+    <div class="exp-grid">
+
+      <!-- Card 01: Odylytics -->
+      <div class="exp-card reveal" data-exp="odylytics">
+        <div class="exp-card__header">
+          <span class="exp-card__num">01</span>
+          <div class="exp-card__meta">
+            <div class="exp-card__role">Co-founder &amp; Team Leader</div>
+            <div class="exp-card__org">Odylytics</div>
+            <div class="exp-card__time">2025 — Present · Vietnam</div>
+          </div>
+        </div>
+        <p class="exp-card__desc">A social technology company building public digital infrastructure for disaster preparedness, emergency communication, and rescue coordination. Free services for citizens, sustainable revenue through government contracts and grants.</p>
+        <div class="exp-card__chips">
+          <span>Social Enterprise</span>
+          <span>Disaster Tech</span>
+          <span>Public Infrastructure</span>
+        </div>
+        <div class="exp-card__stat">AquaGuard — MVP in 6 months</div>
+        <button class="exp-card__btn" aria-haspopup="dialog">Read more</button>
+      </div>
+
+      <!-- Card 02: URA Research -->
+      <div class="exp-card reveal" style="--delay:0.1s" data-exp="ura">
+        <div class="exp-card__header">
+          <span class="exp-card__num">02</span>
+          <div class="exp-card__meta">
+            <div class="exp-card__role">Research Assistant</div>
+            <div class="exp-card__org">URA Research Group, HCMUT</div>
+            <div class="exp-card__time">2024 — 2025 · Vietnam</div>
+          </div>
+        </div>
+        <p class="exp-card__desc">Joined the undergraduate research programme at Ho Chi Minh City University of Technology — contributed to AI benchmarking, co-authored an introductory textbook, and published applied ML research.</p>
+        <div class="exp-card__chips">
+          <span>Research</span>
+          <span>Machine Learning</span>
+          <span>Peer Teaching</span>
+        </div>
+        <div class="exp-card__stat">3 projects · 1 publication</div>
+        <button class="exp-card__btn" aria-haspopup="dialog">Read more</button>
+      </div>
+
+      <!-- Card 03: MC -->
+      <div class="exp-card reveal" style="--delay:0.2s" data-exp="mc">
+        <div class="exp-card__header">
+          <span class="exp-card__num">03</span>
+          <div class="exp-card__meta">
+            <div class="exp-card__role">Master of Ceremonies</div>
+            <div class="exp-card__org">HCMUT &amp; UTS</div>
+            <div class="exp-card__time">2024 — Present · Vietnam · Australia</div>
+          </div>
+        </div>
+        <p class="exp-card__desc">Hosting flagship academic sessions across Vietnam and Australia — bridging expert insight and student audiences on stage, in both English and Vietnamese.</p>
+        <div class="exp-card__chips">
+          <span>Public Speaking</span>
+          <span>Bilingual</span>
+          <span>Academic Events</span>
+        </div>
+        <div class="exp-card__stat">2 programs · 1,000+ audience</div>
+        <button class="exp-card__btn" aria-haspopup="dialog">Read more</button>
+      </div>
+
+      <!-- Card 04: Invited Speaker -->
+      <div class="exp-card reveal" style="--delay:0.3s" data-exp="speaker">
+        <div class="exp-card__header">
+          <span class="exp-card__num">04</span>
+          <div class="exp-card__meta">
+            <div class="exp-card__role">Invited Speaker</div>
+            <div class="exp-card__org">U.S. Study Abroad &amp; Tech Planter 2026</div>
+            <div class="exp-card__time">2024 — 2026 · Vietnam</div>
+          </div>
+        </div>
+        <p class="exp-card__desc">Speaking on education pathways and AI research impact — from a 1,000-person college preparation seminar to a deep-tech innovation showcase with Leave a Nest Vietnam.</p>
+        <div class="exp-card__chips">
+          <span>Public Speaking</span>
+          <span>Education</span>
+          <span>Deep Tech</span>
+        </div>
+        <div class="exp-card__stat">2 events · 1,000+ attendees</div>
+        <button class="exp-card__btn" aria-haspopup="dialog">Read more</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Modals (one per experience) ──────────────────────────── -->
+  <div class="exp-modal-overlay" id="exp-modal-overlay" aria-hidden="true"></div>
+
+  <!-- Modal 01: Odylytics -->
+  <div class="exp-modal" id="modal-odylytics" role="dialog" aria-modal="true" aria-label="Odylytics — Co-founder &amp; CEO" hidden>
+    <button class="exp-modal__close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
+    </button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">01</span>
+        <div>
+          <div class="exp-modal__role">Co-founder &amp; Chief Executive Officer</div>
+          <div class="exp-modal__org">Odylytics · Ho Chi Minh City, Vietnam · 2025 — Present</div>
+        </div>
+      </div>
+
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">Odylytics is a social technology company developing public digital infrastructure for disaster preparedness, emergency communication, and rescue coordination. Its flagship platform, <strong>AquaGuard</strong>, helps governments, emergency responders, NGOs, and communities deliver timely disaster alerts, coordinate rescue operations, and generate actionable disaster intelligence — while keeping life-saving services free for citizens.</p>
+
+          <a href="https://aquaguard.com" target="_blank" rel="noopener" class="exp-modal__link">aquaguard.com →</a>
+
+          <ul class="exp-modal__list">
+            <li>
+              <div class="exp-modal__list-label">Mission</div>
+              <div>Free life-saving services for citizens; sustainable through government contracts, grants, and custom disaster intelligence.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Flagship — AquaGuard</div>
+              <div>Nationwide alerts, citizen-to-rescuer SOS, live coordination dashboards, AI-assisted monitoring. MVP shipped in <strong>6 months</strong>.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Second Product — AirGuard</div>
+              <div>Environmental intelligence and air quality platform extending the mission to climate resilience and public health.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Roadmap</div>
+              <div>Smart Emergency Response OS — YOLO victim detection, autonomous drones, UAV mesh comms, predictive analytics.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Tagline</div>
+              <div>Engineering Safer Communities.</div>
+            </li>
+          </ul>
+
+          <div class="exp-modal__chips">
+            <span>SOS Alert</span><span>Disaster Management</span><span>Resources Allocation</span><span>Flooding</span>
+          </div>
+        </div>
+
+        <figure class="exp-modal__media">
+          <div class="exp-modal__media-frame">
+            <div class="exp-modal__media-placeholder">Media update incoming</div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 02: URA Research -->
+  <div class="exp-modal" id="modal-ura" role="dialog" aria-modal="true" aria-label="URA Research Group" hidden>
+    <button class="exp-modal__close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
+    </button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">02</span>
+        <div>
+          <div class="exp-modal__role">Undergraduate Research Assistant · Lab Member</div>
+          <div class="exp-modal__org">URA Research Group, HCMUT · 2024 — 2025</div>
+        </div>
+      </div>
+
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">Joined the undergraduate research programme at Ho Chi Minh City University of Technology — contributing to applied AI research, ML benchmarking, and peer-reviewed publications alongside faculty and fellow students.</p>
+
+          <ul class="exp-modal__list">
+            <li>
+              <div class="exp-modal__list-label">V-Bench (VinUni)</div>
+              <div>Contributed to <strong>V-Bench</strong> — a benchmark project led by VinUniversity covering model evaluation, dataset curation, and experimental analysis.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Intro to Computing</div>
+              <div>Co-authored the <strong>Introduction to Computing</strong> textbook — contributed coursebook content and peer-reviewed CS capstone projects.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Research Paper</div>
+              <div>Co-authored a published paper applying transformer-based architectures to real-world recognition tasks.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Skills Built</div>
+              <div>Machine Learning, Deep Learning, applied AI workflows within a peer-reviewed academic environment.</div>
+            </li>
+          </ul>
+
+          <div class="exp-modal__chips">
+            <span>Research</span><span>ML / DL</span><span>Peer Teaching</span><span>HCMUT</span>
+          </div>
+        </div>
+
+        <figure class="exp-modal__media">
+          <div class="exp-modal__media-frame exp-modal__media-frame--ura">
+            <div class="exp-modal__media-placeholder">Media update incoming</div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 03: MC -->
+  <div class="exp-modal" id="modal-mc" role="dialog" aria-modal="true" aria-label="Master of Ceremonies" hidden>
+    <button class="exp-modal__close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
+    </button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">03</span>
+        <div>
+          <div class="exp-modal__role">Master of Ceremonies</div>
+          <div class="exp-modal__org">HCMUT &amp; UTS · 2024 — Present</div>
+        </div>
+      </div>
+
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">Hosting flagship academic sessions across Vietnam and Australia — bridging expert insight and student audiences on stage, in both English and Vietnamese.</p>
+
+          <ul class="exp-modal__list">
+            <li>
+              <div class="exp-modal__list-label">HCMUT Webinar</div>
+              <div>MC for <strong>"AI and Adaptive Skills in the Digital Era"</strong> — International Master Programs. Featured <strong>Dr. Nguyễn Đức Dũng</strong>, Head of the Advanced Intelligent Technology Laboratory.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">UTS TNE Program</div>
+              <div>MC for the <strong>Transnational Education Program</strong> with HCMUT — moderating hybrid sessions between Sydney and Ho Chi Minh City.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">On Stage</div>
+              <div>Bilingual hosting (English &amp; Vietnamese), audience moderation, and speaker coordination for academic and industry audiences.</div>
+            </li>
+          </ul>
+
+          <div class="exp-modal__chips">
+            <span>Public Speaking</span><span>Academic Events</span><span>Bilingual</span>
+          </div>
+        </div>
+
+        <figure class="exp-modal__media">
+          <div class="exp-modal__media-frame exp-modal__media-frame--mc">
+            <div class="exp-modal__media-placeholder">Media update incoming</div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 04: Invited Speaker -->
+  <div class="exp-modal" id="modal-speaker" role="dialog" aria-modal="true" aria-label="Invited Speaker" hidden>
+    <button class="exp-modal__close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
+    </button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">04</span>
+        <div>
+          <div class="exp-modal__role">Invited Speaker</div>
+          <div class="exp-modal__org">U.S. Study Abroad &amp; Tech Planter 2026 · 2024 — 2026</div>
+        </div>
+      </div>
+
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">Two speaking engagements sharing insights on education pathways, entrepreneurship, and applying AI research to real-world impact — from intimate classrooms to 1,000-person venues.</p>
+
+          <ul class="exp-modal__list">
+            <li>
+              <div class="exp-modal__list-label">U.S. Study Abroad</div>
+              <div>Invited speaker at a U.S. study abroad seminar with <strong>1,000+ participants</strong>. Shared insights on personal statements, extracurricular development, and strategic college application preparation.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Tech Planter 2026</div>
+              <div>Invited speaker at <strong>Tech Planter 2026</strong>, Leave a Nest Vietnam — a deep-tech innovation showcase for science ventures and science entrepreneurs.</div>
+            </li>
+            <li>
+              <div class="exp-modal__list-label">Topics Covered</div>
+              <div>Education pathways, entrepreneurship, and applying AI research to real-world impact.</div>
+            </li>
+          </ul>
+
+          <div class="exp-modal__chips">
+            <span>Public Speaking</span><span>1,000+ Audience</span><span>Deep Tech</span><span>Leave a Nest</span>
+          </div>
+        </div>
+
+        <figure class="exp-modal__media">
+          <div class="exp-modal__media-frame exp-modal__media-frame--speaker">
+            <div class="exp-modal__media-placeholder">Media update incoming</div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Projects ─────────────────────────────────────────────── -->
+  <section class="section projects" id="projects">
+    <div class="section__label reveal">My products</div>
+    <h2 class="section__heading reveal">3. Projects</h2>
+
+    <ol class="projects-list">
+      <li class="project-card reveal">
+        <div class="project-card__head">
+          <div class="project-card__chips">
+            <span class="project-chip project-chip--tag">Disaster Management</span>
+            <span class="project-chip project-chip--status">Live</span>
+          </div>
+          <span class="project-card__num">01</span>
+        </div>
+        <h3 class="project-card__title">AquaGuard Flood Response Platform</h3>
+        <p class="project-card__role">Co-founder &middot; Product Manager</p>
+        <p class="project-card__desc">Flood rescue platform connecting citizens, rescuers, and administrators in real time — SOS reporting, live dashboards, phone-call alerts, geolocation tracking, and disaster management built end-to-end.</p>
+        <p class="project-card__desc project-card__desc--sub">Won 1st Place at EPICS 8th (Arizona State University, 2026), OPC (Ho Chi Minh University of Technology, 2026). Covered by HTV and International Bach Khoa News.</p>
+        <div class="project-card__foot">
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Express</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">SwiftUI</span>
+            <span class="project-tag">Firebase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://aquaguard.vn" target="_blank" rel="noopener" class="project-link">Live</a>
+            <a href="https://github.com/shynnguyen1004/AquaGuard-WebApp" target="_blank" rel="noopener" class="project-link">GitHub</a>
+            <button class="project-view" data-project="aquaguard" aria-haspopup="dialog">View more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </li>
+
+      <li class="project-card reveal" style="--delay: 0.08s">
+        <div class="project-card__head">
+          <div class="project-card__chips">
+            <span class="project-chip project-chip--tag">Flood Detection</span>
+            <span class="project-chip project-chip--status project-chip--done">Demo Soon</span>
+          </div>
+          <span class="project-card__num">02</span>
+        </div>
+        <h3 class="project-card__title">Drone-based Flood Victim Detection</h3>
+        <p class="project-card__role">AI/ML Engineer</p>
+        <p class="project-card__desc">End-to-end aerial object detection pipeline for flood rescue using fine-tuned YOLOv11 — trained on VisDrone and FloodNet datasets with a Gradio inference app deployed on Hugging Face Spaces.</p>
+        <p class="project-card__desc project-card__desc--sub">Detects citizens and vehicles in aerial drone footage to support real-time flood rescue operations in Vietnam.</p>
+        <div class="project-card__foot">
+          <div class="project-tags">
+            <span class="project-tag">YOLOv11</span>
+            <span class="project-tag">PyTorch</span>
+            <span class="project-tag">Gradio</span>
+            <span class="project-tag">Hugging Face</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/minhquan-maker/flood-rescue-cv" target="_blank" rel="noopener" class="project-link">GitHub</a>
+            <button class="project-view" data-project="drone" aria-haspopup="dialog">View more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </li>
+
+      <li class="project-card reveal" style="--delay: 0.16s">
+        <div class="project-card__head">
+          <div class="project-card__chips">
+            <span class="project-chip project-chip--tag">Sustainability</span>
+            <span class="project-chip project-chip--status project-chip--done">Live</span>
+          </div>
+          <span class="project-card__num">03</span>
+        </div>
+        <h3 class="project-card__title">Carbon Footprint Calculator</h3>
+        <p class="project-card__role">UI/UX &amp; Software Engineer</p>
+        <p class="project-card__desc">Interactive web calculator for personal and product carbon footprints — built with ISO 14064 / 14067 emission methodology as an international collaboration with Fu Jen Catholic University, Taipei.</p>
+        <p class="project-card__desc project-card__desc--sub">Frames results against CBAM, SBTi, GRI, SASB, and TCFD sustainability standards for enterprise reporting.</p>
+        <div class="project-card__foot">
+          <div class="project-tags">
+            <span class="project-tag">Anvil</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">ESG</span>
+            <span class="project-tag">ISO 14064</span>
+          </div>
+          <div class="project-links">
+            <a href="https://carbon-calculator.anvil.app" target="_blank" rel="noopener" class="project-link">Live</a>
+            <button class="project-view" data-project="carbon" aria-haspopup="dialog">View more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ── Project Modals ──────────────────────────────────────── -->
+  <div class="exp-modal-overlay" id="proj-modal-overlay" hidden></div>
+
+  <div class="exp-modal" id="modal-aquaguard" hidden aria-modal="true" role="dialog" aria-labelledby="modal-aquaguard-title">
+    <button class="exp-modal__close" aria-label="Close">&times;</button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">01</span>
+        <div>
+          <p class="exp-modal__eyebrow">Project · Full-Stack Platform</p>
+          <h3 class="exp-modal__role" id="modal-aquaguard-title">AquaGuard</h3>
+          <p class="exp-modal__org">Co-founder &middot; Full-Stack Software Engineer</p>
+        </div>
+      </div>
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">A real-time flood response platform connecting three roles — <strong>citizens</strong> in distress, <strong>rescuers</strong> in the field, and <strong>administrators</strong> coordinating operations. The MVP shipped in 6 months and is live at <a href="https://aquaguard.vn" target="_blank" rel="noopener">aquaguard.vn</a>.</p>
+
+          <div class="exp-modal__section">
+            <h4>What I built</h4>
+            <ul>
+              <li>Full-stack web app with role-based dashboards (Citizen / Rescuer / Admin) and an RBAC layer</li>
+              <li>SOS reporting flow with geolocation, live status tracking and a dispatcher map</li>
+              <li>Phone-call escalation + SMS notifications via Twilio integration</li>
+              <li>Real-time location streaming over WebSocket; PostgreSQL + Prisma persistence</li>
+              <li>Native iOS companion app in SwiftUI for the Rescuer role</li>
+              <li>Firebase Auth + Cloud Messaging across web and mobile</li>
+            </ul>
+          </div>
+
+          <div class="exp-modal__section">
+            <h4>Highlights</h4>
+            <ul>
+              <li>Won 1st Place at EPICS 8th, Arizona State University, USA (2026)</li>
+              <li>Featured by VNExpress, Tài Năng Việt, and HTV</li>
+              <li>Open-sourced: <a href="https://github.com/shynnguyen1004/AquaGuard-WebApp" target="_blank" rel="noopener">Web App</a> · <a href="https://github.com/shynnguyen1004/AquaGuard-iOS" target="_blank" rel="noopener">iOS App</a></li>
+            </ul>
+          </div>
+
+          <div class="exp-modal__chips">
+            <span>React 19</span><span>Vite</span><span>Tailwind v4</span><span>Express</span><span>PostgreSQL</span><span>Prisma</span><span>Firebase</span><span>Socket.io</span><span>SwiftUI</span>
+          </div>
+        </div>
+
+        <div class="exp-modal__media-frame">
+          <div class="exp-modal__media-placeholder">Media update incoming</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-modal" id="modal-drone" hidden aria-modal="true" role="dialog" aria-labelledby="modal-drone-title">
+    <button class="exp-modal__close" aria-label="Close">&times;</button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">02</span>
+        <div>
+          <p class="exp-modal__eyebrow">Project · Computer Vision</p>
+          <h3 class="exp-modal__role" id="modal-drone-title">Drone-based Flood Victim Detection</h3>
+          <p class="exp-modal__org">AI/ML Engineer &middot; Solo project</p>
+        </div>
+      </div>
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">An end-to-end aerial object detection pipeline that fine-tunes <strong>YOLOv11</strong> to find citizens and vehicles in flood-zone drone footage, packaged behind a Gradio web app on <strong>Hugging Face Spaces</strong>.</p>
+
+          <div class="exp-modal__section">
+            <h4>What I built</h4>
+            <ul>
+              <li>Automated data preprocessing for VisDrone + FloodNet datasets, merged into a YOLO-format corpus</li>
+              <li>Fine-tuned YOLOv11 nano weights using the Ultralytics training pipeline on Google Colab (T4 GPU)</li>
+              <li>Gradio-based inference platform supporting both image and video analysis</li>
+              <li>Deployed to Hugging Face Spaces for live public demos</li>
+            </ul>
+          </div>
+
+          <div class="exp-modal__section">
+            <h4>Key results</h4>
+            <ul>
+              <li>Real-time per-frame detection with bounding-box overlay and class confidence scores</li>
+              <li>Class re-mapping layer bridging VisDrone/FloodNet source labels to AquaGuard classes (citizen / vehicle)</li>
+            </ul>
+          </div>
+
+          <div class="exp-modal__chips">
+            <span>Python</span><span>PyTorch</span><span>YOLOv11</span><span>OpenCV</span><span>Gradio 5</span><span>Hugging Face Spaces</span>
+          </div>
+        </div>
+
+        <div class="exp-modal__media-frame">
+          <div class="exp-modal__media-placeholder">Media update incoming</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-modal" id="modal-carbon" hidden aria-modal="true" role="dialog" aria-labelledby="modal-carbon-title">
+    <button class="exp-modal__close" aria-label="Close">&times;</button>
+    <div class="exp-modal__inner">
+      <div class="exp-modal__header">
+        <span class="exp-modal__num">03</span>
+        <div>
+          <p class="exp-modal__eyebrow">Project · Sustainability</p>
+          <h3 class="exp-modal__role" id="modal-carbon-title">Carbon Footprint Calculator</h3>
+          <p class="exp-modal__org">UI/UX &amp; Full-Stack Engineer</p>
+        </div>
+      </div>
+      <div class="exp-modal__body">
+        <div class="exp-modal__text">
+          <p class="exp-modal__desc">An interactive web calculator that quantifies personal and product carbon footprints against the <strong>ISO 14064 / 14067</strong> emission methodology. Built as an international collaboration at <strong>Fu Jen Catholic University, Taipei</strong>.</p>
+
+          <div class="exp-modal__section">
+            <h4>What I built</h4>
+            <ul>
+              <li>End-to-end UI/UX for the Anvil-based web app — interactive forms, dashboards, and result breakdowns</li>
+              <li>Backend logic mapping user inputs to emission factors and GWP conversions (ISO 14064-1:2018)</li>
+              <li>Product lifecycle calculator covering raw materials → manufacturing → distribution → use → disposal</li>
+              <li>Results framed against CBAM, SBTi, GRI, SASB, and TCFD sustainability standards</li>
+            </ul>
+          </div>
+
+          <div class="exp-modal__section">
+            <h4>Highlights</h4>
+            <ul>
+              <li>Live at <a href="https://carbon-calculator.anvil.app" target="_blank" rel="noopener">carbon-calculator.anvil.app</a></li>
+              <li>Co-developed with Fu Jen Catholic University, Taipei, Taiwan</li>
+            </ul>
+          </div>
+
+          <div class="exp-modal__chips">
+            <span>Anvil</span><span>Python</span><span>ESG</span><span>ISO 14064</span><span>ISO 14067</span>
+          </div>
+        </div>
+
+        <div class="exp-modal__media-frame">
+          <div class="exp-modal__media-placeholder">Media update incoming</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Publications ─────────────────────────────────────────── -->
+  <section class="section publications" id="publications">
+    <div class="section__label reveal">My researchs</div>
+    <h2 class="section__heading reveal">4. Publications</h2>
+
+    <article class="pub-card reveal">
+      <div class="pub-card__head">
+        <div class="pub-card__chips">
+          <span class="pub-chip pub-chip--status"><span class="pub-status-dot"></span>To be submitted</span>
+          <span class="pub-chip pub-chip--venue">KSE 2026</span>
+        </div>
+      </div>
+
+      <h3 class="pub-card__title">Leveraging 3D Skeleton Motion for Early Action Anticipation via Spatio-Temporal Causal Modeling</h3>
+
+      <p class="pub-card__meta">
+        <span class="pub-authors-line">
+          Manhtuan Nguyen<a class="pub-orcid" href="https://orcid.org/0009-0009-9337-5306" target="_blank" rel="noopener" aria-label="ORCID">&#9737;</a> , Duong T. T. Tran <a class="pub-orcid" href="https://orcid.org/0009-0005-3075-4297" target="_blank" rel="noopener" aria-label="ORCID">&#9737;</a> , <strong>Quan M. Nguyen</strong><a class="pub-orcid" href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener" aria-label="ORCID">&#9737;</a> , Quan Hac<a class="pub-orcid" href="https://orcid.org/0009-0000-0805-8635" target="_blank" rel="noopener" aria-label="ORCID">&#9737;</a> , Tho T. Quan<a class="pub-orcid" href="https://orcid.org/0000-0003-0467-6254" target="_blank" rel="noopener" aria-label="ORCID">&#9737;</a>
+        </span>
+        <span class="pub-card__affil">URA Research Group &middot; HCMUT, VNU-HCM</span>
+      </p>
+
+      <div class="pub-card__foot">
+        <div class="pub-tags">
+          <span class="pub-tag">3D Skeleton</span>
+          <span class="pub-tag">Early Action Anticipation</span>
+          <span class="pub-tag">Causal Modeling</span>
+          <span class="pub-tag">CTSK-Former</span>
+        </div>
+        <button class="pub-toggle" id="pub-toggle" aria-expanded="false" aria-controls="pub-detail">
+          <span class="pub-toggle__label">Show details</span>
+          <svg class="pub-toggle__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="pub-detail" id="pub-detail" hidden>
+        <div class="pub-detail__inner">
+          <div class="pub-detail__block">
+            <h4 class="pub-detail__heading">Abstract</h4>
+            <ul class="pub-detail__list">
+              <li><strong>Problem.</strong> Predict the next action <em>before</em> the current one completes — most skeleton methods only recognise what's happening now and ignore prior history.</li>
+              <li><strong>Model — CTSK-Former.</strong> Prefix-safe spatio-temporal encoder + motion-conditioned dual-stream history reasoner fusing cross-attentive &amp; masked-mean summaries through ratio-aware gates.</li>
+              <li><strong>Robustness.</strong> Curriculum History Corruption + consistency regularisation handle noisy online histories.</li>
+              <li><strong>Setup.</strong> PKU-MMD Phase 1, XView camera-M protocol — both oracle and predicted-history regimes.</li>
+              <li><strong>Result.</strong> <strong>90.17% Mean EAA</strong> with predicted history — <strong>+6.25 pp</strong> over single-stream HAPS-Former, with a <strong>+9.07 pp</strong> spike at the earliest observation ratio.</li>
+            </ul>
+          </div>
+          <div class="pub-detail__block">
+            <h4 class="pub-detail__heading">Conclusions</h4>
+            <ul class="pub-detail__list">
+              <li>CTSK-Former sets a strong controlled baseline for next-action anticipation from <strong>partial motion + discrete history</strong> — robust to realistic history-rollout errors.</li>
+              <li>Biggest wins land at <strong>low observation ratios</strong>, proving historical context carries the model when motion evidence is thin.</li>
+              <li>Future work: more datasets, per-component ablations, and extension to <strong>elderly activity anticipation</strong> for healthcare-grade activity understanding.</li>
+            </ul>
+          </div>
+          <div class="pub-detail__metrics">
+            <div class="pub-metric"><span class="pub-metric__value">90.17%</span><span class="pub-metric__label">Mean EAA</span></div>
+            <div class="pub-metric"><span class="pub-metric__value">+6.25</span><span class="pub-metric__label">vs HAPS-Former</span></div>
+            <div class="pub-metric"><span class="pub-metric__value">+9.07</span><span class="pub-metric__label">Earliest ratio</span></div>
+            <div class="pub-metric"><span class="pub-metric__value">PKU-MMD</span><span class="pub-metric__label">XView-M</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── Recognition ─────────────────────────────────────────── -->
+  <section class="section recognition" id="recognition">
+    <div class="section__label reveal">My achievements</div>
+    <h2 class="section__heading reveal">5. Recognition</h2>
+
+    <div class="recog-wrap">
+
+      <!-- ── Left: Honors & Awards ────────────────────────── -->
+      <div class="recog-col recog-awards reveal">
+        <h3 class="recog-col__title">Honors &amp; Awards</h3>
+
+        <ol class="recog-list">
+          <li class="recog-award">
+            <div class="recog-award__top">
+              <h4 class="recog-award__title">First Place — EPICS 8TH</h4>
+              <button class="recog-award__proof" data-cert="certificate/03_1stplace_epics2026_asu/1stplace_epics2026_asu.pdf" data-issuer="Arizona State University" data-date="2026" aria-haspopup="dialog">View Credit</button>
+            </div>
+            <p class="recog-award__desc">Engineering Projects in Community Service (EPICS) 8th, Arizona State University, USA. <em>(International, 2026)</em></p>
+          </li>
+          <li class="recog-award">
+            <div class="recog-award__top">
+              <h4 class="recog-award__title">First Place — OPC25</h4>
+              <button class="recog-award__proof" data-cert="certificate/02_1stplace_opc2025_hcmut/1stplace.pdf" data-issuer="Ho Chi Minh City University of Technology" data-date="2025" aria-haspopup="dialog">View Credit</button>
+            </div>
+            <p class="recog-award__desc">OISP Presentation Contest, Ho Chi Minh City University of Technology, Vietnam. <em>(Institutional, 2025)</em></p>
+          </li>
+          <li class="recog-award">
+            <div class="recog-award__top">
+              <h4 class="recog-award__title">Second Place — HPC Hackathon</h4>
+              <button class="recog-award__proof" data-cert="certificate/HPC-Hackathon-Certificate.pdf" data-issuer="HCMUT × ACM" data-date="2025" aria-haspopup="dialog">View Credit</button>
+            </div>
+            <p class="recog-award__desc">High Performance Computing Summer School, Ho Chi Minh City University of Technology × Association for Computing Machinery (ACM). <em>(National, 2025)</em></p>
+          </li>
+          <li class="recog-award">
+            <div class="recog-award__top">
+              <h4 class="recog-award__title">National Finalist</h4>
+              <button class="recog-award__proof" data-cert="certificate/04_finalist_14thdesign_fabrication_vietnam2026/finalist2026.jpg" data-issuer="Ho Chi Minh City Department of Science and Technology" data-date="2026" aria-haspopup="dialog">View Credit</button>
+            </div>
+            <p class="recog-award__desc">14th Design, Fabrication &amp; Application Competition, Ho Chi Minh City DOST, Vietnam. <em>(National, 2026)</em></p>
+          </li>
+          <li class="recog-award">
+            <div class="recog-award__top">
+              <h4 class="recog-award__title">UTS Dean's List 2026</h4>
+              <button class="recog-award__proof" data-cert="certificate/UTS-1styear-DeanList.pdf" data-issuer="University of Technology Sydney" data-date="2026" aria-haspopup="dialog">View Credit</button>
+            </div>
+            <p class="recog-award__desc">University of Technology Sydney. Top academic standing across the semester. <em>(Institutional, 2026)</em></p>
+          </li>
+          <li class="recog-award">
+            <div class="recog-award__top">
+              <h4 class="recog-award__title">Best Presenter</h4>
+              <button class="recog-award__proof" data-cert="certificate/01_best_presenter_reach2025_utm/best_presenter_reach2025_utm.pdf" data-issuer="Universiti Teknologi Malaysia" data-date="2025" aria-haspopup="dialog">View Credit</button>
+            </div>
+            <p class="recog-award__desc">REACH Vietnam — ASEAN Youth Leadership, Universiti Teknologi Malaysia, Malaysia. <em>(International, 2025)</em></p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- ── Right: Media Coverage ────────────────────────── -->
+      <div class="recog-col recog-media reveal" style="--delay:0.1s">
+        <h3 class="recog-col__title">Media Coverage</h3>
+
+        <div class="recog-media-list">
+          <a href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html" target="_blank" rel="noopener" class="recog-media-card">
+            <div class="recog-media-card__header">
+              <span class="recog-media-card__source">VNExpress</span>
+              <img src="logos/8.png" alt="VNExpress" class="recog-media-card__logo" loading="lazy">
+            </div>
+            <h4 class="recog-media-card__title">Accepted to Top-20 U.S. University with Essay on Mekong Delta Salinity Crisis</h4>
+            <p class="recog-media-card__desc">Vietnam's leading online newspaper features the story of a Vietnamese student accepted to a top-20 American university through a personal essay on salinity intrusion in the Mekong Delta.</p>
+            <span class="recog-media-card__link">Read article →</span>
+          </a>
+
+          <a href="https://tainangviet.vn/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-dar6554/" target="_blank" rel="noopener" class="recog-media-card">
+            <div class="recog-media-card__header">
+              <span class="recog-media-card__source">Viet's Talent</span>
+              <img src="logos/9.png" alt="Tài Năng Việt" class="recog-media-card__logo" loading="lazy">
+            </div>
+            <h4 class="recog-media-card__title">Vietnamese Student Earns Spot at Top-20 U.S. University with Mekong Delta Essay</h4>
+            <p class="recog-media-card__desc">Talent platform profile covering the same story — spotlighting social-impact driven education and the journey from HCMUT to UTS.</p>
+            <span class="recog-media-card__link">Read article →</span>
+          </a>
+
+          <a href="https://lsts.edu.vn/tin-tuc/hoc-sinh-lop-12-truong-dinh-thien-ly-trung-tuyen-5-truong-dai-hoc-tai-hoa-ky" target="_blank" rel="noopener" class="recog-media-card">
+            <div class="recog-media-card__header">
+              <span class="recog-media-card__source">Lawrence S. Ting</span>
+              <img src="logos/10.png" alt="Lawrence S. Ting School" class="recog-media-card__logo" loading="lazy">
+            </div>
+            <h4 class="recog-media-card__title">Grade-12 Student at Dinh Thien Ly School Accepted to Five U.S. Universities</h4>
+            <p class="recog-media-card__desc">Alumni spotlight by Lawrence S. Ting School — accepted to five universities across the United States.</p>
+            <span class="recog-media-card__link">Read article →</span>
+          </a>
+
+          <a href="https://www.youtube.com/watch?app=desktop&v=mSjGmKBHG9I" target="_blank" rel="noopener" class="recog-media-card">
+            <div class="recog-media-card__header">
+              <span class="recog-media-card__source">HTV3 Interview</span>
+              <img src="logos/11.png" alt="HTV" class="recog-media-card__logo" loading="lazy">
+            </div>
+            <h4 class="recog-media-card__title">Interview on Young Star Garden — AI, Disaster Tech &amp; Social Impact</h4>
+            <p class="recog-media-card__desc">Featured guest on HTV3's Young Star Garden — discussing the intersection of AI research and disaster-tech entrepreneurship.</p>
+            <span class="recog-media-card__link">Watch on YouTube →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Proof modal ────────────────────────────────────────── -->
+  <div class="proof-overlay" id="proof-overlay" aria-hidden="true"></div>
+  <div class="proof-modal" id="proof-modal" role="dialog" aria-modal="true" aria-label="Certificate proof" hidden>
+    <button class="proof-modal__close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
+    </button>
+    <div class="proof-modal__inner">
+      <div class="proof-modal__viewer">
+        <iframe src="" class="proof-modal__pdf" id="proof-pdf" title="Certificate proof"></iframe>
+        <img src="" alt="Certificate proof" class="proof-modal__img" id="proof-img" hidden>
+      </div>
+      <div class="proof-modal__info">
+        <div class="proof-modal__info-label">Certificate</div>
+        <div class="proof-modal__info-issuer" id="proof-issuer"></div>
+        <div class="proof-modal__info-date" id="proof-date"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Contact ──────────────────────────────────────────────── -->
+  <section class="section contact" id="contact">
+    <div class="section__label reveal">Get in touch</div>
+    <h2 class="section__heading reveal">Let's connect</h2>
+    <p class="contact-intro reveal">Feel free to reach out via email, LinkedIn, or GitHub. Always open to discussing research, collaboration, and opportunities. Let's meet again!</p>
+    <div class="contact-grid">
+      <!-- Work Email (combined UTS + HCMUT) -->
+      <a href="mailto:minhquan.nguyen-2@student.uts.edu.au" class="contact-card reveal">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="16" height="13" rx="2"/>
+            <path d="M2 7l8 6 8-6"/>
+          </svg>
+        </span>
+        <span class="contact-card__label">School Email</span>
+        <span class="contact-card__value">minhquan.nguyen-2@student.uts.edu.au</span>
+        <span class="contact-card__value contact-card__value--sm">quan.nguyenalex2512@hcmut.edu.vn</span>
+      </a>
+      <!-- Personal Email -->
+      <a href="mailto:quan.nguyenalex2512@hcmut.edu.vn" class="contact-card reveal" style="--delay: 0.08s">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="16" height="13" rx="2"/>
+            <path d="M2 7l8 6 8-6"/>
+          </svg>
+        </span>
+        <span class="contact-card__label">Personal Email</span>
+        <span class="contact-card__value">minhquan.alex2512@gmail.com</span>
+      </a>
+      <!-- Phone -->
+      <a href="tel:+84908538467" class="contact-card reveal" style="--delay: 0.16s">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.02 3.05a1 1 0 01-.45 1.13l-1.4.93a10 10 0 004.93 4.93l.93-1.4a1 1 0 011.13-.45l3.05 1.02a1 1 0 01.68.95A2 2 0 0116 18c-2.23 0-4.23-.55-6.1-1.68A10.93 10.93 0 014.68 9.1 10.96 10.96 0 013 5z"/>
+          </svg>
+        </span>
+        <span class="contact-card__label">Phone</span>
+        <span class="contact-card__value">+84 908 538 467</span>
+      </a>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener" class="contact-card reveal" style="--delay: 0.24s">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path d="M17.04 17.043h-2.962v-4.64c0-1.107-.023-2.531-1.544-2.531-1.544 0-1.78 1.204-1.78 2.449v4.722H7.793V7.5h2.844v1.3h.04c.397-.752 1.367-1.533 2.81-1.533 3.008 0 3.553 1.978 3.553 4.55v5.226zM4.447 6.194a1.72 1.72 0 110-3.44 1.72 1.72 0 010 3.44zm1.484 10.849h-2.97V7.5h2.97v9.543zM18.522 0H1.476C.66 0 0 .645 0 1.44v17.12C0 19.355.66 20 1.476 20h17.046c.816 0 1.477-.645 1.477-1.44V1.44C20 .645 19.338 0 18.522 0h.008z"/>
+          </svg>
+        </span>
+        <span class="contact-card__label">LinkedIn</span>
+        <span class="contact-card__value">ngminhquan</span>
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener" class="contact-card reveal" style="--delay: 0.32s">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"/>
+          </svg>
+        </span>
+        <span class="contact-card__label">GitHub</span>
+        <span class="contact-card__value">minhquan-maker</span>
+      </a>
+      <!-- ORCID -->
+      <a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener" class="contact-card reveal" style="--delay: 0.4s">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM6.637 3.648c.438 0 .795.358.795.795s-.357.795-.795.795a.798.798 0 01-.796-.795c0-.438.358-.795.796-.795zm-.599 2.97h1.2v9.383H6.038V6.618zm3.469 0h3.25c3.097 0 4.46 2.213 4.46 4.688 0 2.268-1.233 4.38-3.912 4.38h-3.798V6.618zm1.2.938v7.507h2.07c2.297 0 2.904-1.83 2.904-3.754 0-1.858-.78-3.753-3.027-3.753h-1.947z"/>
+          </svg>
+        </span>
+        <span class="contact-card__label">ORCID</span>
+        <span class="contact-card__value">0009-0008-9621-1326</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <p class="footer__copy"><span class="footer__copy-icon">©</span> 2026 Nguyen Minh Quan · Last updated: July 2026</p>
+    <div class="footer__links">
+      <a href="https://www.facebook.com/mquan2512" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a>
+      <a href="mailto:minhquan.nguyen-2@student.uts.edu.au">Email</a>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

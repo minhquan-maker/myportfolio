@@ -23,18 +23,17 @@ Quan Minh Nguyen
 ## Site Structure
 
 ```
-my_website/          ← production (live)
-  index.html         single-page with sidebar nav
-  style.css          dark/light theme via CSS variables
-  script.js          theme toggle, mobile nav, scroll
-  assets/
-    my_resume.pdf    academic CV
+main-portfolio/                     ← LIVE site (deployed to Vercel)
+  index.html, style.css, script.js
+  assets/    my_resume.pdf, profile.jpg
+  certificate/    per-award PDF/JPG proofs
+  logos/          11 brand PNGs (hero strip + recognition media)
+  docs/superpowers/   design specs + plans (not deployed)
 
-old_websites/        archived v1 (dark/gold, GSAP + ScrollTrigger)
-  index.html
-  styles.css
-  script.js
-  img/
+old-portfolio/                      ← archived website variants
+  scientific-minimal-website/       minimal design (was my_website)
+  creative-blue-website/            LinkedIn-blue redesign (was style-redesign)
+  creative-goldenblack-website/     v1 dark/gold (was old_websites, GSAP + ScrollTrigger)
 ```
 
 ---
@@ -67,13 +66,18 @@ Deploy      Vercel (static hosting, auto-deploy on push to main)
 ## Getting Started
 
 ```bash
-# Current production site
-cd my_website && python3 -m http.server 8081
+# Live site (deployed to Vercel)
+cd main-portfolio && python3 -m http.server 8081
 # → http://localhost:8081
 
-# Archived v1
-cd old_websites && python3 -m http.server 8082
-# → http://localhost:8082
+# Archived — minimal design (was my_website)
+cd old-portfolio/scientific-minimal-website && python3 -m http.server 8082
+
+# Archived — LinkedIn-blue redesign (was style-redesign)
+cd old-portfolio/creative-blue-website && python3 -m http.server 8083
+
+# Archived — v1 dark/gold (was old_websites)
+cd old-portfolio/creative-goldenblack-website && python3 -m http.server 8084
 ```
 
 ---
@@ -81,8 +85,8 @@ cd old_websites && python3 -m http.server 8082
 ## Deployment
 
 - **Production:** Vercel — auto-deploys from `main` branch
-- **Config:** `vercel.json` sets `outputDirectory: "my_website"`
-- **Resume PDF:** Tracked via `!my_website/assets/my_resume.pdf` in `.gitignore`
+- **Config:** `vercel.json` sets `outputDirectory: "main-portfolio"`
+- **Archived:** All three previous website variants live under `old-portfolio/` as static HTML/CSS/JS
 
 ---
 
