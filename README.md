@@ -1,120 +1,161 @@
-# Quan Minh Nguyen — Portfolio
+<div align="center">
 
-AI research student at UTS Sydney & HCMUT. Building technology for real-world impact — from flood emergency management to explainable AI.
+# Nguyen Minh Quan
 
-[![Live](https://img.shields.io/badge/Live-Vercel-000?style=flat-square&logo=vercel)](https://minhquannguyen.vercel.app/)
-[![Platform](https://img.shields.io/badge/Platform-Web-blue?style=flat-square)](https://minhquannguyen.vercel.app/)
-[![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](#)
+**AI research student · Founder · Builder of things that matter**
 
----
+Building technology at the intersection of **Computer Vision**, **Human-Centered AI**, and **Disaster Response**.
 
-## About Me
+[![Live](https://img.shields.io/badge/🌐_Live-minhquannguyen.vercel.app-000?style=for-the-badge&logo=vercel&logoColor=white)](https://minhquannguyen.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-minhquan--maker-181717?style=for-the-badge&logo=github)](https://github.com/minhquan-maker)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ngminhquan-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ngminhquan/)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0008--9621--1326-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0008-9621-1326)
 
-```
-Quan Minh Nguyen
-├── 🎓 AI Research — UTS Sydney · HCMUT
-├── 🔬 Research — Computer Vision · XAI · Human Action Recognition
-├── 🔬 Founder & Lead — AquaGuard Flood Rescue Platform
-└── 💼 Member — URA Research Group, HCMUT
-```
+</div>
 
 ---
 
-## Site Structure
+## ✨ What is this?
 
-```
-main-portfolio/                     ← LIVE site (deployed to Vercel)
-  index.html, style.css, script.js
-  assets/    my_resume.pdf, profile.jpg
-  certificate/    per-award PDF/JPG proofs
-  logos/          11 brand PNGs (hero strip + recognition media)
-  docs/superpowers/   design specs + plans (not deployed)
+This repository holds the **source code** of my personal portfolio site — the one you can visit at **[minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/)**.
 
-old-portfolio/                      ← archived website variants
-  scientific-minimal-website/       minimal design (was my_website)
-  creative-blue-website/            LinkedIn-blue redesign (was style-redesign)
-  creative-goldenblack-website/     v1 dark/gold (was old_websites, GSAP + ScrollTrigger)
-```
+A single-page, no-build, plain-HTML/CSS/JS site that documents:
+
+- Who I am and where I studied
+- The work I've shipped (AquaGuard, the drone CV system, the carbon calculator)
+- My publications and awards
+- How to reach me
+
+The live, deployed site lives in [`main-portfolio/`](./main-portfolio). Earlier iterations are archived under [`old-portfolio/`](./old-portfolio).
 
 ---
 
-## Sections
+## 🎯 The Highlights
 
-| Section | Content |
-|---------|---------|
-| **About** | Background, research interests, current work |
-| **Education** | UTS & HCMUT degrees, coursework highlights |
-| **Experience** | Research roles, URA Group, AquaGuard leadership |
-| **Publications** | Conference papers, research outputs |
-| **Projects** | AquaGuard, AirGuard, market microstructure, calculus review |
-| **Honors** | Awards, EPICS 8th, hackathon recognition |
-| **Contact** | Email, phone, LinkedIn, GitHub |
+| | |
+|---|---|
+| 🎓 **Now** | B. of AI @ UTS Sydney · High Distinction WAM (6.6/7.0) |
+| 🏆 **Latest** | **1st Place** — EPICS 8th @ Arizona State University (2026) |
+| 📄 **Research** | CTSK-Former — *to be submitted* to KSE 2026 |
+| 🚀 **Building** | [AquaGuard](https://aquaguard.vn) · Disaster-management platform for VN |
+| 🤝 **Co-founder of** | [Odylytics](https://odylytics.com) — public digital infrastructure |
 
 ---
 
-## Tech Stack
+## 🧱 Tech Stack
 
-```
-Frontend    Plain HTML5 · CSS3 · Vanilla JS (ES6+)
-Fonts       Cormorant Garamond · Syne · IBM Plex Mono
-Theme       Dark / Light (CSS custom properties)
-Deploy      Vercel (static hosting, auto-deploy on push to main)
-```
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Vanilla JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000?style=flat-square&logo=vercel&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+
+> **No build step. No framework. No bundler.** Just three files: `index.html`, `style.css`, `script.js`.
+
+**Fonts** — Bebas Neue (display) · DM Sans (body) · Space Mono (mono) · Lora (editorial italic) · Playfair Display (nav logo)
 
 ---
 
-## Getting Started
+## 📐 Design Tokens
+
+A small set of CSS custom properties drives the entire visual system.
+
+| Token | Light | Dark |
+|---|---|---|
+| `--bg` | `#FAFAF8` | — |
+| `--bg-alt` | `#F7F7F5` | — |
+| `--ink` | `#111111` | — |
+| `--ink-muted` | `#6B6B6B` | — |
+| `--accent` | `#4A7AB0` | — |
+| `--border` | `#E8E8E4` | — |
+
+> Light theme only — dark mode is intentionally not exposed to keep the editorial feel consistent.
+
+---
+
+## 🚀 Getting Started
 
 ```bash
-# Live site (deployed to Vercel)
-cd main-portfolio && python3 -m http.server 8081
+# Clone
+git clone https://github.com/minhquan-maker/myportfolio.git
+cd myportfolio/main-portfolio
+
+# Serve (any static server works)
+python3 -m http.server 8081
 # → http://localhost:8081
+```
 
-# Archived — minimal design (was my_website)
-cd old-portfolio/scientific-minimal-website && python3 -m http.server 8082
+No install, no dependencies, no environment variables.
 
-# Archived — LinkedIn-blue redesign (was style-redesign)
-cd old-portfolio/creative-blue-website && python3 -m http.server 8083
+---
 
-# Archived — v1 dark/gold (was old_websites)
-cd old-portfolio/creative-goldenblack-website && python3 -m http.server 8084
+## 📁 Repository Structure
+
+```
+myportfolio/
+├── main-portfolio/                ← LIVE site (Vercel auto-deploys this)
+│   ├── index.html                 # all sections, inline
+│   ├── style.css                  # design tokens + sections
+│   ├── script.js                  # all JS in one IIFE
+│   ├── assets/
+│   │   ├── profile.jpg
+│   │   └── my_resume.pdf
+│   ├── logos/                     # 11 brand PNGs
+│   ├── certificate/               # per-award proofs (gitignored)
+│   ├── docs/superpowers/          # design specs + plans (not deployed)
+│   └── CLAUDE.md                  # internals
+│
+├── old-portfolio/                 # previous website variants
+│   ├── scientific-minimal-website/
+│   ├── creative-blue-website/
+│   └── creative-goldenblack-website/
+│
+├── CLAUDE.md                      # top-level architecture notes
+├── vercel.json                    # outputDirectory: "main-portfolio"
+└── README.md                      # you are here
 ```
 
 ---
 
-## Deployment
+## 🌐 Deployment
 
-- **Production:** Vercel — auto-deploys from `main` branch
-- **Config:** `vercel.json` sets `outputDirectory: "main-portfolio"`
-- **Archived:** All three previous website variants live under `old-portfolio/` as static HTML/CSS/JS
-
----
-
-## Design System
-
-| Property | Light | Dark |
-|----------|-------|------|
-| Background | `#ffffff` | `#0a0a0a` |
-| Text | `#1a1a2e` | `#e8e8e8` |
-| Sidebar bg | `#f0f0f0` | `#111111` |
-| Accent | `#2563eb` | `#60a5fa` |
-| Fonts | Cormorant Garamond (headings) · Syne (UI) · IBM Plex Mono (mono) | same |
+- **Platform** — [Vercel](https://vercel.com) (static)
+- **URL** — [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/)
+- **Trigger** — push to `main` → auto-deploys (no CI, no env vars)
+- **Build** — none. The deployed bundle is the three source files plus `assets/`, `logos/`, and `certificate/` as-is.
 
 ---
 
-## Key Projects
+## 🛠️ Sections on the Live Site
 
-- **AquaGuard** — Multi-platform flood rescue (EPICS 8th Award, IEEE 2026)
-- **AirGuard** — On-device CO2 monitoring (VinUniversity AI Hackathon 2026)
-- **Market Microstructure Simulator** — Order book + 5 trading agents, WebSocket streaming
-- **UTS AI Research** — Transformer-based models for human action recognition & XAI
+| # | Section | Highlights |
+|---|---|---|
+| 1 | **Hero** | Name, role, live stats (IELTS · SAT · Awards · Clubs), 7-logo affiliation strip |
+| 2 | **About** | UTS + HCMUT timeline (4 schools, expand to reveal) |
+| 3 | **Experiences** | 4 cards → modals (Odylytics, URA Research, MC, Invited Speaker) |
+| 4 | **Projects** | AquaGuard · Drone CV · Carbon Footprint Calculator |
+| 5 | **Publications** | CTSK-Former — KSE 2026 paper card with toggleable detail |
+| 6 | **Recognition** | 3 testimonials + 6 honors + 4 media coverage cards |
+| 7 | **Contact** | Email · Phone · LinkedIn · GitHub · ORCID |
 
 ---
 
-## Social Links
+## 🤝 Connect
 
-| Platform | Link |
-|----------|------|
-| GitHub | [minhquan-maker](https://github.com/minhquan-maker) |
-| LinkedIn | [ngminhquan](https://www.linkedin.com/in/ngminhquan/) |
-| Email | minhquan.nguyen-2@student.uts.edu.au |
+| | |
+|---|---|
+| 🌐 **Live site** | [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/) |
+| 🐙 **GitHub** | [@minhquan-maker](https://github.com/minhquan-maker) |
+| 💼 **LinkedIn** | [ngminhquan](https://www.linkedin.com/in/ngminhquan/) |
+| 📧 **School Email** | minhquan.nguyen-2@student.uts.edu.au |
+| 📧 **Personal Email** | minhquan.alex2512@gmail.com |
+| 📱 **Phone** | +84 908 538 467 |
+| 🔬 **ORCID** | [0009-0008-9621-1326](https://orcid.org/0009-0008-9621-1326) |
+
+---
+
+<div align="center">
+
+<sub>Last updated: July 2026 · © Nguyen Minh Quan</sub>
+
+</div>

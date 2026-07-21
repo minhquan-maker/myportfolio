@@ -1484,6 +1484,112 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--bg-alt);
 }
 
+/* ── Recommendations — 3 testimonial cards ───────────────── */
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s4);
+  margin: var(--s7) auto var(--s10);
+  max-width: 1280px;
+}
+
+.rec-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  transition: var(--transition);
+}
+.rec-card:hover {
+  border-color: var(--accent);
+  border-left-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.rec-card__quote {
+  width: 26px;
+  height: 26px;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.rec-card__text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0;
+  flex: 1;
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
+  letter-spacing: 0.01em;
+}
+
+.rec-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.rec-card__divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 10px;
+}
+
+.rec-card__name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.rec-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.rec-card__affil {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--ink);
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .rec-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s3);
+    margin: var(--s6) auto var(--s8);
+  }
+  .rec-card { padding: var(--s4); }
+  .rec-card__text { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .rec-card { padding: var(--s3); }
+  .rec-card__text { font-size: 0.95rem; }
+}
+
 /* ── Two-column wrap — centered, not too wide ────────────── */
 .recog-wrap {
   display: grid;
