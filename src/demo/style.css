@@ -175,7 +175,7 @@ nav.scrolled { border-bottom-color: var(--border); }
   font-weight: 300; color: var(--ink-muted); margin-bottom: var(--s3);
   transform: translateY(20px); opacity: 0; animation: fadeUp 0.7s var(--ease-out) 0.55s forwards;
 }
-.hero__role em { font-style: normal; color: var(--accent); }
+.hero__role em { color: var(--accent); }
 
 .hero__bio {
   max-width: 560px; font-size: 16px; font-weight: 300; line-height: 1.75;
