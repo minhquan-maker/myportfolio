@@ -32,7 +32,7 @@ No build step, no bundler.
 6. Recognition — testimonials (3-col grid) + honors list + media cards
 7. Contact — 6-card grid
 
-**Assets** live entirely under `assets/` (no root-level media). The same tree is shared with `src/live/`, but here it is self-contained — moving this folder around does not break links.
+**Assets** live entirely under `assets/` (no root-level media). The site is self-contained — moving this folder around does not break links.
 
 ```
 src/demo/
