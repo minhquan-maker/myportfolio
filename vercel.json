@@ -1,7 +1,7 @@
 {
   "framework": null,
   "buildCommand": null,
-  "outputDirectory": "main-portfolio",
+  "outputDirectory": "src/demo",
   "installCommand": null,
   "devCommand": null
 }
