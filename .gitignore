@@ -5,4 +5,4 @@ old-portfolio/
 *.pdf
 
 # Live site: keep resume + certificate PDFs so Vercel can serve them
-!main-portfolio/**/*.pdf
+!src/demo/**/*.pdf
