@@ -6,27 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal portfolio site for Nguyen Minh Quan — AI/CS student at UTS & HCMUT, Co-Founder at Odylytics. Plain HTML/CSS/JS, no build step, deployed on Vercel.
 
-**`src/demo/` is the live, deployed site.** `old-portfolio/white-blue-simple-website/` is the archived former live site. Each version has its own `CLAUDE.md`; this root file is the authoritative top-level index.
+**`main-portfolio/` is the live, deployed site.** `old-portfolio/white-blue-simple-website/` is the archived former live site. Each version has its own `CLAUDE.md`; this root file is the authoritative top-level index.
 
 ## Folder Structure
 
 ```
 myportfolio/
-├── vercel.json                        ← Vercel config: outputDirectory → src/demo
+├── vercel.json                        ← Vercel config: outputDirectory → main-portfolio
 ├── README.md                          ← live badge, social links
 │
-├── src/
-│   └── demo/                          ← LIVE site (Vercel deploys this)
-│       ├── index.html                 ← self-contained: CSS + JS inline
-│       ├── assets/
-│       ├── logos/
-│       ├── certificate/
-│       ├── uts-testimonial.jpg
-│       └── CLAUDE.md
+├── main-portfolio/                    ← LIVE site (Vercel deploys this)
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   ├── CLAUDE.md
+│   └── assets/                        ← certificates/, logos/, media/, projects/, testimonials/, my_resume.pdf
 │
 ├── docs/superpowers/                  ← design specs + plans (NOT deployed)
-│   ├── specs/
-│   └── plans/
 │
 ├── old-portfolio/                    ← archived website variants (gitignored)
 │   ├── white-blue-simple-website/     ← former live site (now archived)
@@ -47,7 +43,7 @@ No build, lint, or test tooling — pure static files. No `package.json`, Makefi
 
 ```bash
 # Live site (steel blue editorial)
-cd src/demo && python3 -m http.server 8090
+cd main-portfolio && python3 -m http.server 8090
 # → http://localhost:8090
 
 # Archived variants
@@ -60,7 +56,7 @@ cd old-portfolio/creative-goldenblack-website && python3 -m http.server 8084
 ## Deployment
 
 - **Platform:** Vercel — `minhquannguyen.vercel.app`
-- **Config:** `vercel.json` at root sets `outputDirectory: "src/demo"`
+- **Config:** `vercel.json` at root sets `outputDirectory: "main-portfolio"`
 - **Build:** None — pure static, no build step
 - **Trigger:** Push to `main` auto-deploys
 - **Note:** `old-portfolio/white-blue-simple-website/` is the archived former live site
@@ -69,10 +65,16 @@ cd old-portfolio/creative-goldenblack-website && python3 -m http.server 8084
 
 | Version | Path | Status | Purpose |
 |---------|------|--------|---------|
-| live | `src/demo/` | Live | Current deployed site (steel blue) |
+| live | `main-portfolio/` | Live | Current deployed site (steel blue) |
 | archived | `old-portfolio/white-blue-simple-website/` | Archived | Former live site (steel blue, simple) |
 
 ## Related Docs
 
-- `src/demo/CLAUDE.md` — full internals for the live deployed site
+- `main-portfolio/CLAUDE.md` — full internals for the live deployed site (design system, scroll animations, JS modules, responsive breakpoints)
 - `README.md` — live badge, social/email contact info
+
+## Important Constraints
+
+- `old-portfolio/` is gitignored. The archived former live site lives only on the local machine — it will NOT survive a fresh clone. Use it as a local reference only.
+- `CLAUDE.md` files are themselves gitignored. The root file and `main-portfolio/CLAUDE.md` are tracked via `git add -f`; new ones you create will not be committed unless you force-add them.
+- `*.pdf` is gitignored by default. The exception `!main-portfolio/**/*.pdf` ensures Vercel can serve resume and certificate PDFs. If you add PDFs elsewhere, they will be silently excluded from deploy.
