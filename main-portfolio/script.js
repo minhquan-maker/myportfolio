@@ -2,16 +2,27 @@
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
 
-// Scroll reveal
+// Scroll reveal with stagger
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObserver.unobserve(e.target);
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const group = entry.target.closest('[data-stagger-group]');
+      if (group) {
+        const siblings = Array.from(group.querySelectorAll('.reveal:not(.visible), .reveal-edu:not(.visible), .reveal-school:not(.visible)'));
+        siblings.forEach((el, i) => {
+          el.style.transitionDelay = `${i * 0.1}s`;
+          el.classList.add('visible');
+        });
+      } else {
+        entry.target.classList.add('visible');
+      }
+    } else {
+      entry.target.style.transitionDelay = '';
+      entry.target.classList.remove('visible');
     }
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal, .reveal-edu, .reveal-school').forEach(el => revealObserver.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .reveal-edu, .reveal-school, .deco-shape').forEach((el) => revealObserver.observe(el));
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -23,6 +34,42 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// Animated counter for hero stats — runs once
+let countersAnimated = false;
+function animateCounters() {
+  if (countersAnimated) return;
+  countersAnimated = true;
+  document.querySelectorAll('.stat__number').forEach(el => {
+    const text = el.textContent.trim();
+    const match = text.match(/^(\d+)(.+)/);
+    if (!match) return;
+    const target = parseInt(match[1], 10);
+    const suffix = match[2];
+    let current = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      current = Math.round(eased * target);
+      el.innerHTML = current + '<span class="accent">' + suffix + '</span>';
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+const heroStats = document.querySelector('.hero__stats');
+if (heroStats) {
+  const statsObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      statsObs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  statsObs.observe(heroStats);
+}
 
 // Active nav link scrollspy
 const sections = document.querySelectorAll('section[id]');
