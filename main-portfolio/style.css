@@ -806,6 +806,7 @@ footer { border-top: 1px solid var(--border); padding: var(--s5) var(--grid-marg
   overflow: hidden;
   background: var(--bg);
   border: 1px solid var(--border);
+  border-radius: var(--radius);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
   transform: translateY(18px) scale(0.98);
   transition: transform 0.35s var(--ease-out);
@@ -852,8 +853,10 @@ footer { border-top: 1px solid var(--border); padding: var(--s5) var(--grid-marg
 }
 .certificate-modal__content {
   min-height: 0;
-  overflow: auto;
+  overflow: hidden auto;
   background: var(--bg-alt);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
 .certificate-modal__content iframe {
   display: block;
