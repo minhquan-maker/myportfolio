@@ -577,7 +577,7 @@
           <div class="recog-item__body">
             <div class="recog-item__title">First Place · EPICS 8TH</div>
             <div class="recog-item__desc">Engineering Projects in Community Service (EPICS) 8th, Arizona State University, USA. <em>(International, 2026)</em></div>
-            <a href="assets/certificates/03_1stplace_epics2026_asu/1stplace_epics2026_asu.pdf" target="_blank" class="recog-item__proof">View Certificate ↗</a>
+            <a href="assets/certificates/03_1stplace_epics2026_asu/1stplace_epics2026_asu.pdf" class="recog-item__proof certificate-trigger" data-cert-url="assets/certificates/03_1stplace_epics2026_asu/1stplace_epics2026_asu.pdf" data-cert-title="First Place · EPICS 8TH">View Certificate <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="recog-item">
@@ -585,7 +585,7 @@
           <div class="recog-item__body">
             <div class="recog-item__title">First Place · OPC25</div>
             <div class="recog-item__desc">OISP Presentation Contest, Ho Chi Minh City University of Technology, Vietnam. <em>(Institutional, 2025)</em></div>
-            <a href="assets/certificates/02_1stplace_opc2025_hcmut/1stplace_opc2025_hcmut.pdf" target="_blank" class="recog-item__proof">View Certificate ↗</a>
+            <a href="assets/certificates/02_1stplace_opc2025_hcmut/1stplace_opc2025_hcmut.pdf" class="recog-item__proof certificate-trigger" data-cert-url="assets/certificates/02_1stplace_opc2025_hcmut/1stplace_opc2025_hcmut.pdf" data-cert-title="First Place · OPC25">View Certificate <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="recog-item">
@@ -593,7 +593,7 @@
           <div class="recog-item__body">
             <div class="recog-item__title">Second Place · HPC Hackathon</div>
             <div class="recog-item__desc">High Performance Computing Summer School, HCMUT × Association for Computing Machinery (ACM). <em>(National, 2025)</em></div>
-            <a href="assets/certificates/HPC-Hackathon-Certificate.pdf" target="_blank" class="recog-item__proof">View Certificate ↗</a>
+            <a href="assets/certificates/HPC-Hackathon-Certificate.pdf" class="recog-item__proof certificate-trigger" data-cert-url="assets/certificates/HPC-Hackathon-Certificate.pdf" data-cert-title="Second Place · HPC Hackathon">View Certificate <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="recog-item">
@@ -601,7 +601,7 @@
           <div class="recog-item__body">
             <div class="recog-item__title">National Finalist · 14th Design, Fabrication &amp; Application</div>
             <div class="recog-item__desc">Ho Chi Minh City Department of Science and Technology, Vietnam. <em>(National, 2026)</em></div>
-            <a href="assets/certificates/04_finalist_14thdesign_fabrication_vietnam2026/finalist2026.jpg" target="_blank" class="recog-item__proof">View Certificate ↗</a>
+            <a href="assets/certificates/04_finalist_14thdesign_fabrication_vietnam2026/finalist2026.jpg" class="recog-item__proof certificate-trigger" data-cert-url="assets/certificates/04_finalist_14thdesign_fabrication_vietnam2026/finalist2026.jpg" data-cert-title="National Finalist · 14th Design, Fabrication &amp; Application">View Certificate <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="recog-item">
@@ -609,7 +609,7 @@
           <div class="recog-item__body">
             <div class="recog-item__title">UTS Dean's List 2026</div>
             <div class="recog-item__desc">University of Technology Sydney. Top academic standing across the semester. <em>(Institutional, 2026)</em></div>
-            <a href="assets/certificates/UTS-1styear-DeanList.pdf" target="_blank" class="recog-item__proof">View Certificate ↗</a>
+            <a href="assets/certificates/UTS-1styear-DeanList.pdf" class="recog-item__proof certificate-trigger" data-cert-url="assets/certificates/UTS-1styear-DeanList.pdf" data-cert-title="UTS Dean's List 2026">View Certificate <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="recog-item">
@@ -617,7 +617,7 @@
           <div class="recog-item__body">
             <div class="recog-item__title">Best Presenter</div>
             <div class="recog-item__desc">REACH Vietnam · ASEAN Youth Leadership, Universiti Teknologi Malaysia, Malaysia. <em>(International, 2025)</em></div>
-            <a href="assets/certificates/01_best_presenter_reach2025_utm/best_presenter_reach2025_utm.pdf" target="_blank" class="recog-item__proof">View Certificate ↗</a>
+            <a href="assets/certificates/01_best_presenter_reach2025_utm/best_presenter_reach2025_utm.pdf" class="recog-item__proof certificate-trigger" data-cert-url="assets/certificates/01_best_presenter_reach2025_utm/best_presenter_reach2025_utm.pdf" data-cert-title="Best Presenter">View Certificate <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -723,6 +723,17 @@
       <a href="mailto:minhquan.nguyen-2@student.uts.edu.au">Email</a>
     </div>
   </footer>
+
+  <div class="certificate-modal" id="certificate-modal" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title" aria-hidden="true">
+    <div class="certificate-modal__dialog">
+      <div class="certificate-modal__header">
+        <h2 class="certificate-modal__title" id="certificate-modal-title">Certificate Preview</h2>
+        <button class="certificate-modal__close" type="button" aria-label="Close certificate preview">×</button>
+      </div>
+      <div class="certificate-modal__content" id="certificate-modal-content"></div>
+      <p class="certificate-modal__fallback" id="certificate-modal-fallback" role="status" hidden>Unable to preview this certificate. Please try opening the file directly.</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
