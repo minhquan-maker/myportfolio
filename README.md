@@ -21,7 +21,7 @@ The source of **[minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/)*
 
 A single-page, no-build, plain HTML/CSS/JS site that documents who I am, the work I've shipped (AquaGuard, the drone CV system, the carbon calculator), my publications and awards, and how to reach me.
 
-- **Live site source:** [`src/demo/`](./src/demo) — Vercel auto-deploys this on push to `main`
+- **Live site source:** [`main-portfolio/`](./main-portfolio) — Vercel auto-deploys this on push to `main`
 - **Archived former live site:** [`old-portfolio/white-blue-simple-website/`](./old-portfolio/white-blue-simple-website) (gitignored, local only)
 - **Earlier iterations:** [`old-portfolio/`](./old-portfolio) (scientific-minimal, creative-blue, creative-goldenblack)
 
@@ -75,7 +75,7 @@ A small set of CSS custom properties drives the entire visual system.
 
 ```bash
 git clone https://github.com/minhquan-maker/myportfolio.git
-cd myportfolio/src/demo
+cd myportfolio/main-portfolio
 
 # Serve (any static server works)
 python3 -m http.server 8090
@@ -90,13 +90,12 @@ No install, no dependencies, no environment variables.
 
 ```
 myportfolio/
-├── src/
-│   └── demo/                      ← LIVE site (Vercel auto-deploys this)
-│       ├── index.html             # all sections, markup only
-│       ├── style.css              # design tokens + components + responsive
-│       ├── script.js              # nav, scroll reveal, sliders, modals
-│       ├── assets/                # media/, projects/, certificates/, logos/, testimonials/, my_resume.pdf
-│       └── CLAUDE.md              # internals for the live site
+├── main-portfolio/                ← LIVE site (Vercel auto-deploys this)
+│   ├── index.html                 # all sections, markup only
+│   ├── style.css                  # design tokens + components + responsive
+│   ├── script.js                  # nav, scroll reveal, sliders, certificate modal
+│   ├── assets/                    # media/, projects/, certificates/, logos/, testimonials/, my_resume.pdf
+│   └── CLAUDE.md                  # internals for the live site
 │
 ├── docs/superpowers/              # design specs + plans (not deployed)
 │
@@ -108,7 +107,7 @@ myportfolio/
 │
 ├── style-demos/                   # standalone style experiments (gitignored)
 ├── CLAUDE.md                      # top-level architecture notes
-├── vercel.json                    # outputDirectory: "src/demo"
+├── vercel.json                    # outputDirectory: "main-portfolio"
 └── README.md                      # you are here
 ```
 
@@ -118,7 +117,7 @@ myportfolio/
 
 - **Platform** — [Vercel](https://vercel.com) (static)
 - **URL** — [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/)
-- **Config** — `vercel.json` sets `outputDirectory: "src/demo"`
+- **Config** — `vercel.json` sets `outputDirectory: "main-portfolio"`
 - **Trigger** — push to `main` → auto-deploys (no CI, no env vars)
 - **Build** — none. The deployed bundle is `index.html`, `style.css`, `script.js`, plus `assets/`, served as-is.
 

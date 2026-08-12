@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal portfolio site for Nguyen Minh Quan — AI/CS student at UTS & HCMUT, Co-Founder at Odylytics. Plain HTML/CSS/JS, no build step, deployed on Vercel.
 
-**`main-portfolio/` is the live, deployed site.** `old-portfolio/white-blue-simple-website/` is the archived former live site. Each version has its own `CLAUDE.md`; this root file is the authoritative top-level index.
+**`main-portfolio/` is the live, deployed site.** `old-portfolio/white-blue-simple-website/` is the archived former live site. Each version has its own `CLAUDE.md`; this root file is the authoritative top-level index. Recent changes: certificate preview modal (open PDFs and images in-page instead of new tab) and a unified `--radius` design token applied to all rectangle elements.
 
 ## Folder Structure
 
@@ -68,9 +68,16 @@ cd old-portfolio/creative-goldenblack-website && python3 -m http.server 8084
 | live | `main-portfolio/` | Live | Current deployed site (steel blue) |
 | archived | `old-portfolio/white-blue-simple-website/` | Archived | Former live site (steel blue, simple) |
 
+## Recent Changes
+
+- **Certificate preview modal** — Six certificate links in the Recognition section now open PDFs in an iframe and images in an `img` element via a modal overlay, instead of opening a new browser tab. Closes via the close button, backdrop click, or `Escape`. Modal state is in `script.js` under the `certificateModal` IIFE; markup lives in `#certificate-modal` near the end of `index.html`; styles live under `CERTIFICATE MODAL` in `style.css`.
+- **Unified rectangle radius** — All rectangle elements (cards, buttons, chips, tags, modal, toast, scrollbar, remaining rectangle frames) share a single `--radius: 14px` token. Pill shapes (`999px`) and circle elements (`50%`) are preserved. Project rows and about photo frames declare `overflow: hidden` so media content conforms to the rounded corners.
+
 ## Related Docs
 
 - `main-portfolio/CLAUDE.md` — full internals for the live deployed site (design system, scroll animations, JS modules, responsive breakpoints)
+- `docs/superpowers/specs/` — design specs for the certificate modal and border-radius unification
+- `docs/superpowers/plans/` — implementation plans for the same
 - `README.md` — live badge, social/email contact info
 
 ## Important Constraints
