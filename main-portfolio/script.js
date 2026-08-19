@@ -152,6 +152,22 @@ document.querySelectorAll('.project-slider__slide img').forEach((img) => {
   });
 })();
 
+// Awards collapse toggle
+(function() {
+  const list = document.querySelector('.recog-list');
+  const button = document.querySelector('.awards-show-more .exp-show-more__btn');
+  const overflow = list && list.querySelector('.awards-overflow');
+  if (!list || !button || !overflow) return;
+
+  button.addEventListener('click', function() {
+    const expanded = list.classList.toggle('is-expanded');
+    button.setAttribute('aria-expanded', expanded);
+    button.innerHTML = expanded
+      ? 'Show less awards <span class="exp-show-more__arrow">↑</span>'
+      : 'View all awards <span class="exp-show-more__arrow">↓</span>';
+  });
+})();
+
 // Certificate preview modal
 (function() {
   const modal = document.getElementById('certificate-modal');
