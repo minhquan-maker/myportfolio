@@ -248,7 +248,7 @@ nav.scrolled { border-bottom-color: var(--border); }
 }
 .hero__portrait {
   width: 100%; max-width: 400px; aspect-ratio: 4 / 5;
-  border: 1px solid var(--border); overflow: hidden; background: var(--bg-dark);
+  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg-dark);
   box-shadow: 0 12px 32px rgba(17, 17, 17, 0.08);
   transition: transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
@@ -384,9 +384,13 @@ nav.scrolled { border-bottom-color: var(--border); }
 
 /* Show-more trigger between collapsed experience items */
 .exp-show-more {
-  position: relative; margin: var(--s2) 0;
+  position: relative; margin: -16px 0 0;
   display: flex; justify-content: center; align-items: center;
 }
+.awards-show-more {
+  margin: 0 0 0 0;
+}
+
 .exp-show-more::before,
 .exp-show-more::after {
   content: ''; flex: 1; height: 1px; background: var(--border);
@@ -426,6 +430,25 @@ nav.scrolled { border-bottom-color: var(--border); }
   transition: max-height 0.55s var(--ease-in-out), opacity 0.4s var(--ease-out);
 }
 .timeline.is-expanded .exp-overflow {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Awards collapse */
+.awards-overflow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.55s var(--ease-in-out), opacity 0.4s var(--ease-out);
+}
+.awards-overflow .recog-item {
+  width: 100%;
+  flex: 0 0 auto;
+}
+.recog-list.is-expanded .awards-overflow {
   max-height: 1000px;
   opacity: 1;
 }
@@ -602,6 +625,18 @@ nav.scrolled { border-bottom-color: var(--border); }
   background: var(--bg);
   box-shadow: 0 12px 28px rgba(21,101,192,0.14);
   transform: translateY(-4px);
+}
+
+.recog-list .awards-overflow .recog-item:hover {
+  border-color: var(--accent);
+  background: var(--bg);
+  box-shadow: 0 12px 28px rgba(21,101,192,0.14);
+  transform: translateY(-4px);
+}
+
+.recog-item:hover .recog-item__proof {
+  color: var(--bg);
+  background: var(--accent);
 }
 .recog-item:first-child { border-top: 1px solid var(--border); }
 .recog-item__num { font-family: var(--sans); font-size: 18px; font-weight: 700; color: var(--border-strong); padding-top: 2px; letter-spacing: -0.02em; }
