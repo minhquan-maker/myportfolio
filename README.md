@@ -15,144 +15,75 @@ Building technology at the intersection of **Computer Vision**, **Human-Centered
 
 ---
 
-## ✨ What is this?
+## About
 
-The source of **[minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/)** — my personal portfolio site.
+The source code for [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/), a single-page personal portfolio built with plain HTML, CSS, and JavaScript.
 
-A single-page, no-build, plain HTML/CSS/JS site that documents who I am, the work I've shipped (AquaGuard, the drone CV system, the carbon calculator), my publications and awards, and how to reach me.
+The site presents my education, experience, technology projects, academic publications, recognition, and contact information. It has no build step, framework, bundler, dependencies, or environment variables.
 
-- **Live site source:** [`main-portfolio/`](./main-portfolio) — Vercel auto-deploys this on push to `main`
-- **Archived former live site:** [`old-portfolio/white-blue-simple-website/`](./old-portfolio/white-blue-simple-website) (gitignored, local only)
-- **Earlier iterations:** [`old-portfolio/`](./old-portfolio) (scientific-minimal, creative-blue, creative-goldenblack)
+## Live site
 
----
+The deployed site is maintained at the repository root:
 
-## 🎯 The Highlights
+- `index.html` — page structure and content
+- `style.css` — design system, components, animations, and responsive layout
+- `script.js` — navigation, smooth scrolling, reveals, sliders, collapse controls, toast, and certificate modal
+- `assets/` — project media, certificates, logos, profile media, icons, and resume
 
-| | |
-|---|---|
-| 🎓 **Now** | B. of AI @ UTS Sydney · High Distinction WAM (6.6/7.0) |
-| 🏆 **Latest** | **1st Place** — EPICS 8th @ Arizona State University (2026) |
-| 📄 **Research** | CTSK-Former — *to be submitted* to KSE 2026 |
-| 🚀 **Building** | [AquaGuard](https://aquaguard.vn) · Disaster-management platform for VN |
-| 🤝 **Co-founder of** | [Odylytics](https://odylytics.com) — public digital infrastructure |
-
----
-
-## 🧱 Tech Stack
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![Vanilla JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Vercel](https://img.shields.io/badge/Vercel-000?style=flat-square&logo=vercel&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-
-> **No build step. No framework. No bundler.** Three source files (`index.html`, `style.css`, `script.js`) plus `assets/`.
-
-**Fonts** — Inter (grotesk sans) + Cormorant Garamond (italic serif accent), loaded from Google Fonts.
-
----
-
-## 📐 Design Tokens
-
-A small set of CSS custom properties drives the entire visual system.
-
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#F4F5F7` | Page background |
-| `--bg-alt` | `#E8EAEF` | Alternating sections |
-| `--bg-dark` | `#D0D3DC` | Project image placeholders |
-| `--ink` | `#111111` | Primary text |
-| `--ink-muted` | `#3A3A3A` | Secondary text |
-| `--accent` | `#2D4A6B` | CTAs, links, highlights (steel blue) |
-| `--border` | `#C8CBD6` | Dividers, card borders |
-
-> Light theme only — dark mode is intentionally not exposed to keep the editorial feel consistent.
-
----
-
-## 🚀 Getting Started
+## Local development
 
 ```bash
 git clone https://github.com/minhquan-maker/myportfolio.git
-cd myportfolio/main-portfolio
-
-# Serve (any static server works)
+cd myportfolio
 python3 -m http.server 8090
-# → http://localhost:8090
 ```
 
-No install, no dependencies, no environment variables.
+Open `http://localhost:8090`. No installation is required.
 
----
+## Site sections
 
-## 📁 Repository Structure
+1. **Hero** — role, biography, calls to action, portrait, and statistics
+2. **About / Education** — academic background and testimonial media
+3. **Experience** — professional and leadership timeline
+4. **Projects** — AquaGuard, EnableCode, AirGuard, and Carbon Footprint work
+5. **Academic Publications** — KSE 2026 accepted paper, Discover AI 2026 ongoing work, and *Introduction to Computing*
+6. **Recognition** — honors, certificates, testimonials, and media coverage
+7. **Contact** — work email, phone, LinkedIn, and social links
 
+## Design and behavior
+
+- Inter with Cormorant Garamond accents
+- Steel-blue editorial visual system with a black contact footer
+- Responsive layouts for tablet and mobile screens
+- Scroll reveal animations with reduced-motion support
+- Project video/image sliders
+- In-page certificate preview modal for PDF and image certificates
+- Official Simple Icons SVG assets for Facebook, ORCID, LinkedIn, and GitHub
+
+## Deployment
+
+Vercel serves the repository root as a static site. The root `vercel.json` intentionally uses:
+
+```json
+{
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "devCommand": null
+}
 ```
-myportfolio/
-├── main-portfolio/                ← LIVE site (Vercel auto-deploys this)
-│   ├── index.html                 # all sections, markup only
-│   ├── style.css                  # design tokens + components + responsive
-│   ├── script.js                  # nav, scroll reveal, sliders, certificate modal
-│   ├── assets/                    # media/, projects/, certificates/, logos/, testimonials/, my_resume.pdf
-│   └── CLAUDE.md                  # internals for the live site
-│
-├── docs/superpowers/              # design specs + plans (not deployed)
-│
-├── old-portfolio/                 # archived website variants (gitignored, local only)
-│   ├── white-blue-simple-website/ ← former live site
-│   ├── scientific-minimal-website/
-│   ├── creative-blue-website/
-│   └── creative-goldenblack-website/
-│
-├── style-demos/                   # standalone style experiments (gitignored)
-├── CLAUDE.md                      # top-level architecture notes
-├── vercel.json                    # outputDirectory: "main-portfolio"
-└── README.md                      # you are here
-```
 
----
+Pushing to `main` triggers Vercel's automatic deployment. There is no build command and no runtime configuration.
 
-## 🌐 Deployment
+## Contact
 
-- **Platform** — [Vercel](https://vercel.com) (static)
-- **URL** — [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/)
-- **Config** — `vercel.json` sets `outputDirectory: "main-portfolio"`
-- **Trigger** — push to `main` → auto-deploys (no CI, no env vars)
-- **Build** — none. The deployed bundle is `index.html`, `style.css`, `script.js`, plus `assets/`, served as-is.
+- Email: [minhquan.alex2512@gmail.com](mailto:minhquan.alex2512@gmail.com)
+- Phone: [+84 908 538 467](tel:+84908538467)
+- LinkedIn: [ngminhquan](https://www.linkedin.com/in/ngminhquan/)
+- GitHub: [minhquan-maker](https://github.com/minhquan-maker)
+- ORCID: [0009-0008-9621-1326](https://orcid.org/0009-0008-9621-1326)
 
----
+## Archive
 
-## 🛠️ Sections on the Live Site
-
-| # | Section | Highlights |
-|---|---|---|
-| 1 | **Hero** | Name, role, UTS eyebrow, portrait, 4-stat strip (IELTS · Research · Clubs · Awards) |
-| 2 | **About / Education** | Sticky left column, 4-school timeline (UTS · HCMUT · CIS · Long Thanh) |
-| 3 | **Experiences** | Vertical timeline (Odylytics · URA · MC · Invited Speaker) with "View all" collapse |
-| 4 | **Projects** | AquaGuard · AirGuard · Carbon Footprint · Flood Detection (videos + images) |
-| 5 | **Publications** | CTSK-Former — KSE 2026 paper card |
-| 6 | **Recognition** | 3 testimonials + 6 honors + 4 media coverage cards |
-| 7 | **Contact** | 6-card grid (Email · Phone · LinkedIn · GitHub · ORCID · AquaGuard) |
-
----
-
-## 🤝 Connect
-
-| | |
-|---|---|
-| 🌐 **Live site** | [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/) |
-| 🐙 **GitHub** | [@minhquan-maker](https://github.com/minhquan-maker) |
-| 💼 **LinkedIn** | [ngminhquan](https://www.linkedin.com/in/ngminhquan/) |
-| 📧 **School Email** | minhquan.nguyen-2@student.uts.edu.au |
-| 📧 **Personal Email** | minhquan.alex2512@gmail.com |
-| 📱 **Phone** | +84 908 538 467 |
-| 🔬 **ORCID** | [0009-0008-9621-1326](https://orcid.org/0009-0008-9621-1326) |
-
----
-
-<div align="center">
-
-<sub>Last updated: August 2026 · © Nguyen Minh Quan</sub>
-
-</div>
+Previous website versions are kept locally under `archive/` and are intentionally ignored by Git so archived copies and nested repository metadata are not deployed.

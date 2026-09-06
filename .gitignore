@@ -1,8 +1,11 @@
 # Top-level docs, macOS, and archive
 CLAUDE.md
 old-portfolio/
+archive/
+.playwright-mcp/
 .DS_Store
 *.pdf
 
 # Live site: keep resume + certificate PDFs so Vercel can serve them
+!assets/**/*.pdf
 !main-portfolio/**/*.pdf
