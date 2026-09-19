@@ -26,8 +26,10 @@ document.querySelectorAll('.reveal, .reveal-edu, .reveal-school, .deco-shape').f
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
+  const hash = a.getAttribute('href');
+  if (!hash || hash === '#' || hash === '#!') return; // skip placeholder/decorative links
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const target = document.querySelector(hash);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -128,22 +130,6 @@ document.querySelectorAll('.project-slider__slide img').forEach((img) => {
       toast.classList.add('is-visible');
       timer = setTimeout(function() { toast.classList.remove('is-visible'); }, 3200);
     });
-  });
-})();
-
-// Awards collapse toggle
-(function() {
-  const list = document.querySelector('.recog-list');
-  const button = document.querySelector('.awards-show-more .exp-show-more__btn');
-  const overflow = list && list.querySelector('.awards-overflow');
-  if (!list || !button || !overflow) return;
-
-  button.addEventListener('click', function() {
-    const expanded = list.classList.toggle('is-expanded');
-    button.setAttribute('aria-expanded', expanded);
-    button.innerHTML = expanded
-      ? 'Show less awards <span class="exp-show-more__arrow">↑</span>'
-      : 'View all awards <span class="exp-show-more__arrow">↓</span>';
   });
 })();
 

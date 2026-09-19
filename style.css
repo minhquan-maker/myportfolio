@@ -392,36 +392,11 @@ nav.scrolled { border-bottom-color: var(--border); }
 }
 .btn-cv:hover { background: var(--accent); border-color: var(--accent); }
 
-/* Awards collapse — kept for Recognition section */
-.awards-overflow {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s3);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  padding: 16px;
-  margin: -16px;
-  transition: max-height 0.55s var(--ease-in-out), opacity 0.4s var(--ease-out);
-}
-.awards-overflow .recog-item {
-  width: 100%;
-  flex: 0 0 auto;
-}
-.recog-list.is-expanded .awards-overflow {
-  max-height: 1000px;
-  opacity: 1;
-}
-
-/* Awards show-more button */
+/* Experience show-more button (Projects/Experiences collapse) */
 .exp-show-more {
   position: relative; margin: -16px 0 0;
   display: flex; justify-content: center; align-items: center;
 }
-.awards-show-more {
-  margin: 0 0 0 0;
-}
-
 .exp-show-more::before,
 .exp-show-more::after {
   content: ''; flex: 1; height: 1px; background: var(--border);
@@ -591,25 +566,18 @@ nav.scrolled { border-bottom-color: var(--border); }
    RECOGNITION
 ===================================================== */
 .recog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); align-items: start; }
-.recog-list { display: flex; flex-direction: column; gap: var(--s3); }
+.recog-list { display: flex; flex-direction: column; gap: 14px; }
 .recog-item {
-  display: grid; grid-template-columns: 40px 1fr; gap: var(--s2);
-  padding: var(--s3) var(--s2); border: 1px solid var(--border); border-radius: var(--radius);
+  display: grid; grid-template-columns: 32px 1fr; gap: 14px;
+  padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--bg); align-items: start;
   transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), background 0.3s var(--ease-out);
 }
 .recog-item:hover {
   border-color: var(--accent);
   background: var(--bg);
-  box-shadow: 0 12px 28px rgba(21,101,192,0.14);
-  transform: translateY(-4px);
-}
-
-.recog-list .awards-overflow .recog-item:hover {
-  border-color: var(--accent);
-  background: var(--bg);
-  box-shadow: 0 12px 28px rgba(21,101,192,0.14);
-  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(21,101,192,0.12);
+  transform: translateY(-3px);
 }
 
 .recog-item:hover .recog-item__proof {
@@ -617,13 +585,13 @@ nav.scrolled { border-bottom-color: var(--border); }
   background: var(--accent);
 }
 
-.recog-item__num { font-family: var(--sans); font-size: 18px; font-weight: 700; color: var(--border-strong); padding-top: 2px; letter-spacing: -0.02em; }
-.recog-item__title { font-size: 17px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
-.recog-item__desc { font-size: 14px; color: var(--ink-muted); font-weight: 400; margin-bottom: 8px; line-height: 1.55; max-width: 38rem; }
+.recog-item__num { font-family: var(--sans); font-size: 15px; font-weight: 700; color: var(--border-strong); padding-top: 1px; letter-spacing: -0.02em; }
+.recog-item__title { font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
+.recog-item__desc { font-size: 13px; color: var(--ink-muted); font-weight: 400; margin-bottom: 10px; line-height: 1.5; max-width: 38rem; }
 .recog-item__proof {
-  font-size: 12px; font-weight: 600; color: var(--bg); background: var(--accent);
+  font-size: 11px; font-weight: 600; color: var(--bg); background: var(--accent);
   border: 1px solid var(--accent); text-decoration: none; letter-spacing: 0.04em;
-  display: inline-flex; align-items: center; gap: 4px; padding: 7px 14px; border-radius: var(--radius);
+  display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: var(--radius);
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 .recog-item__proof:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
