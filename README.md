@@ -45,7 +45,7 @@ Open `http://localhost:8090`. No installation is required.
 1. **Hero** — role, biography, calls to action, portrait, and statistics
 2. **About / Education** — academic background and testimonial media
 3. **Experience** — professional and leadership timeline
-4. **Projects** — AquaGuard, EnableCode, AirGuard, and Carbon Footprint work
+4. **Projects** — AquaGuard (Flood Emergency Response Platform), EnableCode (Accessible Coding Platform), AirGuard (Carbon Emission Tracking)
 5. **Academic Publications** — KSE 2026 accepted paper, Discover AI 2026 ongoing work, and *Introduction to Computing*
 6. **Recognition** — honors, certificates, testimonials, and media coverage
 7. **Contact** — work email, phone, LinkedIn, and social links
