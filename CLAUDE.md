@@ -4,143 +4,104 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Next-generation editorial redesign of the personal portfolio — plain static HTML/CSS/JS, no build step. This is the live deployed site on Vercel.
+Personal portfolio for Nguyen Minh Quan — a single-page static site in plain HTML/CSS/JS with **no build step, bundler, framework, or dependencies**. The repository root is the deployed live site on Vercel (`minhquannguyen.vercel.app`); pushing to `main` deploys automatically.
 
 ```bash
-python3 -m http.server 8090
-# → http://localhost:8090
-
-# Quick JS syntax check
-node -c script.js
+python3 -m http.server 8090     # → http://localhost:8090
+node -c script.js               # JS syntax check
 ```
+
+`vercel.json` pins the root as a static site (`framework: null`, `outputDirectory: "."`). There is nothing to build or install.
 
 ## Architecture
 
 **3-file layout (root only):**
-- `index.html` — HTML markup, links `style.css` and `script.js`
+- `index.html` — all markup and content
 - `style.css` — all CSS (design tokens → components → animations → responsive)
-- `script.js` — all JS (nav, scroll reveal, sliders, collapse toggle)
+- `script.js` — all JS (nav, reveal, counters, sliders, toast, certificate modal)
+- `assets/` — all media (self-contained; moving the folder does not break links)
 
-No build step, no bundler.
-
-**Sections (numbered):**
-1. Hero — name, role, bio, CTAs, stats strip
-2. About/Education — sticky left column + photo right
-3. Experiences — vertical timeline with clickable items + "View all experiences" collapse
-4. Projects — alternating L/R image-content grid (sliders or single media)
-5. Publications — single paper card
-6. Recognition — testimonials (3-col grid) + honors list + media cards
-7. Contact — 6-card grid
-
-**Assets** live entirely under `assets/` (no root-level media). The site is self-contained — moving this folder around does not break links.
-
-```
-.
-├── index.html
-├── style.css
-├── script.js
-├── CLAUDE.md
-└── assets/
-    ├── my_resume.pdf            ← CV download
-    ├── projects/                ← per-project media folders
-    │   ├── aquaguard/           ← aquaguard-cut1.mp4, aquaguard-cut2.mp4
-    │   ├── airguard/            ← airguard-cut1.mp4, airguard-cut2.mp4, airguard-cut3.mp4
-    │   ├── carbon-footprint/    ← carbon-footprint-1.mp4 (project 3 single video)
-    │   └── flood-detection/     ← flood-detection1.png (project 4 single image)
-    ├── media/
-    │   └── profile.jpg          ← hero portrait
-    ├── logos/                   ← 1.png … 13.png (hero strip + press logos)
-    ├── certificates/            ← per-award PDF/JPG proofs, grouped by award folder
-    └── testimonials/
-        └── uts-testimonial.jpg
-```
+Sections in order: `#hero`, `#about` (About / Education), `#experiences` (timeline), `#projects` (showcase), `#recognition` (testimonials + honors + media + certificates). Contact is **not** a `<section>` — it is the black footer (`.footer`). Publications are an unnumbered block inside the Recognition area, not their own section.
 
 ## Design System
 
-**Palette (CSS custom properties):**
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#F4F5F7` | Page background |
-| `--bg-alt` | `#E8EAEF` | Alternating sections |
-| `--bg-dark` | `#D0D3DC` | Project image placeholders |
-| `--ink` | `#111111` | Primary text |
-| `--ink-muted` | `#3A3A3A` | Secondary text |
-| `--ink-faint` | `#5A5A5A` | Labels, captions |
-| `--accent` | `#2D4A6B` | CTAs, links, highlights |
-| `--accent-hover` | `#3D5F87` | Hover state |
-| `--border` | `#C8CBD6` | Dividers, card borders |
-| `--border-strong` | `#A8ABB8` | Section numbers, counters |
+**Palette (CSS custom properties in `:root`):** `--bg` `#F4F5F7`, `--bg-alt` `#E8EAEF`, `--ink` `#111111`, `--ink-muted` `#3A3A3A`, `--ink-faint` `#5A5A5A`, **`--accent` `#2D4A6B`** (steel blue — do not substitute brown), `--accent-hover` `#3D5F87`, `--border` `#C8CBD6`, `--border-strong` `#A8ABB8`. The footer reverses to a dark/black surface.
 
-The accent is steel blue, not brown.
+**Fonts:** Inter (sans) with Cormorant Garamond italic accents, loaded from Google Fonts.
 
-**Fonts:** Inter (grotesk sans) + Cormorant Garamond (italic serif accent). Loaded from Google Fonts.
+**Spacing:** scale `--s1`…`--s9`, `--grid-margin: clamp(32px, 6vw, 96px)`, `--max-w: 1400px`. Section vertical padding uses `var(--s6)`.
 
-**Spacing scale:** `--s1` (8px) through `--s9` (160px), plus `--grid-margin` (responsive via `clamp(32px, 6vw, 96px)`) and `--max-w` (1400px). Section vertical padding uses `var(--s6)` (64px) — was previously `s7` and felt too airy.
+## Scroll Reveal & Animation
 
-## Scroll Animations
+Reveal classes: `.reveal` (fade + translate up), `.reveal-edu` (slide from left), `.reveal-school` (gentle color/translate), `.reveal-flat` (shorter translate), and `.deco-shape` (decorative background shapes). A single `IntersectionObserver` observes all of them, **adds `.visible` on enter AND removes it when the element leaves the viewport** (there is no one-shot unobserve) — so re-scrolling replays the animation. Threshold `0.1`, `rootMargin: 0px 0px -50px 0px`.
 
-`.reveal` class + `IntersectionObserver` (threshold 0.08, rootMargin 0 0 -40px 0) — elements fade+translate up on enter, unobserve after first trigger. Delay variants: `.reveal-delay-1` (0.1s) through `.reveal-delay-4` (0.4s).
+Staggering: elements inside a `[data-stagger-group]` container reveal together with a 0.1s transition-delay per sibling (assigned in JS). Delay utility classes `.reveal-delay-1`…`-4` also exist for static offsets.
 
-Two additional reveal variants exist in CSS but are handled by the same observer:
-- `.reveal-edu` on `.edu-item` — slides in from left (`translateX(-28px)`) instead of up
-- `.reveal-school` on `.edu-item__school` — gentle `translateY` reveal with a color transition
-- `.reveal-flat` on `.project-row` — reduces the default translate distance
+Hero entrance is pure CSS `@keyframes` with `animation-delay` staggering — no JS.
 
-Hero entrance is CSS `@keyframes slideUp` / `fadeUp` with staggered `animation-delay` values — no JS required.
+**Reduced motion:** `style.css` contains a `prefers-reduced-motion` block — preserve it when editing animations.
 
 ## Key CSS Patterns
 
-- **Directional project rows:** `data-dir="left"` sets `direction: rtl` on the row and `direction: ltr` on children to flip the image/content order in a CSS grid.
-- **Sticky about column:** `.about__left { position: sticky; top: calc(68px + var(--s4)); }` — nav height (68px) + spacing offset.
-- **Custom scrollbar:** 4px wide, accent color on hover.
-- **Text selection:** `::selection` uses accent bg + bg text color.
-- **Experience timeline width:** `.timeline` is capped at `min(1100px, 100%)` and centered — cards stay compact even though the site max-w is 1400px.
-- **Experience collapse:** `.exp-overflow` uses `max-height` + `opacity` transition (not `display`) so the 4th/5th experience cards slide in/out smoothly. JS adds `.visible` to each overflow `.reveal` with a 150 ms stagger.
-- **Project link buttons:** `.project-row__links .btn-outline` uses the accent blue background (`var(--accent)`) with white text and ink hover — applies to all 4 projects, no `btn-ghost` variant.
-- **Project button sizing:** `.project-row__links .btn-outline` is sized down (`padding: 8px 18px; font-size: 12px`) so the action row doesn't dominate the card.
+- **Directional project rows:** `[data-dir="left"|"right"]` flips image/content order in a CSS grid (`direction: rtl` on the row, `ltr` on children).
+- **Sticky about column:** `.about__left { position: sticky; top: calc(68px + var(--s4)); }` — nav height (68px) + offset.
+- **Experience timeline:** `.timeline` capped at `min(1100px, 100%)` and centered. The "View all experiences" collapse (`.exp-overflow`) uses `max-height` + `opacity` transitions (not `display`) so overflow cards slide in/out; JS toggles `.is-expanded` on `.timeline` and adds/removes `.visible` on `.exp-overflow .reveal` with a 150 ms stagger.
+- **Project action buttons:** `.project-row__links .btn-outline` uses the accent fill with white text and is sized down (`padding: 8px 18px; font-size: 12px`) so the action row stays subordinate to the card.
+- Custom 4px scrollbar, accent `::selection`, and `#certificate-modal-open` body lock while the modal is open.
 
 ## JS Modules (`script.js`)
 
+All modules are wrapped in IIFEs or guarded lookups — a missing element (e.g. the modal) must not throw.
+
 | Module | Behavior |
 |---|---|
-| Nav frosted glass | `scrolled` class after 40px |
-| Scroll reveal | IntersectionObserver on `.reveal`, `.reveal-edu`, `.reveal-school` |
-| Smooth scroll | `a[href^="#"]` with nav offset |
-| Active nav link | Scrollspy on section `id`s |
-| Project sliders | Per-slider index, CSS `translateX` track, prev/next/dots controls |
-| Experience collapse toggle | Adds `.is-expanded` to `.timeline`, staggers `.visible` onto `.exp-overflow .reveal` items, removes them on collapse |
-| Broken image guard | Hides `img` elements inside `.project-slider__slide` on `error` or zero natural width |
+| Nav frosted glass | toggles `.scrolled` after 40px scroll |
+| Scroll reveal | one `IntersectionObserver` for all reveal classes (see above) |
+| Smooth scroll | `a[href^="#"]`, skips `#`, `#!`, and placeholder links |
+| Hero counters | animates `.stat__number` once when `.hero__stats` enters view (eased, preserves trailing suffix) |
+| Active nav link | scrollspy over `section[id]`; forces last section active at page bottom |
+| Project sliders | per-slider index, `translateX` track, prev/next/dot controls (`.project-slider__*`) |
+| Broken-image guard | hides `.project-slider__slide img` on error or zero natural width |
+| Under-development toast | `.is-soon` buttons show a transient `.toast` (reads `data-msg`) |
+| Certificate modal | `.certificate-trigger` opens `#certificate-modal`; renders PDF via `<iframe>` or image via `<img>` from `data-cert-url`/`href`, falls back on error/unsupported type; closes on button, backdrop click, and Escape; restores focus to the trigger |
 
-The grid overlay toggle that previously lived at the bottom-right of the page has been removed (it was a development aid only).
+## Projects & Media
 
-## Project Media Layouts
+Three projects, each a `.project-row` with a `.project-slider` (track + prev/next + dots):
 
-Projects 1, 2, 4 use the slider pattern (`<div class="project-slider">` with track, prev/next buttons, dots). Project 3 is a single `<video class="project-row__video">` with no controls — uses `assets/projects/carbon-footprint/carbon-footprint-1.mp4`. Project 4 uses one image from `assets/projects/flood-detection/flood-detection1.png`.
+1. **AquaGuard** — `assets/projects/aquaguard/aquaguard-cut1.mp4`, `aquaguard-cut2.mp4`
+2. **EnableCode** — `assets/projects/enablecode/enablecode.mov`
+3. **AirGuard** — `assets/projects/airguard/airguard-cut1.mp4` … `cut3.mp4`
 
-## Asset Subdirectories
+There is no carbon-footprint or flood-detection media in the live site (older docs referenced them). Each project's media lives in its own `assets/projects/<name>/` folder.
 
-Each `projects/` subfolder holds media for one portfolio project:
-- `projects/aquaguard/` — AquaGuard web platform demo videos
-- `projects/airguard/` — AirGuard carbon tracking demo videos
-- `projects/carbon-footprint/` — Carbon Footprint Calculator (Anvil/Python) demo
-- `projects/flood-detection/` — Drone-based flood victim detection (YOLOv11) demo
+## Assets
+
+- `assets/my_resume.pdf` — CV download (`.gitignore` exempts `assets/**/*.pdf` from the blanket `*.pdf` ignore so resume + certificate PDFs deploy)
+- `assets/media/profile.jpg` — hero/portrait
+- `assets/logos/1.png`…`13.png` — hero strip and press logos
+- `assets/icons/` — official Simple Icons SVG for facebook, orcid, linkedin, github (PNG fallbacks alongside)
+- `assets/shapes/` — decorative SVG polygons used by `.deco-shape`
+- `assets/testimonials/uts-testimonial.jpg`
+- `assets/certificates/` — award PDFs/JPGs, grouped by award (e.g. `03_1stplace_epics2026_asu/`) plus UTS/HPC files; wired to the certificate modal via `.certificate-trigger`
+
+Media referenced from HTML lives under `assets/` only — no root-level media.
+
+## Adding Content
+
+- **Experience:** add/remove `.exp-item` inside `.timeline`; items inside `.exp-overflow` stay hidden until "View all experiences" is clicked.
+- **Project:** add a `.project-row` in `.project-showcase`; set `data-dir` for image/content order; use `.project-slider` for multi-media or drop a single `<video>`/`<img>` directly in `.project-row__img`.
+- **Certificate:** add a `.certificate-trigger` with `data-cert-url` (and optional `data-cert-title`) pointing at the asset.
+- **Testimonials / honors / media / contact:** edit `.testimonial-card`, `.recog-list`, media cards, and `.footer__*` blocks.
+
+## Archive
+
+Old versions and redesigns live in `archive/` (e.g. `archive/old-portfolio`, `archive/src/demo`, `archive/old-portfolio-2026-09-06/*`). `archive/`, `old-portfolio/`, `CLAUDE.md`, and `.playwright-mcp/` are git-ignored so they are not deployed. Do not edit archive copies as if they were the live site.
 
 ## Responsive Breakpoints
 
 | Breakpoint | Changes |
 |---|---|
-| ≤1024px | Hero grid tightens columns |
-| ≤900px | Nav links hidden, hero stacks, about/recog/project grids collapse to 1fr; section spacing reduces (`--s7: 80px; --s8: 80px`) |
-| ≤600px | Contact grid 1-col, media grid 1-col, hero CTAs stack |
-
-## Adding Content
-
-- **Experience items:** Add/remove `.exp-item` divs inside `.timeline`. Each has a marker SVG, role/org/date header, description, tags, and a link. Items inside `.exp-overflow` are hidden until "View all experiences" is clicked.
-- **Project rows:** Add `.project-row` divs to `.project-showcase`. Set `data-dir="left"` or `data-dir="right"` to control image/content order. For a slider, use `.project-slider` with track and controls. For a single media (video or image), put it directly inside `.project-row__img`.
-- **Awards:** Edit `.recog-list` items — title, description, and the `href="#"` on the proof link.
-- **Testimonials:** Edit the 3 `.testimonial-card` divs inside `.testimonials-grid`.
-- **Contact cards:** Edit the 6 `.contact-card` anchors inside `.contact-grid`.
-
-## Relationship to the Archived Site
-
-All former and unused versions (including `old-portfolio`, demo projects, etc.) are safely archived in the `archive/` folder. The current live deployed site resides at the root of the repository.
+| ≤1024px | hero grid tightens columns |
+| ≤900px | nav links hidden, hero/about/recognition/project grids collapse to single column, section spacing reduces |
+| ≤600px | contact/hero CTAs and media grids stack to one column |
