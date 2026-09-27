@@ -532,35 +532,30 @@ nav.scrolled { border-bottom-color: var(--border); }
 
 /* =====================================================
    PUBLICATIONS (inside Projects section)
+   Plain numbered list — no card, no border.
 ===================================================== */
-.pub-list { display: flex; flex-direction: column; gap: var(--s3); width: 100%; max-width: min(1180px, 100%); margin: 0 auto; }
-.pub-card { border: 1px solid var(--border); border-radius: var(--radius); padding: var(--s3) var(--s4); width: 100%; transition: border-color 0.3s; display: grid; grid-template-columns: 40px 1fr; gap: var(--s2); align-items: start; }
-.pub-card + .pub-card { margin-top: 0; }
-.pub-card__num { font-family: var(--sans); font-size: 20px; font-weight: 700; color: var(--border-strong); letter-spacing: -0.02em; line-height: 1; padding-top: 6px; }
-.pub-card__inner { min-width: 0; }
-.pub-card:hover { border-color: var(--accent); }
-.pub-card__chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: var(--s2); }
-.pub-chip { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 10px; border-radius: var(--radius); }
-.pub-chip--status { background: rgba(21,101,192,0.10); color: var(--accent); }
-.pub-chip--accepted { background: rgba(45,74,107,0.14); color: var(--accent); }
-.pub-chip--venue { border: 1px solid var(--border); color: var(--ink-faint); }
-.pub-chip--pending { border: 1px solid var(--border); color: var(--ink-faint); }
-.pub-card__title { font-family: var(--sans); font-size: clamp(15px, 1.6vw, 19px); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: var(--s2); }
-.pub-card__authors { font-size: 13px; color: var(--ink-muted); margin-bottom: 6px; font-weight: 300; }
-.pub-card__authors .me { font-weight: 600; color: var(--ink); }
-.pub-card__affil { font-size: 11px; color: var(--ink-faint); font-family: var(--sans); letter-spacing: 0.02em; margin-bottom: var(--s2); }
-.pub-card__desc { font-size: 13px; color: var(--ink-muted); font-weight: 300; line-height: 1.6; margin-bottom: var(--s2); }
-.pub-card__actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: var(--s2); min-height: 30px; }
-.pub-card__actions--empty { visibility: hidden; }
-.pub-action { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border: 1px solid var(--accent); border-radius: var(--radius); color: var(--accent); font-size: 11px; font-weight: 600; text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; }
-.pub-action:hover { background: var(--accent); color: var(--bg); transform: translateY(-2px); }
-.pub-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.tag {
-  font-size: 12px; padding: 4px 10px; background: var(--bg-alt); color: var(--ink-muted);
-  border-radius: var(--radius); cursor: default;
-  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+.pub-list {
+  width: 100%;
+  max-width: min(1180px, 100%);
+  margin: 0 auto;
+  padding-left: var(--s4);
+  list-style: decimal;
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.7;
 }
-.tag:hover { background: var(--accent); color: var(--bg); transform: translateY(-2px); }
+.pub-entry { padding: var(--s2) 0; border-bottom: 1px solid var(--border); }
+.pub-entry:last-child { border-bottom: none; }
+.pub-entry__title { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 6px; line-height: 1.35; }
+.pub-entry__meta { font-size: 13px; color: var(--ink-muted); margin-bottom: 4px; }
+.pub-entry__meta .me { font-weight: 600; color: var(--ink); }
+.pub-entry__venue { font-size: 13px; color: var(--ink-faint); line-height: 1.55; }
+.pub-entry__venue em { font-style: italic; }
+@media (max-width: 600px) {
+  .pub-list { padding-left: var(--s3); font-size: 14px; }
+  .pub-entry__title { font-size: 15px; }
+}
+
 
 /* =====================================================
    RECOGNITION
@@ -849,19 +844,13 @@ footer {
   .section { padding-block: 52px; }
   .display-md { font-size: clamp(32px, 10vw, 48px); }
   .project-row__content { min-width: 0; padding: 28px 20px; }
-  .project-row__title, .pub-card__title { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
-  .project-row__desc, .pub-card__authors, .pub-card__affil { overflow-wrap: anywhere; }
+  .project-row__title { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+  .project-row__desc { overflow-wrap: anywhere; }
   .project-row__links .btn { width: 100%; justify-content: center; min-height: 44px; }
   .project-slider__btn { width: 40px; height: 40px; }
   .project-slider__btn--prev { left: 8px; }
   .project-slider__btn--next { right: 8px; }
   .project-slider__dot { width: 10px; height: 10px; }
-  .pub-card { grid-template-columns: 28px minmax(0, 1fr); padding: 20px 16px; gap: 10px; }
-  .pub-card__chips { gap: 6px; }
-  .pub-chip { font-size: 9px; padding: 5px 8px; }
-  .pub-card__actions { min-height: 0; }
-  .pub-card__actions--empty { display: none; }
-  .pub-action { min-height: 40px; }
   .tag { font-size: 11px; }
   .recog-item { grid-template-columns: 28px minmax(0, 1fr); padding-inline: 14px; }
   .recog-item__proof, .exp-show-more__btn { min-height: 44px; }
