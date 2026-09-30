@@ -1,4 +1,0 @@
-Total messages: 1 (Errors: 1, Warnings: 0)
-
-SyntaxError: Failed to execute 'querySelector' on 'Document': '#' is not a valid selector.
-    at HTMLAnchorElement.<anonymous> (http://localhost:8090/script.js:30:29)
