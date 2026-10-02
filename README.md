@@ -87,3 +87,9 @@ Pushing to `main` triggers Vercel's automatic deployment. There is no build comm
 ## Archive
 
 Previous website versions are kept locally under `archive/` and are intentionally ignored by Git so archived copies and nested repository metadata are not deployed.
+
+## Local preview
+
+The site is static HTML, CSS and JavaScript. To preview it locally, run a simple
+web server from the project root, for example `python3 -m http.server 8000`, then
+open `http://localhost:8000`.
