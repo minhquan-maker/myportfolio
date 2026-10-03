@@ -2176,3 +2176,55 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .about__link { color: inherit; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 4px; text-decoration-thickness: 2px; }
 .about__link:hover { color: var(--red); }
+
+/* =========================================================================
+   PIXEL ME (bottom-left easter egg)
+   ========================================================================= */
+.pixel-me {
+  position: fixed;
+  left: 20px;
+  bottom: 0;
+  z-index: 40;
+  pointer-events: none;
+  transform: translateY(105%);
+  transition: transform 0.5s steps(7);
+}
+
+.pixel-me.is-in { transform: translateY(0); }
+
+.pixel-me canvas {
+  display: block;
+  width: 64px;
+  height: 80px;
+  image-rendering: pixelated;
+  /* thin light rim so the black polo stays readable on the navy footer */
+  filter: drop-shadow(1px 0 0 rgba(255, 255, 255, 0.55)) drop-shadow(-1px 0 0 rgba(255, 255, 255, 0.55));
+}
+
+.pixel-me.is-in canvas { pointer-events: auto; cursor: pointer; }
+
+.pixel-me__bubble {
+  position: absolute;
+  left: 72px;
+  bottom: 54px;
+  width: max-content;
+  max-width: 220px;
+  padding: 8px 10px;
+  background: #fff;
+  color: var(--paper);
+  border: 2px solid #0E1A33;
+  box-shadow: 3px 3px 0 #0E1A33;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s steps(3), transform 0.2s steps(3);
+  pointer-events: none;
+}
+
+.pixel-me.is-talking .pixel-me__bubble { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 480px) {
+  .pixel-me { display: none; }
+}

@@ -622,3 +622,154 @@
   }, { threshold: [0.3, 0.5] });
   spyEls.forEach((s) => spyIO.observe(s));
 })();
+
+/* =========================================================================
+   Pixel me — a tiny pixel self-portrait that pops up in the bottom-left corner,
+   plays a couple of animations, leaves, and returns when the screen stays idle.
+   Canvas-drawn (no assets). Skipped for reduced motion and very small screens.
+   ========================================================================= */
+(function pixelMe() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth <= 480) return;
+
+  const W = 16, H = 20;
+  const C = {
+    hair: '#14141A', skin: '#F4DCC8', skinSh: '#E3C2A8', eye: '#14141A', mouth: '#B5645A',
+    shirt: '#1B1B22', trim: '#F2F2F2', collar: '#3A3A44', pants: '#2B3A5C', shoe: '#F2F2F2',
+    lap: '#B8BEC9', lapDark: '#8A91A0', logo: '#C4501F'
+  };
+  const PHRASES = [
+    'Hi, I’m Quan. The small one.',
+    'Psst. The projects are worth a look.',
+    'AI student, builder, mostly caffeinated.'
+  ];
+
+  const el = document.createElement('div');
+  el.className = 'pixel-me';
+  el.setAttribute('aria-hidden', 'true');
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const bubble = document.createElement('div');
+  bubble.className = 'pixel-me__bubble';
+  el.appendChild(canvas);
+  el.appendChild(bubble);
+  document.body.appendChild(el);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) { el.remove(); return; }
+
+  function r(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); }
+
+  function render(anim, f, blink) {
+    ctx.clearRect(0, 0, W, H);
+    // legs + shoes
+    r(5, 16, 3, 3, C.pants); r(8, 16, 3, 3, C.pants);
+    r(5, 19, 3, 1, C.shoe); r(8, 19, 3, 1, C.shoe);
+    // torso, collar, placket
+    r(4, 10, 8, 6, C.shirt);
+    r(5, 10, 2, 1, C.collar); r(9, 10, 2, 1, C.collar); r(7, 11, 2, 2, C.collar);
+    // sleeves with white trim
+    r(2, 10, 2, 2, C.shirt); r(2, 12, 2, 1, C.trim);
+    r(12, 10, 2, 2, C.shirt); r(12, 12, 2, 1, C.trim);
+
+    // arms
+    if (anim === 'wave') {
+      r(2, 13, 2, 3, C.skin);
+      r(13 + (f % 2), 5, 2, 6, C.skin);
+    } else if (anim === 'yawn') {
+      r(1, 3 + (f % 2), 2, 7, C.skin);
+      r(13, 3 + (f % 2), 2, 7, C.skin);
+    } else if (anim === 'type') {
+      // forearms are hidden behind the laptop; hands drawn below
+    } else {
+      r(2, 13, 2, 3, C.skin);
+      r(12, 13, 2, 3, C.skin);
+    }
+
+    // head: hair, face, ears, neck
+    r(5, 0, 6, 1, C.hair); r(4, 1, 8, 1, C.hair); r(3, 2, 10, 2, C.hair); r(3, 4, 1, 1, C.hair); r(12, 4, 1, 1, C.hair);
+    r(5, 3, 1, 1, C.hair); r(10, 3, 1, 1, C.hair);
+    r(4, 4, 8, 4, C.skin); r(5, 8, 6, 1, C.skin); r(6, 9, 4, 1, C.skinSh);
+    r(3, 5, 1, 2, C.skin); r(12, 5, 1, 2, C.skin);
+
+    // eyes
+    let dx = 0;
+    if (anim === 'look') dx = [-1, 0, 1, 0][f % 4];
+    const closed = blink || anim === 'yawn';
+    if (closed) { r(5 + dx, 5, 2, 1, C.skinSh); r(9 + dx, 5, 2, 1, C.skinSh); r(5 + dx, 6, 2, 1, C.eye); r(9 + dx, 6, 2, 1, C.eye); }
+    else { r(6 + dx, 5, 1, 2, C.eye); r(9 + dx, 5, 1, 2, C.eye); }
+
+    // mouth
+    if (anim === 'yawn') r(7, 6 + 1, 2, 2, C.mouth);
+    else if (anim === 'wave') r(6, 7, 4, 1, C.mouth);
+    else r(7, 7, 2, 1, C.mouth);
+
+    // laptop + typing hands
+    if (anim === 'type') {
+      r(3, 12, 10, 5, C.lap); r(3, 16, 10, 1, C.lapDark); r(7, 14, 2, 1, C.logo);
+      r(2, 12 + (f % 2), 2, 2, C.skin);
+      r(12, 12 + ((f + 1) % 2), 2, 2, C.skin);
+    }
+  }
+
+  // ---- choreography ----
+  const ANIMS = ['wave', 'type', 'yawn', 'look'];
+  let visible = false, timer = null, lastAnim = '', hold = 0, override = null;
+  let lastHide = performance.now() - 3000;   // first visit ~5 s after load if the page is idle
+  let lastActive = performance.now();
+
+  ['pointermove', 'pointerdown', 'scroll', 'keydown', 'wheel', 'touchstart'].forEach((ev) => {
+    window.addEventListener(ev, () => { lastActive = performance.now(); }, { passive: true });
+  });
+
+  function pickTwo() {
+    const pool = ANIMS.filter((a) => a !== lastAnim).sort(() => Math.random() - 0.5);
+    const second = ANIMS.filter((a) => a !== pool[0]).sort(() => Math.random() - 0.5)[0];
+    lastAnim = second;
+    return [pool[0], second];
+  }
+
+  function show() {
+    visible = true;
+    el.classList.add('is-in');
+    const [a, b] = pickTwo();
+    const plan = [['idle', 900], [a, 2600], [b, 2600], ['idle', 500]];
+    let step = 0, stepStart = performance.now(), f = 0, blinkAt = performance.now() + 1600;
+    timer = setInterval(() => {
+      const now = performance.now();
+      if (now - stepStart >= plan[step][1] + hold) {
+        step++; stepStart = now; hold = 0;
+        if (step >= plan.length) return hide();
+      }
+      f++;
+      const anim = override && now < override.until ? override.anim : plan[step][0];
+      let blink = false;
+      if (now >= blinkAt) { blink = true; if (now >= blinkAt + 160) blinkAt = now + 1800 + Math.random() * 1500; }
+      render(anim, f, blink);
+    }, 200);
+    render('idle', 0, false);
+  }
+
+  function hide() {
+    clearInterval(timer); timer = null;
+    el.classList.remove('is-in', 'is-talking');
+    setTimeout(() => { visible = false; lastHide = performance.now(); }, 600);
+    visible = true; // stays "busy" until the exit transition finishes
+  }
+
+  canvas.addEventListener('click', () => {
+    if (!visible) return;
+    bubble.textContent = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+    el.classList.add('is-talking');
+    override = { anim: 'wave', until: performance.now() + 2200 };
+    hold += 2400;
+    clearTimeout(el._t);
+    el._t = setTimeout(() => el.classList.remove('is-talking'), 2400);
+  });
+
+  setInterval(() => {
+    if (document.hidden || visible) return;
+    const now = performance.now();
+    const idle = now - lastActive, gap = now - lastHide;
+    if ((idle >= 3000 && gap >= 8000) || gap >= 45000) show();
+  }, 1000);
+})();
