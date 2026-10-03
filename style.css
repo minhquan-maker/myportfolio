@@ -2025,3 +2025,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   .reveal { opacity: 1; transform: none; }
   .exp-card { opacity: 1; transform: none; }
 }
+
+.about__link { color: inherit; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+.about__link:hover { color: var(--red); }
