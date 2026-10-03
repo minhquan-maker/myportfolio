@@ -1590,6 +1590,11 @@ ul { list-style: none; padding: 0; margin: 0; }
   mix-blend-mode: multiply;   /* white logo backgrounds melt into the card */
 }
 
+.press-card__logo--wide img {
+  max-width: 210px;
+  max-height: 44px;
+}
+
 .press-card__wordmark {
   font-family: var(--font-display);
   font-weight: 800;
