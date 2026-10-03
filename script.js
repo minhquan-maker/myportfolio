@@ -542,23 +542,19 @@
     // highlight the card nearest the left edge of the track
     const projCards = Array.from(projTrack.querySelectorAll('.proj-card'));
     function updateActiveCard() {
-      const trackLeft = projTrack.getBoundingClientRect().left;
-      // Prefer the leftmost card whose left edge is within ~one card width
-      // of trackLeft; fall back to the nearest by absolute distance so partial
-      // reveals (last card peeking from the right) still highlight correctly.
+      // focus point glides from the first card's centre to the last card's centre
+      // as the row scrolls, so every card (including the last) gets its turn lit
+      const rect = projTrack.getBoundingClientRect();
+      const max = projTrack.scrollWidth - projTrack.clientWidth;
+      const progress = max > 0 ? projTrack.scrollLeft / max : 0;
       const cardW = projCards[0] ? projCards[0].getBoundingClientRect().width : 400;
-      let active = null;
-      for (const c of projCards) {
-        const edge = c.getBoundingClientRect().left - trackLeft;
-        if (edge > -cardW * 0.5 && edge <= cardW * 0.5) { active = c; break; }
-      }
-      if (!active) {
-        let min = Infinity;
-        projCards.forEach((c) => {
-          const d = Math.abs(c.getBoundingClientRect().left - trackLeft);
-          if (d < min) { min = d; active = c; }
-        });
-      }
+      const focus = rect.left + cardW / 2 + progress * Math.max(0, rect.width - cardW);
+      let active = null, min = Infinity;
+      projCards.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        const d = Math.abs(r.left + r.width / 2 - focus);
+        if (d < min) { min = d; active = c; }
+      });
       projCards.forEach((c) => c.classList.toggle('is-active', c === active));
     }
     projTrack.addEventListener('scroll', updateActiveCard, { passive: true });
@@ -587,6 +583,13 @@
       requestAnimationFrame(tickTrack);
     }
     requestAnimationFrame(tickTrack);
+
+    // dim the room while the projects row is mid-screen
+    if (projPin && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((en) => projPin.classList.toggle('is-lit', en.isIntersecting));
+      }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 }).observe(projPin);
+    }
 
     // mute offscreen videos, play visible ones
     const mediaIO = new IntersectionObserver((entries) => {

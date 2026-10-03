@@ -1077,6 +1077,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .proj-pin {
   padding: var(--s7) 0;
   background: var(--bg-inset);
+  transition: background-color 0.6s var(--ease-out);
 }
 
 .proj-pin__sticky {
@@ -1089,7 +1090,8 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .proj-pin__sticky h2 {
   font-size: var(--fs-h2);
-  margin-bottom: var(--s6);
+  margin-bottom: var(--s5);
+  transition: color 0.6s var(--ease-out);
 }
 
 .proj-shell {
@@ -1102,16 +1104,16 @@ ul { list-style: none; padding: 0; margin: 0; }
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
-  padding: var(--s5) 0;
+  padding: 32px 0;
   cursor: grab;
 }
 
 .proj-track::-webkit-scrollbar { display: none; }
 .proj-track.is-dragging { cursor: grabbing; }
 
-/* ~3 cards visible with a peek of the next at the right edge */
+/* ~2.4 cards visible: larger cards, with a peek of the next at the right edge */
 .proj-card {
-  flex: 0 0 calc((100% - 2 * var(--s5)) / 3);
+  flex: 0 0 calc((100% - var(--s5)) / 2.4);
   background: var(--bg-raised);
   border: 1px solid var(--rule);
   border-radius: 4px;
@@ -1120,7 +1122,8 @@ ul { list-style: none; padding: 0; margin: 0; }
   flex-direction: column;
   position: relative;
   transition: border-color 0.35s var(--ease-out), transform 0.35s var(--ease-out),
-              opacity 0.35s var(--ease-out);
+              opacity 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out),
+              filter 0.5s var(--ease-out);
   opacity: 0.85;
   transform: scale(0.965);
 }
@@ -1129,6 +1132,28 @@ ul { list-style: none; padding: 0; margin: 0; }
 .proj-card.is-active {
   opacity: 1;
   transform: scale(1);
+}
+
+/* ---- spotlight: lights go down around the row, the active project stays lit ---- */
+.proj-pin.is-lit {
+  background: #0A1428;
+}
+.proj-pin.is-lit .proj-pin__sticky h2 { color: #F4F1EA; }
+.proj-pin.is-lit .proj-pin__sticky h2 em { color: #E8814F; }
+.proj-pin.is-lit .bracket { color: #B8C0D4; }
+.proj-pin.is-lit .bracket em { color: #8A94AD; }
+.proj-pin.is-lit .proj-nav { color: #F4F1EA; }
+.proj-pin.is-lit .proj-nav:hover { color: #E8814F; }
+.proj-pin.is-lit .proj-progress { background: #25345A; }
+
+.proj-pin.is-lit .proj-card:not(.is-active):not(:hover) {
+  opacity: 0.3;
+  filter: saturate(0.6) brightness(0.85);
+}
+.proj-pin.is-lit .proj-card.is-active {
+  transform: scale(1.015);
+  box-shadow: 0 0 0 1px rgba(232, 129, 79, 0.55),
+              0 10px 30px -12px rgba(232, 129, 79, 0.5);
 }
 
 .proj-card:hover {
