@@ -84,17 +84,17 @@
         const depth = (r.z + 1) / 2;
         const size = (0.4 + depth * 2.1) * dpr;
         const alpha = 0.08 + depth * 0.78;
-        // base particles — off-white (matches --paper #F5F5F2)
-        ctx.fillStyle = 'rgba(245, 245, 242, ' + alpha.toFixed(3) + ')';
+        // base particles — navy (matches --paper #0E1A33)
+        ctx.fillStyle = 'rgba(14, 26, 51, ' + alpha.toFixed(3) + ')';
         ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
         // sparse red accent on points facing camera
         if (i % 47 === 0 && depth > 0.65) {
-          ctx.fillStyle = 'rgba(230, 0, 40, ' + (alpha * 0.95).toFixed(3) + ')';
+          ctx.fillStyle = 'rgba(210, 98, 46, ' + (alpha * 0.95).toFixed(3) + ')';
           ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
         }
         // sparse yellow highlight on the brightest points
         if (i % 89 === 0 && depth > 0.85) {
-          ctx.fillStyle = 'rgba(255, 205, 0, ' + (alpha * 0.9).toFixed(3) + ')';
+          ctx.fillStyle = 'rgba(240, 179, 90, ' + (alpha * 0.9).toFixed(3) + ')';
           ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
         }
       }
