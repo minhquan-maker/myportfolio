@@ -26,18 +26,18 @@ Tune the particle colors to harmonize with the cleaned palette.
 
 | Token              | Hex       | Role                                       | Contrast vs. surface                  |
 |--------------------|-----------|--------------------------------------------|---------------------------------------|
-| `--bg`             | `#FBFAF7` | Page background (warm white)| —                                     |
-| `--bg-raised`      | `#F1EFE9` | Cards / raised surface                     | —                                     |
-| `--bg-inset`       | `#E7E4DC` | Inset / deeper sections                    | —                                     |
+| `--bg`             | `#FFFFFF` | Page background (pure white; footer is a solid navy block)| —                                     |
+| `--bg-raised`      | `#EFEBE2` | Cards / raised surface                     | —                                     |
+| `--bg-inset`       | `#E3DED2` | Inset / deeper sections                    | —                                     |
 | `--paper`          | `#0E1A33` | Primary text (navy ink)        | 15.8:1 on `--bg` (AAA)                |
-| `--paper-muted`    | `#4B5874` | Secondary text                             | 7.4:1 on `--bg` (AAA large, AA body)  |
-| `--paper-faint`    | `#7A859C` | Tertiary / eyebrows                        | 4.0:1 on `--bg` (AA large)            |
-| `--red`            | `#D2622E` | Terracotta — primary accent           | 5.4:1 on `--bg` (AA), 5.1:1 on paper  |
-| `--red-deep`       | `#A84B1F` | Terracotta hover / deeper red surface             | —                                     |
+| `--paper-muted`    | `#36425F` | Secondary text                             | 7.4:1 on `--bg` (AAA large, AA body)  |
+| `--paper-faint`    | `#5D6985` | Tertiary / eyebrows                        | 4.0:1 on `--bg` (AA large)            |
+| `--red`            | `#C4501F` | Terracotta — primary accent           | 5.4:1 on `--bg` (AA), 5.1:1 on paper  |
+| `--red-deep`       | `#9C3F14` | Terracotta hover / deeper red surface             | —                                     |
 | `--yellow`         | `#F0B35A` | Amber — highlight (text uses `--amber-ink` `#A8691A`) / sparse accent      | 12.1:1 on `--bg` (AAA), 1.6:1 on paper |
 | `--yellow-muted`   | `#3A3208` | Yellow's "ink" form on dark (text-on-yellow)| —                                   |
-| `--rule`           | `#D8DBE3` | Hairlines                          | —                                     |
-| `--rule-strong`    | `#B4BBCB` | Stronger dividers                          | —                                     |
+| `--rule`           | `#C3C8D4` | Hairlines                          | —                                     |
+| `--rule-strong`    | `#98A0B4` | Stronger dividers                          | —                                     |
 
 **Audit fixes vs. current state:**
 - Background moves from `#000000` (harsh, low-texture) to `#0A0A0A` — keeps the

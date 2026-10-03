@@ -89,7 +89,7 @@
         ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
         // sparse red accent on points facing camera
         if (i % 47 === 0 && depth > 0.65) {
-          ctx.fillStyle = 'rgba(210, 98, 46, ' + (alpha * 0.95).toFixed(3) + ')';
+          ctx.fillStyle = 'rgba(196, 80, 31, ' + (alpha * 0.95).toFixed(3) + ')';
           ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
         }
         // sparse yellow highlight on the brightest points
