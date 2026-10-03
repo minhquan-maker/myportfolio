@@ -38,7 +38,7 @@
   --fs-h3:      1.25rem;
   --fs-body:    1rem;
   --fs-small:   0.875rem;
-  --fs-mono:    0.78rem;
+  --fs-mono:    0.875rem;
 
   /* spacing scale */
   --s1: 4px;
@@ -395,8 +395,8 @@ ul { list-style: none; padding: 0; margin: 0; }
    ========================================================================= */
 .hero {
   position: relative;
-  min-height: 100svh;
-  padding: calc(var(--nav-h) + var(--s5)) var(--pad) calc(var(--s7) + 120px);
+  min-height: min(100svh, 840px);
+  padding: calc(var(--nav-h) + var(--s6)) var(--pad) 84px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -513,6 +513,19 @@ ul { list-style: none; padding: 0; margin: 0; }
   flex-wrap: wrap;
 }
 
+.hero__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: var(--s5) 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--paper-muted);
+}
+.hero__meta .meta-dot { color: var(--paper-faint); }
+
 .hero__visual {
   position: relative;
   display: flex;
@@ -534,43 +547,9 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 /* bottom meta strip — fills the hero and reads as credibility signal */
-.hero__strip {
-  position: relative;
-  z-index: 1;
-  width: min(var(--max-w), calc(100% - 2 * var(--pad)));   /* keep side gutters on tablet/mobile */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 44px;
-  margin: 0 auto;
-  padding: var(--s5) 0;
-  border-top: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--s5);
-}
 
-.hero__strip-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
 
-.hero__strip-k {
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--paper-faint);
-}
 
-.hero__strip-v {
-  font-size: var(--fs-small);
-  color: var(--paper);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s2);
-}
 
 .hero__live {
   width: 7px; height: 7px;
@@ -615,30 +594,8 @@ ul { list-style: none; padding: 0; margin: 0; }
   50%      { transform: translateY(2px);  opacity: 1; }
 }
 
-.hero__rings {
-  position: absolute;
-  left: 50%; bottom: 8%;
-  transform: translateX(-50%);
-  width: min(1100px, 110vw);
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
 
-.ring {
-  display: block;
-  width: 240px; height: 240px;
-  border: 1px solid var(--paper-faint);
-  border-radius: 50%;
-}
 
-.ring--2 { width: 320px; height: 320px; opacity: 0.6; }
-.ring--3 { width: 400px; height: 400px; opacity: 0.4; }
-.ring--4 { width: 480px; height: 480px; opacity: 0.2; }
 
 /* =========================================================================
    BUTTONS
@@ -705,7 +662,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .stat {
-  padding: var(--s6) var(--s5);
+  padding: var(--s5) var(--s4);
   border-right: 1px solid var(--rule);
   text-align: center;
 }
@@ -720,18 +677,21 @@ ul { list-style: none; padding: 0; margin: 0; }
   letter-spacing: -0.02em;
   line-height: 1;
   display: block;
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s2);
 }
 
 .stat__num sup {
-  font-size: 0.45em;
+  font-size: 0.5em;
   color: var(--red);
-  margin-left: 2px;
+  margin-left: 3px;
+  vertical-align: top;
+  position: relative;
+  top: 0.1em;
 }
 
 .stat__label {
   font-family: var(--font-mono);
-  font-size: var(--fs-mono);
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--paper-muted);
@@ -745,16 +705,18 @@ ul { list-style: none; padding: 0; margin: 0; }
   align-items: center;
   gap: var(--s2);
   font-family: var(--font-mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.1em;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--paper-muted);
-  margin-bottom: var(--s3);
+  color: var(--paper);
+  margin-bottom: var(--s4);
 }
 
 .bracket em {
   font-style: normal;
-  color: var(--paper-faint);
+  font-weight: 700;
+  color: var(--red);
 }
 
 /* =========================================================================
@@ -943,9 +905,17 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .exp-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--s5);
 }
+
+.exp__more {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--s6);
+}
+
+#publications { scroll-margin-top: calc(var(--nav-h) + var(--s5)); }
 
 .exp-card {
   position: relative;
@@ -1002,7 +972,8 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .exp-card__ord {
   font-family: var(--font-mono);
-  font-size: var(--fs-mono);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--paper-faint);
   letter-spacing: 0.05em;
 }
@@ -1017,7 +988,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .exp-card h3 {
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   margin: 0 0 6px;
 }
 
@@ -1055,7 +1026,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--paper);
-  padding: 3px 8px;
+  padding: 4px 10px;
   border: 1px solid var(--rule-strong);
   border-radius: 2px;
 }
@@ -1909,20 +1880,13 @@ ul { list-style: none; padding: 0; margin: 0; }
   .hero {
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 56px;
+    padding-bottom: 72px;
   }
   .hero__inner {
     grid-template-columns: 1fr;
     gap: var(--s6);
   }
   .hero__visual { min-height: 320px; }
-  .hero__strip {
-    position: relative;
-    left: auto; right: auto; bottom: auto;
-    margin: var(--s6) auto 0;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--s5) var(--s6);
-  }
   .about { grid-template-columns: 1fr; gap: var(--s6); }
   .about__left {
     position: static;
@@ -2024,9 +1988,9 @@ ul { list-style: none; padding: 0; margin: 0; }
   .contact-item { justify-content: flex-start; }
   .footer__socials { justify-content: flex-start; }
   .stat__label { font-size: 0.68rem; letter-spacing: 0.05em; }
+  .hero__meta .meta-dot { display: none; }
   .hero__ctas { flex-direction: column; align-items: stretch; }
   .hero__ctas .btn { justify-content: center; }
-  .hero__strip { grid-template-columns: 1fr; gap: var(--s4); }
   .rec-item { grid-template-columns: 36px 1fr; gap: var(--s3); }
   .rec-item .badge { grid-column: 2; justify-self: start; margin-top: var(--s2); }
 
