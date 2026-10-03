@@ -659,11 +659,12 @@
 
   function r(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); }
 
-  function render(anim, f, blink) {
+  function render(anim, f, blink, dir) {
     ctx.clearRect(0, 0, W, H);
-    // legs + shoes
-    r(5, 16, 3, 3, C.pants); r(8, 16, 3, 3, C.pants);
-    r(5, 19, 3, 1, C.shoe); r(8, 19, 3, 1, C.shoe);
+    // legs + shoes (walking lifts one foot at a time)
+    const step = anim === 'walk' ? (f >> 1) % 2 : -1;
+    if (step === 0) { r(5, 16, 3, 2, C.pants); r(5, 18, 3, 1, C.shoe); } else { r(5, 16, 3, 3, C.pants); r(5, 19, 3, 1, C.shoe); }
+    if (step === 1) { r(8, 16, 3, 2, C.pants); r(8, 18, 3, 1, C.shoe); } else { r(8, 16, 3, 3, C.pants); r(8, 19, 3, 1, C.shoe); }
     // torso, collar, placket
     r(4, 10, 8, 6, C.shirt);
     r(5, 10, 2, 1, C.collar); r(9, 10, 2, 1, C.collar); r(7, 11, 2, 2, C.collar);
@@ -674,12 +675,15 @@
     // arms
     if (anim === 'wave') {
       r(2, 13, 2, 3, C.skin);
-      r(13 + (f % 2), 5, 2, 6, C.skin);
+      r(13 + ((f >> 1) % 2), 5, 2, 6, C.skin);
     } else if (anim === 'yawn') {
-      r(1, 3 + (f % 2), 2, 7, C.skin);
-      r(13, 3 + (f % 2), 2, 7, C.skin);
+      r(1, 3 + ((f >> 1) % 2), 2, 7, C.skin);
+      r(13, 3 + ((f >> 1) % 2), 2, 7, C.skin);
     } else if (anim === 'type') {
       // forearms are hidden behind the laptop; hands drawn below
+    } else if (anim === 'walk') {
+      r(2, 13 + (step === 0 ? 1 : 0), 2, 2 + (step === 0 ? 0 : 1), C.skin);
+      r(12, 13 + (step === 1 ? 1 : 0), 2, 2 + (step === 1 ? 0 : 1), C.skin);
     } else {
       r(2, 13, 2, 3, C.skin);
       r(12, 13, 2, 3, C.skin);
@@ -693,7 +697,8 @@
 
     // eyes
     let dx = 0;
-    if (anim === 'look') dx = [-1, 0, 1, 0][f % 4];
+    if (anim === 'look') dx = [-1, 0, 1, 0][(f >> 1) % 4];
+    if (anim === 'walk') dx = dir || 0;
     const closed = blink || anim === 'yawn';
     if (closed) { r(5 + dx, 5, 2, 1, C.skinSh); r(9 + dx, 5, 2, 1, C.skinSh); r(5 + dx, 6, 2, 1, C.eye); r(9 + dx, 6, 2, 1, C.eye); }
     else { r(6 + dx, 5, 1, 2, C.eye); r(9 + dx, 5, 1, 2, C.eye); }
@@ -706,15 +711,16 @@
     // laptop + typing hands
     if (anim === 'type') {
       r(3, 12, 10, 5, C.lap); r(3, 16, 10, 1, C.lapDark); r(7, 14, 2, 1, C.logo);
-      r(2, 12 + (f % 2), 2, 2, C.skin);
-      r(12, 12 + ((f + 1) % 2), 2, 2, C.skin);
+      r(2, 12 + ((f >> 1) % 2), 2, 2, C.skin);
+      r(12, 12 + (((f >> 1) + 1) % 2), 2, 2, C.skin);
     }
   }
 
   // ---- choreography ----
   const ANIMS = ['wave', 'type', 'yawn', 'look'];
-  let visible = false, timer = null, lastAnim = '', hold = 0, override = null;
-  let lastHide = performance.now() - 3000;   // first visit ~5 s after load if the page is idle
+  const X0 = 20, SPEED = 7;           // px per tick while walking
+  let visible = false, timer = null, lastAnim = '', hold = 0, override = null, x = X0;
+  let lastHide = performance.now() - 6000;   // first visit ~2 s after load if the page is idle
   let lastActive = performance.now();
 
   ['pointermove', 'pointerdown', 'scroll', 'keydown', 'wheel', 'touchstart'].forEach((ev) => {
@@ -728,32 +734,49 @@
     return [pool[0], second];
   }
 
+  function setX(v) { x = v; el.style.left = x + 'px'; }
+
   function show() {
     visible = true;
+    setX(X0);
     el.classList.add('is-in');
     const [a, b] = pickTwo();
-    const plan = [['idle', 900], [a, 2600], [b, 2600], ['idle', 500]];
-    let step = 0, stepStart = performance.now(), f = 0, blinkAt = performance.now() + 1600;
+    const far = Math.min(X0 + 90 + Math.random() * 60, window.innerWidth - 120);
+    const mid = X0 + 30 + Math.random() * 30;
+    const plan = [
+      { a: 'idle', ms: 700 },
+      { a: 'walk', to: far },
+      { a: a, ms: 2400 },
+      { a: 'walk', to: mid },
+      { a: b, ms: 2400 },
+      { a: 'walk', to: X0 },
+      { a: 'idle', ms: 500 }
+    ];
+    let step = 0, stepStart = performance.now(), f = 0, blinkAt = performance.now() + 1600, dir = 0;
     timer = setInterval(() => {
       const now = performance.now();
-      if (now - stepStart >= plan[step][1] + hold) {
-        step++; stepStart = now; hold = 0;
-        if (step >= plan.length) return hide();
-      }
+      const cur = plan[step];
+      let done = false;
+      if (cur.a === 'walk') {
+        dir = cur.to > x ? 1 : -1;
+        const nx = x + dir * SPEED;
+        if ((dir > 0 && nx >= cur.to) || (dir < 0 && nx <= cur.to)) { setX(cur.to); done = true; } else setX(nx);
+      } else if (now - stepStart >= cur.ms + hold) { done = true; hold = 0; }
+      if (done) { step++; stepStart = now; if (step >= plan.length) return hide(); }
       f++;
-      const anim = override && now < override.until ? override.anim : plan[step][0];
+      const anim = override && now < override.until ? override.anim : plan[step].a;
       let blink = false;
       if (now >= blinkAt) { blink = true; if (now >= blinkAt + 160) blinkAt = now + 1800 + Math.random() * 1500; }
-      render(anim, f, blink);
-    }, 200);
-    render('idle', 0, false);
+      render(anim, f, blink, dir);
+    }, 120);
+    render('idle', 0, false, 0);
   }
 
   function hide() {
     clearInterval(timer); timer = null;
     el.classList.remove('is-in', 'is-talking');
-    setTimeout(() => { visible = false; lastHide = performance.now(); }, 600);
-    visible = true; // stays "busy" until the exit transition finishes
+    setTimeout(() => { visible = false; lastHide = performance.now(); }, 1000);
+    visible = true; // stays "busy" until the sink-down transition finishes
   }
 
   canvas.addEventListener('click', () => {
@@ -770,6 +793,6 @@
     if (document.hidden || visible) return;
     const now = performance.now();
     const idle = now - lastActive, gap = now - lastHide;
-    if ((idle >= 3000 && gap >= 8000) || gap >= 45000) show();
+    if ((idle >= 1500 && gap >= 5000) || gap >= 30000) show();
   }, 1000);
 })();
