@@ -27,8 +27,9 @@ The deployed site is maintained at the repository root:
 
 - `index.html` — page structure and content
 - `style.css` — design system, components, animations, and responsive layout
-- `script.js` — navigation, smooth scrolling, reveals, sliders, collapse controls, toast, and certificate modal
-- `assets/` — project media, certificates, logos, profile media, icons, and resume
+- `script.js` — navigation, smooth scrolling, reveals, particle sphere, sliders, toast, and certificate modal
+- `assets/` — project media, certificates, logos (press logos in `assets/logos/press/`), profile media, and resume
+- `DESIGN.md` — design tokens and palette notes
 
 ## Local development
 
@@ -42,23 +43,26 @@ Open `http://localhost:8090`. No installation is required.
 
 ## Site sections
 
-1. **Hero** — role, biography, calls to action, portrait, and statistics
-2. **About / Education** — academic background and testimonial media
-3. **Experience** — professional and leadership timeline
-4. **Projects** — AquaGuard (Flood Emergency Response Platform), EnableCode (Accessible Coding Platform), AirGuard (Carbon Emission Tracking)
-5. **Academic Publications** — KSE 2026 accepted paper, Discover AI 2026 ongoing work, and *Introduction to Computing*
-6. **Recognition** — honors, certificates, testimonials, and media coverage
-7. **Contact** — work email, phone, LinkedIn, and social links
+1. **Hero** — role, biography, calls to action (Explore my work / My Resume), animated particle sphere, and quick-facts strip with statistics
+2. **01 About / 02 Education** — portrait and bio, academic background
+3. **03 Experiences** — professional and leadership cards
+4. **04 Work** — horizontally scrolling project cards: AquaGuard (flood coordination platform), EnableCode (accessible coding platform), AirGuard (carbon emission and air-quality platform)
+5. **05 Recognition** — honors, certificates (in-page preview modal), and the UTS testimonial
+6. **06 Press** — coverage cards with a uniform publisher-logo chip (VnExpress, Vietnam.vn, Tài Năng Việt, LSTS, HTV)
+7. **07 Publications** — IEEE KSE 2026 (accepted, oral), DAI 2026 (under review), and the HCMUT *Introduction to Computing* textbook
+8. **08 Contact** — the solid navy footer with email, social links, and a "Say hello" button
+
+The top navigation uses a sliding pill and mega-menu panels for Experience, Projects, Recognition, and Contact.
 
 ## Design and behavior
 
-- Inter with Cormorant Garamond accents
-- Steel-blue editorial visual system with a black contact footer
+- Inter Tight and Inter for text, JetBrains Mono for labels
+- White, navy, and terracotta palette (pure white background, navy ink, terracotta primary accent, amber secondary accent) with a solid navy footer; tokens live in `:root` of `style.css` and are documented in `DESIGN.md`
 - Responsive layouts for tablet and mobile screens
 - Scroll reveal animations with reduced-motion support
 - Project video/image sliders
 - In-page certificate preview modal for PDF and image certificates
-- Official Simple Icons SVG assets for Facebook, ORCID, LinkedIn, and GitHub
+- Resume available as `assets/my_resume.pdf` ("My Resume" buttons and menu links)
 
 ## Deployment
 
@@ -78,7 +82,7 @@ Pushing to `main` triggers Vercel's automatic deployment. There is no build comm
 
 ## Contact
 
-- Email: [minhquan.alex2512@gmail.com](mailto:minhquan.alex2512@gmail.com)
+- Email: [minhquan.nguyen-2@student.uts.edu.au](mailto:minhquan.nguyen-2@student.uts.edu.au)
 - Phone: [+84 908 538 467](tel:+84908538467)
 - LinkedIn: [ngminhquan](https://www.linkedin.com/in/ngminhquan/)
 - GitHub: [minhquan-maker](https://github.com/minhquan-maker)
@@ -87,9 +91,3 @@ Pushing to `main` triggers Vercel's automatic deployment. There is no build comm
 ## Archive
 
 Previous website versions are kept locally under `archive/` and are intentionally ignored by Git so archived copies and nested repository metadata are not deployed.
-
-## Local preview
-
-The site is static HTML, CSS and JavaScript. To preview it locally, run a simple
-web server from the project root, for example `python3 -m http.server 8000`, then
-open `http://localhost:8000`.
