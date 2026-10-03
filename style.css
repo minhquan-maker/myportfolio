@@ -199,8 +199,9 @@ ul { list-style: none; padding: 0; margin: 0; }
   white-space: nowrap;
 }
 
+.nav__item.is-lit .nav__btn,
 .nav__item.is-active .nav__btn {
-  color: var(--paper);
+  color: var(--on-accent);   /* text sits on the terracotta pill */
 }
 
 .nav__btn .caret {
@@ -1511,6 +1512,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .press-card.reveal:nth-child(2) { transition-delay: 0.08s; }
 .press-card.reveal:nth-child(3) { transition-delay: 0.16s; }
 .press-card.reveal:nth-child(4) { transition-delay: 0.24s; }
+.press-card.reveal:nth-child(5) { transition-delay: 0.32s; }
 
 .press-card.reveal.visible {
   opacity: 1;
@@ -1519,6 +1521,36 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .press-card.reveal.visible:hover {
   transform: translateY(-4px);
+}
+
+.press-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  margin-bottom: var(--s4);
+  padding: 0 var(--s4);
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+
+.press-card__logo img {
+  display: block;
+  max-width: 62%;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.press-card__wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  white-space: nowrap;
 }
 
 .press-card__tag {
