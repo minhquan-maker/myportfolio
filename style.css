@@ -33,7 +33,7 @@
   --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* type scale */
-  --fs-display: clamp(3.4rem, 8vw, 7.8rem);
+  --fs-display: clamp(3.4rem, min(8vw, 12vh), 7.8rem);
   --fs-h2:      clamp(1.7rem, 3vw, 2.4rem);
   --fs-h3:      1.25rem;
   --fs-body:    1rem;
@@ -395,8 +395,8 @@ ul { list-style: none; padding: 0; margin: 0; }
    ========================================================================= */
 .hero {
   position: relative;
-  min-height: min(100svh, 840px);
-  padding: calc(var(--nav-h) + var(--s6)) var(--pad) 84px;
+  min-height: 100svh;
+  padding: calc(var(--nav-h) + 56px) var(--pad) 72px;
   overflow: hidden;
   display: flex;
   align-items: center;
