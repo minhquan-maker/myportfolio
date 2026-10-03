@@ -537,8 +537,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .hero__strip {
   position: relative;
   z-index: 1;
-  max-width: var(--max-w);
-  width: 100%;
+  width: min(var(--max-w), calc(100% - 2 * var(--pad)));   /* keep side gutters on tablet/mobile */
   position: absolute;
   left: 0;
   right: 0;
