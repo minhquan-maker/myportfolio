@@ -542,7 +542,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   position: absolute;
   left: 0;
   right: 0;
-  bottom: var(--s5);
+  bottom: 44px;
   margin: 0 auto;
   padding: var(--s5) 0;
   border-top: 1px solid var(--rule);
@@ -590,29 +590,30 @@ ul { list-style: none; padding: 0; margin: 0; }
 .hero__scroll-cue {
   position: absolute;
   z-index: 2;
-  left: var(--pad);
-  bottom: 34px;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: var(--paper-faint);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: color 0.25s var(--ease-out);
 }
 .hero__scroll-cue:hover { color: var(--paper); }
-.hero__scroll-line {
-  width: 34px;
-  height: 1px;
-  background: var(--red);
-  transform-origin: left;
-  animation: scroll-cue-pulse 2s ease-in-out infinite;
+.hero__scroll-arrow {
+  color: var(--red);
+  font-size: 0.95rem;
+  line-height: 1;
+  animation: scroll-cue-bob 1.8s ease-in-out infinite;
 }
-@keyframes scroll-cue-pulse {
-  0%, 100% { transform: scaleX(0.45); opacity: 0.45; }
-  50% { transform: scaleX(1); opacity: 1; }
+@keyframes scroll-cue-bob {
+  0%, 100% { transform: translateY(-2px); opacity: 0.55; }
+  50%      { transform: translateY(2px);  opacity: 1; }
 }
 
 .hero__rings {
@@ -1465,22 +1466,26 @@ ul { list-style: none; padding: 0; margin: 0; }
 /* press cards */
 .press-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--s5);
   margin-top: var(--s5);
+}
+
+@media (max-width: 1024px) {
+  .press-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 .press-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--s5);
+  padding: var(--s4) var(--s5) var(--s5);
   background: var(--bg-raised);
   border: 1px solid var(--rule);
   border-radius: 4px;
   overflow: hidden;
   transition: all 0.3s var(--ease-out);
-  min-height: 200px;
+  min-height: 0;
 }
 
 .press-card::after {
@@ -1513,6 +1518,26 @@ ul { list-style: none; padding: 0; margin: 0; }
 .press-card.reveal:nth-child(3) { transition-delay: 0.16s; }
 .press-card.reveal:nth-child(4) { transition-delay: 0.24s; }
 .press-card.reveal:nth-child(5) { transition-delay: 0.32s; }
+.press-card.reveal:nth-child(6) { transition-delay: 0.4s; }
+
+/* placeholder card: not a link, no hover lift */
+.press-card--soon {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--rule-strong);
+}
+.press-card--soon .press-card__wordmark,
+.press-card--soon h4,
+.press-card--soon p { color: var(--paper-faint); }
+.press-card--soon .press-card__tag { color: var(--paper-faint); }
+.press-card--soon:hover,
+.press-card--soon.reveal.visible:hover {
+  border-color: var(--rule-strong);
+  transform: none;
+  box-shadow: none;
+}
+.press-card--soon:hover::after { transform: scaleX(0); }
+.press-card--soon:hover .press-card__link { color: var(--paper); }
 
 .press-card.reveal.visible {
   opacity: 1;
@@ -1526,28 +1551,24 @@ ul { list-style: none; padding: 0; margin: 0; }
 .press-card__logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 88px;
-  margin-bottom: var(--s4);
-  padding: 0 var(--s4);
-  background: #FFFFFF;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
+  height: 44px;
+  margin-bottom: var(--s3);
 }
 
 .press-card__logo img {
   display: block;
-  max-width: 62%;
-  max-height: 64px;
+  max-width: 150px;
+  max-height: 36px;
   width: auto;
   height: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;   /* white logo backgrounds melt into the card */
 }
 
 .press-card__wordmark {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   letter-spacing: -0.01em;
   color: var(--paper);
   white-space: nowrap;
@@ -1563,7 +1584,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .press-card h4 {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   line-height: 1.35;
   margin: 0 0 var(--s3);
   flex: 1;
