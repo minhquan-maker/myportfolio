@@ -352,6 +352,21 @@ ul { list-style: none; padding: 0; margin: 0; }
   overflow: hidden;
 }
 
+.mega__visual-img--soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-raised) !important;
+}
+.mega__visual-img--soon::before { display: none; }
+.mega__visual-img--soon span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-faint);
+}
+
 .mega__visual-img::before {
   content: '';
   position: absolute;
@@ -1343,10 +1358,10 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .rec-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.35fr 1fr;
   gap: var(--s6);
-  align-items: start;
-  margin-top: var(--s5);
+  align-items: center;
+  margin-top: var(--s4);
 }
 
 /* awards: one clean row per award (left), photos stacked on the right */
@@ -1357,9 +1372,9 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .award {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) 176px 100px;
+  grid-template-columns: 32px minmax(0, 1fr) 100px 40px 104px;
   align-items: center;
-  gap: var(--s4);
+  gap: var(--s3);
   padding: 12px var(--s3);
   margin: 0 calc(var(--s3) * -1);
   border-radius: 4px;
@@ -1394,16 +1409,18 @@ ul { list-style: none; padding: 0; margin: 0; }
   line-height: 1.4;
 }
 
-.award__meta {
+.award__level,
+.award__year {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
   color: var(--paper-muted);
   white-space: nowrap;
 }
+.award__year { text-align: right; }
 
 .award .badge {
-  min-width: 100px;
+  min-width: 104px;
   text-align: center;
   align-self: center;
 }
@@ -1419,15 +1436,16 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 @media (max-width: 600px) {
   .award {
-    grid-template-columns: 30px minmax(0, 1fr) auto;
+    grid-template-columns: 30px auto 1fr auto;
     grid-template-areas:
-      "ord main main"
-      ".   meta badge";
+      "ord main  main  main"
+      ".   level year  badge";
     row-gap: 6px;
   }
   .award__ord { grid-area: ord; }
   .award__main { grid-area: main; }
-  .award__meta { grid-area: meta; }
+  .award__level { grid-area: level; }
+  .award__year { grid-area: year; text-align: left; }
   .award .badge { grid-area: badge; }
 }
 
