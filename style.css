@@ -774,8 +774,6 @@ ul { list-style: none; padding: 0; margin: 0; }
 .about__meta {
   margin: var(--s4) 0;
   padding: var(--s3) 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
 }
 
 .about__meta li {
@@ -835,9 +833,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 /* education */
 .edu {
-  margin-top: var(--s5);
-  padding-top: var(--s5);
-  border-top: 1px solid var(--rule);
+  margin-top: var(--s6);
 }
 
 .edu-list {
@@ -848,8 +844,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   display: grid;
   grid-template-columns: 100px 1fr;
   gap: var(--s5);
-  padding: var(--s4) 0;
-  border-bottom: 1px solid var(--rule);
+  padding: var(--s3) 0;
   transition: transform 0.3s var(--ease-out);
 }
 
@@ -861,7 +856,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   color: var(--red);
 }
 
-.edu-item:last-child { border-bottom: none; }
 
 .edu-year {
   font-family: var(--font-mono);
@@ -1354,11 +1348,108 @@ ul { list-style: none; padding: 0; margin: 0; }
   align-items: start;
 }
 
+/* awards: one clean row per award */
+.award-list {
+  display: grid;
+  margin-top: var(--s5);
+}
+
+.award {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1.55fr) minmax(0, 1.45fr) 180px 100px 120px;
+  align-items: center;
+  gap: var(--s4);
+  padding: 14px var(--s3);
+  margin: 0 calc(var(--s3) * -1);
+  border-radius: 4px;
+  transition: background-color 0.25s var(--ease-out), opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.award:hover { background: var(--bg-raised); }
+
+.award__ord {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--paper-faint);
+  letter-spacing: 0.05em;
+}
+
+.award:hover .award__ord { color: var(--red); }
+
+.award__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.award__org {
+  color: var(--paper-muted);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+}
+
+.award__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.05em;
+  color: var(--paper-muted);
+  white-space: nowrap;
+}
+
+.award .badge { justify-self: start; text-align: center; }
+
+.award__credit {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+}
+.award__credit:hover { color: var(--red-deep); text-decoration: underline; text-underline-offset: 4px; }
+
+.award.reveal { opacity: 0; transform: translateY(12px); }
+.award.reveal.visible { opacity: 1; transform: translateY(0); }
+.award.reveal:nth-child(2) { transition-delay: 0.06s; }
+.award.reveal:nth-child(3) { transition-delay: 0.12s; }
+.award.reveal:nth-child(4) { transition-delay: 0.18s; }
+.award.reveal:nth-child(5) { transition-delay: 0.24s; }
+.award.reveal:nth-child(6) { transition-delay: 0.30s; }
+.award.reveal:nth-child(7) { transition-delay: 0.36s; }
+
+@media (max-width: 1100px) {
+  .award {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "ord title title"
+      ".   org   org"
+      ".   meta  badge"
+      ".   credit credit";
+    row-gap: 6px;
+    padding: var(--s4) var(--s3);
+  }
+  .award__ord { grid-area: ord; }
+  .award__title { grid-area: title; }
+  .award__org { grid-area: org; }
+  .award__meta { grid-area: meta; }
+  .award .badge { grid-area: badge; justify-self: end; }
+  .award__credit { grid-area: credit; justify-self: start; }
+  .award__credit--none { display: none; }
+  .rec-photos { grid-template-columns: 1fr; }
+}
+
 .rec-list { }
 
 .rec-photos {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--s5);
+  margin-top: var(--s6);
 }
 
 .rec-photo {
@@ -1394,8 +1485,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   grid-template-columns: 50px 1fr auto;
   gap: var(--s5);
   align-items: start;
-  padding: var(--s5) 0;
-  border-bottom: 1px solid var(--rule);
+  padding: var(--s4) 0;
   transition: padding 0.35s var(--ease-out);
 }
 
