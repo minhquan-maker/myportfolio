@@ -20,6 +20,7 @@
   --red:          #D2622E;
   --red-deep:     #A84B1F;
   --yellow:       #F0B35A;
+  --amber-ink:    #A8691A;   /* amber for text on light surfaces */
   --on-accent:    #FFFFFF;   /* text on terracotta fills */
 
   /* rules */
@@ -677,7 +678,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .btn--yellow {
   background: var(--yellow);
-  border-color: var(--yellow);
+  border-color: var(--amber-ink);
   color: #0E1A33;
 }
 
@@ -1064,8 +1065,8 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .tag--yellow {
-  color: var(--yellow);
-  border-color: var(--yellow);
+  color: var(--amber-ink);
+  border-color: var(--amber-ink);
 }
 
 /* =========================================================================
@@ -1118,7 +1119,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   position: relative;
   transition: border-color 0.35s var(--ease-out), transform 0.35s var(--ease-out),
               opacity 0.35s var(--ease-out);
-  opacity: 0.55;
+  opacity: 0.85;
   transform: scale(0.965);
 }
 
@@ -1594,7 +1595,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .footer__h2 em {
-  color: var(--yellow);
+  color: var(--amber-ink);
 }
 
 /* 3-column link grid on the right (minimal) */
@@ -1644,7 +1645,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .footer__col a:hover {
-  color: var(--yellow);
+  color: var(--amber-ink);
   transform: translateX(4px);
 }
 
@@ -1664,7 +1665,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .footer .bracket em {
-  color: var(--yellow);
+  color: var(--amber-ink);
 }
 
 /* bottom row: wordmark + contact/social */
@@ -1725,9 +1726,9 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .contact-value a { color: inherit; text-decoration: none; }
-.contact-item:hover .contact-letter { color: var(--yellow); }
+.contact-item:hover .contact-letter { color: var(--amber-ink); }
 .contact-item:hover .contact-value,
-.contact-value a:hover { color: var(--yellow); }
+.contact-value a:hover { color: var(--amber-ink); }
 
 .footer__socials a {
   position: relative;
@@ -1749,7 +1750,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .footer__socials a:hover {
-  color: var(--yellow);
+  color: var(--amber-ink);
 }
 
 .footer__socials a:hover::after {
@@ -1784,7 +1785,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 /* yellow button */
 .btn--yellow {
   background: var(--yellow);
-  border-color: var(--yellow);
+  border-color: var(--amber-ink);
   color: #0E1A33;
 }
 

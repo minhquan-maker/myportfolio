@@ -30,7 +30,7 @@
       h = canvas.height = Math.floor(ch * dpr);
       canvas.style.width = cw + 'px';
       canvas.style.height = ch + 'px';
-      radius = Math.min(w, h) * 0.40;
+      radius = Math.min(w, h) * 0.46;
       points.length = 0;
       for (let i = 0; i < NUM; i++) {
         const phi = Math.acos(1 - 2 * (i + 0.5) / NUM);
@@ -82,8 +82,8 @@
         const sx = cx + r.x * radius;
         const sy = cy + r.y * radius;
         const depth = (r.z + 1) / 2;
-        const size = (0.4 + depth * 2.1) * dpr;
-        const alpha = 0.08 + depth * 0.78;
+        const size = (1.1 + depth * 3.4) * dpr;
+        const alpha = 0.22 + depth * 0.76;
         // base particles — navy (matches --paper #0E1A33)
         ctx.fillStyle = 'rgba(14, 26, 51, ' + alpha.toFixed(3) + ')';
         ctx.fillRect(sx - size / 2, sy - size / 2, size, size);
