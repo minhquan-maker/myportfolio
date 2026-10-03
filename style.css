@@ -815,6 +815,18 @@ ul { list-style: none; padding: 0; margin: 0; }
   max-width: 60ch;
 }
 
+/* bio paragraphs only: justified, hyphenated, no one-word last lines */
+.about__right > p {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: manual;            /* hyphen points are marked with &shy; in the HTML */
+  text-wrap: pretty;
+}
+@media (max-width: 420px) {
+  .about__right > p { font-size: 1rem; line-height: 1.6; }
+}
+
 .about__right strong {
   color: var(--paper);
   font-weight: 600;
