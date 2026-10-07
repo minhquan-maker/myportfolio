@@ -79,7 +79,7 @@ Every lookup is guarded, so a missing element must not throw. Two dead hooks, `#
 | Experience cards | a separate observer on `[data-exp]` adds `.is-visible` with a 110ms stagger per card, and replays too. |
 | Counters | animate `.stat__num` from `data-count` once, rewriting only the first text node so the `<sup>` suffix survives. |
 | Projects | Above 980px (and without reduced motion) the section is **pinned**: its height becomes `innerHeight + overflow × 1.4`, and page scroll drives `scrollLeft` through a lerp. At ≤980px the track scrolls natively with scroll-snap. The card nearest a moving focus point gets `.is-active`. `.proj-pin.is-lit` (mid-viewport) dims the other cards. Videos play when visible and pause otherwise. Prev/next step one card plus the computed `column-gap`. Mouse drag scrubs on desktop. |
-| Scrollspy | lights the pill for the section in view. Known quirk: `sectionMap` maps `exp → 'about'` and `projects → 'work'`, and no nav item has `data-mega="work"`, so Experience and Projects never light. |
+| Scrollspy | an `IntersectionObserver` on `#top` and the five sections, using a thin band at 40% of the viewport (`rootMargin: -40% 0px -59% 0px`). The section crossing the band becomes `pillRest`, which is the nav item whose `data-target` matches its id. The hero matches no item, so the pill goes to rest. This works for sections taller than the screen. |
 | Pixel me | a 16×20 canvas self-portrait in the bottom-left that walks in, plays two animations, and leaves. It returns when the page is idle and shows a speech bubble on click. It is skipped for reduced motion and at ≤480px. |
 
 Breakpoints in JS (`980`, `1024` for the unused `data-nav-collapsed` attribute, `480`) must stay in sync with the CSS.
@@ -128,7 +128,7 @@ Present but **unused** by the current page: `assets/certificates/`, `assets/icon
 - **Award:** add a `.award.reveal` row (ord, `.award__main`, `.award__level`, `.award__year`, `.badge`). Stagger delays are set per `nth-child` up to 7.
 - **Press:** add an `a.press-card.reveal` before the `.press-card--soon` placeholder.
 - **Publication:** add a `.rec-item.reveal` to `.pub-list`.
-- **Nav/mega:** each `.nav__item` needs `data-mega` (matching a `.mega[data-mega-panel]`) and `data-target` (the section id used for mobile scrolling).
+- **Nav/mega:** each `.nav__item` needs `data-mega` (matching a `.mega[data-mega-panel]`) and `data-target` (the section id, used by mobile scrolling and the scrollspy). A new section also has to be added to the scrollspy id list in `script.js`.
 
 ## Verifying Changes
 

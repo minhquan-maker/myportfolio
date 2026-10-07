@@ -614,19 +614,18 @@
   }
 
   // ---------- Scrollspy ----------
-  const sectionMap = { about: 'about', exp: 'about', projects: 'work', recog: 'recog', contact: 'contact' };
-  const spyEls = Object.keys(sectionMap).map((id) => document.getElementById(id)).filter(Boolean);
+  // whichever section crosses a thin band at 40% of the viewport lights the nav item
+  // whose data-target matches it; works for sections taller than the screen (pinned
+  // projects, recognition). The hero has no nav item, so it puts the pill to rest.
+  const spyEls = ['top', 'about', 'exp', 'projects', 'recog', 'contact']
+    .map((id) => document.getElementById(id)).filter(Boolean);
   const spyIO = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting || entry.intersectionRatio < 0.3) return;
-      const key = sectionMap[entry.target.id];
-      if (!key) return;
-      const btn = navItems.find((b) => b.dataset.mega === key);
-      if (!btn) return;
-      pillRest = btn;
-      if (!openKey) { movePill(btn); }
+      if (!entry.isIntersecting) return;
+      pillRest = navItems.find((b) => b.dataset.target === entry.target.id) || null;
+      if (!openKey) restPill();
     });
-  }, { threshold: [0.3, 0.5] });
+  }, { rootMargin: '-40% 0px -59% 0px', threshold: 0 });
   spyEls.forEach((s) => spyIO.observe(s));
 })();
 
