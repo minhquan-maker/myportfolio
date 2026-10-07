@@ -27,9 +27,10 @@ The deployed site is maintained at the repository root:
 
 - `index.html` — page structure and content
 - `style.css` — design system, components, animations, and responsive layout
-- `script.js` — navigation, smooth scrolling, reveals, particle sphere, sliders, toast, and certificate modal
-- `assets/` — project media, certificates, logos (press logos in `assets/logos/press/`), profile media, and resume
+- `script.js` — particle sphere, navigation (sliding pill, mega menus, mobile menu), scroll reveals, counters, the project carousel, scrollspy, and a small pixel self-portrait
+- `assets/` — project media, logos (press logos in `assets/logos/press/`), profile and award photos, and resume
 - `DESIGN.md` — design tokens and palette notes
+- `CLAUDE.md` — architecture notes for working on the site with Claude Code
 
 ## Local development
 
@@ -45,23 +46,24 @@ Open `http://localhost:8090`. No installation is required.
 
 1. **Hero** — headline, short bio, calls to action (Explore my work / My GitHub), animated particle sphere, and a one-line location and availability note
 2. **Stats** — four counters (startup built, projects shipped, organizations, awards)
-3. **01 About / 02 Education** — portrait, justified bio, role / location / languages, and academic background
+3. **01 About / 02 Education** — portrait, bio, role / location / languages, and academic background
 4. **03 Experiences** — four blocks: B71 Vietnam, Odylytics, URA Research Group (with a "View more" link to Publications), and HCMUT
-5. **04 Work** — horizontally scrolling project cards (AquaGuard, EnableCode, AirGuard and more) with a spotlight effect that dims the room around the active project
+5. **04 Work** — five project cards (AquaGuard, EnableCode, Includio, AirGuard, Carbon Footprint) in a horizontal row that page scroll drives on desktop and that swipes on touch screens, with a spotlight effect that dims the room around the active project
 6. **05 Recognition** — "Press & prizes": a seven-row awards table (level, year, status) beside the EPICS and team photos
 7. **06 Press** — six coverage cards with a uniform publisher-logo row (VnExpress, Vietnam.vn, Tài Năng Việt, LSTS, HTV) and an "update soon" placeholder
 8. **07 Publications** — IEEE KSE 2026 (accepted, oral), DAI 2026 (under review), and the HCMUT *Introduction to Computing* textbook
 9. **08 Contact** — the solid navy footer with email, social links, and a "Say hello" button
 
-The top navigation uses a sliding pill and mega-menu panels for About, Experience, Projects, Recognition, and Contact. The menu's "My Resume" button links to `assets/my_resume.pdf`; menu panels whose imagery is not ready show an "Updating soon" placeholder.
+On desktop, the top navigation uses a sliding pill that follows the section in view and mega-menu panels for About, Experience, Projects, Recognition, and Contact; panels whose imagery is not ready show an "Updating soon" placeholder. On tablets and phones it becomes a hamburger that opens a full-screen menu. Both link "My Resume" to `assets/my_resume.pdf`.
 
 ## Design and behavior
 
 - Inter Tight and Inter for text, JetBrains Mono for labels
 - White, navy, and terracotta palette (pure white background, navy ink, terracotta primary accent, amber secondary accent) with a solid navy footer; tokens live in `:root` of `style.css` and are documented in `DESIGN.md`
-- Fully responsive layouts for tablet and mobile screens
+- Responsive down to small phones: tablets keep the two-column web layout; phones get a one-screen hero, stat tiles, a profile card, swipeable photo and press rows, and a full-screen menu
 - Scroll reveal animations with reduced-motion support
-- Project video/image sliders
+- Project cards with autoplaying muted video that pauses off-screen
+- A pixel self-portrait that occasionally walks in at the bottom-left (desktop and tablet only)
 - Press logos live in `assets/logos/press/`; team and award photos in `assets/media/`
 
 ## Deployment
