@@ -164,6 +164,8 @@
   // --- measure nav height into --nav-h (kills the "sticking out" bug) ---
   function measureNav() {
     if (!navBar) return;
+    // ≤980px the bar is the mobile menu sheet, not the header — keep the CSS value
+    if (window.innerWidth <= 980) { document.documentElement.style.removeProperty('--nav-h'); return; }
     const h = Math.round(navBar.getBoundingClientRect().height);
     if (h > 0) document.documentElement.style.setProperty('--nav-h', h + 'px');
   }
@@ -320,9 +322,9 @@
         e.preventDefault();
         // on mobile the mega panels are hidden — scroll to the section instead
         if (window.innerWidth <= 980) {
+          closeMobileNav();   // release the scroll lock before scrolling
           const target = document.getElementById(btn.dataset.target);
           if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          closeMobileNav();
           return;
         }
         openMega(btn.dataset.mega);
@@ -347,17 +349,26 @@
   }
 
   // --- mobile toggle ---
+  function setMobileNav(open) {
+    if (!navLinks) return;
+    navLinks.classList.toggle('is-mobile-open', open);
+    if (nav) nav.classList.toggle('is-menu-open', open);
+    document.documentElement.classList.toggle('nav-lock', open);
+    if (navToggle) {
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+  }
   function closeMobileNav() {
     if (!navLinks || !navLinks.classList.contains('is-mobile-open')) return;
-    navLinks.classList.remove('is-mobile-open');
-    navToggle && navToggle.setAttribute('aria-expanded', 'false');
+    setMobileNav(false);
   }
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const open = navLinks.classList.toggle('is-mobile-open');
-      navToggle.setAttribute('aria-expanded', String(open));
+      setMobileNav(!navLinks.classList.contains('is-mobile-open'));
     });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileNav(); });
   }
   // close the panel when a nav link is tapped
   if (navLinks) {
@@ -508,12 +519,7 @@
       e.preventDefault();
       projTrack.scrollLeft = startScroll - (e.pageX - startX);
     });
-    projTrack.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX; startScroll = projTrack.scrollLeft;
-    }, { passive: true });
-    projTrack.addEventListener('touchmove', (e) => {
-      projTrack.scrollLeft = startScroll - (e.touches[0].pageX - startX);
-    }, { passive: true });
+    // touch uses the track's native overflow scroll (momentum + scroll-snap on mobile)
 
     const bar = document.getElementById('projBar');
     const prev = document.getElementById('projPrev');
@@ -526,7 +532,8 @@
     projTrack.addEventListener('scroll', updateBar);
     function stepBy(dir) {
       const card = projTrack.querySelector('.proj-card');
-      const w = card ? card.getBoundingClientRect().width + 24 : 400;
+      const gap = parseFloat(getComputedStyle(projTrack).columnGap) || 24;
+      const w = card ? card.getBoundingClientRect().width + gap : 400;
       if (pinned && pinRange > 0) {
         // pinned: drive via page scroll so the lerp keeps owning scrollLeft.
         // Track uses PIN_SCROLL_RATIO=1.4× extra distance in page space.
