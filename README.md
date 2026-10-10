@@ -40,7 +40,7 @@ python3 -m http.server 8090
 
 ## Site sections
 
-1. **Hero** — "Building technology that protects." with a fanned stack of project cards
+1. **Hero** — "Building technology that protects." with my portrait in front, the team fanned behind and project logos floating above
 2. **Band** — 1,000,000+ people reached, with a scrolling media marquee, then a partner logo strip
 3. **AquaGuard** — the flagship project, right after the band
 4. **About** — three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA

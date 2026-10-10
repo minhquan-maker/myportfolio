@@ -43,6 +43,30 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   els.forEach((el) => io.observe(el));
 })();
 
+// ---------- Hero stack: depth parallax that follows the pointer ----------
+(function heroParallax() {
+  const stack = document.querySelector('[data-parallax]');
+  if (!stack) return;
+  stack.querySelectorAll('[data-depth]').forEach((el) => el.style.setProperty('--d', el.dataset.depth));
+  if (REDUCED || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const hero = stack.closest('section') || document.body;
+  let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+  const tick = () => {
+    cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+    stack.style.setProperty('--px', cx.toFixed(3));
+    stack.style.setProperty('--py', cy.toFixed(3));
+    raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.002 ? requestAnimationFrame(tick) : 0;
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+  hero.addEventListener('pointermove', (e) => {
+    const r = stack.getBoundingClientRect();
+    tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+    ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
+    kick();
+  });
+  hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; kick(); });
+})();
+
 // ---------- Counter in the black band ----------
 (function counter() {
   const el = document.querySelector('[data-count]');
