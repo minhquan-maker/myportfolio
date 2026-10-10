@@ -30,7 +30,8 @@
   --on-ink: #FFFFFF;
   --ink-hover: #2A2A2A;
   --nav-bg: rgba(255, 255, 255, .86);
-  --nav-bg-solid: rgba(255, 255, 255, .96);
+  --nav-glass: rgba(255, 255, 255, .5);
+  --nav-glass-edge: rgba(255, 255, 255, .7);
   --frame: #FFFFFF;
   --wordmark: #E2E2E2;
   --wordmark-hover: #D6D6D6;
@@ -78,7 +79,8 @@
   --on-ink: #0B0B0B;
   --ink-hover: #D9D9D9;
   --nav-bg: rgba(22, 22, 22, .82);
-  --nav-bg-solid: rgba(22, 22, 22, .95);
+  --nav-glass: rgba(22, 22, 22, .58);
+  --nav-glass-edge: rgba(255, 255, 255, .08);
   --frame: #1F1F1F;
   --wordmark: #181818;
   --wordmark-hover: #1F1F1F;
@@ -245,7 +247,19 @@ em { font-style: italic; font-weight: 500; color: var(--faint); }
   box-shadow: 0 6px 30px -10px rgba(0, 0, 0, .14);
   transition: box-shadow .3s, background .3s;
 }
-.nav.is-scrolled .nav__bar { background: var(--nav-bg-solid); box-shadow: 0 10px 36px -12px rgba(0,0,0,.22); }
+/* once the page scrolls, the bar turns into frosted glass: content stays visible behind it */
+.nav.is-scrolled .nav__bar {
+  background: var(--nav-glass);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-color: var(--nav-glass-edge);
+  box-shadow:
+    inset 0 1px 0 var(--nav-glass-edge),
+    0 10px 36px -12px rgba(0, 0, 0, .22);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav.is-scrolled .nav__bar { background: var(--nav-bg); }
+}
 
 .nav__links { display: flex; align-items: center; gap: 4px; }
 .nav__item { position: relative; }

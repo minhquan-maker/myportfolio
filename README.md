@@ -73,7 +73,7 @@ Monochrome and editorial, modelled on the Spyglass landing-page format.
 
 - **Colour:** a white page, black bands and cards, `#F3F3F3` gray panels. The only accent is the green "live" dot (`#2FBF71`). Tokens live in `:root` of `style.css`; a full dark set lives in `:root[data-theme="dark"]`. See `DESIGN.md`.
 - **Type:** Inter Tight 600 for headlines, with tight tracking. Each headline's second half is an italic `<em>` in muted gray. Body text is Inter.
-- **Shapes:** a floating pill nav, pill buttons, 16–32px radii, soft layered shadows.
+- **Shapes:** a floating pill nav that turns into frosted glass once you scroll, pill buttons, 16–32px radii, soft layered shadows.
 - **Favicon:** a custom "q." monogram in `assets/brand/` (SVG plus 32/180/512 PNGs) and a 1200×630 `og.png` for link previews.
 - **Pixel me:** a small monochrome pixel version of me walks in at the bottom-left when the page is idle. Click it to get a speech bubble (a black pill). It is hidden on phones and when reduced motion is on.
 
