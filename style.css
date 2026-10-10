@@ -94,6 +94,9 @@ em { font-style: italic; font-weight: 500; color: var(--faint); }
   letter-spacing: .02em;
   margin-bottom: 14px;
 }
+.eyebrow--center { display: block; text-align: center; }
+.eyebrow--dark { color: #8C8C8C; }
+
 
 /* ---------- pills / buttons ---------- */
 .pill {
@@ -291,7 +294,19 @@ em { font-style: italic; font-weight: 500; color: var(--faint); }
   transition: transform .7s var(--ease);
   animation: deal 1s var(--ease) both;
 }
-.stack-card img { width: 100%; height: 100%; object-fit: cover; }
+.hero__stack { display: block; text-decoration: none; color: inherit; }
+.stack-card img, .stack-card video { width: 100%; height: 100%; object-fit: cover; }
+.stack-card--hero {
+  left: 30%; top: 46%;
+  width: 66%;
+  aspect-ratio: 16 / 10;
+  z-index: 6;
+  --rot: -2deg;
+  background: var(--dark);
+  animation-delay: .75s;
+}
+.stack-card--hero figcaption { display: inline-flex; align-items: center; gap: 6px; }
+.hero__stack:hover .stack-card--hero { --y: -10px; --rot: 0deg; }
 .stack-card figcaption {
   position: absolute; left: 8px; bottom: 8px;
   padding: 4px 9px;
@@ -305,7 +320,7 @@ em { font-style: italic; font-weight: 500; color: var(--faint); }
 .stack-card--4 { left: 54%; top: 24%; --rot: 10deg; z-index: 3; width: 40%; animation-delay: .55s; }
 .stack-card--1 figcaption { top: 8px; bottom: auto; }
 .stack-card--3 figcaption { left: auto; right: 8px; }
-.stack-card--5 { left: 12%; top: 52%; --rot: -6deg; z-index: 5; width: 38%; aspect-ratio: 4 / 3; animation-delay: .65s; }
+.stack-card--5 { left: 0; top: 58%; --rot: -6deg; z-index: 5; width: 38%; aspect-ratio: 4 / 3; animation-delay: .65s; }
 .hero__stack:hover .stack-card--1 { --x: -24px; --rot: -13deg; }
 .hero__stack:hover .stack-card--2 { --y: -14px; --rot: -5deg; }
 .hero__stack:hover .stack-card--3 { --y: -6px;  --rot: 2deg; }
@@ -487,6 +502,7 @@ em { font-style: italic; font-weight: 500; color: var(--faint); }
 .mock__video--full { aspect-ratio: 16 / 9; min-height: 0; height: auto; }
 .mock__side { display: grid; gap: 10px; grid-template-rows: 1fr 1fr auto; }
 .mock__side img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-sm); background: var(--surface); }
+.mock__side video { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-sm); background: var(--surface); }
 .mock__side .mock__brand { height: 38px; object-fit: contain; padding: 6px; background: var(--surface); }
 .mock__label { font-size: 11.5px; font-weight: 500; color: var(--faint); margin: 2px 4px 12px; }
 .mock__shot { width: calc(100% - 24px); margin: 12px auto 0; border-radius: var(--r-sm); }
@@ -672,8 +688,15 @@ button.award-card:hover::after { color: var(--ink); }
   transition: border-color .3s, transform .4s var(--ease);
 }
 .press-card:hover { border-color: #444; transform: translateY(-3px); }
-.press-card__logo { height: 34px; display: flex; align-items: center; padding: 6px 10px; border-radius: 8px; background: #fff; align-self: flex-start; }
-.press-card__logo img { height: 22px; width: auto; max-width: none; object-fit: contain; }
+.press-card__logo {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  height: 64px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #fff;
+}
+.press-card__logo img { width: 100%; height: 100%; max-width: 132px; object-fit: contain; }
 .press-card b { font-size: 13.5px; font-weight: 600; line-height: 1.4; letter-spacing: -0.01em; }
 .press-card small { margin-top: auto; font-size: 11.5px; color: var(--dark-muted); }
 
@@ -898,7 +921,7 @@ button.award-card:hover::after { color: var(--ink); }
   .mock__chips, .mock__tag { display: none; }
   .mock__body--split { grid-template-columns: minmax(0, 1fr); }
   .mock__side { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .mock__side img { aspect-ratio: 4 / 3; }
+  .mock__side img, .mock__side video { aspect-ratio: 4 / 3; }
   .mock__side .mock__brand { grid-column: span 2; aspect-ratio: auto; }
   .rows li { grid-template-columns: minmax(0, 1fr) auto; }
   .rows__v { grid-column: 1 / -1; grid-row: 2; }

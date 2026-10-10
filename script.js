@@ -101,9 +101,10 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!links.length || !('IntersectionObserver' in window)) return;
   const groups = {
     about: ['about'],
-    work: ['aquaguard', 'airguard', 'includio', 'enablecode'],
-    research: ['research'],
-    recognition: ['recognition', 'press', 'voices'],
+    work: ['aquaguard', 'airguard', 'includio', 'enablecode', 'voices'],
+    publications: ['publications'],
+    press: ['press'],
+    recognition: ['recognition'],
     contact: ['contact', 'faq'],
   };
   const linkFor = (id) => {

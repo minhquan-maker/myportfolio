@@ -18,7 +18,7 @@ node -c script.js               # JS syntax check
 - `script.js` — IIFE modules (nav, reveal, counter, marquee, video autoplay, scrollspy, carousel, FAQ tabs, certificate modal, pixel-me)
 - `assets/` — all media. `assets/brand/` holds the favicon (`favicon.svg` + PNGs), `og.png`, and Odylytics/AquaGuard/AirGuard marks; `assets/frames/` holds stills extracted from the project videos (used by the hero stack, marquee and mock cards)
 
-Sections in order: hero → black band (counter + marquee) → logo strip → `#about` (dark card, three roles) → `#aquaguard` (white) → `#airguard` (gray panel) → `#includio` (dark panel) → `#enablecode` (white) → `#voices` (testimonial carousel) → `#research` → `#recognition` → `#press` → `#faq` → `#contact` footer (CTA card, giant wordmark, columns).
+Sections in order: hero (front card plays the AquaGuard video) → black band (counter + marquee) → logo strip → `#aquaguard` (flagship, white) → `#about` (dark card, three roles) → `#airguard` (gray panel) → `#includio` (dark panel) → `#enablecode` (white, `enablecode-1440.mp4` encoded from the original `.mov`) → `#voices` (testimonial carousel) → `#publications` (scientific publications) → `#press` (media & press) → `#recognition` → `#faq` → `#contact` footer (CTA card, giant wordmark, columns).
 
 ## Design System
 

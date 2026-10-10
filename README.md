@@ -42,14 +42,15 @@ python3 -m http.server 8090
 
 1. **Hero** — "Building technology that protects." with a fanned stack of project cards
 2. **Band** — 1,000,000+ people reached, with a scrolling media marquee, then a partner logo strip
-3. **About** — three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA
-4. **Work** — AquaGuard, AirGuard, Includio, EnableCode as alternating white / gray / dark feature rows
-5. **Voices** — AquaGuard testimonials carousel
-6. **Research** — IEEE KSE 2026, DAI 2026, the HCMUT textbook, ORCID
-7. **Recognition** — seven awards with certificate previews
-8. **Press** — VnExpress, Vietnam.vn, HTV3, Tài Năng Việt, LSTS
-9. **FAQ** — education, Odylytics, research, working together
-10. **Footer** — CTA card, giant wordmark, link columns
+3. **AquaGuard** — the flagship project, right after the band
+4. **About** — three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA
+5. **Work** — AirGuard, Includio, EnableCode as alternating gray / dark / white feature rows
+6. **Voices** — AquaGuard testimonials carousel
+7. **Publications** — IEEE KSE 2026, DAI 2026, the HCMUT textbook, ORCID
+8. **Media & press** — VnExpress, Vietnam.vn, HTV3, Tài Năng Việt, LSTS
+9. **Recognition** — seven awards with certificate previews
+10. **FAQ** — education, Odylytics, research, working together
+11. **Footer** — CTA card, giant wordmark, link columns
 
 ## Design
 
