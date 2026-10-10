@@ -43,30 +43,6 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   els.forEach((el) => io.observe(el));
 })();
 
-// ---------- Hero stack: depth parallax that follows the pointer ----------
-(function heroParallax() {
-  const stack = document.querySelector('[data-parallax]');
-  if (!stack) return;
-  stack.querySelectorAll('[data-depth]').forEach((el) => el.style.setProperty('--d', el.dataset.depth));
-  if (REDUCED || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  const hero = stack.closest('section') || document.body;
-  let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
-  const tick = () => {
-    cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
-    stack.style.setProperty('--px', cx.toFixed(3));
-    stack.style.setProperty('--py', cy.toFixed(3));
-    raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.002 ? requestAnimationFrame(tick) : 0;
-  };
-  const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
-  hero.addEventListener('pointermove', (e) => {
-    const r = stack.getBoundingClientRect();
-    tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
-    ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
-    kick();
-  });
-  hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; kick(); });
-})();
-
 // ---------- Counter in the black band ----------
 (function counter() {
   const el = document.querySelector('[data-count]');
@@ -295,13 +271,14 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (window.innerWidth <= 480) return;
 
   const W = 16, H = 20;
+  // monochrome to match the site: black polo, white trim, charcoal trousers, green "live" dot on the laptop
   const C = {
-    hair: '#14141A', skin: '#F4DCC8', skinSh: '#E3C2A8', eye: '#14141A', mouth: '#B5645A',
-    shirt: '#1B1B22', trim: '#F2F2F2', collar: '#3A3A44', pants: '#2B3A5C', shoe: '#F2F2F2',
-    lap: '#B8BEC9', lapDark: '#8A91A0', logo: '#C4501F'
+    hair: '#0B0B0B', skin: '#EFD6C2', skinSh: '#D9B9A0', eye: '#0B0B0B', mouth: '#9C5B52',
+    shirt: '#0B0B0B', trim: '#FFFFFF', collar: '#2E2E2E', pants: '#3A3A3A', shoe: '#D4D4D4',
+    lap: '#D4D4D4', lapDark: '#9A9A9A', logo: '#2FBF71'
   };
   const PHRASES = [
-    'Hi, I’m Quan. The small one.',
+    'Hi, I’m Quan. The pixel edition.',
     'Psst. The projects are worth a look.',
     'CEO by day, researcher by night.'
   ];

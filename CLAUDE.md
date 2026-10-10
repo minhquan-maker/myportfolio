@@ -15,10 +15,10 @@ node -c script.js               # JS syntax check
 
 - `index.html` — all markup and content
 - `style.css` — tokens → base → components → sections → motion → responsive
-- `script.js` — IIFE modules (nav, reveal, counter, marquee, video autoplay, scrollspy, carousel, FAQ tabs, certificate modal, pixel-me)
+- `script.js` — IIFE modules (nav, reveal, counter, marquee, video autoplay, scrollspy, carousel, FAQ tabs, certificate modal, pixel-me: a monochrome pixel self-portrait with a black pill speech bubble)
 - `assets/` — all media. `assets/brand/` holds the favicon (`favicon.svg` + PNGs), `og.png`, and Odylytics/AquaGuard/AirGuard marks; `assets/frames/` holds stills extracted from the project videos (used by the hero stack, marquee and mock cards)
 
-Sections in order: hero (portrait in front, the AquaGuard team and EPICS photos behind, project logos orbiting above with bob + pointer-depth parallax via `data-depth`) → black band (counter + marquee) → logo strip → `#aquaguard` (flagship, white) → `#about` (dark card, three roles) → `#airguard` (gray panel) → `#includio` (dark panel) → `#enablecode` (white, `enablecode-1920.mp4` encoded from the original `.mov`) → `#voices` (testimonial carousel) → `#publications` (scientific publications) → `#press` (media & press) → `#recognition` → `#faq` → `#contact` footer (CTA card, giant wordmark, columns).
+Sections in order: hero (portrait in front, the AquaGuard team and EPICS photos behind, AquaGuard, Odylytics and AirGuard logos resting above, no idle motion) → black band (counter + marquee) → logo strip → `#aquaguard` (flagship, white) → `#about` (dark card, three roles) → `#airguard` (gray panel) → `#includio` (dark panel) → `#enablecode` (white, `enablecode-1920.mp4` encoded from the original `.mov`) → `#voices` (testimonial carousel) → `#publications` (scientific publications) → `#press` (media & press) → `#recognition` → `#faq` → `#contact` footer (CTA card, giant wordmark, columns).
 
 ## Design System
 
