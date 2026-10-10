@@ -2,7 +2,118 @@
    minhquan — site behaviour. Every module is an IIFE that bails out quietly
    when its markup is missing.
    ========================================================================= */
-const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const STORE_KEY = 'mq-settings';
+const motionReduced = () =>
+  document.documentElement.getAttribute('data-motion') === 'reduced' ||
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const REDUCED = motionReduced();
+const LOCALES = { en: 'en-US', vi: 'vi-VN', fr: 'fr-FR' };
+const currentLang = () => (LOCALES[document.documentElement.lang] ? document.documentElement.lang : 'en');
+// translated string for a key, or the fallback (English) when there is none
+const t = (key, fallback) => {
+  const dict = (window.MQ_I18N || {})[currentLang()];
+  return (dict && dict[key]) || fallback;
+};
+
+// ---------- Language: swap every [data-i18n] node between EN / VI / FR ----------
+const i18n = (function () {
+  const nodes = Array.from(document.querySelectorAll('[data-i18n]'));
+  const english = new Map(nodes.map((el) => [el, el.innerHTML]));
+  const meta = document.querySelector('meta[name="description"]');
+  const base = { title: document.title, description: meta ? meta.content : '' };
+  function apply(lang) {
+    const code = LOCALES[lang] ? lang : 'en';
+    const dict = code === 'en' ? {} : (window.MQ_I18N || {})[code] || {};
+    document.documentElement.lang = code;
+    nodes.forEach((el) => {
+      const html = dict[el.dataset.i18n] || english.get(el);
+      if (el.innerHTML !== html) el.innerHTML = html;
+    });
+    document.title = dict['meta.title'] || base.title;
+    if (meta) meta.content = dict['meta.description'] || base.description;
+    const root = document.documentElement.style;
+    root.setProperty('--award-cta', JSON.stringify(dict['award.cta'] || 'View certificate →'));
+    root.setProperty('--award-cta-short', JSON.stringify(dict['award.cta.short'] || 'Certificate →'));
+    document.dispatchEvent(new CustomEvent('mq:lang', { detail: code }));
+  }
+  return { apply };
+})();
+
+// ---------- Settings: language, theme and motion, saved per device ----------
+(function settings() {
+  const html = document.documentElement;
+  const btn = document.getElementById('settingsToggle');
+  const panel = document.getElementById('settingsPanel');
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  let state = { lang: 'en', theme: 'light', motion: 'full' };
+  try { state = Object.assign(state, JSON.parse(localStorage.getItem(STORE_KEY) || '{}')); } catch (e) { /* storage blocked */ }
+  const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* storage blocked */ } };
+
+  const applyTheme = () => {
+    const resolved = state.theme === 'auto' ? (darkQuery.matches ? 'dark' : 'light') : state.theme;
+    html.setAttribute('data-theme', resolved);
+    if (themeMeta) themeMeta.content = resolved === 'dark' ? '#0A0A0A' : '#FFFFFF';
+  };
+  const applyMotion = () => {
+    if (state.motion === 'reduced') html.setAttribute('data-motion', 'reduced');
+    else html.removeAttribute('data-motion');
+  };
+  const sync = () => {
+    if (!panel) return;
+    panel.querySelectorAll('[data-setting]').forEach((group) => {
+      group.querySelectorAll('button[data-value]').forEach((b) => {
+        const on = b.dataset.value === state[group.dataset.setting];
+        b.setAttribute('aria-checked', String(on));
+        b.tabIndex = on ? 0 : -1;
+      });
+    });
+  };
+  const set = (key, value) => {
+    state[key] = value;
+    save();
+    if (key === 'theme') applyTheme();
+    if (key === 'motion') applyMotion();
+    if (key === 'lang') i18n.apply(value);
+    sync();
+  };
+
+  applyTheme();
+  applyMotion();
+  i18n.apply(state.lang);
+  sync();
+  darkQuery.addEventListener('change', () => { if (state.theme === 'auto') applyTheme(); });
+
+  if (!btn || !panel) return;
+  const open = (on) => {
+    panel.hidden = !on;
+    btn.setAttribute('aria-expanded', String(on));
+    if (on) {
+      const first = panel.querySelector('button[aria-checked="true"]');
+      if (first) first.focus({ preventScroll: true });
+    }
+  };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); open(panel.hidden); });
+  panel.addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-value]');
+    if (!b) return;
+    set(b.closest('[data-setting]').dataset.setting, b.dataset.value);
+  });
+  // arrow keys move between options inside a radio group
+  panel.addEventListener('keydown', (e) => {
+    const b = e.target.closest('button[data-value]');
+    if (!b || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    e.preventDefault();
+    const opts = Array.from(b.parentElement.querySelectorAll('button[data-value]'));
+    const step = e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 1;
+    const next = opts[(opts.indexOf(b) + step + opts.length) % opts.length];
+    set(b.closest('[data-setting]').dataset.setting, next.dataset.value);
+    next.focus();
+  });
+  document.addEventListener('click', (e) => { if (!panel.hidden && !panel.contains(e.target)) open(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { open(false); btn.focus(); } });
+})();
 
 // ---------- Nav: scrolled state + mobile menu ----------
 (function nav() {
@@ -48,8 +159,10 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const el = document.querySelector('[data-count]');
   if (!el) return;
   const target = Number(el.dataset.count);
-  const fmt = (n) => Math.round(n).toLocaleString('en-US');
-  if (REDUCED || !('IntersectionObserver' in window)) { el.textContent = fmt(target); return; }
+  const fmt = (n) => Math.round(n).toLocaleString(LOCALES[currentLang()]);
+  let done = false;
+  document.addEventListener('mq:lang', () => { if (done) el.textContent = fmt(target); });
+  if (REDUCED || !('IntersectionObserver' in window)) { el.textContent = fmt(target); done = true; return; }
   el.textContent = '0';
   const io = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) return;
@@ -58,7 +171,7 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const step = (now) => {
       const p = Math.min((now - start) / 1800, 1);
       el.textContent = fmt(target * (1 - Math.pow(1 - p, 4)));
-      if (p < 1) requestAnimationFrame(step);
+      if (p < 1) requestAnimationFrame(step); else done = true;
     };
     requestAnimationFrame(step);
   }, { threshold: 0.4 });
@@ -168,9 +281,10 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     buildDots();
 
     if (!REDUCED) {
-      let timer = setInterval(() => go(current() + 1), 6000);
+      const advance = () => { if (!motionReduced()) go(current() + 1); };
+      let timer = setInterval(advance, 6000);
       root.addEventListener('pointerenter', () => clearInterval(timer));
-      root.addEventListener('pointerleave', () => { clearInterval(timer); timer = setInterval(() => go(current() + 1), 6000); });
+      root.addEventListener('pointerleave', () => { clearInterval(timer); timer = setInterval(advance, 6000); });
     }
   });
 })();
@@ -278,9 +392,9 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     lap: '#D4D4D4', lapDark: '#9A9A9A', logo: '#2FBF71'
   };
   const PHRASES = [
-    'Hi, I’m Quan. The pixel edition.',
-    'Psst. The projects are worth a look.',
-    'CEO by day, researcher by night.'
+    ['pixel.1', 'Hi, I’m Quan. The pixel edition.'],
+    ['pixel.2', 'Psst. The projects are worth a look.'],
+    ['pixel.3', 'CEO by day, researcher by night.']
   ];
 
   const el = document.createElement('div');
@@ -420,7 +534,7 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   canvas.addEventListener('click', () => {
     if (!visible) return;
-    bubble.textContent = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+    bubble.textContent = t(...PHRASES[Math.floor(Math.random() * PHRASES.length)]);
     el.classList.add('is-talking');
     override = { anim: 'wave', until: performance.now() + 2200 };
     hold += 2400;
@@ -429,7 +543,7 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   });
 
   setInterval(() => {
-    if (document.hidden || visible) return;
+    if (document.hidden || visible || motionReduced()) return;
     const now = performance.now();
     const idle = now - lastActive, gap = now - lastHide;
     if ((idle >= 1500 && gap >= 5000) || gap >= 30000) show();
