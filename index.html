@@ -3,732 +3,541 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Quan Nguyen — Tech Startup</title>
+<title>Nguyen Minh Quan — CEO, Odylytics</title>
+<meta name="description" content="Nguyen Minh Quan: CEO of Odylytics, Venture Analyst at B71 and Research Assistant at HCMUT-URA. Technology that protects, research that ships." />
+<meta name="theme-color" content="#FFFFFF" />
+<meta property="og:title" content="Nguyen Minh Quan — CEO, Odylytics" />
+<meta property="og:description" content="Building technology that protects. AquaGuard, AirGuard, Includio, EnableCode, and research on early action anticipation." />
+<meta property="og:image" content="assets/brand/og.png" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/brand/favicon-180.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-<meta name="theme-color" content="#FFFFFF" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23C4501F'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ============== NAV ============== -->
+<!-- ============== NAV (floating pill) ============== -->
 <header class="nav" id="nav">
-  <a class="nav__brand" href="#top" aria-label="Home">
-    <span class="brand-mark"></span>
-    <span class="brand-text">QUAN<em>NGUYEN</em></span>
-  </a>
+  <div class="nav__bar">
+    <a class="brand" href="#top" aria-label="Nguyen Minh Quan, home">
+      <img class="brand__mark" src="assets/brand/favicon.svg" alt="" width="28" height="28" />
+      <span class="brand__word">minhquan</span>
+    </a>
 
-  <nav class="nav__bar" id="navLinks" aria-label="Primary">
-    <div class="nav__pill" id="navPill" aria-hidden="true"></div>
-    <div class="nav__item" data-mega="about" data-target="about">
-      <button class="nav__btn" aria-haspopup="true" aria-expanded="false">About <span class="caret">▾</span></button>
-    </div>
-    <div class="nav__item" data-mega="exp" data-target="exp">
-      <button class="nav__btn" aria-haspopup="true" aria-expanded="false">Experience <span class="caret">▾</span></button>
-    </div>
-    <div class="nav__item" data-mega="projects" data-target="projects">
-      <button class="nav__btn" aria-haspopup="true" aria-expanded="false">Projects <span class="caret">▾</span></button>
-    </div>
-    <div class="nav__item" data-mega="recog" data-target="recog">
-      <button class="nav__btn" aria-haspopup="true" aria-expanded="false">Recognition <span class="caret">▾</span></button>
-    </div>
-    <div class="nav__item" data-mega="contact" data-target="contact">
-      <button class="nav__btn" aria-haspopup="true" aria-expanded="false">Contact <span class="caret">▾</span></button>
-    </div>
-    <a class="btn btn--yellow nav__mobile-cta" href="assets/my_resume.pdf" target="_blank" rel="noopener">MY RESUME <span class="arr">↗</span></a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <div class="nav__item">
+        <a class="nav__link" href="#about">About <span class="caret" aria-hidden="true"></span></a>
+        <div class="nav__menu">
+          <a href="#about"><b>Roles</b><span>Odylytics · B71 · HCMUT-URA</span></a>
+          <a href="#faq"><b>Education</b><span>UTS · HCMUT · LSTS</span></a>
+        </div>
+      </div>
+      <div class="nav__item">
+        <a class="nav__link" href="#work">Work <span class="caret" aria-hidden="true"></span></a>
+        <div class="nav__menu">
+          <a href="#aquaguard"><b>AquaGuard</b><span>Flood alerts, SOS &amp; evacuation</span></a>
+          <a href="#airguard"><b>AirGuard</b><span>Air quality &amp; carbon tracking</span></a>
+          <a href="#includio"><b>Includio</b><span>Inclusive hiring studio</span></a>
+          <a href="#enablecode"><b>EnableCode</b><span>Hands-free coding</span></a>
+        </div>
+      </div>
+      <div class="nav__item">
+        <a class="nav__link" href="#research">Research <span class="caret" aria-hidden="true"></span></a>
+        <div class="nav__menu">
+          <a href="#research"><b>Publications</b><span>IEEE KSE 2026 · DAI 2026</span></a>
+          <a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener"><b>ORCID</b><span>Full record ↗</span></a>
+        </div>
+      </div>
+      <div class="nav__item">
+        <a class="nav__link" href="#recognition">Recognition <span class="caret" aria-hidden="true"></span></a>
+        <div class="nav__menu">
+          <a href="#recognition"><b>Awards</b><span>EPICS 8th · OPC25 · HPC</span></a>
+          <a href="#press"><b>Press</b><span>VnExpress · Vietnam.vn · HTV3</span></a>
+          <a href="#voices"><b>Voices</b><span>What people say</span></a>
+        </div>
+      </div>
+      <a class="nav__link" href="#contact">Contact</a>
+      <a class="pill pill--dark nav__mobile-cta" href="assets/my_resume.pdf" target="_blank" rel="noopener">My resume ↗</a>
     </nav>
 
-  <div class="nav__tools">
-    <a class="btn btn--yellow" href="assets/my_resume.pdf" target="_blank" rel="noopener">
-      MY RESUME <span class="arr">↗</span>
-    </a>
-    <button class="nav__mobile-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span class="nav__burger" aria-hidden="true"></span></button>
-  </div>
-
-  <!-- mega panels (wrapped for script contract: id="mega" + id="megaStage") -->
-  <div id="mega">
-    <div id="megaStage">
-  <div class="mega" data-mega-panel="about">
-    <div class="mega__inner">
-      <div class="mega__cols">
-        <div class="mega__panel">
-          <h4>About me</h4>
-          <ul>
-            <li><a href="#about">Who I am</a><span class="mega__desc">My story</span></li>
-            <li><a href="#about">Education</a><span class="mega__desc">UTS · HCMUT</span></li>
-            <li><a href="#about">Research focus</a><span class="mega__desc">Explainable AI · Human-centered ML</span></li>
-          </ul>
-        </div>
-        <div class="mega__panel">
-          <h4>Quick links</h4>
-          <ul>
-            <li><a href="assets/my_resume.pdf" target="_blank" rel="noopener">My Resume</a><span class="mega__desc">PDF download</span></li>
-            <li><a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a><span class="mega__desc">Publications record</span></li>
-            <li><a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub</a><span class="mega__desc">Open-source work</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mega__visual">
-        <div class="mega__visual-img mega__visual-img--soon" aria-hidden="true"><span>Updating soon</span></div>
-        <div class="mega__visual-body">
-          <h5>Take the next step</h5>
-          <p>Read my story and see how research becomes products people can actually use.</p>
-          <a class="btn btn--red" href="#about">Read about me <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mega" data-mega-panel="exp">
-    <div class="mega__inner">
-      <div class="mega__cols">
-        <div class="mega__panel">
-          <h4>Experiences</h4>
-          <ul>
-            <li><a href="#exp">B71 Vietnam</a><span class="mega__desc">Venture analyst</span></li>
-            <li><a href="#exp">Odylytics</a><span class="mega__desc">Co-founder</span></li>
-            <li><a href="#exp">URA Research Group</a><span class="mega__desc">Research assistant</span></li>
-            <li><a href="#exp">HCMUT</a><span class="mega__desc">Master of ceremonies</span></li>
-          </ul>
-        </div>
-        <div class="mega__panel">
-          <h4>Approach</h4>
-          <ul>
-            <li><a href="#exp">Field-first</a><span class="mega__desc">Discovery &gt; assumption</span></li>
-            <li><a href="#exp">Multidisciplinary</a><span class="mega__desc">10+ person teams</span></li>
-            <li><a href="#exp">Bilingual</a><span class="mega__desc">EN · VI native</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mega__visual">
-        <div class="mega__visual-img mega__visual-img--soon" aria-hidden="true"><span>Updating soon</span></div>
-        <div class="mega__visual-body">
-          <h5>Where I've shipped</h5>
-          <p>From venture pipelines to founder ops, see the full picture of what I do across two timezones.</p>
-          <a class="btn btn--red" href="#exp">View experiences <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mega" data-mega-panel="projects">
-    <div class="mega__inner">
-      <div class="mega__cols">
-        <div class="mega__panel">
-          <h4>Product</h4>
-          <ul>
-            <li><a href="#projects">AquaGuard</a><span class="mega__desc">Flood emergency · 1st EPICS</span></li>
-            <li><a href="#projects">EnableCode</a><span class="mega__desc">Accessibility · gestures</span></li>
-            <li><a href="https://includio.odylytics.com" target="_blank" rel="noopener">Includio</a><span class="mega__desc">Inclusive hiring</span></li>
-            <li><a href="#projects">AirGuard</a><span class="mega__desc">Climate resilience</span></li>
-            <li><a href="#projects">Carbon Footprint</a><span class="mega__desc">Emissions tracking</span></li>
-          </ul>
-        </div>
-        <div class="mega__panel">
-          <h4>Code &amp; data</h4>
-          <ul>
-            <li><a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub</a><span class="mega__desc">Open-source work</span></li>
-            <li><a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a><span class="mega__desc">Publications record</span></li>
-            <li><a href="assets/my_resume.pdf" target="_blank" rel="noopener">My Resume</a><span class="mega__desc">Download PDF</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mega__visual">
-        <div class="mega__visual-img mega__visual-img--soon" aria-hidden="true"><span>Updating soon</span></div>
-        <div class="mega__visual-body">
-          <h5>Build with me</h5>
-          <p>AquaGuard has been tested with 500+ users. See the demo or talk about what we're building next.</p>
-          <a class="btn btn--red" href="#projects">View projects <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mega" data-mega-panel="recog">
-    <div class="mega__inner">
-      <div class="mega__cols">
-        <div class="mega__panel">
-          <h4>Awards</h4>
-          <ul>
-            <li><a href="#recog">EPICS 8th</a><span class="mega__desc">1st place, ASU · 2026</span></li>
-            <li><a href="#recog">OPC25</a><span class="mega__desc">1st place, HCMUT · 2025</span></li>
-            <li><a href="#recog">BK Innovation 2026</a><span class="mega__desc">2nd place</span></li>
-            <li><a href="#recog">HPC&nbsp;Hackathon</a><span class="mega__desc">2nd place · National 2025</span></li>
-          </ul>
-        </div>
-        <div class="mega__panel">
-          <h4>Press &amp; prizes</h4>
-          <ul>
-            <li><a href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html" target="_blank" rel="noopener">VnExpress</a><span class="mega__desc">Top-20 US essay</span></li>
-            <li><a href="https://www.vietnam.vn/en/sinh-vien-lam-he-thong-canh-bao-lu-ho-tro-cuu-ho-tren-nen-tang-di-dong" target="_blank" rel="noopener">Vietnam.vn</a><span class="mega__desc">Flood-warning app</span></li>
-            <li><a href="https://www.youtube.com/watch?v=mSjGmKBHG9I" target="_blank" rel="noopener">HTV3</a><span class="mega__desc">TV interview</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mega__visual">
-        <div class="mega__visual-img mega__visual-img--soon" aria-hidden="true"><span>Updating soon</span></div>
-        <div class="mega__visual-body">
-          <h5>1st place, EPICS 8th</h5>
-          <p>Engineering Projects in Community Service at Arizona State University, International 2026.</p>
-          <a class="btn btn--red" href="#recog">See all awards <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mega" data-mega-panel="contact">
-    <div class="mega__inner">
-      <div class="mega__cols">
-        <div class="mega__panel">
-          <h4>Email</h4>
-          <ul>
-            <li><a href="mailto:minhquan.nguyen-2@student.uts.edu.au">minhquan.nguyen-2@uts.edu.au</a><span class="mega__desc">Personal</span></li>
-            <li><a href="mailto:odylytics@gmail.com">odylytics@gmail.com</a><span class="mega__desc">Odylytics</span></li>
-          </ul>
-        </div>
-        <div class="mega__panel">
-          <h4>Elsewhere</h4>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener">LinkedIn</a><span class="mega__desc">Professional profile</span></li>
-            <li><a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub</a><span class="mega__desc">Open source</span></li>
-            <li><a href="https://www.facebook.com/mquan2512" target="_blank" rel="noopener">Facebook</a><span class="mega__desc">Personal</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mega__visual">
-        <div class="mega__visual-img mega__visual-img--soon" aria-hidden="true"><span>Updating soon</span></div>
-        <div class="mega__visual-body">
-          <h5>Say hi</h5>
-          <p>Sydney &amp; Ho Chi Minh City. I read every email, usually within a day.</p>
-          <a class="btn btn--red" href="mailto:minhquan.nguyen-2@student.uts.edu.au">Send email <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="nav__tools">
+      <a class="pill pill--dark" href="assets/my_resume.pdf" target="_blank" rel="noopener">My resume</a>
+      <a class="nav__plain" href="mailto:minhquan.nguyen-2@student.uts.edu.au">Say hi</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     </div>
   </div>
 </header>
 
+<main id="top">
+
 <!-- ============== HERO ============== -->
-<section class="hero" id="top">
-  <div class="hero__inner">
+<section class="hero">
+  <div class="wrap hero__inner">
     <div class="hero__copy">
+      <p class="hero__chip"><span class="dot dot--live"></span> CEO, Odylytics · Ho Chi Minh City</p>
       <h1 class="hero__title">
-        <span class="line line--1">Hi, I&rsquo;m <em>Quan.</em></span>
-        <span class="line line--2">I make ideas</span>
-        <span class="line line--3">useful.</span>
+        <span class="hl">Building technology</span>
+        <span class="hl"><em>that protects.</em></span>
       </h1>
-      <p class="hero__lede">
-        I research intelligent systems, build products with purpose, and turn field research into things people can actually use.
-      </p>
+      <p class="hero__lede">I&rsquo;m Quan. I run <strong>Odylytics</strong>, scout startups as a <strong>Venture Analyst at B71</strong>, and study early action anticipation as a <strong>Research Assistant at HCMUT-URA</strong>. I turn field research into tools people use when it counts.</p>
       <div class="hero__ctas">
-        <a class="btn btn--yellow" href="#projects">Explore my work <span class="arr">↘</span></a>
-        <a class="btn" href="https://github.com/minhquan-maker" target="_blank" rel="noopener">My GitHub <span class="arr">↗</span></a>
+        <a class="pill pill--dark pill--lg" href="#work">See my work</a>
+        <a class="pill pill--ghost pill--lg" href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-      <p class="hero__meta"><span class="hero__live"></span><span>Based in Ho Chi Minh City</span><span class="meta-dot">·</span><span>Open to research &amp; founding roles</span></p>
     </div>
-    <div class="hero__visual">
-      <div class="hero__sphere-wrap">
-        <canvas class="hero__sphere" id="sphere"></canvas>
-      </div>
+
+    <div class="hero__stack" aria-hidden="true">
+      <figure class="stack-card stack-card--1"><img src="assets/frames/aquaguard-cut2-1.jpg" alt="" /><figcaption>AquaGuard · live map</figcaption></figure>
+      <figure class="stack-card stack-card--2"><img src="assets/frames/airguard-cut1-8.jpg" alt="" /><figcaption>AirGuard · carbon</figcaption></figure>
+      <figure class="stack-card stack-card--3"><img src="assets/media/profile-portrait.jpg" alt="" /><figcaption>Nguyen Minh Quan</figcaption></figure>
+      <figure class="stack-card stack-card--4"><img src="assets/frames/enablecode-18.jpg" alt="" /><figcaption>EnableCode</figcaption></figure>
+      <figure class="stack-card stack-card--5"><img src="assets/media/epics-first-place.jpg" alt="" /><figcaption>1st · EPICS 8th</figcaption></figure>
     </div>
   </div>
-
-  <a class="hero__scroll-cue" href="#about"><span>Scroll to explore</span><span class="hero__scroll-arrow" aria-hidden="true">↓</span></a>
 </section>
 
-<!-- ============== STATS ============== -->
-<div class="stats reveal">
-  <div class="stat">
-    <span class="stat__num" data-count="1">0<sup>+</sup></span>
-    <span class="stat__label">Startup built</span>
+<!-- ============== BLACK BAND: counter + marquee ============== -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="band__title reveal">Reaching <span class="band__num" data-count="1000000">1,000,000</span>+ people<br>through technology built<br>for <em>the moments that matter</em></h2>
   </div>
-  <div class="stat">
-    <span class="stat__num" data-count="5">0<sup>×</sup></span>
-    <span class="stat__label">Projects shipped</span>
+  <div class="marquee" data-marquee>
+    <div class="marquee__track">
+      <figure class="mq-card"><img src="assets/frames/aquaguard-cut1-4.5.jpg" alt="AquaGuard dashboard on a laptop" loading="lazy" /></figure>
+      <figure class="mq-card mq-card--tall"><img src="assets/media/profile-portrait.jpg" alt="Portrait of Nguyen Minh Quan" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/frames/airguard-cut1-2.jpg" alt="AirGuard trip logging screen" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/frames/enablecode-3.jpg" alt="EnableCode visual programming lesson" loading="lazy" /></figure>
+      <figure class="mq-card mq-card--tall"><img src="assets/frames/airguard-cut2-2.jpg" alt="Phone with the AirGuard app" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/media/aquaguard-team.jpg" alt="The AquaGuard team at work" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/frames/aquaguard-cut2-3.5.jpg" alt="AquaGuard emergency map around Ho Chi Minh City" loading="lazy" /></figure>
+      <figure class="mq-card mq-card--tall"><img src="assets/frames/airguard-cut1-14.jpg" alt="AirGuard app screens" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/projects/includio/includio-hero.jpg" alt="Includio landing page" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/media/epics-first-place.jpg" alt="The team holding the EPICS first place cheque" loading="lazy" /></figure>
+      <figure class="mq-card mq-card--tall"><img src="assets/frames/airguard-cut2-6.jpg" alt="AirGuard trip summary" loading="lazy" /></figure>
+      <figure class="mq-card"><img src="assets/frames/enablecode-10.jpg" alt="EnableCode lesson submitted" loading="lazy" /></figure>
+    </div>
   </div>
-  <div class="stat">
-    <span class="stat__num" data-count="3">0<sup>×</sup></span>
-    <span class="stat__label">Organizations</span>
-  </div>
-  <div class="stat">
-    <span class="stat__num" data-count="7">0<sup>×</sup></span>
-    <span class="stat__label">Awards &amp; honors</span>
-  </div>
-</div>
+</section>
 
-<!-- ============== ABOUT ============== -->
-<section id="about" class="reveal">
-  <div class="about">
-    <div class="about__left">
-      <div class="about__photo">
-        <img src="assets/media/profile.jpg" alt="Portrait of Nguyen Minh Quan" />
+<!-- ============== LOGOS ============== -->
+  <div class="wrap logos-strip">
+    <p class="logos-strip__label">Built with, backed by and recognised at</p>
+    <ul class="logos" aria-label="Institutions and partners">
+      <li><img src="assets/logos/1.png" alt="Odylytics" loading="lazy" /></li>
+      <li><img src="assets/logos/2.png" alt="UTS" loading="lazy" /></li>
+      <li><img src="assets/logos/3.png" alt="HCMUT" loading="lazy" /></li>
+      <li><img src="assets/logos/4.png" alt="Arizona State University" loading="lazy" /></li>
+      <li><img src="assets/logos/5.png" alt="Leave a Nest" loading="lazy" /></li>
+      <li><img src="assets/logos/7.png" alt="ACM" loading="lazy" /></li>
+      <li><img src="assets/logos/9.png" alt="CYTAST" loading="lazy" /></li>
+      <li><img src="assets/logos/13.png" alt="URA Research Group" loading="lazy" /></li>
+    </ul>
+  </div>
+
+<!-- ============== ABOUT: dark card with three roles ============== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="dark-card reveal">
+      <h2 class="h2 center">Research is the part<br><em>most founders skip.</em></h2>
+      <p class="lede center">Every product I&rsquo;ve shipped started in a lab or in the field, with interviews, surveys and a flood map, long before any code. I&rsquo;m an AI student at UTS, studying in Ho Chi Minh City through HCMUT&rsquo;s transnational programme, and I spend my weeks in three rooms at once.</p>
+
+      <div class="role-grid" data-stagger-group>
+        <article class="role-card reveal">
+          <span class="role-card__ord">01 · Jul 2026 — now</span>
+          <h3>CEO · Odylytics</h3>
+          <p>Lead a 10+ person team building digital infrastructure for public impact: AquaGuard, AirGuard and Includio. Ran 10+ customer interviews and 300+ surveys to find product-market fit.</p>
+        </article>
+        <article class="role-card reveal">
+          <span class="role-card__ord">02 · Aug 2026 — now</span>
+          <h3>Venture Analyst · B71</h3>
+          <p>Scout and evaluate early-stage startups for the 84X acceleration programme, screening founders and market fit, and rebuild the internal sites behind the deal pipeline.</p>
+        </article>
+        <article class="role-card reveal">
+          <span class="role-card__ord">03 · Mar 2026 — now</span>
+          <h3>Research Assistant · HCMUT-URA</h3>
+          <p>Co-author two deep-learning papers on skeleton-based early action anticipation and co-develop HCMUT&rsquo;s <em>Introduction to Computing</em> textbook.</p>
+        </article>
       </div>
-      <div class="about__name">
-        <h3>Nguyen Minh Quan</h3>
-        <span class="about__pronouns">he / him</span>
-      </div>
-      <ul class="about__meta">
-        <li><span class="meta-k">ROLE</span><span class="meta-v">AI researcher · Co-founder</span></li>
-        <li><span class="meta-k">LOCATION</span><span class="meta-v">Sydney · Ho Chi Minh City</span></li>
-        <li><span class="meta-k">LANGUAGES</span><span class="meta-v">English · Vietnamese</span></li>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WORK ============== -->
+<div id="work" class="work-anchor"></div>
+
+<!-- 01 · AquaGuard (white) -->
+<section class="feature section" id="aquaguard">
+  <div class="wrap feature__grid">
+    <div class="feature__copy reveal">
+      <span class="eyebrow">01 · Odylytics</span>
+      <h2 class="h3">Floods move fast. <em>AquaGuard moves first.</em></h2>
+      <p>A flood alert, SOS and evacuation guidance platform I led from problem discovery to MVP with a 12+ person team. Citizens report incidents and share their location in real time; rescuers and local authorities see the same map.</p>
+      <p>Tested with 500+ users, 1M+ content views, USD 4,000+ in grants and ~USD 2,000 in AWS credits. First place at EPICS 8th, Arizona State University.</p>
+      <ul class="ticks">
+        <li>Real-time flood monitoring</li>
+        <li>SOS &amp; emergency alerts</li>
+        <li>Smart evacuation routes</li>
       </ul>
-      <a class="about__resume btn" href="assets/my_resume.pdf" target="_blank" rel="noopener">My Resume <span class="arr">↗</span></a>
+      <a class="pill pill--dark" href="https://aquaguard.vn" target="_blank" rel="noopener">Visit aquaguard.vn ↗</a>
     </div>
 
-    <div class="about__right">
-      <span class="bracket"><em>01</em> ABOUT</span>
-      <h2>A builder who<br>thinks like <em>a researcher.</em></h2>
-      <p>
-        I&rsquo;m an AI student at <strong>UTS</strong>, studying in Ho Chi Minh
-        City through HCMUT&rsquo;s trans&shy;na&shy;tion&shy;al programme. What interests me
-        most is the space between research and busi&shy;ness: how an idea from the
-        lab becomes something people actually use.
-      </p>
-      <p>
-        On the research side, I work at HCMUT&rsquo;s
-        <strong>URA Research Group</strong> on explainable models for early
-        action an&shy;tic&shy;i&shy;pa&shy;tion. On the busi&shy;ness side, I scout early-stage startups
-        at <strong>B71 Vietnam</strong> and lead
-        <a class="about__link" href="https://aquaguard.vn" target="_blank" rel="noopener"><strong>AquaGuard</strong></a>,
-        a climate-tech startup tackling flood re&shy;sponse in Vietnam.
-      </p>
-      <p>
-        I also host HCMUT&rsquo;s in&shy;ter&shy;na&shy;tion&shy;al events in English and
-        Vietnamese. I&rsquo;d rather show the messy middle of how something got
-        built than a tidy list of what shipped.
-      </p>
-
-      <div class="edu">
-        <span class="bracket"><em>02</em> EDUCATION</span>
-        <div class="edu-list">
-          <div class="edu-item">
-            <span class="edu-year">2025–28</span>
-            <div class="edu-body">
-              <h4>University of Technology Sydney</h4>
-              <p>Bachelor of Artificial Intelligence · <strong>GPA 6.6 / 7.0</strong> · <strong>WAM 88%</strong></p>
-            </div>
-          </div>
-          <div class="edu-item">
-            <span class="edu-year">2025–28</span>
-            <div class="edu-body">
-              <h4>HCMC University of Technology</h4>
-              <p>Transnational Education with UTS · <strong>GPA 4.0 / 4.0</strong> · High Distinction</p>
-            </div>
-          </div>
-          <div class="edu-item">
-            <span class="edu-year">2018–25</span>
-            <div class="edu-body">
-              <h4>Lawrence S. Ting School</h4>
-              <p>High School Diploma · <strong>Top 5%</strong> · <strong>SAT 1500</strong> · <strong>IELTS 8.0</strong></p>
-            </div>
-          </div>
+    <div class="mock reveal">
+      <div class="mock__bar">
+        <span class="mock__dots"><i></i><i></i><i></i></span>
+        <span class="mock__url"><span class="dot dot--live"></span>aquaguard.vn</span>
+        <span class="mock__chips"><span>Monitor</span><span>SOS</span><span>Evacuate</span></span>
+        <span class="mock__tag">1st · EPICS 8th</span>
+      </div>
+      <div class="mock__body mock__body--split">
+        <video class="mock__video" data-autoplay muted loop playsinline preload="none" poster="assets/frames/aquaguard-cut2-1.jpg">
+          <source src="assets/projects/aquaguard/aquaguard-cut2.mp4" type="video/mp4" />
+        </video>
+        <div class="mock__side">
+          <img src="assets/frames/aquaguard-cut2-3.5.jpg" alt="AquaGuard map of active emergencies around Ho Chi Minh City" loading="lazy" />
+          <img src="assets/frames/aquaguard-cut1-4.5.jpg" alt="AquaGuard welcome dashboard" loading="lazy" />
+          <img class="mock__brand" src="assets/brand/aquaguard-wordmark-with-lifebuoy.svg" alt="AquaGuard" loading="lazy" />
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== EXPERIENCES ============== -->
-<section id="exp" class="reveal">
-  <div class="exp">
-    <div class="exp__head">
-      <div>
-        <span class="bracket"><em>03</em> EXPERIENCES</span>
-        <h2>Where I&rsquo;ve<br>been <em>shipping.</em></h2>
+<!-- 02 · AirGuard (gray panel) -->
+<section class="feature section" id="airguard">
+  <div class="wrap">
+    <div class="panel panel--gray">
+      <div class="feature__grid feature__grid--flip">
+        <div class="mock mock--white reveal">
+          <div class="mock__label">AirGuard · trip summary</div>
+          <div class="tile-grid">
+            <figure><img src="assets/frames/airguard-cut2-6.jpg" alt="AirGuard trip summary on a phone" loading="lazy" /><figcaption>Trip summary</figcaption></figure>
+            <figure><img src="assets/frames/airguard-cut1-14.jpg" alt="AirGuard logging screen" loading="lazy" /><figcaption>Auto logging</figcaption></figure>
+            <figure><img src="assets/frames/airguard-cut2-2.jpg" alt="Person using AirGuard on a phone" loading="lazy" /><figcaption>In the wild</figcaption></figure>
+            <figure class="tile-grid__video">
+              <video data-autoplay muted loop playsinline preload="none" poster="assets/frames/airguard-cut3-2.jpg">
+                <source src="assets/projects/airguard/airguard-cut3.mp4" type="video/mp4" />
+              </video>
+              <figcaption>How it works</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="feature__copy reveal">
+          <span class="eyebrow">02 · Odylytics</span>
+          <h2 class="h3">The air you breathe, <em>finally on the record.</em></h2>
+          <p>Odylytics&rsquo; second platform takes the AquaGuard mission from disaster response into climate resilience and public health: environmental monitoring and accessible air-quality insight for people, cities and communities.</p>
+          <p>Trips log themselves. A 4.8 km ride becomes 0.40 kg of CO&#8322;, roughly four cups of milk tea, instead of a number nobody reads.</p>
+          <ul class="ticks">
+            <li>Air-quality monitoring</li>
+            <li>Weather intelligence</li>
+            <li>Carbon tracking</li>
+          </ul>
+          <a class="pill pill--dark" href="https://www.youtube.com/watch?v=Wd_yZVT6Te4" target="_blank" rel="noopener">Watch the demo ↗</a>
+        </div>
       </div>
-      <p class="exp__lede">Four roles across venture, founding, research and leadership, running in parallel from Ho Chi Minh City.</p>
-    </div>
-
-    <div class="exp-grid">
-      <article class="exp-card" data-exp>
-        <div class="exp-card__top">
-          <span class="exp-card__ord">01<span class="slash">/</span>04</span>
-          <span class="tag tag--red">VENTURE</span>
-        </div>
-        <div class="exp-card__body">
-          <h3>B71 Vietnam</h3>
-          <div class="role">Venture Analyst · NUSX</div>
-          <p>Scout and evaluate early-stage startups for the 84X acceleration programme, screening founders and market fit to build the deal pipeline. Rebuild the internal management sites behind the pipeline.</p>
-        </div>
-        <span class="exp-card__date">Aug 2026 — now</span>
-      </article>
-
-      <article class="exp-card" data-exp>
-        <div class="exp-card__top">
-          <span class="exp-card__ord">02<span class="slash">/</span>04</span>
-          <span class="tag tag--yellow">FOUNDER</span>
-        </div>
-        <div class="exp-card__body">
-          <h3>Odylytics</h3>
-          <div class="role">Co-Founder &amp; Lead</div>
-          <p>Lead product strategy and execution for a 10+ person multidisciplinary team across 3+ initiatives. Ran 10+ customer interviews and 300+ surveys across three segments to find product-market fit.</p>
-        </div>
-        <span class="exp-card__date">Jul 2026 — now</span>
-      </article>
-
-      <article class="exp-card" data-exp>
-        <div class="exp-card__top">
-          <span class="exp-card__ord">03<span class="slash">/</span>04</span>
-          <span class="tag tag--red">RESEARCH</span>
-        </div>
-        <div class="exp-card__body">
-          <h3>URA Research Group</h3>
-          <div class="role">Research Assistant · HCMUT</div>
-          <p>Co-authored two deep-learning papers on skeleton-based early action anticipation (IEEE KSE 2026 accepted, DAI 2026 under review) and co-developed the Introduction to Computing textbook.</p>
-        </div>
-        <span class="exp-card__date">Mar 2026 — now<a class="exp-card__more" href="#publications">View more <span class="arr">↓</span></a></span>
-      </article>
-
-      <article class="exp-card" data-exp>
-        <div class="exp-card__top">
-          <span class="exp-card__ord">04<span class="slash">/</span>04</span>
-          <span class="tag tag--yellow">LEADERSHIP</span>
-        </div>
-        <div class="exp-card__body">
-          <h3>HCMUT</h3>
-          <div class="role">Master of Ceremonies &amp; Club Director</div>
-          <p>Host HCMUT International Programmes and UTS Transnational Education events, from orientations to dialogue between university leaders and international partners, in English and Vietnamese.</p>
-        </div>
-        <span class="exp-card__date">2026</span>
-      </article>
     </div>
   </div>
 </section>
 
-<!-- ============== PROJECTS (pinned horizontal scroll) ============== -->
-<section id="projects" class="proj-pin">
-  <div class="proj-pin__sticky">
-    <span class="bracket"><em>04</em> WORK</span>
-    <h2>Selected <em>projects.</em></h2>
+<!-- 03 · Includio (dark panel) -->
+<section class="feature section" id="includio">
+  <div class="wrap">
+    <div class="panel panel--dark">
+      <div class="feature__grid">
+        <div class="feature__copy reveal">
+          <span class="eyebrow">03 · Odylytics</span>
+          <h2 class="h3">Inclusive hiring starts with <em>an interview everyone can do.</em></h2>
+          <p>An inclusion-first hiring studio that connects employers with neurodivergent talent. Instead of bolting accessibility onto a standard process, Includio redesigns the interview itself so candidates can show what they can actually do.</p>
+          <a class="pill pill--light" href="https://includio.odylytics.com" target="_blank" rel="noopener">Try the demo ↗</a>
+        </div>
 
-    <div class="proj-shell">
-      <div class="proj-track" id="projTrack">
-        <article class="proj-card">
-          <div class="proj-card__num">01</div>
-          <div class="proj-card__media">
-            <video class="proj-card__video" muted loop playsinline preload="metadata" poster="assets/projects/flood-detection/flood-detection1.png">
-              <source src="assets/projects/aquaguard/aquaguard-cut1.mp4" type="video/mp4" />
-            </video>
+        <div class="mock mock--dark reveal">
+          <div class="mock__bar mock__bar--dark">
+            <span class="mock__dots"><i></i><i></i><i></i></span>
+            <span class="mock__url"><span class="dot dot--live"></span>includio.odylytics.com</span>
+            <span class="mock__tag mock__tag--green">Live demo</span>
           </div>
-          <div class="proj-card__body">
-            <h3>AquaGuard</h3>
-            <p>A flood coordination platform I led from problem discovery to MVP with a 12+ person team, tested with 500+ users. It has reached 1M+ content views, USD 4,000+ in grants and ~USD 2,000 in AWS credits, and took 1st place at EPICS 8th.</p>
-            <div class="proj-card__tags"><span>React 19</span><span>Express</span><span>PostgreSQL</span><span>SwiftUI</span></div>
-            <a class="btn btn--red" href="https://aquaguard.vn" target="_blank" rel="noopener">View live <span class="arr">↗</span></a>
-          </div>
-        </article>
-
-        <article class="proj-card">
-          <div class="proj-card__num">02</div>
-          <div class="proj-card__media">
-            <video class="proj-card__video" muted loop playsinline preload="metadata">
-              <source src="assets/projects/enablecode/enablecode.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="proj-card__body">
-            <h3>EnableCode</h3>
-            <p>A hands-free coding platform for learners with upper-limb disabilities. I led a 6+ person team to an MVP built on facial gesture recognition and visual programming, holding accessibility, usability, and feasibility in balance.</p>
-            <div class="proj-card__tags"><span>AI</span><span>Gesture Recognition</span></div>
-            <a class="btn btn--red" href="https://enablecode.vercel.app" target="_blank" rel="noopener">View live <span class="arr">↗</span></a>
-          </div>
-        </article>
-
-        <article class="proj-card">
-          <div class="proj-card__num">03</div>
-          <div class="proj-card__media">
-            <img class="proj-card__img" src="assets/projects/includio/includio-hero.jpg" alt="Includio, an inclusive hiring studio: landing page" loading="lazy" />
-          </div>
-          <div class="proj-card__body">
-            <h3>Includio</h3>
-            <p>An inclusion-first hiring platform built around one idea: inclusive hiring starts with an interview everyone can actually do. It connects employers with neurodivergent talent.</p>
-            <div class="proj-card__tags"><span>UX Research</span><span>React</span><span>Inclusion</span></div>
-            <a class="btn btn--red" href="https://includio.odylytics.com" target="_blank" rel="noopener">Try the demo <span class="arr">↗</span></a>
-          </div>
-        </article>
-
-        <article class="proj-card">
-          <div class="proj-card__num">04</div>
-          <div class="proj-card__media">
-            <video class="proj-card__video" muted loop playsinline preload="metadata">
-              <source src="assets/projects/airguard/airguard-cut1.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="proj-card__body">
-            <h3>AirGuard</h3>
-            <p>Odylytics' second product line. A carbon emission and air-quality platform that extends the AquaGuard mission from disaster response into climate resilience and public health.</p>
-            <div class="proj-card__tags"><span>React</span><span>Carbon API</span><span>Mapbox</span><span>Climate</span></div>
-            <a class="btn" href="#contact">Ask for a demo <span class="arr">→</span></a>
-          </div>
-        </article>
-
-        <article class="proj-card">
-          <div class="proj-card__num">05</div>
-          <div class="proj-card__media">
-            <video class="proj-card__video" muted loop playsinline preload="metadata">
-              <source src="assets/projects/carbon-footprint/carbon-footprint-1.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="proj-card__body">
-            <h3>Carbon Footprint</h3>
-            <p>A measurement tool that turns everyday activity into a clear carbon picture. Built during the Odylytics research sprints to test how people act on emissions data they can finally see.</p>
-            <div class="proj-card__tags"><span>React</span><span>Data Viz</span><span>Carbon API</span><span>Research</span></div>
-            <a class="btn" href="#contact">Ask for a demo <span class="arr">→</span></a>
-          </div>
-        </article>
+          <img class="mock__shot" src="assets/projects/includio/includio-hero.jpg" alt="Includio, an inclusive hiring studio: landing page" loading="lazy" />
+          <ul class="rows">
+            <li><span class="rows__k">Candidates</span><span class="rows__v">Interview formats that fit how they think</span><span class="rows__tag">UX research</span></li>
+            <li><span class="rows__k">Employers</span><span class="rows__v">A clearer read on real ability</span><span class="rows__tag">React</span></li>
+            <li><span class="rows__k">Teams</span><span class="rows__v">Hiring that scales inclusion</span><span class="rows__tag">Inclusion</span></li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="proj-controls">
-        <button class="proj-nav proj-nav--prev" id="projPrev" aria-label="Previous project"><span class="arr">←</span> Prev</button>
-        <div class="proj-progress"><div class="proj-progress__bar" id="projBar"></div></div>
-        <button class="proj-nav proj-nav--next" id="projNext" aria-label="Next project">Next <span class="arr">→</span></button>
+<!-- 04 · EnableCode (white) -->
+<section class="feature section" id="enablecode">
+  <div class="wrap feature__grid">
+    <div class="feature__copy reveal">
+      <span class="eyebrow">04 · Accessibility</span>
+      <h2 class="h3">Code without your hands. <em>Learn without limits.</em></h2>
+      <p>A hands-free coding platform for learners with upper-limb disabilities. I led a 6+ person team to an MVP built on facial gesture recognition and visual programming, keeping accessibility, usability and feasibility in balance.</p>
+      <ul class="ticks">
+        <li>Facial gesture control</li>
+        <li>Block-based lessons</li>
+        <li>Guided debugging missions</li>
+      </ul>
+      <a class="pill pill--dark" href="https://enablecode.vercel.app" target="_blank" rel="noopener">Open EnableCode ↗</a>
+    </div>
+
+    <div class="mock reveal">
+      <div class="mock__bar">
+        <span class="mock__dots"><i></i><i></i><i></i></span>
+        <span class="mock__url"><span class="dot dot--live"></span>enablecode.vercel.app</span>
+        <span class="mock__chips"><span>Lesson 3</span><span>Debug</span></span>
+        <span class="mock__tag">MVP</span>
       </div>
+      <div class="mock__body">
+        <video class="mock__video mock__video--full" data-autoplay muted loop playsinline preload="none" poster="assets/frames/enablecode-3.jpg">
+          <source src="assets/projects/enablecode/enablecode.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== VOICES (testimonials carousel) ============== -->
+<section class="section" id="voices">
+  <div class="wrap">
+    <h2 class="h2 center reveal">People on the ground already <em>believe in AquaGuard.</em></h2>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track" data-carousel-track>
+        <figure class="quote-card">
+          <blockquote>&ldquo;Having experienced severe flooding in Huế, I know how difficult it is to find reliable information and timely help. AquaGuard can help people report their location, request assistance, and stay informed.&rdquo;</blockquote>
+          <figcaption><span class="avatar" style="--c:#f5bd3e">N</span><span><b>Ms. Ni</b><small>Flood survivor, Huế, Vietnam</small></span></figcaption>
+        </figure>
+        <figure class="quote-card">
+          <blockquote>&ldquo;What makes AquaGuard unique is its community-centered approach. Citizens can report incidents, share real-time information, and connect with rescuers, building more resilient communities.&rdquo;</blockquote>
+          <figcaption><span class="avatar" style="--c:#ff6b6b">H</span><span><b>Dr. Vo Thanh Hang</b><small>Lecturer, Faculty of Environment, HCMUT</small></span></figcaption>
+        </figure>
+        <figure class="quote-card">
+          <blockquote>&ldquo;A highly valuable and practical solution that can significantly enhance flood rescue and emergency response, with strong potential well beyond Vietnam.&rdquo;</blockquote>
+          <figcaption><span class="avatar" style="--c:#5598dc">D</span><span><b>Prof. Dinh N. Nguyen</b><small>Professor Emeritus, Laval University, Canada</small></span></figcaption>
+        </figure>
+        <figure class="quote-card">
+          <blockquote>&ldquo;By bringing citizens, rescuers, and local authorities together on one platform, AquaGuard could significantly strengthen flood emergency coordination in Vietnam.&rdquo;</blockquote>
+          <figcaption><span class="avatar" style="--c:#f5bd3e">A</span><span><b>Anna B.</b><small>Water rescue volunteer, WOPR, Warsaw</small></span></figcaption>
+        </figure>
+        <figure class="quote-card">
+          <blockquote>&ldquo;A practical solution that can support humanitarian relief efforts and help communities respond more effectively during flood emergencies.&rdquo;</blockquote>
+          <figcaption><span class="avatar" style="--c:#77c56a">T</span><span><b>Most Ven. Thich Chon Nguyen</b><small>Charity Committee, Van Hanh Zen Monastery</small></span></figcaption>
+        </figure>
+      </div>
+      <div class="carousel__ctrl">
+        <button class="round-btn" data-carousel-prev aria-label="Previous quote">‹</button>
+        <div class="carousel__dots" data-carousel-dots></div>
+        <button class="round-btn" data-carousel-next aria-label="Next quote">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RESEARCH (toolkit-style grid) ============== -->
+<section class="section section--tight" id="research">
+  <div class="wrap">
+    <h2 class="h2 center reveal">Published research, <em>every frame counted.</em></h2>
+    <p class="lede center lede--ink reveal">At HCMUT&rsquo;s URA Research Group I work on explainable models that anticipate an action from the first few frames of 3D skeleton motion, before it finishes.</p>
+
+    <div class="tool-grid" data-stagger-group>
+      <article class="tool-card reveal">
+        <header><span class="tool-card__icon">01</span><h3>Spatio-temporal causal modeling</h3><span class="status status--ok">Accepted · Oral</span></header>
+        <p>Leveraging 3D Skeleton Motion for Early Action Anticipation via Spatio-Temporal Causal Modeling.</p>
+        <div class="cite">
+          <div><span>authors</span><p>Nguyen, M., Tran, D. T. T., <b>Nguyen, Q. M.</b>, Hac, Q. M., Quan, T. T.</p></div>
+          <div><span>venue</span><p><b>IEEE KSE 2026</b> · B rank</p></div>
+        </div>
+      </article>
+      <article class="tool-card reveal">
+        <header><span class="tool-card__icon">02</span><h3>Transition-aware history</h3><span class="status">Under review</span></header>
+        <p>Transition-Aware History Modeling for Skeleton-Based Early Action Anticipation.</p>
+        <div class="cite">
+          <div><span>authors</span><p>Manhtuan Nguyen, Duong T. T. Tran, <b>Quan M. Nguyen</b>, Quan M. Hac, Xu Wang, Tho T. Quan</p></div>
+          <div><span>venue</span><p><b>DAI 2026</b> · Q1</p></div>
+        </div>
+      </article>
+      <article class="tool-card reveal">
+        <header><span class="tool-card__icon">03</span><h3>Introduction to Computing</h3><span class="status">Under review</span></header>
+        <p>Nhập môn điện toán, the 2026 edition of HCMUT&rsquo;s first-year computing textbook, co-developed with the URA Research Group.</p>
+        <div class="cite">
+          <div><span>type</span><p>Textbook · 2026 edition</p></div>
+          <div><span>publisher</span><p><b>HCMUT</b></p></div>
+        </div>
+      </article>
+      <a class="tool-card tool-card--link reveal" href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">
+        <header><span class="tool-card__icon"><img src="assets/icons/orcid.svg" alt="" /></span><h3>Full record on ORCID</h3><span class="status">↗</span></header>
+        <p>Every paper, review and dataset in one place: 0009-0008-9621-1326.</p>
+        <div class="cite cite--bars" aria-hidden="true"><i style="--w:92%"></i><i style="--w:70%"></i><i style="--w:84%"></i><i style="--w:56%"></i></div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============== RECOGNITION ============== -->
-<section id="recog" class="reveal">
-  <div class="recog">
-    <span class="bracket"><em>05</em> RECOGNITION</span>
-    <h2>Press &amp; <em>prizes.</em></h2>
+<section class="section section--tight" id="recognition">
+  <div class="wrap">
+    <h2 class="h2 center reveal">Seven awards, <em>one habit: ship it.</em></h2>
+    <p class="lede center lede--ink reveal">From international design competitions to the Dean&rsquo;s List. Tap a card to open the certificate.</p>
 
-    <div class="rec-grid">
-      <div class="award-list">
-        <div class="award reveal">
-          <span class="award__ord">01</span>
-          <div class="award__main">
-            <h4 class="award__title">First Place · EPICS 8th</h4>
-            <span class="award__org">ASU &amp; Dow Vietnam</span>
-          </div>
-          <span class="award__level">International</span>
-          <span class="award__year">2026</span>
-          <span class="badge badge--red">WINNER</span>
-        </div>
-        <div class="award reveal">
-          <span class="award__ord">02</span>
-          <div class="award__main">
-            <h4 class="award__title">First Place · OPC25</h4>
-            <span class="award__org">OISP Presentation Contest, HCMUT</span>
-          </div>
-          <span class="award__level">Institutional</span>
-          <span class="award__year">2026</span>
-          <span class="badge badge--red">WINNER</span>
-        </div>
-        <div class="award reveal">
-          <span class="award__ord">03</span>
-          <div class="award__main">
-            <h4 class="award__title">Second Place · Bach Khoa Innovation</h4>
-            <span class="award__org">HCMUT</span>
-          </div>
-          <span class="award__level">International</span>
-          <span class="award__year">2026</span>
-          <span class="badge badge--yellow">RUNNER-UP</span>
-        </div>
-        <div class="award reveal">
-          <span class="award__ord">04</span>
-          <div class="award__main">
-            <h4 class="award__title">Second Place · HPC Hackathon</h4>
-            <span class="award__org">HPC Summer School, HCMUT × ACM</span>
-          </div>
-          <span class="award__level">National</span>
-          <span class="award__year">2025</span>
-          <span class="badge badge--yellow">RUNNER-UP</span>
-        </div>
-        <div class="award reveal">
-          <span class="award__ord">05</span>
-          <div class="award__main">
-            <h4 class="award__title">National Finalist</h4>
-            <span class="award__org">14th Design, Fabrication &amp; Application Competition, HCMC DOST</span>
-          </div>
-          <span class="award__level">National</span>
-          <span class="award__year">2026</span>
-          <span class="badge">FINALIST</span>
-        </div>
-        <div class="award reveal">
-          <span class="award__ord">06</span>
-          <div class="award__main">
-            <h4 class="award__title">UTS Dean&rsquo;s List</h4>
-            <span class="award__org">Faculty of Engineering &amp; IT, UTS</span>
-          </div>
-          <span class="award__level">Institutional</span>
-          <span class="award__year">2026</span>
-          <span class="badge">AWARD</span>
-        </div>
-        <div class="award reveal">
-          <span class="award__ord">07</span>
-          <div class="award__main">
-            <h4 class="award__title">Best Presenter</h4>
-            <span class="award__org">REACH Vietnam, UTM Malaysia</span>
-          </div>
-          <span class="award__level">International</span>
-          <span class="award__year">2025</span>
-          <span class="badge">AWARD</span>
-        </div>
+    <div class="award-grid" data-stagger-group>
+      <button class="award-card award-card--hero reveal certificate-trigger" type="button" data-cert-url="assets/certificates/03_1stplace_epics2026_asu/1stplace_epics2026_asu.pdf" data-cert-title="First Place · EPICS 8th">
+        <img src="assets/media/epics-first-place.jpg" alt="The AquaGuard team holding the EPICS first place cheque at HCMUT" loading="lazy" />
+        <span class="award-card__body"><span class="badge">1st · International · 2026</span><b>First Place · EPICS 8th</b><small>Arizona State University &amp; Dow Vietnam</small></span>
+      </button>
+      <button class="award-card reveal certificate-trigger" type="button" data-cert-url="assets/certificates/02_1stplace_opc2025_hcmut/1stplace.jpg" data-cert-title="First Place · OPC25">
+        <span class="badge">1st · 2026</span><b>First Place · OPC25</b><small>OISP Presentation Contest, HCMUT</small>
+      </button>
+      <div class="award-card reveal">
+        <span class="badge">2nd · International · 2026</span><b>Second Place · Bach Khoa Innovation</b><small>HCMUT</small>
       </div>
-
-      <div class="rec-photos">
-        <figure class="rec-photo reveal">
-          <img src="assets/media/epics-first-place.jpg" alt="The AquaGuard team holding the EPICS first place winner cheque at HCMUT" loading="lazy" />
-          <figcaption><span>EPICS 8th</span> First place, May 2026</figcaption>
-        </figure>
-        <figure class="rec-photo reveal">
-          <img src="assets/media/aquaguard-team.jpg" alt="The AquaGuard team working together around laptops" loading="lazy" />
-          <figcaption><span>AquaGuard</span> The team at work</figcaption>
-        </figure>
-      </div>
+      <button class="award-card reveal certificate-trigger" type="button" data-cert-url="assets/certificates/HPC-Hackathon-Certificate.png" data-cert-title="Second Place · HPC Hackathon">
+        <span class="badge">2nd · National · 2025</span><b>Second Place · HPC Hackathon</b><small>HPC Summer School, HCMUT × ACM</small>
+      </button>
+      <button class="award-card reveal certificate-trigger" type="button" data-cert-url="assets/certificates/04_finalist_14thdesign_fabrication_vietnam2026/finalist2026.jpg" data-cert-title="National Finalist">
+        <span class="badge">Finalist · National · 2026</span><b>National Finalist</b><small>14th Design, Fabrication &amp; Application Competition, HCMC DOST</small>
+      </button>
+      <button class="award-card reveal certificate-trigger" type="button" data-cert-url="assets/certificates/UTS-1styear-DeanList.jpg" data-cert-title="UTS Dean's List">
+        <span class="badge">Award · 2026</span><b>UTS Dean&rsquo;s List</b><small>Faculty of Engineering &amp; IT, UTS</small>
+      </button>
+      <button class="award-card reveal certificate-trigger" type="button" data-cert-url="assets/certificates/01_best_presenter_reach2025_utm/best_presenter.jpg" data-cert-title="Best Presenter · REACH">
+        <span class="badge">Award · International · 2025</span><b>Best Presenter</b><small>REACH Vietnam, UTM Malaysia</small>
+      </button>
+      <a class="award-card award-card--cta reveal" href="assets/my_resume.pdf" target="_blank" rel="noopener">
+        <span class="badge">Resume</span><b>The full record, scholarships and roles included.</b><small>Download my resume (PDF) ↗</small>
+      </a>
     </div>
+  </div>
+</section>
 
-    <span class="bracket" style="margin-top: clamp(60px, 8vw, 100px);"><em>06</em> PRESS</span>
-    <h2 class="sub-h2">In the <em>press.</em></h2>
-
-    <div class="press-grid">
-      <a class="press-card reveal" href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html" target="_blank" rel="noopener">
-        <span class="press-card__logo"><img src="assets/logos/press/vnexpress.png" alt="VnExpress" loading="lazy" /></span>
-        <small class="press-card__tag">FEATURED · VNEXPRESS</small>
-        <h4>Accepted to a top-20 U.S. university with an essay on Mekong Delta salinity</h4>
-        <p>Vietnam's leading online newspaper · 2025</p>
-        <span class="press-card__link">Read article <span class="arr">→</span></span>
-      </a>
-      <a class="press-card reveal" href="https://www.vietnam.vn/en/sinh-vien-lam-he-thong-canh-bao-lu-ho-tro-cuu-ho-tren-nen-tang-di-dong" target="_blank" rel="noopener">
-        <span class="press-card__logo"><img src="assets/logos/press/vietnamvn.png" alt="Vietnam.vn" loading="lazy" /></span>
-        <small class="press-card__tag">FEATURED · VIETNAM.VN</small>
-        <h4>Student builds a flood-warning system to support rescue on a mobile platform</h4>
-        <p>National news portal · coverage of a student-built flood-response app</p>
-        <span class="press-card__link">Read article <span class="arr">→</span></span>
-      </a>
-      <a class="press-card reveal" href="https://tainangviet.vn/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-dar6554/" target="_blank" rel="noopener">
-        <span class="press-card__logo press-card__logo--wide"><img src="assets/logos/press/tainangviet.png" alt="Tài Năng Việt — Cổng thông tin điện tử Tài năng trẻ quốc gia" loading="lazy" /></span>
-        <small class="press-card__tag">PROFILE · TÀI NĂNG VIỆT</small>
-        <h4>A Vietnamese student's path to a top-20 U.S. university</h4>
-        <p>Platform spotlighting Vietnamese students in social-impact education</p>
-        <span class="press-card__link">Read article <span class="arr">→</span></span>
-      </a>
-      <a class="press-card reveal" href="https://lsts.edu.vn/tin-tuc/hoc-sinh-lop-12-truong-dinh-thien-ly-trung-tuyen-5-truong-dai-hoc-tai-hoa-ky" target="_blank" rel="noopener">
-        <span class="press-card__logo"><img src="assets/logos/press/lsts.png" alt="Lawrence S. Ting School" loading="lazy" /></span>
-        <small class="press-card__tag">ALUMNI · LAWRENCE S. TING SCHOOL</small>
-        <h4>LSTS student accepted to five U.S. universities</h4>
-        <p>School alumni feature · 2025</p>
-        <span class="press-card__link">Read article <span class="arr">→</span></span>
-      </a>
-      <a class="press-card reveal" href="https://www.youtube.com/watch?v=mSjGmKBHG9I" target="_blank" rel="noopener">
-        <span class="press-card__logo"><img src="assets/logos/press/htv.png" alt="HTV" loading="lazy" /></span>
-        <small class="press-card__tag">TV INTERVIEW · HTV3</small>
-        <h4>Young Star Garden: education, disaster tech &amp; social impact</h4>
-        <p>Television interview on AI research and disaster-tech entrepreneurship</p>
-        <span class="press-card__link">Watch on YouTube <span class="arr">↗</span></span>
-      </a>
-      <div class="press-card press-card--soon reveal" aria-label="More press coverage coming soon">
-        <span class="press-card__logo"><span class="press-card__wordmark">More soon</span></span>
-        <small class="press-card__tag">UNDER MAINTENANCE</small>
-        <h4>More coverage on the way</h4>
-        <p>New articles and interviews will be added here.</p>
-        <span class="press-card__link">Update soon</span>
-      </div>
-    </div>
-
-    <span class="bracket" id="publications" style="margin-top: clamp(60px, 8vw, 100px);"><em>07</em> PUBLICATIONS</span>
-    <h2 class="sub-h2">Published <em>research.</em></h2>
-
-    <div class="rec-list pub-list">
-      <div class="rec-item reveal">
-        <span class="ord">01.</span>
-        <div>
-          <h4>Leveraging 3D Skeleton Motion for Early Action Anticipation via Spatio-Temporal Causal Modeling</h4>
-          <small>Nguyen, M., Tran, D. T. T., <strong>Nguyen, Q. M.</strong>, Hac, Q. M., Quan, T. T. · <strong>IEEE KSE 2026 (B RANK)</strong></small>
-        </div>
-        <span class="badge badge--red">ACCEPTED · ORAL</span>
-      </div>
-      <div class="rec-item reveal">
-        <span class="ord">02.</span>
-        <div>
-          <h4>Transition-Aware History Modeling for Skeleton-Based Early Action Anticipation</h4>
-          <small>Manhtuan Nguyen, Duong T. T. Tran, <strong>Quan M. Nguyen</strong>, Quan M. Hac, Xu Wang, Tho T. Quan · <strong>DAI 2026 (Q1)</strong></small>
-        </div>
-        <span class="badge">UNDER REVIEW</span>
-      </div>
-      <div class="rec-item reveal">
-        <span class="ord">03.</span>
-        <div>
-          <h4>Nhập môn điện toán / Introduction to Computing — 2026 edition (textbook)</h4>
-          <small>HCMUT URA Research Group · <strong>HCMUT textbook</strong> · 2026 edition</small>
-        </div>
-        <span class="badge">UNDER REVIEW</span>
+<!-- ============== PRESS ============== -->
+<section class="section section--tight" id="press">
+  <div class="wrap">
+    <div class="dark-card dark-card--press reveal">
+      <h2 class="h2 center">In the press, <em>on the record.</em></h2>
+      <div class="press-grid" data-stagger-group>
+        <a class="press-card reveal" href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html" target="_blank" rel="noopener">
+          <span class="press-card__logo"><img src="assets/logos/press/vnexpress.png" alt="VnExpress" loading="lazy" /></span>
+          <b>Accepted to a top-20 U.S. university with an essay on Mekong Delta salinity</b>
+          <small>VnExpress · 2025</small>
+        </a>
+        <a class="press-card reveal" href="https://www.vietnam.vn/en/sinh-vien-lam-he-thong-canh-bao-lu-ho-tro-cuu-ho-tren-nen-tang-di-dong" target="_blank" rel="noopener">
+          <span class="press-card__logo"><img src="assets/logos/press/vietnamvn.png" alt="Vietnam.vn" loading="lazy" /></span>
+          <b>Student builds a flood-warning system to support rescue on mobile</b>
+          <small>Vietnam.vn · national news portal</small>
+        </a>
+        <a class="press-card reveal" href="https://www.youtube.com/watch?v=mSjGmKBHG9I" target="_blank" rel="noopener">
+          <span class="press-card__logo"><img src="assets/logos/press/htv.png" alt="HTV" loading="lazy" /></span>
+          <b>Young Star Garden: education, disaster tech &amp; social impact</b>
+          <small>HTV3 · TV interview</small>
+        </a>
+        <a class="press-card reveal" href="https://tainangviet.vn/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-dar6554/" target="_blank" rel="noopener">
+          <span class="press-card__logo"><img src="assets/logos/press/tainangviet.png" alt="Tài Năng Việt" loading="lazy" /></span>
+          <b>A Vietnamese student&rsquo;s path to a top-20 U.S. university</b>
+          <small>Tài Năng Việt · profile</small>
+        </a>
+        <a class="press-card reveal" href="https://lsts.edu.vn/tin-tuc/hoc-sinh-lop-12-truong-dinh-thien-ly-trung-tuyen-5-truong-dai-hoc-tai-hoa-ky" target="_blank" rel="noopener">
+          <span class="press-card__logo"><img src="assets/logos/press/lsts.png" alt="Lawrence S. Ting School" loading="lazy" /></span>
+          <b>LSTS student accepted to five U.S. universities</b>
+          <small>Lawrence S. Ting School · alumni</small>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== FOOTER ============== -->
+<!-- ============== FAQ ============== -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <h2 class="h1-center reveal">Questions, answered.</h2>
+    <p class="lede center lede--ink reveal">Everything about where I study, what I build and how to work with me. Can&rsquo;t find it? <a href="mailto:minhquan.nguyen-2@student.uts.edu.au">Email me</a>.</p>
+
+    <div class="faq">
+      <div class="faq__tabs" role="tablist" aria-label="Question topics">
+        <button class="faq__tab is-active" role="tab" aria-selected="true" data-faq-tab="edu">Education</button>
+        <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="ody">Odylytics</button>
+        <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="research">Research</button>
+        <button class="faq__tab" role="tab" aria-selected="false" data-faq-tab="work">Working together</button>
+      </div>
+
+      <div class="faq__panels">
+        <div class="faq__panel is-active" data-faq-panel="edu">
+          <details open><summary>Where do you study?</summary><p>I&rsquo;m doing a <strong>Bachelor of Artificial Intelligence at the University of Technology Sydney</strong> (2025–28), GPA 6.6 / 7.0, WAM 88%, studying in Ho Chi Minh City through HCMUT&rsquo;s transnational programme.</p></details>
+          <details><summary>And at HCMUT?</summary><p>Transnational Education with UTS at <strong>HCMC University of Technology</strong> (2025–28): GPA 4.0 / 4.0, High Distinction.</p></details>
+          <details><summary>Where did you go to high school?</summary><p><strong>Lawrence S. Ting School</strong> (2018–25): top 5%, SAT 1500, IELTS 8.0.</p></details>
+          <details><summary>What languages do you work in?</summary><p>English and Vietnamese. I host HCMUT&rsquo;s international programme events in both.</p></details>
+        </div>
+        <div class="faq__panel" data-faq-panel="ody">
+          <details><summary>What is Odylytics?</summary><p>A social technology company building intelligent digital infrastructure that helps communities prepare for, respond to and recover from disasters and environmental challenges. Two platforms, one mission: AquaGuard and AirGuard, plus Includio.</p></details>
+          <details><summary>What do you do as CEO?</summary><p>Product strategy and execution for a 10+ person multidisciplinary team, partnerships, and the field work: 10+ customer interviews and 300+ surveys across three segments.</p></details>
+          <details><summary>Who backs the work?</summary><p>Grants of USD 4,000+, ~USD 2,000 in AWS credits, and a growing network of academic and social-impact partners including UTS, HCMUT and Leave a Nest.</p></details>
+          <details><summary>How do I reach the company?</summary><p><a href="mailto:odylytics@gmail.com">odylytics@gmail.com</a>. The team usually replies within 2–3 working days.</p></details>
+        </div>
+        <div class="faq__panel" data-faq-panel="research">
+          <details><summary>What is early action anticipation?</summary><p>Predicting what action a person is doing from the first few frames of 3D skeleton motion, before the action finishes. Useful anywhere a late answer is a useless answer: safety, assistive tech, human-robot interaction.</p></details>
+          <details><summary>Where has it been published?</summary><p>An oral paper at <strong>IEEE KSE 2026</strong> (accepted) and a second paper at <strong>DAI 2026</strong> (under review). See the <a href="#research">research section</a> or <a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a>.</p></details>
+          <details><summary>Anything outside papers?</summary><p>I co-develop the 2026 edition of HCMUT&rsquo;s <em>Introduction to Computing</em> textbook with the URA Research Group.</p></details>
+        </div>
+        <div class="faq__panel" data-faq-panel="work">
+          <details><summary>Are you open to collaborations?</summary><p>Yes: research collaborations, pilots of AquaGuard or AirGuard, and founding or venture roles. Tell me what your community needs.</p></details>
+          <details><summary>What do you look for as a venture analyst?</summary><p>At B71 I screen early-stage founders for the 84X acceleration programme: founder-market fit first, then evidence that the market actually hurts.</p></details>
+          <details><summary>Where are you based?</summary><p>Ho Chi Minh City, Vietnam, working with Sydney.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA + WORDMARK + FOOTER ============== -->
 <footer class="footer" id="contact">
-  <div class="footer__inner">
-    <!-- Left: headline + CTA -->
-    <div class="footer__brand">
-      <span class="bracket"><em>08</em> CONTACT</span>
-      <h2 class="footer__h2">Let&rsquo;s build<br>something <em>useful.</em></h2>
-      <a class="btn btn--yellow" href="mailto:minhquan.nguyen-2@student.uts.edu.au">Say hello <span class="arr">→</span></a>
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2 class="h2 center">Got a hard problem?<br><em>Let&rsquo;s build it.</em></h2>
+      <p class="center">Have a pilot, a research collaboration or a public-interest challenge in mind? Tell me what your community needs. I read every email, usually within a day.</p>
+      <a class="pill pill--light pill--block" href="mailto:minhquan.nguyen-2@student.uts.edu.au">Say hello</a>
     </div>
 
-    <!-- Right: 3-column link grid (minimal) -->
+    <div class="wordmark" aria-hidden="true">minhquan</div>
+
     <div class="footer__cols">
-      <div class="footer__col">
-        <h5>ELSEWHERE</h5>
-        <ul>
-          <li><a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a></li>
-          <li><a href="https://www.facebook.com/mquan2512" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h5>PRESS</h5>
-        <ul>
-          <li><a href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html" target="_blank" rel="noopener">VnExpress</a></li>
-          <li><a href="https://www.vietnam.vn/en/sinh-vien-lam-he-thong-canh-bao-lu-ho-tro-cuu-ho-tren-nen-tang-di-dong" target="_blank" rel="noopener">Vietnam.vn</a></li>
-          <li><a href="https://tainangviet.vn/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-dar6554/" target="_blank" rel="noopener">Tài Năng Việt</a></li>
-          <li><a href="https://www.youtube.com/watch?v=mSjGmKBHG9I" target="_blank" rel="noopener">HTV3</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h5>NOW</h5>
-        <ul>
-          <li>UTS · HCMUT · AI</li>
-          <li>B71 · venture analyst</li>
-          <li>Odylytics · co-founder</li>
-        </ul>
-      </div>
+      <div><h5>Work</h5><ul><li><a href="#aquaguard">AquaGuard</a></li><li><a href="#airguard">AirGuard</a></li><li><a href="#includio">Includio</a></li><li><a href="#enablecode">EnableCode</a></li></ul></div>
+      <div><h5>Roles</h5><ul><li><a href="#about">CEO · Odylytics</a></li><li><a href="#about">Venture Analyst · B71</a></li><li><a href="#about">Research · HCMUT-URA</a></li></ul></div>
+      <div><h5>Research</h5><ul><li><a href="#research">IEEE KSE 2026</a></li><li><a href="#research">DAI 2026</a></li><li><a href="#research">Textbook</a></li><li><a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a></li></ul></div>
+      <div><h5>Press</h5><ul><li><a href="https://vnexpress.net/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-4855676.html" target="_blank" rel="noopener">VnExpress</a></li><li><a href="https://www.vietnam.vn/en/sinh-vien-lam-he-thong-canh-bao-lu-ho-tro-cuu-ho-tren-nen-tang-di-dong" target="_blank" rel="noopener">Vietnam.vn</a></li><li><a href="https://tainangviet.vn/do-dai-hoc-top-20-my-voi-bai-luan-ve-han-man-o-mien-tay-dar6554/" target="_blank" rel="noopener">Tài Năng Việt</a></li><li><a href="https://www.youtube.com/watch?v=mSjGmKBHG9I" target="_blank" rel="noopener">HTV3</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="mailto:minhquan.nguyen-2@student.uts.edu.au">Email</a></li><li><a href="mailto:odylytics@gmail.com">Odylytics</a></li><li><a href="assets/my_resume.pdf" target="_blank" rel="noopener">Resume</a></li></ul></div>
+      <div><h5>Community</h5><ul><li><a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.facebook.com/mquan2512" target="_blank" rel="noopener">Facebook</a></li></ul></div>
     </div>
 
-    <!-- Bottom row: wordmark + contact info + socials -->
     <div class="footer__bottom">
-      <div class="footer__wordmark">
-        <span class="wordmark-text">QUAN</span><span class="wordmark-accent">NGUYEN</span>
-      </div>
-      <div class="footer__contact">
-        <div class="contact-item">
-          <span class="contact-letter">E</span>
-          <span class="contact-value"><a href="mailto:minhquan.nguyen-2@student.uts.edu.au">minhquan.nguyen-2@student.uts.edu.au</a></span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-letter">L</span>
-          <span class="contact-value">Sydney · Ho Chi Minh City</span>
-        </div>
-        <div class="footer__socials">
-          <a href="https://www.linkedin.com/in/ngminhquan" target="_blank" rel="noopener">LINKEDIN</a>
-          <span class="social-sep">/</span>
-          <a href="https://github.com/minhquan-maker" target="_blank" rel="noopener">GITHUB</a>
-          <span class="social-sep">/</span>
-          <a href="https://orcid.org/0009-0008-9621-1326" target="_blank" rel="noopener">ORCID</a>
-        </div>
-        <span class="footer__legal">© 2026 · UPDATED SEP · ALL RIGHTS RESERVED</span>
-      </div>
+      <a class="brand" href="#top"><img class="brand__mark" src="assets/brand/favicon.svg" alt="" width="24" height="24" /><span class="brand__word">minhquan</span></a>
+      <small>© Nguyen Minh Quan 2026 · Ho Chi Minh City</small>
     </div>
   </div>
 </footer>
 
-<script src="script.js" defer></script>
+</main>
 
+<!-- ============== CERTIFICATE MODAL ============== -->
+<div class="cert-modal" id="certificate-modal" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title" hidden>
+  <div class="cert-modal__backdrop" data-cert-close></div>
+  <div class="cert-modal__dialog">
+    <div class="cert-modal__head">
+      <h3 id="certificate-modal-title">Certificate</h3>
+      <div class="cert-modal__actions">
+        <a class="pill pill--ghost" id="certificate-modal-open-link" href="#" target="_blank" rel="noopener">Open ↗</a>
+        <button class="round-btn" type="button" data-cert-close aria-label="Close">×</button>
+      </div>
+    </div>
+    <div class="cert-modal__body" id="certificate-modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>

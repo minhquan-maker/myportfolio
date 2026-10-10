@@ -23,13 +23,12 @@ The site presents my education, experience, technology projects, academic public
 
 ## Live site
 
-The deployed site is maintained at the repository root:
-
 - `index.html` — page structure and content
-- `style.css` — design system, components, animations, and responsive layout
-- `script.js` — navigation, smooth scrolling, reveals, particle sphere, sliders, toast, and certificate modal
-- `assets/` — project media, certificates, logos (press logos in `assets/logos/press/`), profile media, and resume
-- `DESIGN.md` — design tokens and palette notes
+- `style.css` — monochrome design system, components, motion and responsive layout
+- `script.js` — nav, reveals, counter, marquee, carousel, FAQ tabs, certificate modal, pixel-me
+- `assets/` — project media and video stills, certificates, logos, brand marks (favicon, OG image) and resume
+
+The previous design lives on the `backup/portfolio-v1-2026-10` branch.
 
 ## Local development
 
@@ -39,30 +38,22 @@ cd myportfolio
 python3 -m http.server 8090
 ```
 
-Open `http://localhost:8090`. No installation is required.
-
 ## Site sections
 
-1. **Hero** — headline, short bio, calls to action (Explore my work / My GitHub), animated particle sphere, and a one-line location and availability note
-2. **Stats** — four counters (startup built, projects shipped, organizations, awards)
-3. **01 About / 02 Education** — portrait, justified bio, role / location / languages, and academic background
-4. **03 Experiences** — four blocks: B71 Vietnam, Odylytics, URA Research Group (with a "View more" link to Publications), and HCMUT
-5. **04 Work** — horizontally scrolling project cards (AquaGuard, EnableCode, AirGuard and more) with a spotlight effect that dims the room around the active project
-6. **05 Recognition** — "Press & prizes": a seven-row awards table (level, year, status) beside the EPICS and team photos
-7. **06 Press** — six coverage cards with a uniform publisher-logo row (VnExpress, Vietnam.vn, Tài Năng Việt, LSTS, HTV) and an "update soon" placeholder
-8. **07 Publications** — IEEE KSE 2026 (accepted, oral), DAI 2026 (under review), and the HCMUT *Introduction to Computing* textbook
-9. **08 Contact** — the solid navy footer with email, social links, and a "Say hello" button
+1. **Hero** — "Building technology that protects." with a fanned stack of project cards
+2. **Band** — 1,000,000+ people reached, with a scrolling media marquee, then a partner logo strip
+3. **About** — three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA
+4. **Work** — AquaGuard, AirGuard, Includio, EnableCode as alternating white / gray / dark feature rows
+5. **Voices** — AquaGuard testimonials carousel
+6. **Research** — IEEE KSE 2026, DAI 2026, the HCMUT textbook, ORCID
+7. **Recognition** — seven awards with certificate previews
+8. **Press** — VnExpress, Vietnam.vn, HTV3, Tài Năng Việt, LSTS
+9. **FAQ** — education, Odylytics, research, working together
+10. **Footer** — CTA card, giant wordmark, link columns
 
-The top navigation uses a sliding pill and mega-menu panels for About, Experience, Projects, Recognition, and Contact. The menu's "My Resume" button links to `assets/my_resume.pdf`; menu panels whose imagery is not ready show an "Updating soon" placeholder.
+## Design
 
-## Design and behavior
-
-- Inter Tight and Inter for text, JetBrains Mono for labels
-- White, navy, and terracotta palette (pure white background, navy ink, terracotta primary accent, amber secondary accent) with a solid navy footer; tokens live in `:root` of `style.css` and are documented in `DESIGN.md`
-- Fully responsive layouts for tablet and mobile screens
-- Scroll reveal animations with reduced-motion support
-- Project video/image sliders
-- Press logos live in `assets/logos/press/`; team and award photos in `assets/media/`
+Monochrome and editorial: Inter Tight headlines with a muted italic second line, Inter body, black bands, gray panels and a floating pill nav. Custom "q." favicon in `assets/brand/`.
 
 ## Deployment
 
