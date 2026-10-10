@@ -20,13 +20,21 @@
 
 ## Patterns
 
-- Floating pill nav with hover dropdowns
+- Floating pill nav with hover dropdowns (About, Work) and direct links (Publications, Press, Recognition, Contact)
 - Headline pairs: bold statement + muted italic completion
 - Black band with counter and media marquee; rounded bottom corners
 - Feature rows alternate white → gray panel → dark panel, each with a browser-style mock card
 - Dark testimonial cards with dot pagination
 - Gray FAQ tabs + accordion
 - Dark CTA card with a full-width white pill, then a giant light-gray wordmark
+
+## Motion
+
+One-time entrances only (hero cards, logos, scroll reveals). No idle bobbing or pointer parallax. Respect `prefers-reduced-motion`.
+
+## Mobile
+
+Compact hero, 4-column logo grid, swipeable press row, two-up award grid, 2-column footer.
 
 ## Favicon
 

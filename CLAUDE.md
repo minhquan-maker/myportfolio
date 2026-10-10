@@ -44,4 +44,8 @@ Monochrome, Spyglass-inspired: white page, black bands and cards, `#F3F3F3` gray
 
 ## Breakpoints
 
-≤1024px: award/press/footer grids tighten · ≤900px: nav collapses to a burger, two-column layouts stack · ≤600px: single-column cards, pixel-me hidden.
+≤1024px: award/press/footer grids tighten · ≤900px: burger nav, two-column layouts stack, FAQ tabs become a pill row · ≤600px: compact hero, logo strip is a 4-column grid, press cards are a swipeable row, awards are a two-up grid, pixel-me hidden.
+
+## Docs
+
+`README.md` is the full overview (sections table, design, motion, responsive, editing recipes); `DESIGN.md` holds tokens and patterns. Update both when the structure changes.

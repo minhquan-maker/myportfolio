@@ -1,12 +1,14 @@
 <div align="center">
 
+<img src="assets/brand/favicon-180.png" width="64" height="64" alt="minhquan logo" />
+
 # Nguyen Minh Quan
 
-**AI research student · Engineer · Co-Founder**
+**CEO, Odylytics · Venture Analyst, B71 · Research Assistant, HCMUT-URA**
 
-Building technology at the intersection of **Computer Vision**, **Human-Centered AI**, and **Disaster Response**.
+Building technology that protects, and research that ships.
 
-[![Live](https://img.shields.io/badge/🌐_Live-minhquannguyen.vercel.app-000?style=for-the-badge&logo=vercel&logoColor=white)](https://minhquannguyen.vercel.app/)
+[![Live](https://img.shields.io/badge/Live-minhquannguyen.vercel.app-000?style=for-the-badge&logo=vercel&logoColor=white)](https://minhquannguyen.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-minhquan--maker-181717?style=for-the-badge&logo=github)](https://github.com/minhquan-maker)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-ngminhquan-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ngminhquan/)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0008--9621--1326-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0008-9621-1326)
@@ -17,48 +19,100 @@ Building technology at the intersection of **Computer Vision**, **Human-Centered
 
 ## About
 
-The source code for [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/), a single-page personal portfolio built with plain HTML, CSS, and JavaScript.
+Source code for [minhquannguyen.vercel.app](https://minhquannguyen.vercel.app/), my single-page portfolio. It covers my roles, the Odylytics products, scientific publications, media coverage, awards, education and contact details.
 
-The site presents my education, experience, technology projects, academic publications, recognition, and contact information. It has no build step, framework, bundler, dependencies, or environment variables.
+It is plain HTML, CSS and JavaScript: **no build step, framework, bundler, dependencies or environment variables**.
 
-## Live site
+> The previous design is preserved on the [`backup/portfolio-v1-2026-10`](https://github.com/minhquan-maker/myportfolio/tree/backup/portfolio-v1-2026-10) branch.
 
-- `index.html` — page structure and content
-- `style.css` — monochrome design system, components, motion and responsive layout
-- `script.js` — nav, reveals, counter, marquee, carousel, FAQ tabs, certificate modal, pixel-me
-- `assets/` — project media and video stills, certificates, logos, brand marks (favicon, OG image) and resume
-
-The previous design lives on the `backup/portfolio-v1-2026-10` branch.
-
-## Local development
+## Run locally
 
 ```bash
 git clone https://github.com/minhquan-maker/myportfolio.git
 cd myportfolio
-python3 -m http.server 8090
+python3 -m http.server 8090   # open http://localhost:8090
+node -c script.js             # optional: JS syntax check
 ```
 
-## Site sections
+## Page structure
 
-1. **Hero** — "Building technology that protects." with my portrait in front, team photos behind and the AquaGuard, Odylytics and AirGuard logos above
-2. **Band** — 1,000,000+ people reached, with a scrolling media marquee, then a partner logo strip
-3. **AquaGuard** — the flagship project, right after the band
-4. **About** — three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA
-5. **Work** — AirGuard, Includio, EnableCode as alternating gray / dark / white feature rows
-6. **Voices** — AquaGuard testimonials carousel
-7. **Publications** — IEEE KSE 2026, DAI 2026, the HCMUT textbook, ORCID
-8. **Media & press** — VnExpress, Vietnam.vn, HTV3, Tài Năng Việt, LSTS
-9. **Recognition** — seven awards with certificate previews
-10. **FAQ** — education, Odylytics, research, working together
-11. **Footer** — CTA card, giant wordmark, link columns
+| # | Section | Anchor | What it shows |
+|---|---|---|---|
+| 1 | **Hero** | `#top` | "Building technology *that protects.*", a short bio, then **See my work**, **GitHub** and **LinkedIn** buttons. On the right sits my portrait, with two team photos behind it (the AquaGuard team at work and the EPICS 8th win) and the AquaGuard, Odylytics and AirGuard logos above |
+| 2 | **Band** | — | A black block with a "1,000,000+ people reached" counter and a scrolling marquee of project stills and photos |
+| 3 | **Logo strip** | — | Odylytics, UTS, HCMUT, ASU, Leave a Nest, ACM, CYTAST, URA |
+| 4 | **AquaGuard** (flagship) | `#aquaguard` | Flood alerts, SOS and evacuation guidance. A browser-style mock card plays both demo videos |
+| 5 | **About** | `#about` | A dark card with three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA |
+| 6 | **AirGuard** | `#airguard` | Air quality and carbon tracking (gray panel) |
+| 7 | **Includio** | `#includio` | Inclusive hiring studio (dark panel), with a link to the live demo |
+| 8 | **EnableCode** | `#enablecode` | Hands-free coding with facial gestures. The video is a 1920px HD encode of the original recording |
+| 9 | **Voices** | `#voices` | A carousel of AquaGuard testimonials |
+| 10 | **Publications** | `#publications` | IEEE KSE 2026 (accepted, oral), DAI 2026 (under review), the HCMUT *Introduction to Computing* textbook, and ORCID |
+| 11 | **Media & press** | `#press` | VnExpress, Vietnam.vn, HTV3, Tài Năng Việt, LSTS |
+| 12 | **Recognition** | `#recognition` | Seven awards. Each card opens its certificate in a modal; a final card links to the resume |
+| 13 | **FAQ** | `#faq` | Tabs for Education, Odylytics, Research and Working together, each with an accordion |
+| 14 | **Footer** | `#contact` | A "Let's build it" CTA card, a giant `minhquan` wordmark, an intro line with social icons, and four link columns (Work · Publications · Press · Contact) |
+
+Top nav: About ▾ · Work ▾ · Publications · Press · Recognition · Contact, plus a **My resume** button. On screens ≤900px it collapses into a burger menu.
 
 ## Design
 
-Monochrome and editorial: Inter Tight headlines with a muted italic second line, Inter body, black bands, gray panels and a floating pill nav. Custom "q." favicon in `assets/brand/`.
+Monochrome and editorial, modelled on the Spyglass landing-page format.
+
+- **Colour:** a white page, black bands and cards, `#F3F3F3` gray panels. The only accent is the green "live" dot (`#2FBF71`). Tokens live in `:root` of `style.css`; see `DESIGN.md`.
+- **Type:** Inter Tight 600 for headlines, with tight tracking. Each headline's second half is an italic `<em>` in muted gray. Body text is Inter.
+- **Shapes:** a floating pill nav, pill buttons, 16–32px radii, soft layered shadows.
+- **Favicon:** a custom "q." monogram in `assets/brand/` (SVG plus 32/180/512 PNGs) and a 1200×630 `og.png` for link previews.
+- **Pixel me:** a small monochrome pixel version of me walks in at the bottom-left when the page is idle. Click it to get a speech bubble (a black pill). It is hidden on phones and when reduced motion is on.
+
+### Motion
+
+- Hero cards and logos animate in once on load. There is no idle motion.
+- `.reveal` elements fade up as they enter the viewport, and the animation replays when you scroll back to them. Children of `[data-stagger-group]` reveal one after another.
+- The band counter counts up once. The marquee loops, and pauses on hover.
+- Videos with `data-autoplay` play only while they are on screen.
+- Everything respects `prefers-reduced-motion`.
+
+### Responsive
+
+| Breakpoint | Changes |
+|---|---|
+| ≤1024px | Award, press and footer grids tighten; testimonials show two per view |
+| ≤900px | Burger nav; hero and feature rows stack; FAQ tabs become a horizontal pill row |
+| ≤600px | Compact hero; the logo strip becomes a 4-column grid; press cards become a swipeable row; awards become a two-up grid; the footer has 2 columns; pixel-me is hidden |
+
+## Files
+
+```
+index.html        all markup and content
+style.css         tokens → base → components → sections → motion → responsive
+script.js         IIFE modules: nav, reveal, counter, marquee, video autoplay,
+                  scrollspy, testimonial carousel, FAQ tabs, certificate modal, pixel-me
+assets/
+  brand/          favicon set, og.png, Odylytics / AquaGuard / AirGuard marks
+  frames/         stills extracted from the project videos (hero, marquee, posters)
+  projects/       project videos and screenshots (aquaguard, airguard, enablecode, includio)
+  media/          portrait and team photos
+  logos/          partner logos; logos/press/ holds publisher logos
+  icons/          LinkedIn, GitHub, ORCID and Facebook icons (Simple Icons SVG)
+  certificates/   award PDFs and images opened by the certificate modal
+  my_resume.pdf
+```
+
+## Editing content
+
+- **Project:** copy a `.feature` section. Choose a white row, a `.panel--gray` or a `.panel--dark`, and give it a `.mock` card. Add a matching link to the Work dropdown and the footer.
+- **Video:** use H.264 MP4 with no audio, add `muted loop playsinline preload="none"` plus a `poster`, and set `data-autoplay`. Example encode:
+  `ffmpeg -i in.mov -an -vf "scale=1920:-2,fps=30" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -movflags +faststart out.mp4`
+- **Testimonial:** add a `.quote-card` to the carousel track. The dots are generated automatically.
+- **Publication:** add a `.tool-card` in `#publications`.
+- **Press:** add a `.press-card`. Each logo sits on a fixed-size white plate, so any logo works.
+- **Award:** add an `.award-card`. Make it `<button class="certificate-trigger" data-cert-url="…">` if there is a certificate. Keep the 4-column grid full.
+- **FAQ:** add a `<details>` in the right `[data-faq-panel]`.
 
 ## Deployment
 
-Vercel serves the repository root as a static site. The root `vercel.json` intentionally uses:
+Vercel serves the repository root as a static site, and every push to `main` deploys. `vercel.json`:
 
 ```json
 {
@@ -70,16 +124,10 @@ Vercel serves the repository root as a static site. The root `vercel.json` inten
 }
 ```
 
-Pushing to `main` triggers Vercel's automatic deployment. There is no build command and no runtime configuration.
-
 ## Contact
 
 - Email: [minhquan.nguyen-2@student.uts.edu.au](mailto:minhquan.nguyen-2@student.uts.edu.au)
-- Phone: [+84 908 538 467](tel:+84908538467)
-- LinkedIn: [ngminhquan](https://www.linkedin.com/in/ngminhquan/)
-- GitHub: [minhquan-maker](https://github.com/minhquan-maker)
-- ORCID: [0009-0008-9621-1326](https://orcid.org/0009-0008-9621-1326)
+- Odylytics: [odylytics@gmail.com](mailto:odylytics@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/ngminhquan) · [GitHub](https://github.com/minhquan-maker) · [ORCID](https://orcid.org/0009-0008-9621-1326)
 
-## Archive
-
-Previous website versions are kept locally under `archive/` and are intentionally ignored by Git so archived copies and nested repository metadata are not deployed.
+© 2026 Nguyen Minh Quan. All rights reserved.
