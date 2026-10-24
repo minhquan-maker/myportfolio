@@ -6,6 +6,9 @@
    ========================================================================= */
 window.MQ_I18N = {
   vi: {
+    'settings.palette': 'Bảng màu',
+    'settings.classic': 'Cổ điển',
+    'settings.warm': 'Ấm',
     'project.live': 'Đang chạy',
     'project.demo': 'Video demo',
     'project.d1': 'Cảnh báo lũ, SOS và hướng dẫn sơ tán. Người dân báo cáo theo thời gian thực; lực lượng cứu hộ và chính quyền địa phương cùng xem một bản đồ.',
@@ -223,6 +226,9 @@ window.MQ_I18N = {
   },
 
   fr: {
+    'settings.palette': 'Palette',
+    'settings.classic': 'Classique',
+    'settings.warm': 'Chaleureuse',
     'project.live': 'En ligne',
     'project.demo': 'Vidéo démo',
     'project.d1': 'Alertes crues, SOS et guidage d’évacuation. Les habitants signalent en temps réel ; secours et autorités locales voient la même carte.',

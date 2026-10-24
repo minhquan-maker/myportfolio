@@ -27,7 +27,7 @@ Monochrome, Spyglass-inspired: white page, black bands and cards, `#F3F3F3` gray
 
 ## Behaviour notes
 
-- **Settings popover** (`#settingsToggle` / `#settingsPanel`): language (en/vi/fr), theme (light/dark/auto) and motion (full/reduced), saved to `localStorage['mq-settings']`. An inline `<head>` script applies them before paint. Dark tokens live in `:root[data-theme="dark"]`; use tokens (`--elev`, `--on-ink`, `--frame`…) instead of hard-coded `#fff` so both themes work.
+- **Settings popover** (`#settingsToggle` / `#settingsPanel`): language (en/vi/fr), theme (light/dark/auto), palette (classic/warm) and motion (full/reduced), saved to `localStorage['mq-settings']`. An inline `<head>` script applies them before paint. Dark tokens live in `:root[data-theme="dark"]`; the Warm palette (`<html data-palette="warm">`, brown + milk-white, with its own dark variant) overrides the same tokens in `:root[data-palette="warm"]…` blocks, so any new colour must be a token (`--on-dark-faint`, `--on-dark-soft`, `--pill-light-bg`…) or it will not follow the palette; use tokens (`--elev`, `--on-ink`, `--frame`…) instead of hard-coded `#fff` so both themes work.
 - **i18n:** every visible string has `data-i18n`. When you add or change text, update both maps in `i18n.js`.
 
 - `.reveal` elements get `.visible` from one IntersectionObserver that also removes it on exit (animations replay). Children of `[data-stagger-group]` get a staggered delay.

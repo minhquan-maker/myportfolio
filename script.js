@@ -39,7 +39,7 @@ const i18n = (function () {
   return { apply };
 })();
 
-// ---------- Settings: language, theme and motion, saved per device ----------
+// ---------- Settings: language, theme, palette and motion, saved per device ----------
 (function settings() {
   const html = document.documentElement;
   const btn = document.getElementById('settingsToggle');
@@ -47,14 +47,17 @@ const i18n = (function () {
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
   const themeMeta = document.querySelector('meta[name="theme-color"]');
 
-  let state = { lang: 'en', theme: 'light', motion: 'full' };
+  let state = { lang: 'en', theme: 'light', palette: 'classic', motion: 'full' };
   try { state = Object.assign(state, JSON.parse(localStorage.getItem(STORE_KEY) || '{}')); } catch (e) { /* storage blocked */ }
   const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* storage blocked */ } };
 
   const applyTheme = () => {
     const resolved = state.theme === 'auto' ? (darkQuery.matches ? 'dark' : 'light') : state.theme;
     html.setAttribute('data-theme', resolved);
-    if (themeMeta) themeMeta.content = resolved === 'dark' ? '#0A0A0A' : '#FFFFFF';
+    if (state.palette === 'warm') html.setAttribute('data-palette', 'warm');
+    else html.removeAttribute('data-palette');
+    const warm = state.palette === 'warm';
+    if (themeMeta) themeMeta.content = resolved === 'dark' ? (warm ? '#17110D' : '#0A0A0A') : (warm ? '#FBF6EE' : '#FFFFFF');
   };
   const applyMotion = () => {
     if (state.motion === 'reduced') html.setAttribute('data-motion', 'reduced');
@@ -73,7 +76,7 @@ const i18n = (function () {
   const set = (key, value) => {
     state[key] = value;
     save();
-    if (key === 'theme') applyTheme();
+    if (key === 'theme' || key === 'palette') applyTheme();
     if (key === 'motion') applyMotion();
     if (key === 'lang') i18n.apply(value);
     sync();
@@ -350,11 +353,28 @@ const i18n = (function () {
   if (window.innerWidth <= 480) return;
 
   const W = 16, H = 20;
-  // monochrome to match the site: black polo, white trim, charcoal trousers, green "live" dot on the laptop
-  const C = {
-    hair: '#0B0B0B', skin: '#EFD6C2', skinSh: '#D9B9A0', eye: '#0B0B0B', mouth: '#9C5B52',
-    shirt: '#0B0B0B', trim: '#FFFFFF', collar: '#2E2E2E', pants: '#3A3A3A', shoe: '#D4D4D4',
-    lap: '#D4D4D4', lapDark: '#9A9A9A', logo: '#2FBF71'
+  // outfits follow the site palette: black polo (classic), espresso polo (warm light), latte polo (warm dark)
+  const OUTFITS = {
+    classic: {
+      hair: '#0B0B0B', skin: '#EFD6C2', skinSh: '#D9B9A0', eye: '#0B0B0B', mouth: '#9C5B52',
+      shirt: '#0B0B0B', trim: '#FFFFFF', collar: '#2E2E2E', pants: '#3A3A3A', shoe: '#D4D4D4',
+      lap: '#D4D4D4', lapDark: '#9A9A9A', logo: '#2FBF71'
+    },
+    warmLight: {
+      hair: '#2B1C12', skin: '#F0D5BE', skinSh: '#D8B393', eye: '#2B1C12', mouth: '#A05A4C',
+      shirt: '#5A3B25', trim: '#FBF6EE', collar: '#7B5638', pants: '#9A7656', shoe: '#E9DCC8',
+      lap: '#E9DCC8', lapDark: '#B79C7C', logo: '#2FBF71'
+    },
+    warmDark: {
+      hair: '#6B4A31', skin: '#F0D5BE', skinSh: '#D8B393', eye: '#2B1C12', mouth: '#A05A4C',
+      shirt: '#D9BF9B', trim: '#FFF8EC', collar: '#B28F63', pants: '#7B5638', shoe: '#F3EADD',
+      lap: '#F3EADD', lapDark: '#B79C7C', logo: '#2FBF71'
+    }
+  };
+  const outfit = () => {
+    const d = document.documentElement;
+    if (d.getAttribute('data-palette') !== 'warm') return OUTFITS.classic;
+    return d.getAttribute('data-theme') === 'dark' ? OUTFITS.warmDark : OUTFITS.warmLight;
   };
   const PHRASES = [
     ['pixel.1', 'Hi, I’m Quan. The pixel edition.'],
@@ -378,6 +398,7 @@ const i18n = (function () {
   function r(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); }
 
   function render(anim, f, blink, dir) {
+    const C = outfit();
     ctx.clearRect(0, 0, W, H);
     // legs + shoes (walking lifts one foot at a time)
     const step = anim === 'walk' ? (f >> 1) % 2 : -1;

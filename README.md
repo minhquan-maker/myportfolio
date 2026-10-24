@@ -67,6 +67,7 @@ The sliders button in the nav opens a small popover with three segmented control
 | Control | Options | How it works |
 |---|---|---|
 | **Language** | English · Tiếng Việt · Français | Every visible string carries a `data-i18n` key. English is read from the page itself; `i18n.js` holds the Vietnamese and French maps. A missing key falls back to English, so proper names and paper titles are simply left out. Switching also updates `<html lang>`, the page title, the meta description, number formatting (1,000,000 / 1.000.000 / 1 000 000), the award-card "View certificate" label and the pixel character's lines |
+| **Palette** | Classic · Warm | Sets `<html data-palette>`. Classic is the monochrome default; Warm swaps every token for brown and milk-white (espresso in dark mode). It combines with any theme, so there are four looks in total |
 | **Theme** | Light · Dark · Auto | Sets `<html data-theme>`. Dark mode redefines the colour tokens in `:root[data-theme="dark"]`. Auto follows the OS setting and updates live when it changes |
 | **Motion** | Full · Reduced | `data-motion="reduced"` turns off animations site-wide, like the OS `prefers-reduced-motion` setting (which is always respected) |
 
