@@ -44,7 +44,7 @@ Monochrome, Spyglass-inspired: white page, black bands and cards, `#F3F3F3` gray
 
 ## Archive
 
-`archive/`, `old-portfolio/`, `.playwright-mcp/` are git-ignored. Do not edit archive copies as if they were the live site.
+`archive/` is git-ignored and never deployed: `versions/` (old portfolios), `docs/`, `mockups/`, `notes/`, `tooling/` (Playwright, superpowers, worktrees) and `unused-assets/` (media nothing references, same relative paths as `assets/`). Do not edit archive copies as if they were the live site. Keep `assets/` limited to files the page references; move orphans to `archive/unused-assets/`.
 
 ## Breakpoints
 

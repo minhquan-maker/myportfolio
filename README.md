@@ -34,6 +34,18 @@ python3 -m http.server 8090   # open http://localhost:8090
 node -c script.js             # optional: JS syntax check
 ```
 
+## Repository layout
+
+```
+index.html  style.css  script.js  i18n.js   the whole site (no build step)
+assets/                                     only media the page actually references
+  brand/ frames/ logos/ icons/ media/ projects/ certificates/ my_resume.pdf
+vercel.json                                 static deploy, all build steps disabled
+README.md  DESIGN.md  CONTRIBUTING.md       docs
+archive/                                    git-ignored, never deployed (old versions, mockups,
+                                            notes, tooling output, unused-assets/)
+```
+
 ## Page structure
 
 | # | Section | Anchor | What it shows |
