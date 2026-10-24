@@ -26,10 +26,10 @@
 
 - Floating pill nav, solid at the top; after 40px of scroll it turns into frosted glass (`--nav-glass`, 50% white / 58% charcoal, `blur(16px) saturate(180%)`, with a light inner edge) so content stays faintly visible behind it. It has hover dropdowns (About, Work) and direct links (Publications, Press, Recognition, Contact)
 - Headline pairs: bold statement + muted italic completion
-- Black band with counter and media marquee; rounded bottom corners
-- Feature rows alternate white → gray panel → dark panel, each with a browser-style mock card
+- Black band with counter and four stat cards; rounded bottom corners
+- Project cards: one wide flagship plus three small cards, each with media on top and a single live-site button
 - Dark testimonial cards with dot pagination
-- Gray FAQ tabs + accordion
+- Education list (`.edu`), project cards (`.project`, wide flagship + three small, media on top)
 - Dark CTA card with a full-width white pill, then a giant light-gray wordmark
 
 ## Motion

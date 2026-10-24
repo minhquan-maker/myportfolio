@@ -178,18 +178,6 @@ const i18n = (function () {
   io.observe(el);
 })();
 
-// ---------- Marquee: duplicate the track so the loop is seamless ----------
-(function marquee() {
-  document.querySelectorAll('[data-marquee] .marquee__track').forEach((track) => {
-    Array.from(track.children).forEach((child) => {
-      const clone = child.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      clone.querySelectorAll('img').forEach((img) => { img.alt = ''; });
-      track.appendChild(clone);
-    });
-  });
-})();
-
 // ---------- Videos: play only while on screen ----------
 (function autoplayVideos() {
   const vids = document.querySelectorAll('video[data-autoplay]');
@@ -214,11 +202,10 @@ const i18n = (function () {
   if (!links.length || !('IntersectionObserver' in window)) return;
   const groups = {
     about: ['about'],
-    work: ['aquaguard', 'airguard', 'includio', 'enablecode', 'voices'],
+    work: ['work', 'aquaguard', 'airguard', 'includio', 'enablecode', 'voices'],
     publications: ['publications'],
-    press: ['press'],
-    recognition: ['recognition'],
-    contact: ['contact', 'faq'],
+    recognition: ['recognition', 'press'],
+    contact: ['contact'],
   };
   const linkFor = (id) => {
     const key = Object.keys(groups).find((k) => groups[k].includes(id));
@@ -287,28 +274,6 @@ const i18n = (function () {
       root.addEventListener('pointerleave', () => { clearInterval(timer); timer = setInterval(advance, 6000); });
     }
   });
-})();
-
-// ---------- FAQ tabs (accordion is native <details>) ----------
-(function faq() {
-  const tabs = document.querySelectorAll('[data-faq-tab]');
-  if (!tabs.length) return;
-  tabs.forEach((tab) => tab.addEventListener('click', () => {
-    const key = tab.dataset.faqTab;
-    tabs.forEach((t) => {
-      const on = t === tab;
-      t.classList.toggle('is-active', on);
-      t.setAttribute('aria-selected', String(on));
-    });
-    document.querySelectorAll('[data-faq-panel]').forEach((p) => {
-      const on = p.dataset.faqPanel === key;
-      p.classList.toggle('is-active', on);
-      if (on) {
-        const details = p.querySelectorAll('details');
-        if (details.length && !p.querySelector('details[open]')) details[0].open = true;
-      }
-    });
-  }));
 })();
 
 // ---------- Certificate modal ----------

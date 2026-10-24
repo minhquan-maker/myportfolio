@@ -16,10 +16,10 @@ node -c script.js               # JS syntax check
 - `index.html` — all markup and content
 - `style.css` — tokens → base → components → sections → motion → responsive
 - `i18n.js` — Vietnamese + French strings keyed by `data-i18n` (English is read from the DOM)
-- `script.js` — IIFE modules (i18n + settings, nav, reveal, counter, marquee, video autoplay, scrollspy, carousel, FAQ tabs, certificate modal, pixel-me: a monochrome pixel self-portrait with a black pill speech bubble)
-- `assets/` — all media. `assets/brand/` holds the favicon (`favicon.svg` + PNGs), `og.png`, and Odylytics/AquaGuard/AirGuard marks; `assets/frames/` holds stills extracted from the project videos (posters and tiles), and `assets/frames/mq/` holds the 480px marquee thumbnails
+- `script.js` — IIFE modules (i18n + settings, nav, reveal, counter, video autoplay, scrollspy, carousel, certificate modal, pixel-me: a monochrome pixel self-portrait with a black pill speech bubble)
+- `assets/` — all media. `assets/brand/` holds the favicon (`favicon.svg` + PNGs), `og.png`, and Odylytics/AquaGuard/AirGuard marks; `assets/frames/` holds stills extracted from the project videos (posters and tiles)
 
-Sections in order: hero (portrait in front, the AquaGuard team and EPICS photos behind, AquaGuard, Odylytics and AirGuard logos resting above, no idle motion) → black band (counter + marquee) → logo strip → `#aquaguard` (flagship, white) → `#about` (dark card, three roles) → `#airguard` (gray panel) → `#includio` (dark panel) → `#enablecode` (white, `enablecode-1920.mp4`, an HD encode of the original recording) → `#voices` (testimonial carousel) → `#publications` (scientific publications) → `#press` (media & press) → `#recognition` → `#faq` → `#contact` footer (CTA card, giant wordmark, columns).
+Sections in order (one topic per section, nothing repeated elsewhere): hero → black impact band (counter + four key numbers) → logo strip → `#about` (dark card with three roles, then Education list) → `#work` (intro, then `.project-grid`: `#aquaguard` wide flagship + `#airguard`, `#includio`, `#enablecode` cards; the `#voices` testimonial carousel follows the grid) → `#publications` (research) → `#recognition` (awards, then `#press` card) → `#contact` footer (CTA card with open-to/based-in/languages/replies, giant wordmark, columns).
 
 ## Design System
 
@@ -31,16 +31,16 @@ Monochrome, Spyglass-inspired: white page, black bands and cards, `#F3F3F3` gray
 - **i18n:** every visible string has `data-i18n`. When you add or change text, update both maps in `i18n.js`.
 
 - `.reveal` elements get `.visible` from one IntersectionObserver that also removes it on exit (animations replay). Children of `[data-stagger-group]` get a staggered delay.
-- The marquee track is duplicated in JS for a seamless loop; videos with `data-autoplay` play only while on screen.
+- Videos with `data-autoplay` play only while on screen.
 - Certificate triggers: `.certificate-trigger` with `data-cert-url` (+ optional `data-cert-title`) opens `#certificate-modal` (PDF in iframe, images in img).
 - Keep the `prefers-reduced-motion` block when editing animations.
 
 ## Adding Content
 
-- **Project:** copy a `.feature` section; pick white, `.panel--gray` or `.panel--dark`; add a `.mock` card.
+- **Project:** copy an `<article class="project">` into `.project-grid` (media in `.project__media`, a status pill, headline, `.project__desc`, `.chips`, one button). Add `project--wide` only for the flagship. Texts need `data-i18n` keys in `i18n.js`.
 - **Testimonial:** add a `.quote-card` in the carousel track (dots are generated).
 - **Award:** add an `.award-card` (a `<button class="certificate-trigger">` if there is a certificate). Keep the 4-column grid filled.
-- **FAQ:** add `<details>` in the right `[data-faq-panel]`.
+- **Education row:** add an `<li>` to `.edu__list`.
 
 ## Archive
 
@@ -48,8 +48,10 @@ Monochrome, Spyglass-inspired: white page, black bands and cards, `#F3F3F3` gray
 
 ## Breakpoints
 
-≤1024px: award/press/footer grids tighten · ≤900px: burger nav, two-column layouts stack, FAQ tabs become a pill row · ≤600px: compact hero, logo strip is a 4-column grid, press cards are a swipeable row, awards are a two-up grid, pixel-me hidden.
+≤1024px: award/press/footer grids tighten · ≤900px: burger nav, two-column layouts stack, project cards go 2-up then 1-up, education rows simplify · ≤600px: compact hero, logo strip is a 4-column grid, press cards are a swipeable row, awards are a two-up grid, pixel-me hidden.
 
 ## Docs
 
 `README.md` is the full overview (sections table, design, motion, responsive, editing recipes); `DESIGN.md` holds tokens and patterns. Update both when the structure changes.
+
+- Typography: `text-wrap: balance` on headings/ledes and `pretty` on body text keeps single words from dropping onto their own line; keep it when adding text blocks.

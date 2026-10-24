@@ -51,19 +51,12 @@ archive/                                    git-ignored, never deployed (old ver
 | # | Section | Anchor | What it shows |
 |---|---|---|---|
 | 1 | **Hero** | `#top` | "Building technology *that protects.*", a short bio, then **See my work**, **GitHub** and **LinkedIn** buttons. On the right sits my portrait, with two team photos behind it (the AquaGuard team at work and the EPICS 8th win) and the AquaGuard, Odylytics and AirGuard logos above |
-| 2 | **Band** | — | A black block with a "1,000,000+ people reached" counter and a scrolling marquee: the EPICS winner banner, award plaques and certificates, the UTS feature, team photos and product screens (light 480px thumbnails in `assets/frames/mq/`) |
-| 3 | **Logo strip** | — | Odylytics, UTS, HCMUT, ASU, Leave a Nest, ACM, CYTAST, URA |
-| 4 | **AquaGuard** (flagship) | `#aquaguard` | Flood alerts, SOS and evacuation guidance. A browser-style mock card plays both demo videos |
-| 5 | **About** | `#about` | A dark card with three roles: CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA |
-| 6 | **AirGuard** | `#airguard` | Air quality and carbon tracking (gray panel) |
-| 7 | **Includio** | `#includio` | Inclusive hiring studio (dark panel), with a link to the live demo |
-| 8 | **EnableCode** | `#enablecode` | Hands-free coding with facial gestures. The video is a 1920px HD encode of the original recording |
-| 9 | **Voices** | `#voices` | A carousel of AquaGuard testimonials |
-| 10 | **Publications** | `#publications` | IEEE KSE 2026 (accepted, oral), DAI 2026 (under review), the HCMUT *Introduction to Computing* textbook, and ORCID |
-| 11 | **Media & press** | `#press` | VnExpress, Vietnam.vn, HTV3, Tài Năng Việt, LSTS |
-| 12 | **Recognition** | `#recognition` | Seven awards. Each card opens its certificate in a modal; a final card links to the resume |
-| 13 | **FAQ** | `#faq` | Tabs for Education, Odylytics, Research and Working together, each with an accordion |
-| 14 | **Footer** | `#contact` | A "Let's build it" CTA card, a giant `minhquan` wordmark, an intro line with social icons, and four link columns (Work · Publications · Press · Contact) |
+| 2 | **Impact** | — | A black block with a "1,000,000+ people reached" counter and four numbers (500+ AquaGuard testers, 1M+ content views, USD 4,000+ in grants, 300+ surveys), then a strip of partner logos: Odylytics, UTS, HCMUT, ASU, Leave a Nest, ACM, CYTAST, URA |
+| 3 | **About** | `#about` | A dark card with three roles (CEO · Odylytics, Venture Analyst · B71, Research Assistant · HCMUT-URA), then **Education**: UTS, HCMUT and Lawrence S. Ting School with years and grades |
+| 4 | **Work** | `#work` | One-line intro to Odylytics, then a grid of four project cards: AquaGuard (wide flagship), AirGuard, Includio and EnableCode. Each card pairs a demo video or screenshot with a status pill, a headline, a two-line description, three feature chips and a button to the live site (AirGuard links to its demo video). The AquaGuard **testimonials carousel** (`#voices`) sits under the grid |
+| 5 | **Research** | `#publications` | The URA research focus, then IEEE KSE 2026 (accepted, oral), DAI 2026 (under review), the HCMUT *Introduction to Computing* textbook, and ORCID |
+| 6 | **Recognition** | `#recognition` | Seven awards (certificate modal) and, below them, **Media & press** (`#press`) |
+| 7 | **Contact** | `#contact` | Footer: CTA card with open-to / based-in / languages / reply-time, giant wordmark, columns |
 
 Top nav: About ▾ · Work ▾ · Publications · Press · Recognition · Contact, plus a **My resume** button and a **Settings** button (the sliders icon). On screens ≤900px it collapses into a burger menu, and Settings stays next to it.
 
@@ -93,7 +86,7 @@ Monochrome and editorial, modelled on the Spyglass landing-page format.
 
 - Hero cards and logos animate in once on load. There is no idle motion.
 - `.reveal` elements fade up as they enter the viewport, and the animation replays when you scroll back to them. Children of `[data-stagger-group]` reveal one after another.
-- The band counter counts up once. The marquee loops, and pauses on hover.
+- The band counter counts up once.
 - Videos with `data-autoplay` play only while they are on screen.
 - Everything respects `prefers-reduced-motion`.
 
@@ -102,7 +95,7 @@ Monochrome and editorial, modelled on the Spyglass landing-page format.
 | Breakpoint | Changes |
 |---|---|
 | ≤1024px | Award, press and footer grids tighten; testimonials show two per view |
-| ≤900px | Burger nav; hero and feature rows stack; FAQ tabs become a horizontal pill row |
+| ≤900px | Burger nav; hero and education rows stack; project cards go two-up, then one column |
 | ≤600px | Compact hero; the logo strip becomes a 4-column grid; press cards become a swipeable row; awards become a two-up grid; the footer has 2 columns; pixel-me is hidden |
 
 ## Files
@@ -111,11 +104,11 @@ Monochrome and editorial, modelled on the Spyglass landing-page format.
 index.html        all markup and content (English), each string tagged with data-i18n
 i18n.js           Vietnamese + French translations, keyed by data-i18n
 style.css         tokens (light + dark) → base → components → sections → motion → responsive
-script.js         IIFE modules: i18n, settings, nav, reveal, counter, marquee, video autoplay,
-                  scrollspy, testimonial carousel, FAQ tabs, certificate modal, pixel-me
+script.js         IIFE modules: i18n, settings, nav, reveal, counter, video autoplay,
+                  scrollspy, testimonial carousel, certificate modal, pixel-me
 assets/
   brand/          favicon set, og.png, Odylytics / AquaGuard / AirGuard marks
-  frames/         stills extracted from the project videos (posters, tiles); frames/mq/ holds the marquee thumbnails
+  frames/         stills extracted from the project videos (posters, tiles)
   projects/       project videos and screenshots (aquaguard, airguard, enablecode, includio)
   media/          portrait and team photos
   logos/          partner logos; logos/press/ holds publisher logos
@@ -126,14 +119,14 @@ assets/
 
 ## Editing content
 
-- **Project:** copy a `.feature` section. Choose a white row, a `.panel--gray` or a `.panel--dark`, and give it a `.mock` card. Add a matching link to the Work dropdown and the footer.
+- **Project:** copy an `<article class="project">` into `.project-grid` (media, status pill, headline, description, three chips, one button); only the flagship gets `project--wide`. Add `data-i18n` keys in `i18n.js`, and a link in the Work dropdown and the footer.
 - **Video:** use H.264 MP4 with no audio, add `muted loop playsinline preload="none"` plus a `poster`, and set `data-autoplay`. Example encode:
   `ffmpeg -i in.mov -an -vf "scale=1920:-2,fps=30" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -movflags +faststart out.mp4`
 - **Testimonial:** add a `.quote-card` to the carousel track. The dots are generated automatically.
 - **Publication:** add a `.tool-card` in `#publications`.
 - **Press:** add a `.press-card`. Each logo sits on a fixed-size white plate, so any logo works.
 - **Award:** add an `.award-card`. Make it `<button class="certificate-trigger" data-cert-url="…">` if there is a certificate. Keep the 4-column grid full.
-- **FAQ:** add a `<details>` in the right `[data-faq-panel]`.
+- **Education row:** add an `<li>` to `.edu__list`.
 - **Any new text:** give the element a `data-i18n="section.name"` key and add the Vietnamese and French strings under the same key in `i18n.js`. Without them, the English text shows in every language.
 
 ## Deployment
