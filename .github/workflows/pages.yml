@@ -21,7 +21,7 @@ jobs:
       - name: Stage site files
         run: |
           mkdir _site
-          cp -r index.html style.css i18n.js script.js assets _site/
+          cp -r index.html startup.html blog.html style.css script.js assets _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -11,36 +11,16 @@ python3 -m http.server 8090     # → http://localhost:8090
 node -c script.js               # JS syntax check
 ```
 
-## Architecture
+## Architecture (v3, academic/tech)
 
-- `index.html` — all markup and content
-- `style.css` — tokens → base → components → sections → motion → responsive
-- `i18n.js` — Vietnamese + French strings keyed by `data-i18n` (English is read from the DOM)
-- `script.js` — IIFE modules (i18n + settings, nav, reveal, counter, video autoplay, scrollspy, carousel, certificate modal, pixel-me: a monochrome pixel self-portrait with a black pill speech bubble)
-- `assets/` — all media. `assets/brand/` holds the favicon (`favicon.svg` + PNGs), `og.png`, and Odylytics/AquaGuard/AirGuard marks; `assets/frames/` holds stills extracted from the project videos (posters and tiles)
-
-Sections in order (one topic per section, nothing repeated elsewhere): hero → black impact band (counter + four key numbers) → logo strip → `#about` (dark card with three roles, then Education list) → `#work` (intro, then `.project-grid`: `#aquaguard` wide flagship + `#airguard`, `#includio`, `#enablecode` cards; the `#voices` testimonial carousel follows the grid) → `#publications` (research) → `#recognition` (awards, then `#press` card) → `#contact` footer (CTA card with open-to/based-in/languages/replies, giant wordmark, columns).
-
-## Design System
-
-Monochrome, Spyglass-inspired: white page, black bands and cards, `#F3F3F3` gray panels, a floating white pill nav. Headlines are Inter Tight 600 with tight tracking; the second voice of every headline is an `<em>` (italic, muted gray). Body is Inter. The only colour accent is the green "live" dot (`--live`). Tokens live in `:root`.
-
-## Behaviour notes
-
-- **Settings popover** (`#settingsToggle` / `#settingsPanel`): language (en/vi/fr), theme (light/dark/auto), palette (classic/warm) and motion (full/reduced), saved to `localStorage['mq-settings']`. An inline `<head>` script applies them before paint. Dark tokens live in `:root[data-theme="dark"]`; the Warm palette (`<html data-palette="warm">`, brown + milk-white, with its own dark variant) overrides the same tokens in `:root[data-palette="warm"]…` blocks, so any new colour must be a token (`--on-dark-faint`, `--on-dark-soft`, `--pill-light-bg`…) or it will not follow the palette; use tokens (`--elev`, `--on-ink`, `--frame`…) instead of hard-coded `#fff` so both themes work.
-- **i18n:** every visible string has `data-i18n`. When you add or change text, update both maps in `i18n.js`.
-
-- `.reveal` elements get `.visible` from one IntersectionObserver that also removes it on exit (animations replay). Children of `[data-stagger-group]` get a staggered delay.
-- Videos with `data-autoplay` play only while on screen.
-- Certificate triggers: `.certificate-trigger` with `data-cert-url` (+ optional `data-cert-title`) opens `#certificate-modal` (PDF in iframe, images in img).
-- Keep the `prefers-reduced-motion` block when editing animations.
-
-## Adding Content
-
-- **Project:** copy an `<article class="project">` into `.project-grid` (media in `.project__media`, a status pill, headline, `.project__desc`, `.chips`, one button). Add `project--wide` only for the flagship. Texts need `data-i18n` keys in `i18n.js`.
-- **Testimonial:** add a `.quote-card` in the carousel track (dots are generated).
-- **Award:** add an `.award-card` (a `<button class="certificate-trigger">` if there is a certificate). Keep the 4-column grid filled.
-- **Education row:** add an `<li>` to `.edu__list`.
+- `index.html` (Home: bio, research interests, publications, experience, education, awards) · `startup.html` (Odylytics products, stats, B71) · `blog.html` (post list; empty state until posts exist)
+- `style.css` — tokens (light + `prefers-color-scheme` dark) → base → components → motion → responsive. Inter + JetBrains Mono, hairline borders, 720px column.
+- `script.js` — page-transition curtain, scroll reveal, video autoplay, certificate modal (`[data-cert-url]` → `#cert-modal`).
+- `assets/` — all media. English only; no i18n or settings panel in this version.
+- **Page transition:** `.curtain` (black, "Minh Quan") slides up on internal `*.html` link clicks and sets `sessionStorage['mq-t']`; the next page (tiny inline `<head>` script adds `html.is-entering`) starts covered, then slides away. Skipped for reduced motion. Keep the three pages' header/footer/curtain markup in sync.
+- **Publication:** add an `<li class="pub">` in `index.html`. **Blog post:** add an `<a class="post">` (see comment in `blog.html`).
+- Previous designs: branches `backup/portfolio-v1-2026-10` and `backup/portfolio-v2-2026-10`.
+- Deploys: Vercel (push to `main`) and GitHub Pages (`.github/workflows/pages.yml` copies the three pages, `style.css`, `script.js`, `assets/`; add new top-level files there).
 
 ## Archive
 
