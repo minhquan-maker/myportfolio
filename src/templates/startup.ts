@@ -34,7 +34,7 @@ export const startup: PageMeta = {
   description: "Odylytics: a social technology company building digital infrastructure for disaster and environmental resilience.",
   body: [
     `  <section class="first">
-    <h1 class="page-title">${odylytics.name}</h1>
+    <h1 class="page-title"><a class="title-link" href="https://${odylytics.domain}" target="_blank" rel="noopener">${odylytics.name}.com</a></h1>
     <p class="page-lede">${odylytics.lede}</p>
   </section>`,
     `  <section class="section reveal">

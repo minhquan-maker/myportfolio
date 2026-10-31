@@ -107,11 +107,10 @@ a.inline:hover{border-color:var(--fg)}
 button.row-btn{all:unset;cursor:pointer;display:contents}
 
 /* stats */
-.stats{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;border:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
 .stat{padding:18px 16px;border-left:1px solid var(--line)}
 .stat:first-child{border-left:0}
-.stat b{display:block;font:700 22px/1.1 var(--sans);letter-spacing:-.03em}
-.stat:first-child b{font-size:40px}
+.stat b{display:block;font:700 40px/1.1 var(--sans);letter-spacing:-.04em}
 .stat span{white-space:nowrap}
 .stat span{display:block;margin-top:6px;font-size:12px;color:var(--muted);line-height:1.4}
 
@@ -136,6 +135,8 @@ button.row-btn{all:unset;cursor:pointer;display:contents}
 .post h3{font:600 16px/1.4 var(--sans)}
 .post p{margin:4px 0 0;color:var(--muted);font-size:14px}
 
+.title-link{transition:color .2s}
+.title-link:hover{color:var(--blue)}
 .page-title{font:700 clamp(28px,5vw,36px)/1.15 var(--sans);letter-spacing:-.03em}
 .page-lede{margin:12px 0 0;color:var(--muted);max-width:none}
 
@@ -179,12 +180,11 @@ html.is-entering .curtain{transform:translateY(0);transition:none;animation:curt
   .row,.post{grid-template-columns:1fr;gap:4px}
   .pub{grid-template-columns:1fr;gap:12px}
   .pub__thumb{width:100%;max-width:320px}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .stat{padding:14px 12px}
-  .stat:not(:first-child) b{font-size:17px;white-space:nowrap}
-  .stat:first-child{grid-column:1/-1}
-  .stat:nth-child(2){border-left:0}
-  .stat:nth-child(n+2){border-top:1px solid var(--line)}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{padding:16px 14px}
+  .stat b{font-size:30px}
+  .stat:nth-child(odd){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
   .stat span{white-space:normal}
   .card{grid-template-columns:1fr}
   .card__media{height:170px}
