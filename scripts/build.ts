@@ -21,6 +21,14 @@ import { startup } from "../src/templates/startup.js";
 const root = fileURLToPath(new URL("..", import.meta.url));
 const dist = join(root, "dist");
 
+/** [path inside @fontsource, output name] */
+const fonts: [string, string][] = [
+  ["space-mono/files/space-mono-latin-400-normal.woff2", "space-mono-400.woff2"],
+  ["space-mono/files/space-mono-latin-700-normal.woff2", "space-mono-700.woff2"],
+  ["space-mono/files/space-mono-latin-400-italic.woff2", "space-mono-400-italic.woff2"],
+  ["newsreader/files/newsreader-latin-400-normal.woff2", "newsreader-400.woff2"],
+];
+
 const pages = [
   { file: "index.html", page: home },
   { file: "startup.html", page: startup },
@@ -47,6 +55,12 @@ async function build(): Promise<void> {
 
   await cp(join(root, "src/styles/style.css"), join(dist, "style.css"));
   await cp(join(root, "assets"), join(dist, "assets"), { recursive: true });
+
+  // Self-hosted fonts (no third-party request blocking first paint)
+  await mkdir(join(dist, "fonts"), { recursive: true });
+  for (const [from, to] of fonts) {
+    await cp(join(root, "node_modules/@fontsource", from), join(dist, "fonts", to));
+  }
   await writeFile(join(dist, ".nojekyll"), ""); // GitHub Pages: serve files as-is
   console.log(`built ${pages.length} pages → dist/`);
 }
