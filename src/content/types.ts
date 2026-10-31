@@ -45,7 +45,10 @@ export interface Paper {
   highlight?: string;
   status?: string;
   abstract: string;
+  /** Figure shown beside the paper. */
   thumb: string;
+  /** Placeholder pixel art (rendered crisp) until a real figure exists. */
+  pixelThumb?: boolean;
 }
 
 export interface Role {
