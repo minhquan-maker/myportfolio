@@ -2,11 +2,13 @@ import type { Product, Stat } from "./types.js";
 
 export const odylytics = {
   name: "Odylytics",
+  /** Shown as the page title and linked to the company site. */
+  domain: "odylytics.com",
   lede: "A social technology company building intelligent digital infrastructure that helps communities prepare for, respond to and recover from disasters and environmental risk.",
   contactEmail: "odylytics@gmail.com",
 };
 
-/** First stat is the headline number (rendered larger). */
+/** Four equal stats. */
 export const stats: Stat[] = [
   { value: "1M+", label: "content views" },
   { value: "1k+", label: "AquaGuard users" },

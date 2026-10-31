@@ -32,4 +32,4 @@ npm run typecheck   # tsc --noEmit, run before committing
 
 ## Breakpoints
 
-≤900px: hero portrait shrinks to 200px · ≤640px: everything stacks (portrait above name, papers and rows single column, stats 2×2, product cards one column).
+≤900px: hero portrait shrinks to 200px · ≤640px: everything stacks (portrait above name, papers and rows single column, stats 2×2 (four equal numbers), product cards one column).
