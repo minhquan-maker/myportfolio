@@ -33,11 +33,15 @@ section{margin-top:64px}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start}
-.hero .bio{max-width:62ch}
+.hero .bio{max-width:none}
 .hero h1{font:700 clamp(34px,6vw,52px)/1.1 var(--sans);letter-spacing:-.035em}
 .hero .role{margin:12px 0 0;font:400 13px/1.5 var(--mono);color:var(--muted)}
 .hero p.bio{margin:20px 0 0;color:var(--fg)}
-.hero p.bio+p.bio{margin-top:12px}
+.hero p.bio+p.bio{margin-top:14px}
+.hero .bio--lead{font-size:16px;line-height:1.7}
+.hero .bio{color:var(--muted)}
+.hero .bio--lead{color:var(--fg)}
+.quote{margin:22px 0 0;padding:2px 0 2px 16px;border-left:3px solid var(--fg);font-style:italic;color:var(--fg)}
 .hero .bio a{color:var(--blue)}
 .hero .bio a:hover{text-decoration:underline;text-underline-offset:3px}
 .portrait{width:300px;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border:1px solid var(--line)}
@@ -113,7 +117,7 @@ button.row-btn{all:unset;cursor:pointer;display:contents}
 .post p{margin:4px 0 0;color:var(--muted);font-size:14px}
 
 .page-title{font:700 clamp(28px,5vw,36px)/1.15 var(--sans);letter-spacing:-.03em}
-.page-lede{margin:12px 0 0;color:var(--muted);max-width:56ch}
+.page-lede{margin:12px 0 0;color:var(--muted);max-width:none}
 
 /* footer */
 footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px}

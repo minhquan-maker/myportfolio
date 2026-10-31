@@ -14,8 +14,8 @@ node -c script.js               # JS syntax check
 ## Architecture (v3, academic/tech)
 
 - `index.html` (Home: bio, research interests, research (4 papers), experience, education) · `startup.html` (Odylytics products, stats, B71) · `blog.html` (post list; empty state until posts exist)
-- `style.css` — tokens (light + `prefers-color-scheme` dark) → base → components → motion → responsive. Inter + JetBrains Mono, hairline borders, 720px column.
-- `script.js` — page-transition curtain, scroll reveal, video autoplay, certificate modal (`[data-cert-url]` → `#cert-modal`).
+- `style.css` — tokens (light only) → base → components → motion → responsive. Space Mono, square corners, hairline borders, 1080px column, blue links (`--blue`).
+- `script.js` — page-transition curtain (typed name), scroll reveal, video autoplay.
 - `assets/` — all media. English only; no i18n or settings panel in this version.
 - **Page transition:** `.curtain` (black, "Minh Quan") slides up on internal `*.html` link clicks and sets `sessionStorage['mq-t']`; the next page (tiny inline `<head>` script adds `html.is-entering`) starts covered, then slides away. Skipped for reduced motion. Keep the three pages' header/footer/curtain markup in sync.
 - **Publication:** add an `<li class="pub">` in `index.html`. **Blog post:** add an `<a class="post">` (see comment in `blog.html`).
