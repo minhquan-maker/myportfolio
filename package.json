@@ -1,0 +1,21 @@
+{
+  "name": "minhquan-portfolio",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "description": "Personal site of Minh Quan Nguyen. Typed content + templates in TypeScript, built to static HTML.",
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "dev": "tsx scripts/build.ts --serve",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
