@@ -26,12 +26,12 @@ ${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
 }
 
 function lockedPaper(): string {
-  return `      <li class="pub pub--locked reveal" aria-label="Ongoing paper, details not public yet">
+  return `      <li class="pub pub--locked reveal" aria-label="Ongoing papers, details not public yet">
         <img class="pub__thumb pub__thumb--pixel" src="assets/research/thumb-locked.png" alt="" width="260" height="162" loading="lazy" />
         <div class="pub__body">
-          <h3>Ongoing paper</h3>
+          <h3>Ongoing papers</h3>
           <p class="venue"><em>In progress</em>, 2026</p>
-          <p class="abs">Details unlock once the paper is submitted.</p>
+          <p class="abs">We are looking into RAG, explainable AI for finance and related topics. Details will be published once the paper submission is complete.</p>
         </div>
       </li>`;
 }
