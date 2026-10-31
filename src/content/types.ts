@@ -55,7 +55,7 @@ export interface Role {
 
 export interface Education {
   when: string;
-  school: string;
+  school: Rich;
   detail: string;
 }
 
