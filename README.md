@@ -2,7 +2,7 @@
 
 <img src="assets/brand/favicon-180.png" width="64" height="64" alt="minhquan logo" />
 
-# Nguyen Minh Quan
+# Minh Quan Nguyen
 
 **CEO, Odylytics · Venture Analyst, B71 · Research Assistant, HCMUT-URA**
 
@@ -150,4 +150,4 @@ Vercel serves the repository root as a static site, and every push to `main` dep
 - Odylytics: [odylytics@gmail.com](mailto:odylytics@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/ngminhquan) · [GitHub](https://github.com/minhquan-maker) · [ORCID](https://orcid.org/0009-0008-9621-1326)
 
-© 2026 Nguyen Minh Quan. All rights reserved.
+© 2026 Minh Quan Nguyen. All rights reserved.

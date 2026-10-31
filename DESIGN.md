@@ -1,6 +1,6 @@
 # minhquan — Design notes
 
-**Direction:** monochrome editorial, modelled on the Spyglass landing-page format. Content and identity are Nguyen Minh Quan's.
+**Direction:** monochrome editorial, modelled on the Spyglass landing-page format. Content and identity are Minh Quan Nguyen's.
 
 ## Tokens (`:root` in style.css)
 
