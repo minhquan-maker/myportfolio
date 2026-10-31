@@ -57,7 +57,7 @@ export function renderPage(page: PageMeta): string {
 <link rel="apple-touch-icon" href="assets/brand/favicon-180.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>try{if(sessionStorage.getItem('mq-t')){sessionStorage.removeItem('mq-t');document.documentElement.classList.add('is-entering')}}catch(e){}</script>
 </head>

@@ -27,11 +27,11 @@ ${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
 
 function paper(p: Paper): string {
   const authors = p.authors.map((a) => (a.me ? `<b>${a.name}</b>` : a.name)).join(", ");
-  const note = p.venueNote ? ` · ${p.venueNote}` : "";
   const flag = p.highlight ? ` <strong class="oral">(${p.highlight})</strong>` : "";
   const venue =
-    p.venue === "Ongoing" ? `<em>Ongoing</em>, ${p.year}` : `<em>${p.venue}</em>, ${p.year}${note}${flag}`;
-  const title = p.href ? `<a href="${p.href}"${external(p.href)}>${p.title}</a>` : p.title;
+    p.venue === "Ongoing" ? `<em>Ongoing</em>, ${p.year}` : `<em>${p.venue}</em>, ${p.year}${flag}`;
+  /* No href yet: stays blue with the hover effect but goes nowhere. */
+  const title = p.href ? `<a href="${p.href}"${external(p.href)}>${p.title}</a>` : `<a class="pub__title">${p.title}</a>`;
   const links = (p.links ?? []).map((l) => `<a href="${l.href}"${external(l.href)}>${l.label}</a>`);
   const meta = [...(p.status ? [p.status] : []), ...links].join(" · ");
   return `      <li class="pub reveal">

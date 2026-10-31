@@ -68,7 +68,7 @@ section{margin-top:64px}
 .pub{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
 .pub__thumb{width:200px;height:auto;aspect-ratio:1;border:1px solid var(--line);image-rendering:pixelated;object-fit:cover;background:var(--soft)}
 .pub h3{font:700 16px/1.4 var(--sans);letter-spacing:-.02em;text-wrap:wrap}
-.pub h3 a{color:var(--blue)}
+.pub h3 a{color:var(--blue);cursor:pointer}
 .pub .oral{color:var(--red);font-weight:700}
 .pub h3 a:hover{text-decoration:underline;text-underline-offset:3px}
 .pub .authors{margin:8px 0 0;color:var(--muted);font-size:13px}
@@ -145,8 +145,8 @@ footer .social{display:flex;gap:16px}
 
 /* page transition curtain (typed name card between pages) */
 .curtain{position:fixed;inset:0;z-index:100;background:#0b0b0c;color:#fff;display:grid;place-items:center;transform:translateY(100%);pointer-events:none;will-change:transform}
-.curtain span{font:700 clamp(36px,9vw,92px)/1 var(--sans);letter-spacing:-.04em;min-height:1em}
-.curtain span::after{content:"";display:inline-block;width:.45em;height:.8em;margin-left:.08em;background:currentColor;vertical-align:-.04em;animation:blink .5s steps(1) infinite}
+.curtain span{font:400 clamp(44px,11vw,120px)/1 'Newsreader','Tiempos Headline',Georgia,serif;letter-spacing:-.025em;min-height:1em}
+.curtain span::after{content:"";display:inline-block;width:.045em;height:.82em;margin-left:.06em;background:currentColor;vertical-align:-.06em;animation:blink .5s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .curtain.cover{transform:translateY(0);transition:transform .26s cubic-bezier(.76,0,.24,1);pointer-events:all}
 html.is-entering .curtain{transform:translateY(0);transition:none}
