@@ -16,7 +16,7 @@ export const papers: Paper[] = [
     highlight: "Oral Presentation",
     status: "Accepted",
     abstract: "We anticipate an action from the first few frames of 3D skeleton motion by modeling spatio-temporal causal structure.",
-    thumb: "assets/research/thumb-ksestc.png",
+    thumb: "assets/research/kse-framework.jpg",
   },
   {
     title: "Transition-Aware History Modeling for Skeleton-Based Early Action Anticipation",
@@ -32,7 +32,7 @@ export const papers: Paper[] = [
     year: 2026,
     status: "Under review",
     abstract: "We model how an action’s history transitions over time to improve skeleton-based early action anticipation.",
-    thumb: "assets/research/thumb-dai.png",
+    thumb: "assets/research/dai-framework.jpg",
   },
   {
     title: "Consumer Electronics Physiological Data as a Foundation for Physics-Informed Neural Networks",
@@ -48,7 +48,7 @@ export const papers: Paper[] = [
     year: 2026,
     status: "Submitted",
     abstract: "We study physiological signals from consumer electronics as a data foundation for physics-informed neural networks.",
-    thumb: "assets/research/thumb-pinn.png",
+    thumb: "assets/research/pinn-overview.jpg",
   },
   {
     title: "VeriReason: Verifying and Repairing the Principal Reasons of LLM-Written Credit Denial Notices via Group Interventions",
@@ -61,5 +61,6 @@ export const papers: Paper[] = [
     year: 2026,
     abstract: "We verify and repair the principal reasons stated in LLM-written credit denial notices using group interventions.",
     thumb: "assets/research/thumb-verireason.png",
+    pixelThumb: true,
   },
 ];

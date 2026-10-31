@@ -35,7 +35,7 @@ function paper(p: Paper): string {
   const links = (p.links ?? []).map((l) => `<a href="${l.href}"${external(l.href)}>${l.label}</a>`);
   const meta = [...(p.status ? [p.status] : []), ...links].join(" · ");
   return `      <li class="pub reveal">
-        <img class="pub__thumb" src="${p.thumb}" alt="" width="200" height="200" loading="lazy" />
+        <img class="pub__thumb${p.pixelThumb ? " pub__thumb--pixel" : ""}" src="${p.thumb}" alt="Figure for ${p.title.replace(/"/g, "&quot;")}" width="260" height="162" loading="lazy" />
         <div class="pub__body">
           <h3>${title}</h3>
           <p class="authors">${authors}</p>
