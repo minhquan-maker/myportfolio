@@ -88,6 +88,12 @@ section{margin-top:64px}
 .pub .links2 a:hover{text-decoration:underline;text-underline-offset:3px}
 .pub .abs{margin:10px 0 0;color:var(--muted);font-size:13px}
 
+/* ongoing paper whose details are not public yet */
+.pub--locked{opacity:.55}
+.pub--locked h3{color:var(--faint)}
+.pub--locked .pub__thumb{filter:grayscale(1)}
+.pub--locked .venue em{color:var(--muted)}
+
 /* rows (experience / education / awards / startup) */
 .rows{list-style:none;margin:0;padding:0}
 .row{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:12px 0}

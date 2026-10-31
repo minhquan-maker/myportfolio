@@ -51,6 +51,8 @@ export interface Paper {
   thumb: string;
   /** Placeholder pixel art (rendered crisp) until a real figure exists. */
   pixelThumb?: boolean;
+  /** Renders a greyed "not unlocked yet" row and keeps the real details out of the page. */
+  locked?: boolean;
 }
 
 export interface Role {
