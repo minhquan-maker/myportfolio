@@ -21,7 +21,7 @@ npm run typecheck   # tsc --noEmit, run before committing
 - `src/styles/style.css` — Space Mono, light only, square corners, `--blue` links, 1080px column.
 - `scripts/build.ts` — renders pages, bundles the client to `script.js`, copies CSS and `assets/` to `dist/`.
 - `assets/` — media. `dist/` and `node_modules/` are git-ignored.
-- **Page transition:** `.curtain` types "Minh Quan" on internal link clicks and sets `sessionStorage['mq-t']`; the next page starts covered (inline `<head>` script adds `html.is-entering`) then slides away. Skipped for reduced motion.
+- **Page transition:** `.curtain` types "Minh Quan" (Newsreader, one typo then corrected) on internal link clicks and sets `sessionStorage['mq-t']`; the next page starts covered (inline `<head>` script adds `html.is-entering`) then slides away. Skipped for reduced motion.
 - **Add content:** paper → `papers.ts` (`me: true` on your name); product → `startup.ts`; post → `blog.ts` + `posts/<slug>.html`.
 - Deploys: Vercel (`vercel.json`: `npm ci`, `npm run build`, output `dist`) and GitHub Pages (`.github/workflows/pages.yml`).
 - Check phone layout (390px) and tablet (768px) after CSS changes; no horizontal overflow.

@@ -22,20 +22,41 @@ async function openCurtain(): Promise<void> {
   curtain.classList.remove("leave");
 }
 
-/* ---- departure: glitchy typewriter, each letter flickers before it locks in ---- */
-const GLYPHS = "#%&@$*+=<>/\\01";
+/* ---- departure: typed with a slip. Two letters get swapped, then corrected ---- */
+const KEY_MS = 40;
 
 async function typeName(): Promise<void> {
   if (!label) return;
+  const key = () => wait(KEY_MS * (0.6 + Math.random() * 0.8));
+  // swap two neighbouring letters somewhere in the word (never across the space)
+  let slip = 1 + Math.floor(Math.random() * (WORD.length - 2));
+  while (WORD.charAt(slip) === " " || WORD.charAt(slip + 1) === " ") slip = 1 + Math.floor(Math.random() * (WORD.length - 2));
+
   label.textContent = "";
+  let text = "";
   for (let i = 0; i < WORD.length; i++) {
-    const ch = WORD.charAt(i);
-    if (ch !== " " && Math.random() < 0.6) {
-      label.textContent = WORD.slice(0, i) + GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
-      await wait(24);
+    if (i === slip) {
+      text += WORD.charAt(i + 1) + WORD.charAt(i); // the typo
+      label.textContent = text;
+      await wait(KEY_MS * 2.2);
+      text = text.slice(0, -1);
+      label.textContent = text;
+      await key();
+      text = text.slice(0, -1);
+      label.textContent = text;
+      await key();
+      text += WORD.charAt(i);
+      label.textContent = text;
+      await key();
+      text += WORD.charAt(i + 1);
+      label.textContent = text;
+      await key();
+      i++;
+      continue;
     }
-    label.textContent = WORD.slice(0, i + 1);
-    await wait(12 + Math.random() * 30);
+    text += WORD.charAt(i);
+    label.textContent = text;
+    await key();
   }
 }
 
