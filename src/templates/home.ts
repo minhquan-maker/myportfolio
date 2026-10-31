@@ -1,0 +1,64 @@
+import { education, experience } from "../content/career.js";
+import { papers } from "../content/papers.js";
+import { profile } from "../content/profile.js";
+import type { Education, Paper, Role } from "../content/types.js";
+import { section, type PageMeta } from "./layout.js";
+
+const external = (href: string) => (/^https?:/.test(href) ? ` target="_blank" rel="noopener"` : "");
+
+function hero(): string {
+  const [lead, ...rest] = profile.intro;
+  const links = profile.links
+    .map((l) => `<a href="${l.href}"${external(l.href)}>${l.label}</a>`)
+    .join(`<span class="sep">/</span>`);
+  const p = profile.portrait;
+  return `  <section class="hero first">
+    <div class="hero__copy">
+      <h1>${profile.name}</h1>
+      <p class="role">${profile.role}</p>
+      <p class="bio bio--lead">${lead}</p>
+${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
+      <blockquote class="quote">“${profile.quote}”</blockquote>
+      <p class="links">${links}</p>
+    </div>
+    <img class="portrait" src="${p.src}" alt="${p.alt}" width="${p.width}" height="${p.height}" />
+  </section>`;
+}
+
+function paper(p: Paper): string {
+  const authors = p.authors.map((a) => (a.me ? `<b>${a.name}</b>` : a.name)).join(", ");
+  const venueNote = p.venueNote ? ` · ${p.venueNote}` : "";
+  const status = p.status ? `${p.status} · ` : "";
+  const venue =
+    p.venue === "Ongoing"
+      ? `<em>Ongoing</em>, ${p.year}`
+      : `<em>${p.venue}</em>, ${p.year}${venueNote}`;
+  return `      <li class="pub reveal">
+        <img class="pub__thumb" src="${p.thumb}" alt="" width="200" height="200" loading="lazy" />
+        <div class="pub__body">
+          <h3><a href="${p.href}"${external(p.href)}>${p.title}</a></h3>
+          <p class="authors">${authors}</p>
+          <p class="venue">${venue}</p>
+          <p class="links2">${status}<a href="${p.href}"${external(p.href)}>orcid</a></p>
+          <p class="abs">${p.abstract}</p>
+        </div>
+      </li>`;
+}
+
+const role = (r: Role) =>
+  `      <li class="row"><span class="when">${r.when}</span><div><b>${r.title}</b></div></li>`;
+
+const edu = (e: Education) =>
+  `      <li class="row"><span class="when">${e.when}</span><div><b>${e.school}</b><p>${e.detail}</p></div></li>`;
+
+export const home: PageMeta = {
+  id: "home",
+  title: `${profile.name} — AI researcher & founder`,
+  description: `${profile.name}: AI researcher working on early action anticipation, and Co-founder of Odylytics.`,
+  body: [
+    hero(),
+    section("Research", `    <ul class="pubs">\n${papers.map(paper).join("\n")}\n    </ul>`, { id: "publications" }),
+    section("Experience", `    <ul class="rows">\n${experience.map(role).join("\n")}\n    </ul>`),
+    section("Education", `    <ul class="rows">\n${education.map(edu).join("\n")}\n    </ul>`),
+  ].join("\n\n"),
+};

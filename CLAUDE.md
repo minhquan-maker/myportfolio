@@ -4,23 +4,27 @@ Guidance for Claude Code when working in this repository.
 
 ## Project Overview
 
-Personal portfolio for Minh Quan Nguyen (CEO of Odylytics, Venture Analyst at B71, Research Assistant at HCMUT-URA). A single-page static site in plain HTML/CSS/JS with **no build step, bundler, framework or dependencies**. The repository root is the live site on Vercel (`minhquannguyen.vercel.app`); pushing to `main` deploys automatically. The previous design is preserved on the `backup/portfolio-v1-2026-10` branch.
+Personal site of Minh Quan Nguyen (Co-founder of Odylytics, Venture Analyst at B71, Research Assistant at UTS and HCMUT-URA). **TypeScript + a tiny build step** (esbuild + tsx) that renders typed content through template functions into static HTML in `dist/`. No runtime framework. Live on Vercel (`quannguyen.odylytics.com`, `minhquannguyen.vercel.app`); pushing to `main` deploys. Previous designs: `backup/portfolio-v1-2026-10`, `backup/portfolio-v2-2026-10`.
 
 ```bash
-python3 -m http.server 8090     # → http://localhost:8090
-node -c script.js               # JS syntax check
+npm install
+npm run dev         # build + serve dist/ on :8090, rebuild on change
+npm run build       # → dist/
+npm run typecheck   # tsc --noEmit, run before committing
 ```
 
-## Architecture (v3, academic/tech)
+## Architecture
 
-- `index.html` (Home: bio, research interests, research (4 papers), experience, education) · `startup.html` (Odylytics products, stats, B71) · `blog.html` (post list; empty state until posts exist)
-- `style.css` — tokens (light only) → base → components → motion → responsive. Space Mono, square corners, hairline borders, 1080px column, blue links (`--blue`).
-- `script.js` — page-transition curtain (typed name), scroll reveal, video autoplay.
-- `assets/` — all media. English only; no i18n or settings panel in this version.
-- **Page transition:** `.curtain` (black, "Minh Quan") slides up on internal `*.html` link clicks and sets `sessionStorage['mq-t']`; the next page (tiny inline `<head>` script adds `html.is-entering`) starts covered, then slides away. Skipped for reduced motion. Keep the three pages' header/footer/curtain markup in sync.
-- **Publication:** add an `<li class="pub">` in `index.html`. **Blog post:** add an `<a class="post">` (see comment in `blog.html`).
-- Previous designs: branches `backup/portfolio-v1-2026-10` and `backup/portfolio-v2-2026-10`.
-- Deploys: Vercel (push to `main`) and GitHub Pages (`.github/workflows/pages.yml` copies the three pages, `style.css`, `script.js`, `assets/`; add new top-level files there).
+- `src/content/*.ts` — all copy as typed data (`profile`, `papers`, `career`, `startup`, `blog`; types in `types.ts`). Strings are trusted inline HTML.
+- `src/templates/*.ts` — `layout.ts` (head, nav, footer, curtain), `home.ts`, `startup.ts`, `blog.ts`.
+- `src/client/main.ts` — typed-name page transition, scroll reveal, video autoplay.
+- `src/styles/style.css` — Space Mono, light only, square corners, `--blue` links, 1080px column.
+- `scripts/build.ts` — renders pages, bundles the client to `script.js`, copies CSS and `assets/` to `dist/`.
+- `assets/` — media. `dist/` and `node_modules/` are git-ignored.
+- **Page transition:** `.curtain` types "Minh Quan" on internal link clicks and sets `sessionStorage['mq-t']`; the next page starts covered (inline `<head>` script adds `html.is-entering`) then slides away. Skipped for reduced motion.
+- **Add content:** paper → `papers.ts` (`me: true` on your name); product → `startup.ts`; post → `blog.ts` + `posts/<slug>.html`.
+- Deploys: Vercel (`vercel.json`: `npm ci`, `npm run build`, output `dist`) and GitHub Pages (`.github/workflows/pages.yml`).
+- Check phone layout (390px) and tablet (768px) after CSS changes; no horizontal overflow.
 
 ## Archive
 
@@ -28,10 +32,4 @@ node -c script.js               # JS syntax check
 
 ## Breakpoints
 
-≤1024px: award/press/footer grids tighten · ≤900px: burger nav, two-column layouts stack, project cards go 2-up then 1-up, education rows simplify · ≤600px: compact hero, logo strip is a 4-column grid, press cards are a swipeable row, awards are a two-up grid, pixel-me hidden.
-
-## Docs
-
-`README.md` is the full overview (sections table, design, motion, responsive, editing recipes); `DESIGN.md` holds tokens and patterns. Update both when the structure changes.
-
-- Typography: `text-wrap: balance` on headings/ledes and `pretty` on body text keeps single words from dropping onto their own line; keep it when adding text blocks.
+≤900px: hero portrait shrinks to 200px · ≤640px: everything stacks (portrait above name, papers and rows single column, stats 2×2, product cards one column).

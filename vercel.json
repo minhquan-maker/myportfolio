@@ -1,7 +1,7 @@
 {
   "framework": null,
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "installCommand": null,
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "devCommand": null
 }
