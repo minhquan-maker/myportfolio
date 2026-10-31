@@ -14,8 +14,8 @@
       setTimeout(function () {
         curtain.classList.add('leave');
         root.classList.remove('is-entering');
-        setTimeout(function () { curtain.classList.remove('leave'); }, 500);
-      }, reduce ? 0 : 120);
+        setTimeout(function () { curtain.classList.remove('leave'); }, 420);
+      }, reduce ? 0 : 90);
     });
   }
   openCurtain();
@@ -31,10 +31,10 @@
       if (i >= word.length) { done(); return; }
       if (word[i] !== ' ' && flick < 1 && Math.random() < .6) {
         label.textContent = word.slice(0, i) + glyphs[Math.floor(Math.random() * glyphs.length)];
-        flick++; setTimeout(step, 24);
+        flick++; setTimeout(step, 18);
       } else {
         i++; flick = 0; label.textContent = word.slice(0, i);
-        setTimeout(step, 18 + Math.random() * 40);
+        setTimeout(step, 12 + Math.random() * 30);
       }
     })();
   }
@@ -52,7 +52,7 @@
     e.preventDefault();
     try { sessionStorage.setItem('mq-t', '1'); } catch (_) {}
     curtain.classList.add('cover');
-    setTimeout(function () { typeName(function () { setTimeout(function () { location.href = a.href; }, 60); }); }, 90);
+    setTimeout(function () { typeName(function () { setTimeout(function () { location.href = a.href; }, 40); }); }, 70);
   });
 
   /* --- scroll reveal --- */
