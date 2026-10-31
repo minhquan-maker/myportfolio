@@ -6,11 +6,12 @@ export const odylytics = {
   contactEmail: "odylytics@gmail.com",
 };
 
+/** First stat is the headline number (rendered larger). */
 export const stats: Stat[] = [
-  { value: "500+", label: "users tested AquaGuard" },
   { value: "1M+", label: "content views" },
-  { value: "USD 4k+", label: "in grants, plus ~USD 2k AWS credits" },
-  { value: "300+", label: "surveys, 10+ customer interviews" },
+  { value: "1k+", label: "AquaGuard users" },
+  { value: "5+", label: "organizations endorsed" },
+  { value: "USD 4k+", label: "in grants" },
 ];
 
 /** Order here is the order on the page. */

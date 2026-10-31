@@ -1,3 +1,9 @@
+/* Self-hosted fonts (copied from @fontsource at build time) */
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/space-mono-400.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/space-mono-700.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/space-mono-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/newsreader-400.woff2) format('woff2')}
+
 /* Minh Quan — clean, scientific. Tokens → base → components → pages → transition → responsive */
 :root{
   --bg:#fff; --fg:#0b0b0c; --muted:#6b6f76; --faint:#9a9ea5; --line:#e7e8ea; --soft:#f6f6f7;
@@ -93,10 +99,12 @@ a.inline:hover{border-color:var(--fg)}
 button.row-btn{all:unset;cursor:pointer;display:contents}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);overflow:hidden}
+.stats{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;border:1px solid var(--line)}
 .stat{padding:18px 16px;border-left:1px solid var(--line)}
 .stat:first-child{border-left:0}
-.stat b{display:block;font:600 22px/1.1 var(--sans);letter-spacing:-.03em}
+.stat b{display:block;font:700 22px/1.1 var(--sans);letter-spacing:-.03em}
+.stat:first-child b{font-size:40px}
+.stat span{white-space:nowrap}
 .stat span{display:block;margin-top:6px;font-size:12px;color:var(--muted);line-height:1.4}
 
 /* startup cards */
@@ -140,8 +148,9 @@ footer .social{display:flex;gap:16px}
 .modal__body img{max-height:100%;object-fit:contain}
 
 /* scroll reveal */
-.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
+/* content stays visible if JS never runs: hiding is opt-in via the .js class set in <head> */
+.js .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.visible,.no-client .reveal{opacity:1;transform:none}
 
 /* page transition curtain (typed name card between pages) */
 .curtain{position:fixed;inset:0;z-index:100;background:#0b0b0c;color:#fff;display:grid;place-items:center;transform:translateY(100%);pointer-events:none;will-change:transform}
@@ -149,8 +158,8 @@ footer .social{display:flex;gap:16px}
 .curtain span::after{content:"";display:inline-block;width:.045em;height:.82em;margin-left:.06em;background:currentColor;vertical-align:-.06em;animation:blink .5s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .curtain.cover{transform:translateY(0);transition:transform .26s cubic-bezier(.76,0,.24,1);pointer-events:all}
-html.is-entering .curtain{transform:translateY(0);transition:none}
-.curtain.leave{transform:translateY(-100%);transition:transform .38s cubic-bezier(.76,0,.24,1)}
+html.is-entering .curtain{transform:translateY(0);transition:none;animation:curtain-out .42s cubic-bezier(.76,0,.24,1) .2s forwards}
+@keyframes curtain-out{to{transform:translateY(-100%)}}
 
 @media (max-width:900px){
   .hero{grid-template-columns:1fr 200px;gap:32px}
@@ -162,7 +171,7 @@ html.is-entering .curtain{transform:translateY(0);transition:none}
   .row,.post{grid-template-columns:1fr;gap:4px}
   .pub{grid-template-columns:1fr;gap:12px}
   .pub__thumb{width:96px}
-  .stats{grid-template-columns:1fr 1fr}
+  .stats{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;border:1px solid var(--line)}
   .stat:nth-child(3){border-left:0}
   .stat:nth-child(n+3){border-top:1px solid var(--line)}
   .card{grid-template-columns:1fr}
@@ -175,7 +184,7 @@ html.is-entering .curtain{transform:translateY(0);transition:none}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
   .curtain,.curtain *{transition:none!important}
   .curtain span::after{animation:none}
 }

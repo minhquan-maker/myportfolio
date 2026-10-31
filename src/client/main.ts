@@ -1,5 +1,7 @@
 /** Client behaviour: page-transition curtain, scroll reveal, video autoplay. */
 
+(window as unknown as { __mq?: boolean }).__mq = true; // tells the <head> watchdog the client loaded
+
 const WORD = "Minh Quan";
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const root = document.documentElement;
@@ -11,15 +13,13 @@ const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 /** `/` and `/index.html` are the same page. */
 const normalise = (path: string) => path.replace(/index\.html$/, "");
 
-/* ---- arrival: the name is already typed, slide the curtain away ---- */
+/* ---- arrival: the slide-away is pure CSS (works even if this script is late);
+        here we only tidy up the flag once it has finished ---- */
 async function openCurtain(): Promise<void> {
   if (!curtain || !root.classList.contains("is-entering")) return;
   if (label) label.textContent = WORD;
-  await wait(reduce ? 0 : 90);
-  curtain.classList.add("leave");
+  await wait(900);
   root.classList.remove("is-entering");
-  await wait(420);
-  curtain.classList.remove("leave");
 }
 
 /* ---- departure: typed with a slip. Two letters get swapped, then corrected ---- */
@@ -84,12 +84,14 @@ document.addEventListener("click", (e: MouseEvent) => {
     .then(() => wait(40))
     .then(() => {
       location.href = a.href;
+      // if the navigation is cancelled or stalls, never leave the page covered
+      void wait(6000).then(() => curtain.classList.remove("cover"));
     });
 });
 
 window.addEventListener("pageshow", (e: PageTransitionEvent) => {
   if (e.persisted && curtain) {
-    curtain.classList.remove("cover", "leave");
+    curtain.classList.remove("cover");
     root.classList.remove("is-entering");
   }
 });

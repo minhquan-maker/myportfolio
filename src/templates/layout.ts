@@ -55,11 +55,10 @@ export function renderPage(page: PageMeta): string {
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg" />
 <link rel="apple-touch-icon" href="assets/brand/favicon-180.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<link rel="preload" href="fonts/space-mono-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/space-mono-700.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="style.css" />
-<script>try{if(sessionStorage.getItem('mq-t')){sessionStorage.removeItem('mq-t');document.documentElement.classList.add('is-entering')}}catch(e){}</script>
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__mq)document.documentElement.classList.add('no-client')},3000);try{if(sessionStorage.getItem('mq-t')){sessionStorage.removeItem('mq-t');document.documentElement.classList.add('is-entering')}}catch(e){}</script>
 </head>
 <body>
 <div class="curtain" aria-hidden="true"><span>${profile.shortName}</span></div>
