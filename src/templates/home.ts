@@ -26,7 +26,9 @@ ${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
 }
 
 function paper(p: Paper): string {
-  const authors = p.authors.map((a) => (a.me ? `<b>${a.name}</b>` : a.name)).join(", ");
+  const authors = p.authors
+    .map((a) => (a.me ? `<b>${a.name}</b>` : a.name) + (a.star ? `<sup class="star">*</sup>` : ""))
+    .join(", ");
   const flag = p.highlight ? ` <strong class="oral">(${p.highlight})</strong>` : "";
   const venue =
     p.venue === "Ongoing" ? `<em>Ongoing</em>, ${p.year}` : `<em>${p.venue}</em>, ${p.year}${flag}`;
