@@ -25,7 +25,7 @@ section{margin-top:64px}
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{height:56px;display:flex;align-items:center;justify-content:space-between}
 .brand{font:600 15px/1 var(--sans);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.brand i{width:8px;height:8px;background:var(--fg)}
+.brand img{display:block}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .nav ul a{display:block;padding:6px 12px;font-size:14px;color:var(--muted);transition:color .2s,background .2s}
 .nav ul a:hover{color:var(--fg)}
@@ -96,6 +96,7 @@ button.row-btn{all:unset;cursor:pointer;display:contents}
 .card:hover{border-color:var(--fg)}
 .card__media{background:var(--soft);min-height:150px}
 .card__media img,.card__media video{width:100%;height:100%;object-fit:cover}
+.card__media img.pixel{image-rendering:pixelated}
 .card__body{padding:18px 20px}
 .card__head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .card h3{font:600 17px/1.3 var(--sans);letter-spacing:-.015em}
