@@ -62,5 +62,6 @@ export const papers: Paper[] = [
     abstract: "We verify and repair the principal reasons stated in LLM-written credit denial notices using group interventions.",
     thumb: "assets/research/thumb-verireason.png",
     pixelThumb: true,
+    locked: true, // unlock by removing this line once the paper is public
   },
 ];
