@@ -1,12 +1,9 @@
 import type { Paper } from "./types.js";
 
-const ORCID = "https://orcid.org/0009-0008-9621-1326";
-
-/** Newest / most advanced first. Add `href` to the arXiv or code page when available. */
+/** Newest / most advanced first. Add `href` / `links` once an arXiv or code page exists. */
 export const papers: Paper[] = [
   {
     title: "Leveraging 3D Skeleton Motion for Early Action Anticipation via Spatio-Temporal Causal Modeling",
-    href: ORCID,
     authors: [
       { name: "Manhtuan Nguyen" },
       { name: "Quan M. Nguyen", me: true },
@@ -17,13 +14,13 @@ export const papers: Paper[] = [
     venue: "IEEE KSE",
     venueNote: "B rank",
     year: 2026,
-    status: "Accepted (oral)",
+    highlight: "Oral Presentation",
+    status: "Accepted",
     abstract: "We anticipate an action from the first few frames of 3D skeleton motion by modeling spatio-temporal causal structure.",
     thumb: "assets/research/thumb-ksestc.png",
   },
   {
     title: "Transition-Aware History Modeling for Skeleton-Based Early Action Anticipation",
-    href: ORCID,
     authors: [
       { name: "Manhtuan Nguyen" },
       { name: "Quan M. Nguyen", me: true },
@@ -41,7 +38,6 @@ export const papers: Paper[] = [
   },
   {
     title: "Consumer Electronics Physiological Data as a Foundation for Physics-Informed Neural Networks",
-    href: ORCID,
     authors: [
       { name: "Tobias Cibis" },
       { name: "Minh Quan Nguyen", me: true },
@@ -50,14 +46,14 @@ export const papers: Paper[] = [
       { name: "Bosco Tran" },
       { name: "Avinash Singh" },
     ],
-    venue: "Ongoing",
+    venue: "IEEE ICLT",
     year: 2026,
+    status: "Submitted",
     abstract: "We study physiological signals from consumer electronics as a data foundation for physics-informed neural networks.",
     thumb: "assets/research/thumb-pinn.png",
   },
   {
     title: "VeriReason: Verifying and Repairing the Principal Reasons of LLM-Written Credit Denial Notices via Group Interventions",
-    href: ORCID,
     authors: [
       { name: "Quan M. Nguyen", me: true },
       { name: "My H. Tran" },
