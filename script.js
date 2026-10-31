@@ -5,22 +5,39 @@
   var curtain = document.querySelector('.curtain');
   var root = document.documentElement;
 
-  /* --- curtain: reveal on arrival --- */
+  /* --- curtain: reveal on arrival (name already typed) --- */
+  var word = 'Minh Quan', label = curtain && curtain.querySelector('span');
+  if (label && root.classList.contains('is-entering')) label.textContent = word;
   function openCurtain() {
-    if (!curtain) return;
-    if (!root.classList.contains('is-entering')) return;
+    if (!curtain || !root.classList.contains('is-entering')) return;
     requestAnimationFrame(function () {
       setTimeout(function () {
         curtain.classList.add('leave');
         root.classList.remove('is-entering');
-        setTimeout(function () { curtain.classList.remove('leave'); }, 900);
-      }, reduce ? 0 : 550);
+        setTimeout(function () { curtain.classList.remove('leave'); }, 500);
+      }, reduce ? 0 : 120);
     });
   }
   openCurtain();
   window.addEventListener('pageshow', function (e) {
     if (e.persisted && curtain) { curtain.classList.remove('cover', 'leave'); root.classList.remove('is-entering'); }
   });
+
+  /* glitchy typewriter: each letter flickers through random glyphs before locking in */
+  function typeName(done) {
+    var glyphs = '#%&@$*+=<>/\\01', i = 0, flick = 0;
+    label.textContent = '';
+    (function step() {
+      if (i >= word.length) { done(); return; }
+      if (word[i] !== ' ' && flick < 1 && Math.random() < .6) {
+        label.textContent = word.slice(0, i) + glyphs[Math.floor(Math.random() * glyphs.length)];
+        flick++; setTimeout(step, 24);
+      } else {
+        i++; flick = 0; label.textContent = word.slice(0, i);
+        setTimeout(step, 18 + Math.random() * 40);
+      }
+    })();
+  }
 
   /* --- curtain: cover on leave --- */
   document.addEventListener('click', function (e) {
@@ -35,7 +52,7 @@
     e.preventDefault();
     try { sessionStorage.setItem('mq-t', '1'); } catch (_) {}
     curtain.classList.add('cover');
-    setTimeout(function () { location.href = a.href; }, 1000);
+    setTimeout(function () { typeName(function () { setTimeout(function () { location.href = a.href; }, 60); }); }, 90);
   });
 
   /* --- scroll reveal --- */
