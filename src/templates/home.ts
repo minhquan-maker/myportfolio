@@ -27,20 +27,20 @@ ${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
 
 function paper(p: Paper): string {
   const authors = p.authors.map((a) => (a.me ? `<b>${a.name}</b>` : a.name)).join(", ");
-  const venueNote = p.venueNote ? ` · ${p.venueNote}` : "";
-  const status = p.status ? `${p.status} · ` : "";
+  const note = p.venueNote ? ` · ${p.venueNote}` : "";
+  const flag = p.highlight ? ` <strong class="oral">(${p.highlight})</strong>` : "";
   const venue =
-    p.venue === "Ongoing"
-      ? `<em>Ongoing</em>, ${p.year}`
-      : `<em>${p.venue}</em>, ${p.year}${venueNote}`;
+    p.venue === "Ongoing" ? `<em>Ongoing</em>, ${p.year}` : `<em>${p.venue}</em>, ${p.year}${note}${flag}`;
+  const title = p.href ? `<a href="${p.href}"${external(p.href)}>${p.title}</a>` : p.title;
+  const links = (p.links ?? []).map((l) => `<a href="${l.href}"${external(l.href)}>${l.label}</a>`);
+  const meta = [...(p.status ? [p.status] : []), ...links].join(" · ");
   return `      <li class="pub reveal">
         <img class="pub__thumb" src="${p.thumb}" alt="" width="200" height="200" loading="lazy" />
         <div class="pub__body">
-          <h3><a href="${p.href}"${external(p.href)}>${p.title}</a></h3>
+          <h3>${title}</h3>
           <p class="authors">${authors}</p>
           <p class="venue">${venue}</p>
-          <p class="links2">${status}<a href="${p.href}"${external(p.href)}>orcid</a></p>
-          <p class="abs">${p.abstract}</p>
+${meta ? `          <p class="links2">${meta}</p>\n` : ""}          <p class="abs">${p.abstract}</p>
         </div>
       </li>`;
 }

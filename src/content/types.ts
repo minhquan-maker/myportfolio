@@ -34,12 +34,17 @@ export interface Author {
 
 export interface Paper {
   title: string;
-  href: string;
+  /** Link for the title. Leave out until a public page (arXiv, publisher) exists. */
+  href?: string;
+  /** Extra links shown under the venue, e.g. code / arXiv. */
+  links?: ExternalLink[];
   authors: Author[];
   venue: string;
   /** Shown after the venue, e.g. a ranking. */
   venueNote?: string;
   year: number;
+  /** Red bold flag after the venue, e.g. "Oral Presentation". */
+  highlight?: string;
   status?: string;
   abstract: string;
   thumb: string;
