@@ -80,6 +80,7 @@ section{margin-top:64px}
 .pub h3 a:hover{text-decoration:underline;text-underline-offset:3px}
 .pub .authors{margin:8px 0 0;color:var(--muted);font-size:13px}
 .pub .authors b{color:var(--fg);font-weight:700}
+.pub .star{font-size:.9em;line-height:0;margin-left:1px;color:var(--fg);font-weight:400}
 .pub .venue{margin:8px 0 0;font-size:13px;color:var(--muted)}
 .pub .venue em{font-style:italic;color:var(--fg)}
 .pub .links2{margin:8px 0 0;font-size:13px;color:var(--faint)}

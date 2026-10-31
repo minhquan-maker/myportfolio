@@ -30,6 +30,8 @@ export interface Author {
   name: string;
   /** Highlights the site owner in the author list. */
   me?: boolean;
+  /** Adds an asterisk after the name. */
+  star?: boolean;
 }
 
 export interface Paper {
