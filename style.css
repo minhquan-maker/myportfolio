@@ -60,7 +60,7 @@ section{margin-top:64px}
 .pubs{list-style:none;margin:0;padding:0;display:grid;gap:44px}
 .pub{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
 .pub__thumb{width:200px;aspect-ratio:1;border:1px solid var(--line);image-rendering:pixelated;object-fit:cover;background:var(--soft)}
-.pub h3{font:700 16px/1.4 var(--sans);letter-spacing:-.02em}
+.pub h3{font:700 16px/1.4 var(--sans);letter-spacing:-.02em;text-wrap:wrap}
 .pub h3 a{color:var(--blue)}
 .pub h3 a:hover{text-decoration:underline;text-underline-offset:3px}
 .pub .authors{margin:8px 0 0;color:var(--muted);font-size:13px}
@@ -74,7 +74,7 @@ section{margin-top:64px}
 
 /* rows (experience / education / awards / startup) */
 .rows{list-style:none;margin:0;padding:0}
-.row{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
 .row:last-child{border-bottom:1px solid var(--line)}
 .row time,.row .when{font:400 12px/1.9 var(--mono);color:var(--faint)}
 .row b{font-weight:600}

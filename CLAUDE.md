@@ -13,7 +13,7 @@ node -c script.js               # JS syntax check
 
 ## Architecture (v3, academic/tech)
 
-- `index.html` (Home: bio, research interests, publications, experience, education, awards) · `startup.html` (Odylytics products, stats, B71) · `blog.html` (post list; empty state until posts exist)
+- `index.html` (Home: bio, research interests, research (4 papers), experience, education) · `startup.html` (Odylytics products, stats, B71) · `blog.html` (post list; empty state until posts exist)
 - `style.css` — tokens (light + `prefers-color-scheme` dark) → base → components → motion → responsive. Inter + JetBrains Mono, hairline borders, 720px column.
 - `script.js` — page-transition curtain, scroll reveal, video autoplay, certificate modal (`[data-cert-url]` → `#cert-modal`).
 - `assets/` — all media. English only; no i18n or settings panel in this version.
