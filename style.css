@@ -4,10 +4,7 @@
   --accent:#0b0b0c; --live:#22a45d; --curtain:#0b0b0c; --on-curtain:#fff;
   --sans:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--blue:#2250d8;
-  --w:760px;
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#0b0b0c;--fg:#f2f2f3;--muted:#9a9ea5;--faint:#6b6f76;--line:#222426;--soft:#141517;--accent:#f2f2f3;--blue:#7aa2ff;--curtain:#f2f2f3;--on-curtain:#0b0b0c}
+  --w:1080px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -35,14 +32,18 @@ section{margin-top:64px}
 .nav ul a[aria-current="page"]{color:var(--fg);background:var(--soft)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 132px;gap:32px;align-items:start}
-.hero h1{font:700 clamp(32px,6vw,44px)/1.1 var(--sans);letter-spacing:-.035em}
+.hero{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start}
+.hero .bio{max-width:62ch}
+.hero h1{font:700 clamp(34px,6vw,52px)/1.1 var(--sans);letter-spacing:-.035em}
 .hero .role{margin:12px 0 0;font:400 13px/1.5 var(--mono);color:var(--muted)}
 .hero p.bio{margin:20px 0 0;color:var(--fg)}
 .hero p.bio+p.bio{margin-top:12px;color:var(--muted)}
-.portrait{width:132px;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);filter:grayscale(1);transition:filter .4s}
-.portrait:hover{filter:none}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.portrait{width:300px;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border:1px solid var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px;font-size:14px}
+.links a{color:var(--blue)}
+.links a:hover{text-decoration:underline;text-underline-offset:3px}
+.links .sep{color:var(--faint)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:6px 12px;border:1px dashed var(--line);font-size:13px}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--line);font-size:13px;font-weight:500;transition:border-color .2s,background .2s}
 .btn:hover{border-color:var(--fg)}
 .btn--solid{background:var(--fg);color:var(--bg);border-color:var(--fg)}
@@ -56,9 +57,9 @@ section{margin-top:64px}
 
 /* publication list (research) */
 .lede{margin:0 0 28px;color:var(--muted);max-width:62ch}
-.pubs{list-style:none;margin:0;padding:0;display:grid;gap:36px}
-.pub{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:start}
-.pub__thumb{width:150px;aspect-ratio:1;border:1px solid var(--line);image-rendering:pixelated;object-fit:cover;background:var(--soft)}
+.pubs{list-style:none;margin:0;padding:0;display:grid;gap:44px}
+.pub{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
+.pub__thumb{width:200px;aspect-ratio:1;border:1px solid var(--line);image-rendering:pixelated;object-fit:cover;background:var(--soft)}
 .pub h3{font:700 16px/1.4 var(--sans);letter-spacing:-.02em}
 .pub h3 a{color:var(--blue)}
 .pub h3 a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -73,7 +74,7 @@ section{margin-top:64px}
 
 /* rows (experience / education / awards / startup) */
 .rows{list-style:none;margin:0;padding:0}
-.row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
 .row:last-child{border-bottom:1px solid var(--line)}
 .row time,.row .when{font:400 12px/1.9 var(--mono);color:var(--faint)}
 .row b{font-weight:600}
@@ -131,22 +132,21 @@ footer .social{display:flex;gap:16px}
 .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
 
-/* page transition curtain (name card between pages) */
-.curtain{position:fixed;inset:0;z-index:100;background:var(--curtain);color:var(--on-curtain);display:grid;place-items:center;transform:translateY(100%);pointer-events:none;will-change:transform}
-.curtain span{font:600 clamp(36px,9vw,84px)/1 var(--sans);letter-spacing:-.045em;opacity:0;transform:translateY(14px)}
-.curtain.cover{transform:translateY(0);transition:transform .7s cubic-bezier(.76,0,.24,1);pointer-events:all}
-.curtain.cover span{opacity:1;transform:none;transition:opacity .5s .35s ease,transform .6s .3s cubic-bezier(.2,.7,.2,1)}
+/* page transition curtain (typed name card between pages) */
+.curtain{position:fixed;inset:0;z-index:100;background:#0b0b0c;color:#fff;display:grid;place-items:center;transform:translateY(100%);pointer-events:none;will-change:transform}
+.curtain span{font:700 clamp(36px,9vw,92px)/1 var(--sans);letter-spacing:-.04em;min-height:1em}
+.curtain span::after{content:"";display:inline-block;width:.45em;height:.8em;margin-left:.08em;background:currentColor;vertical-align:-.04em;animation:blink .5s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.curtain.cover{transform:translateY(0);transition:transform .32s cubic-bezier(.76,0,.24,1);pointer-events:all}
 html.is-entering .curtain{transform:translateY(0);transition:none}
-html.is-entering .curtain span{opacity:1;transform:none}
-.curtain.leave{transform:translateY(-100%);transition:transform .8s cubic-bezier(.76,0,.24,1)}
-.curtain.leave span{opacity:0;transform:translateY(-14px);transition:opacity .3s ease,transform .5s ease}
+.curtain.leave{transform:translateY(-100%);transition:transform .45s cubic-bezier(.76,0,.24,1)}
 
 @media (max-width:640px){
-  .hero{grid-template-columns:1fr}
-  .portrait{order:-1;width:88px}
+  .hero{grid-template-columns:1fr;gap:24px}
+  .portrait{order:-1;width:160px}
   .row,.post{grid-template-columns:1fr;gap:4px}
   .pub{grid-template-columns:1fr;gap:12px}
-  .pub__thumb{width:96px}
+  .pub__thumb{width:120px}
   .stats{grid-template-columns:1fr 1fr}
   .stat:nth-child(3){border-left:0}
   .stat:nth-child(n+3){border-top:1px solid var(--line)}
@@ -158,4 +158,5 @@ html.is-entering .curtain span{opacity:1;transform:none}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
   .curtain,.curtain *{transition:none!important}
+  .curtain span::after{animation:none}
 }
