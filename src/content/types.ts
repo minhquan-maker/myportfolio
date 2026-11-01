@@ -57,7 +57,10 @@ export interface Paper {
 
 export interface Role {
   when: string;
+  /** Bold first line. */
   title: Rich;
+  /** Regular-weight, muted second line (company / org, may contain links). */
+  org: Rich;
 }
 
 export interface Education {
