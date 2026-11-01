@@ -60,7 +60,7 @@ ${meta ? `          <p class="links2">${meta}</p>\n` : ""}          <p class="ab
 }
 
 const role = (r: Role) =>
-  `      <li class="row"><span class="when">${r.when}</span><div><b>${r.title}</b></div></li>`;
+  `      <li class="row"><span class="when">${r.when}</span><div><b>${r.title}</b><p>${r.org}</p></div></li>`;
 
 const edu = (e: Education) =>
   `      <li class="row"><span class="when">${e.when}</span><div><b>${e.school}</b><p>${e.detail}</p></div></li>`;

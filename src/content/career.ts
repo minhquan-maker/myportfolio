@@ -12,10 +12,10 @@ const ODYLYTICS = "https://odylytics.com";
 const LSTS = "https://lsts.edu.vn";
 
 export const experience: Role[] = [
-  { when: "Jul 2026 — now", title: `CEO &amp; Co-founder · ${ext(ODYLYTICS, "Odylytics")}` },
-  { when: "Aug 2026 — now", title: `Venture Analyst · ${ext(B71, "B71")} (NUSX)` },
-  { when: "Sep 2026 — now", title: `Research Assistant · ${ext(UTS, "University of Technology Sydney")}` },
-  { when: "Mar 2026 — now", title: `Research Assistant · ${ext(HCMUT, "HCMUT")}-${ext(URA, "URA Research Group")}` },
+  { when: "Jul 2026 — now", title: "CEO &amp; Co-founder", org: ext(ODYLYTICS, "Odylytics") },
+  { when: "Aug 2026 — now", title: "Venture Analyst", org: `${ext(B71, "B71")} (NUSX)` },
+  { when: "Sep 2026 — now", title: "Research Assistant", org: ext(UTS, "University of Technology Sydney") },
+  { when: "Mar 2026 — now", title: "Research Assistant", org: `${ext(HCMUT, "HCMUT")}-${ext(URA, "URA Research Group")}` },
 ];
 
 export const education: Education[] = [
