@@ -63,7 +63,7 @@ export function renderPage(page: PageMeta): string {
 <body>
 <div class="curtain" aria-hidden="true"><span>${profile.shortName}</span></div>
 <header class="nav"><div class="wrap">
-  <a class="brand" href="./"><img src="assets/brand/favicon.svg" alt="" width="22" height="22" />${profile.shortName}</a>
+  <a class="brand" href="./"><img src="assets/brand/favicon.svg" alt="" width="30" height="30" />${profile.shortName}</a>
   <nav aria-label="Primary"><ul>${navHtml}</ul></nav>
 </div></header>
 <main><div class="wrap">

@@ -31,7 +31,7 @@ section{margin-top:64px}
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{height:56px;display:flex;align-items:center;justify-content:space-between}
-.brand{font:600 15px/1 var(--sans);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.brand{font:600 19px/1 var(--sans);letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
 .brand img{display:block}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .nav ul a{display:block;padding:6px 12px;font-size:14px;color:var(--muted);transition:color .2s,background .2s}
