@@ -18,12 +18,12 @@ const normalise = (path: string) => path.replace(/index\.html$/, "");
 async function openCurtain(): Promise<void> {
   if (!curtain || !root.classList.contains("is-entering")) return;
   if (label) label.textContent = WORD;
-  await wait(600);
+  await wait(900);
   root.classList.remove("is-entering");
 }
 
 /* ---- departure: typed with a slip. Two letters get swapped, then corrected ---- */
-const KEY_MS = 22;
+const KEY_MS = 40;
 
 async function typeName(): Promise<void> {
   if (!label) return;
@@ -79,7 +79,9 @@ document.addEventListener("click", (e: MouseEvent) => {
     /* private mode: transition just won't continue on the next page */
   }
   curtain.classList.add("cover");
-  void typeName()
+  void wait(70)
+    .then(typeName)
+    .then(() => wait(40))
     .then(() => {
       location.href = a.href;
       // if the navigation is cancelled or stalls, never leave the page covered
