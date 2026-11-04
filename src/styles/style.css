@@ -158,7 +158,7 @@ footer .social{display:flex;gap:16px}
 
 /* scroll reveal */
 /* content stays visible if JS never runs: hiding is opt-in via the .js class set in <head> */
-.js .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
 .js .reveal.visible,.no-client .reveal{opacity:1;transform:none}
 
 /* page transition curtain (typed name card between pages) */
@@ -166,8 +166,8 @@ footer .social{display:flex;gap:16px}
 .curtain span{font:400 clamp(30px,5vw,60px)/1 'Newsreader','Tiempos Headline',Georgia,serif;letter-spacing:-.025em;min-height:1em}
 .curtain span::after{content:"";display:inline-block;width:.045em;height:.82em;margin-left:.06em;background:currentColor;vertical-align:-.06em;animation:blink .5s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.curtain.cover{transform:translateY(0);transition:transform .26s cubic-bezier(.76,0,.24,1);pointer-events:all}
-html.is-entering .curtain{transform:translateY(0);transition:none;animation:curtain-out .42s cubic-bezier(.76,0,.24,1) .2s forwards}
+.curtain.cover{transform:translateY(0);transition:transform .2s cubic-bezier(.76,0,.24,1);pointer-events:all}
+html.is-entering .curtain{transform:translateY(0);transition:none;animation:curtain-out .32s cubic-bezier(.76,0,.24,1) .04s forwards}
 @keyframes curtain-out{to{transform:translateY(-100%)}}
 
 @media (max-width:900px){
