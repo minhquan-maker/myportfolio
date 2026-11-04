@@ -7,7 +7,7 @@ function media(p: Product): string {
   if (m.kind === "video") {
     return `<video data-autoplay muted loop playsinline preload="none" poster="${m.poster}"><source src="${m.src}" type="video/mp4" /></video>`;
   }
-  return `<img${m.fit === "top" ? ' class="shot"' : ""} src="${m.src}" alt="${m.alt}" loading="lazy" />`;
+  return `<img${m.fit === "top" ? ' class="shot"' : ""} src="${m.src}" alt="${m.alt}" loading="lazy" decoding="async" />`;
 }
 
 function card(p: Product): string {

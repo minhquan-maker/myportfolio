@@ -21,13 +21,13 @@ ${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
       <blockquote class="quote">“${profile.quote}”</blockquote>
       <p class="links">${links}</p>
     </div>
-    <img class="portrait" src="${p.src}" alt="${p.alt}" width="${p.width}" height="${p.height}" />
+    <img class="portrait" src="${p.src}" alt="${p.alt}" width="${p.width}" height="${p.height}" fetchpriority="high" decoding="async" />
   </section>`;
 }
 
 function lockedPaper(): string {
   return `      <li class="pub pub--locked reveal" aria-label="Ongoing papers, details not public yet">
-        <img class="pub__thumb pub__thumb--pixel" src="assets/research/thumb-locked.png" alt="" width="260" height="162" loading="lazy" />
+        <img class="pub__thumb pub__thumb--pixel" src="assets/research/thumb-locked.png" alt="" width="260" height="162" loading="lazy" decoding="async" />
         <div class="pub__body">
           <h3>Ongoing papers</h3>
           <p class="venue"><em>In progress</em>, 2026</p>
@@ -49,7 +49,7 @@ function paper(p: Paper): string {
   const links = (p.links ?? []).map((l) => `<a href="${l.href}"${external(l.href)}>${l.label}</a>`);
   const meta = [...(p.status ? [p.status] : []), ...links].join(" · ");
   return `      <li class="pub reveal">
-        <img class="pub__thumb${p.pixelThumb ? " pub__thumb--pixel" : ""}" src="${p.thumb}" alt="Figure for ${p.title.replace(/"/g, "&quot;")}" width="260" height="162" loading="lazy" />
+        <img class="pub__thumb${p.pixelThumb ? " pub__thumb--pixel" : ""}" src="${p.thumb}" alt="Figure for ${p.title.replace(/"/g, "&quot;")}" width="260" height="162" loading="lazy" decoding="async" />
         <div class="pub__body">
           <h3>${title}</h3>
           <p class="authors">${authors}</p>

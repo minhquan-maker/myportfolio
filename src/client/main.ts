@@ -18,12 +18,12 @@ const normalise = (path: string) => path.replace(/index\.html$/, "");
 async function openCurtain(): Promise<void> {
   if (!curtain || !root.classList.contains("is-entering")) return;
   if (label) label.textContent = WORD;
-  await wait(900);
+  await wait(600);
   root.classList.remove("is-entering");
 }
 
 /* ---- departure: typed with a slip. Two letters get swapped, then corrected ---- */
-const KEY_MS = 40;
+const KEY_MS = 22;
 
 async function typeName(): Promise<void> {
   if (!label) return;
@@ -79,15 +79,32 @@ document.addEventListener("click", (e: MouseEvent) => {
     /* private mode: transition just won't continue on the next page */
   }
   curtain.classList.add("cover");
-  void wait(70)
-    .then(typeName)
-    .then(() => wait(40))
+  void typeName()
     .then(() => {
       location.href = a.href;
       // if the navigation is cancelled or stalls, never leave the page covered
       void wait(6000).then(() => curtain.classList.remove("cover"));
     });
 });
+
+/* ---- prefetch internal pages on intent so navigation lands instantly ---- */
+const prefetched = new Set<string>();
+function prefetch(a: HTMLAnchorElement): void {
+  if (!isInternalPage(a) || prefetched.has(a.href)) return;
+  prefetched.add(a.href);
+  const l = document.createElement("link");
+  l.rel = "prefetch";
+  l.href = a.href;
+  document.head.appendChild(l);
+}
+const intent = (e: Event) => {
+  const a = (e.target as Element | null)?.closest<HTMLAnchorElement>("a[href]");
+  if (a) prefetch(a);
+};
+document.addEventListener("pointerover", intent, { passive: true });
+document.addEventListener("touchstart", intent, { passive: true });
+const idle = (window as unknown as { requestIdleCallback?: (f: () => void) => void }).requestIdleCallback ?? ((f: () => void) => setTimeout(f, 800));
+idle(() => document.querySelectorAll<HTMLAnchorElement>("nav a[href]").forEach(prefetch));
 
 window.addEventListener("pageshow", (e: PageTransitionEvent) => {
   if (e.persisted && curtain) {
