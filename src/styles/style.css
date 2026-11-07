@@ -162,7 +162,7 @@ footer .social{display:flex;gap:16px}
 .js .reveal.visible,.no-client .reveal{opacity:1;transform:none}
 
 /* page transition curtain (typed name card between pages) */
-.curtain{position:fixed;inset:0;z-index:100;background:var(--bg);color:var(--blue);display:grid;place-items:center;transform:translateY(100%);pointer-events:none;will-change:transform}
+.curtain{position:fixed;inset:0;z-index:100;background:var(--bg);color:var(--fg);display:grid;place-items:center;transform:translateY(100%);pointer-events:none;will-change:transform}
 .curtain span{font:700 clamp(30px,5vw,60px)/1 var(--sans);letter-spacing:-.035em;min-height:1em}
 .curtain span::after{content:"";display:inline-block;width:.045em;height:.82em;margin-left:.06em;background:currentColor;vertical-align:-.06em;animation:blink .5s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
