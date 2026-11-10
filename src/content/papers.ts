@@ -50,18 +50,4 @@ export const papers: Paper[] = [
     abstract: "We study physiological signals from consumer electronics as a data foundation for physics-informed neural networks.",
     thumb: "assets/research/pinn-overview.jpg",
   },
-  {
-    title: "VeriReason: Verifying and Repairing the Principal Reasons of LLM-Written Credit Denial Notices via Group Interventions",
-    authors: [
-      { name: "Quan M. Nguyen", me: true },
-      { name: "My H. Tran" },
-      { name: "Tho T. Quan" },
-    ],
-    venue: "Ongoing",
-    year: 2026,
-    abstract: "We verify and repair the principal reasons stated in LLM-written credit denial notices using group interventions.",
-    thumb: "assets/research/thumb-verireason.png",
-    pixelThumb: true,
-    locked: true, // unlock by removing this line once the paper is public
-  },
 ];
