@@ -25,19 +25,7 @@ ${rest.map((t) => `      <p class="bio">${t}</p>`).join("\n")}
   </section>`;
 }
 
-function lockedPaper(): string {
-  return `      <li class="pub pub--locked reveal" aria-label="Ongoing papers, details not public yet">
-        <img class="pub__thumb pub__thumb--pixel" src="assets/research/thumb-locked.png" alt="" width="260" height="162" loading="lazy" decoding="async" />
-        <div class="pub__body">
-          <h3>Ongoing papers</h3>
-          <p class="venue"><em>In progress</em>, 2026</p>
-          <p class="abs">We are looking into RAG, explainable AI for finance and related topics. Details will be published once the paper submission is complete.</p>
-        </div>
-      </li>`;
-}
-
 function paper(p: Paper): string {
-  if (p.locked) return lockedPaper();
   const authors = p.authors
     .map((a) => (a.me ? `<b>${a.name}</b>` : a.name) + (a.star ? `<sup class="star">*</sup>` : ""))
     .join(", ");
