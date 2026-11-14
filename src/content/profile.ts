@@ -17,7 +17,7 @@ export const profile: Profile = {
   quote: "The secret of getting ahead is getting started.",
   links: [
     { label: "email", href: "mailto:minhquan.nguyen-2@student.uts.edu.au" },
-    { label: "cv", href: "assets/my_resume.pdf" },
+    { label: "resume", href: "assets/my_resume.pdf" },
     { label: "linkedin", href: "https://www.linkedin.com/in/ngminhquan" },
     { label: "orcid", href: "https://orcid.org/0009-0008-9621-1326" },
     { label: "github", href: "https://github.com/minhquan-maker" },
