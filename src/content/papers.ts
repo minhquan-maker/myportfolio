@@ -46,7 +46,7 @@ export const papers: Paper[] = [
     ],
     venue: "IEEE ICLT",
     year: 2026,
-    status: "Under review",
+    status: "Accepted",
     abstract: "We study physiological signals from consumer electronics as a data foundation for physics-informed neural networks.",
     thumb: "assets/research/pinn-overview.jpg",
   },
